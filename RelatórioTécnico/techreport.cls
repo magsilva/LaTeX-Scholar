@@ -343,4 +343,6 @@
 	{\large \textbf{\@date} \par}
 	\end{adjustwidth}
 \end{titlepage}
+\cleardoublepage
+\pagestyle{plain}
 }

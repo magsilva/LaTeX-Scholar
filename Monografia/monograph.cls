@@ -545,12 +545,12 @@
 }
 
 \renewcommand\mainmatter{%
-	\pagestyle{mainmatter}
-	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
-	\acresetall{}
 	\cleardoublepage
 	\@mainmattertrue
 	\pagenumbering{arabic}
+	\pagestyle{mainmatter}
+	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+	\acresetall{}
 }
 
 \renewcommand\backmatter{%
