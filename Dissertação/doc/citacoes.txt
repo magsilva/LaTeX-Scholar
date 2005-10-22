@@ -1,0 +1,15 @@
+
+
+Referência da Internet:
+
+<AUTOR>. (<ano>, <mês>). <Título da página>. WWW:  <Nome do site>, <URL>
+
+Por exemplo:
+GATES, B. J. (1996, Janeiro). Talking back to computers. WWW: Newsource Online, http://www.newsonline.com.
+
+
+Programas de computador:
+<Nome do programa> [Programa de Computador]. (<ano>). <País, Estado>: <Autor ou empresa criadora do programa>.
+
+Por exemplo:
+PROGRAMMERS's AIDE [Programa de Computador]. (1993). Los Angeles, CA: Software Creation Company.
