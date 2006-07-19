@@ -1,5 +1,5 @@
-ROOT = scm
-BIBTEX = software.bib softwareengineering.bib
+ROOT = root
+BIBTEX = 
 PDFLATEX_ARGS = -file-line-error -interaction nonstopmode -recorder --src-specials
 
 all: clean pdf
