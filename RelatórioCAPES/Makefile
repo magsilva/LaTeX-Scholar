@@ -1,4 +1,4 @@
-ROOT = relatorio
+ROOT = root
 
 all: clean pdf
 
