@@ -1,0 +1,66 @@
+\documentclass{acm_proc_article-sp}
+%\documentclass{sig-alternate}
+
+
+\usepackage{xspace}
+\usepackage{graphicx,url}
+%\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{color,amsmath}
+
+
+\newcommand{\rev}[1]{{\textbf{\color{green} #1}}}
+\newcommand{\del}[1]{{\textbf{\color{red} #1}}}
+
+
+
+\sloppy
+
+\title{Título}
+
+
+\numberofauthors{2} % máximo 3 colunas com autores. Demais, ver instruções no estilo.
+
+\author{
+\alignauthor Primeiro Autor\\
+       \affaddr{Departamento}\\
+       \affaddr{Instituição}\\
+       \affaddr{Caixa Postal 668}\\
+       \affaddr{00000-000  Cidade-UF-Brasil}\\
+       \email{email@...}\\
+\alignauthor Segundo Autor\\
+       \affaddr{Departamento}\\
+       \affaddr{Instituição}\\
+       \affaddr{Caixa Postal 668}\\
+       \affaddr{00000-000  Cidade-UF-Brasil}\\
+       \email{email@...}
+}
+
+\date{30 July 1999}
+
+
+
+
+%******************************************************************************
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Resumo...
+\end{abstract}
+
+
+
+\section{Introdução} \label{sec:introducao}
+\input{introducao}
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{refs}
+
+
+
+\end{document}
