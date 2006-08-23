@@ -1,10 +1,10 @@
-\documentclass{acm_proc_article-sp}
+\documentclass{acm_proc_article-sp-br}
 %\documentclass{sig-alternate}
 
 
 \usepackage{xspace}
 \usepackage{graphicx,url}
-%\usepackage[brazil]{babel}
+\usepackage[brazil]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{color,amsmath}
 
@@ -19,7 +19,7 @@
 \title{Título}
 
 
-\numberofauthors{2} % máximo 3 colunas com autores. Demais, ver instruções no estilo.
+\numberofauthors{4} % máximo 3 colunas com autores. Demais, ver instruções no estilo.
 
 \author{
 \alignauthor Primeiro Autor\\
@@ -34,7 +34,14 @@
        \affaddr{Caixa Postal 668}\\
        \affaddr{00000-000  Cidade-UF-Brasil}\\
        \email{email@...}
+\alignauthor Terceiro Autor\\
+       \affaddr{Departamento}\\
+       \affaddr{Instituição}\\
+       \affaddr{Caixa Postal 668}\\
+       \affaddr{00000-000  Cidade-UF-Brasil}\\
+       \email{email@...}
 }
+\additionalauthors{Quarto Autor, Departamento, Instituição. email@...}
 
 \date{30 July 1999}
 
@@ -48,9 +55,12 @@
 \maketitle
 
 \begin{abstract}
-Resumo...
+Summary...
 \end{abstract}
 
+\begin{resumo}
+Resumo...
+\end{resumo}
 
 
 \section{Introdução} \label{sec:introducao}
@@ -61,6 +71,10 @@ Resumo...
 \bibliographystyle{abbrv}
 \bibliography{refs}
 
+%\balancecolumns
 
+\appendix
+\section{Título do apêndice}
+Informaçõs complementares...
 
 \end{document}

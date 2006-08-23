@@ -3,9 +3,13 @@ Introdução com exemplo de citação \cite{Pressman2000}.
 A Figura \ref{fig} é um exemplo de inserção de figura.
 
 \begin{figure}[!ht]
-\centering
+  \centering
+  %Using latex, figures must be in eps format
+  %\includegraphics[width=.4\textwidth]{figura.eps}
+  %Using pdflatex, figures can be in jpg
   \includegraphics[width=.4\textwidth]{figura.jpg}
-  \caption{\label{fig}Exemplo de inserção de figura.}
+  \label{fig}
+  \caption{Exemplo de inserção de figura.}
 \end{figure}
 
 
