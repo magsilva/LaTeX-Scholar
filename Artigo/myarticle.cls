@@ -82,6 +82,28 @@
 	\parsep=0pt
 }
 
+\def\@maketitle{
+	\newpage
+	\null
+	\vskip 2em
+	\begin{center}
+		\let \footnote \thanks
+		{\LARGE \@title \par}
+		\vskip 1.5em
+		{
+			\large
+			\lineskip .5em
+			\begin{tabular}[t]{c}
+				\@author
+			\end{tabular}
+			\par
+		}
+	\end{center}
+	\par
+	\vskip 1.5em
+}
+
+
 % Redifinição do ambiente description para diminuir o espaçamento entre os itens. Uma solução mais
 % elegante seria aquela adotada para itemize e enumerate nesta mesmo classe, mas ela não funciona
 % (talvez esteja relacionado ao fato do description ser redefinido na classe book).
