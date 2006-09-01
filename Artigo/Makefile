@@ -6,6 +6,7 @@ all: clean pdf
 
 clean:
 	rm -f *.log *.aux *.toc *.dvi *.bbl *.blg *.fls *.cb *.*~* *.backup *.bak
+	rm -f $(ROOT).bib
 
 check:
 	chktex -n 2 -n 8 -n 6 -n 38 -n 13 -n 36 -n 24 $(ROOT)
