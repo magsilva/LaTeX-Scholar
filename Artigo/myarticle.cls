@@ -252,6 +252,9 @@
 \lstset{xrightmargin=.3cm}
 \lstset{resetmargins=true}
 \lstset{float}
+\lstset{captionpos=b}
+\lstset{extendedchars=true}
+
 
 % Resolve um warning do latex.
 \setlength{\headheight}{16pt}
