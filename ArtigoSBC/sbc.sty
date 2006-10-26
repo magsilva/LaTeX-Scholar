@@ -2,14 +2,94 @@
 %
 % Created by Jomi Hubner & Rafael Bordini, june 2001
 % updated march 2005
+%
+% Changed by Marco Aurélio Graciotto Silva (Oct/2006).
+% Now it's a class, not a package
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sbc-template}[2001/06/09]
+\ProvidesClass{sbc}[2006/10/26 Customized SBC article]
 
+\DeclareOption{onecolumn}{
+	\PassOptionsToClass{11pt,onecolumn}{article}
+}
+
+\DeclareOption{twocolumn}{
+	\PassOptionsToClass{10pt,twocolumn}{article}
+}
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
+\ExecuteOptions{oneside,a4paper}
+\ProcessOptions
+
+\LoadClass{article}
+
+
+% l10n
+\RequirePackage[english,brazil]{babel}
+
+% i18n
+\RequirePackage[latin1]{inputenc}
+\RequirePackage[T1]{fontenc}
+
+% Parâmetros que determinam a qualidade e compressão utilizada para os documentos PDF
+% \pdfcompresslevel=6
+% \pdfpkresolution=600
+% \pdfimageresolution=72
+\pdfcompresslevel=9
+\pdfpkresolution=1200
+\pdfimageresolution=600
+
+\newcommand{\metadata}{
+	\pdfinfo {
+		/Title (\@title)
+		/Author (\@author)
+		/Keywords (\@keywords)
+	}
+}
+
+% Habilitar a utilização de figuras
+\RequirePackage[pdftex]{graphicx}
+\RequirePackage{epstopdf}
+
+\RequirePackage{url}
+
+% Alteração das margens das páginas
+\RequirePackage[pdftex]{geometry}
 % margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
 % margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
 % margem esq/dir 3 cm
-\RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\geometry{a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm}
+
+% Impede a hifenização do conteúdo definido na macro \srccode.
+\RequirePackage{hyphenat}
+
+% Macro utilizada para termos em inglês.
+\newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
+
+% Macro utilizada para trechos de código-fonte inseridos no meio do texto.
+\newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
+
+% Utilizado para listagens de código-fonte
+\RequirePackage{listings}
+
+% Traduz os nomes de listagens e fragmentos de código para português
+\renewcommand{\lstlistingname}{Exemplo}
+\renewcommand{\lstlistlistingname}{Lista de exemplos}
+
+% Define os estilos a serem utilizados nos ambientes lstlistings.
+\lstset{basicstyle=\tiny}
+\lstset{tabsize=4}
+\lstset{frame=single}
+\lstset{frameround=tttt}
+\lstset{aboveskip=.5cm}
+\lstset{belowskip=.5cm}
+\lstset{xleftmargin=.3cm}
+\lstset{xrightmargin=.3cm}
+\lstset{resetmargins=true}
+\lstset{float}
+\lstset{captionpos=b}
+\lstset{extendedchars=true}
 
 \parindent 1.27cm
 \parskip   6pt
