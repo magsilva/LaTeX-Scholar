@@ -4,7 +4,7 @@
 % updated march 2005
 %
 % Changed by Marco Aurélio Graciotto Silva (Oct/2006).
-% Now it's a class, not a package
+% Now it is a class, not a package
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{sbc}[2006/10/26 Customized SBC article]
@@ -53,6 +53,8 @@
 \RequirePackage{epstopdf}
 
 \RequirePackage{url}
+\def\UrlFont{\tt \fontseries{uc} \fontsize{10}{1}\selectfont}
+
 
 % Alteração das margens das páginas
 \RequirePackage[pdftex]{geometry}
@@ -91,11 +93,12 @@
 \lstset{captionpos=b}
 \lstset{extendedchars=true}
 
-\parindent 1.27cm
-\parskip   6pt
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{6pt}
 
 \flushbottom
 
+% TODO: captions2 is obsoleted by new 'caption'.
 % captions
 \RequirePackage[bf,sf,footnotesize,indent]{caption2}
 \setlength{\captionmargin}{0.8cm}
@@ -103,7 +106,10 @@
 \renewcommand{\captionlabeldelim}{.}
 
 % font
-\RequirePackage{times}
+% \RequirePackage{times} % Obsoleted
+\RequirePackage{mathptmx}
+\RequirePackage[scaled=.9]{helvet}
+\RequirePackage{courier}
 
 \renewcommand{\normalsize}{\@setfontsize\normalsize\@xiipt\@xivpt}
 \newcommand{\XIIIPT}{\@setfontsize\xiiipt{13}{17}}
