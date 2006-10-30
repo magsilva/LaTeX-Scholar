@@ -93,15 +93,13 @@
 \lstset{captionpos=b}
 \lstset{extendedchars=true}
 
-\setlength{\parindent}{1.27cm}
-\setlength{\parskip}{6pt}
-
-\flushbottom
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{1pt}
 
 % TODO: captions2 is obsoleted by new 'caption'.
 % captions
-\RequirePackage[bf,sf,footnotesize,indent]{caption2}
-\setlength{\captionmargin}{0.8cm}
+\RequirePackage[bf,sf,footnotesize]{caption2}
+\setlength{\captionmargin}{0.0cm}
 \renewcommand{\captionfont}{\sffamily\footnotesize\bfseries}
 \renewcommand{\captionlabeldelim}{.}
 
@@ -137,10 +135,8 @@
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
-            %% changed!
-               \itemindent -\leftmargin
-               \itemsep 6pt
-            %%%%%%%%%%%
+            \itemindent -\leftmargin
+            \itemsep 0pt
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -183,26 +179,18 @@
 
 
 % sections
-\renewcommand\section{\@startsection{section}{1}{\z@}%
-                       {-6\p@ \@plus -4\p@ \@minus -4\p@}%
-                       {0\p@ \@plus 4\p@ \@minus 4\p@}%
-                       {\normalfont\XIIIPT\bfseries\boldmath
-                        \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
-
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                       {-6\p@ \@plus -4\p@ \@minus -4\p@}%
-                       {0\p@ \@plus 4\p@ \@minus 4\p@}%
-                       {\normalfont\normalsize\bfseries\boldmath
-                        \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
-
-%\renewcommand{\thesection}{\arabic{section}.}
-%\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
-%\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+\renewcommand\section{\@startsection
+	{section}
+	{1}
+	{\z@}%
+	{0.2\baselineskip}%
+	{0.1\baselineskip}%
+	{\normalfont\XIIIPT\bfseries\boldmath\rightskip=\z@ \@plus 8em\pretolerance=10000 }
+}
 
 \RequirePackage{titlesec}
 \titlelabel{\thetitle.\hspace{1ex}}
 
-% first page
 
 \pagestyle{empty}
 
@@ -210,21 +198,30 @@
 
 \def\address#1{\gdef\@address{#1}}
 
-\def\@maketitle{\newpage
- %\null % isso dava um espaco extra antes do title
- \begin{center}
-   %\vglue -6pt
-%   \vspace*{12pt}
-\vspace*{-.7cm}
-  {\XVIPT\bf\@title\par}
-   \vglue 6pt plus 3pt minus 3pt
-  {\normalsize
-   \textbf{\begin{tabular}[t]{c}\@author\end{tabular}}\par}
-   \vglue 6pt plus 3pt minus 3pt
-  {\normalsize
-   \begin{tabular}[t]{c}\inst{\instnum}\@address\end{tabular}\par}
-   \vglue 6pt plus 3pt minus 3pt
-   \end{center}\par
+\def\@maketitle{
+	\newpage
+	\begin{center}
+	\vspace*{-.7cm}
+	{\XVIPT\bf\@title\par}
+	\vglue 6pt plus 3pt minus 3pt
+	{
+		\normalsize
+		\textbf{
+			\begin{tabular}[t]{c}
+				\@author
+			\end{tabular}
+		}
+	}
+	\vglue 6pt plus 3pt minus 3pt
+	{
+		\normalsize
+		\begin{tabular}[t]{c}
+			\inst{\instnum}\@address
+		\end{tabular} \par
+	}
+	\vglue 6pt plus 3pt minus 3pt
+	\end{center}
+	\par
 }
 \let\maketitleOLD\maketitle
 \renewcommand{\maketitle}{\maketitleOLD\thispagestyle{empty}}
