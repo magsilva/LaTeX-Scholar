@@ -5,7 +5,7 @@ PDFLATEX_ARGS = -file-line-error -interaction nonstopmode -recorder --src-specia
 all: $(ROOTS)
 
 distclean: clean
-#	rm -f *.pdf *.ps
+	rm -f *.pdf *.ps
 
 clean:
 	rm -f *.log *.lot *.aux *.toc *.dvi *.bbl *.blg *.*~* *.lof *.ilg *.gls *.glo *.backup *.bak.* *.out *.cb *.bak *.ind *.idx *.fls *.lol *.backup 
