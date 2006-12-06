@@ -215,7 +215,7 @@
 \newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
 
 % Macro utilizada para trechos de código-fonte inseridos no meio do texto.
-\newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
+\newcommand\srccode[1]{\url{#1}}
 
 % Utilizado para listagens de código-fonte
 \RequirePackage{listings}
