@@ -1,29 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{magsilva-common}[2007/03/23 Common packages and settings]
 
-\RequirePackage{ifthen}
-\newboolean{speciallicense}
-\setboolean{speciallicense}{false}
-
-\DeclareOption{onecolumn}{
-	\PassOptionsToClass{11pt,onecolumn}{article}
-}
-
-\DeclareOption{twocolumn}{
-	\PassOptionsToClass{10pt,twocolumn}{article}
-}
-
-\DeclareOption{speciallicense}{
-	\setboolean{speciallicense}{true}
-}
-
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-
-\ExecuteOptions{oneside,a4paper}
-\ProcessOptions
-
-\LoadClass{article}
-
 % l10n
 \RequirePackage[english,brazil]{babel}
 
@@ -91,6 +68,8 @@
 \RequirePackage{setspace}
 \onehalfspace
 
+% Configuração da indentação do parágrafo
+% \setlength{\parindent}{1.3cm}
 
 % Lista de acrônimos
 \RequirePackage[printonlyused]{acronym}
@@ -103,35 +82,6 @@
 	\parskip=0pt
 	\parsep=0pt
 }
-
-\def\email#1{\gdef\@email{#1}}%
-\def\@email{\@latex@error{No \noexpand\email given}\@ehc}%
-
-\def\license#1{\gdef\@license{#1}}%
-\def\@license{\@latex@error{No \noexpand\license given}\@ehc}%
-
-\def\@maketitle{
-	\newpage
-	\null
-	\vskip 2em
-	\begin{center}
-		\let \footnote \thanks
-		{\LARGE \@title \par}
-		\vskip 1.5em
-		{
-			\large
-			\lineskip .5em
-			\begin{tabular}[t]{c}
-				\@author \\ \@email
-			\end{tabular}
-			\par
-		}
-	\end{center}
-	\par
-	\vskip 1.5em
-	\printlicense
-}
-
 
 % Redifinição do ambiente description para diminuir o espaçamento entre os itens. Uma solução mais
 % elegante seria aquela adotada para itemize e enumerate nesta mesmo classe, mas ela não funciona
@@ -174,34 +124,13 @@
 	\end{list}
 }
 
+% Set the \bibname to ABNT rules.
+\renewcommand{\bibname}{Referências}
 
-% Does not use uppercase the \bibname.
-\renewenvironment{thebibliography}[1]{
-	\section*{\bibname}%
-	\list{
-		\@biblabel{\@arabic\c@enumiv}
-	}{
-		\settowidth\labelwidth{\@biblabel{#1}}%
-		\leftmargin\labelwidth
-		\advance\leftmargin\labelsep
-		\@openbib@code
-		\usecounter{enumiv}%
-		\let\p@enumiv\@empty
-		\renewcommand\theenumiv{\@arabic\c@enumiv}
-	}
-	\sloppy
-	\clubpenalty4000
-	\@clubpenalty \clubpenalty
-	\widowpenalty4000%
-	\sfcode`\.\@m
-}{
-	\def\@noitemerr
-	{\@latex@warning{Empty thebibliography environment}}
-	\endlist
-}
+\RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
 
 
-% Corretly format the footnotes
+% Correctly format the footnotes
 % stable: Remove title's footnote mark from TOC.
 % multiple: Adds a command between multiple sequencial footnote marks
 % marginal,flushmarginal: Keeps the footnotes within the margin and without indentation
@@ -234,7 +163,6 @@
 % Macro utilizada para trechos de código-fonte inseridos no meio do texto.
 \newcommand\srccode[1]{\url{#1}}
 % \newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
-
 
 % Utilizado para listagens de código-fonte
 \RequirePackage{textcomp} % Required by upquote option.
@@ -287,10 +215,8 @@
 	\end{center}
 }
 
-
-\RequirePackage{enumerate}
-
 % Altera a numeração do enumerate para 1.1, 1.2.1, etc (sempre números arábicos).
+\RequirePackage{enumerate}
 \renewcommand{\labelenumi}{\theenumi.}
 \renewcommand{\theenumii}{\arabic{enumii}}
 \renewcommand{\labelenumii}{\theenumi.\theenumii.}
@@ -305,26 +231,8 @@
 % Adequação das citações e referências a norma ABNT
 \RequirePackage[alf,abnt-url-package=url]{abntcite}
 
-\RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
+% Command to turn all letters uppercase
+\newcommand{\allcaps}[1]{\uppercase\expandafter{#1}}
 
-\renewenvironment{abstract}{
-	\begin{minipage}[c]{\linewidth - 1cm}
-	\singlespace
-	\begin{center}
-		\textbf{\abstractname}
-	\end{center}
-}{
-	\end{minipage}
-}
-
-
-\newcommand{\printlicense}{
-	\ifthenelse{\boolean{speciallicense}}{
-		\let\origfootnote=\thefootnote
-		\def\thefootnote{\relax}
-		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \number\year \  \@author. Este trabalho é disponibilizado de acordo com os termos da licença \@license.}
-		\def\thefootnote{\origfootnote}
-	}{
-		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \number\year \  \@author.}
-	}
-}
+% Command to underline the text
+\newcommand{\underln}[1]{$\underline{\text{#1}}$}
