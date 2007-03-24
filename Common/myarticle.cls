@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myarticle}[2006/06/21 Customized article]
+\ProvidesClass{magsilva-common}[2007/03/23 Common packages and settings]
 
 \RequirePackage{ifthen}
 \newboolean{speciallicense}
