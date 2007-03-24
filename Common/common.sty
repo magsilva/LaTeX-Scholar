@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{magsilva-common}[2007/03/23 Common packages and settings]
+\ProvidesClass{common}[2007/03/23 Common packages and settings]
 
 % l10n
 \RequirePackage[english,brazil]{babel}
@@ -25,7 +25,6 @@
 	}
 }
 
-\RequirePackage{titlesec}
 \RequirePackage{color}
 \RequirePackage{colortbl}
 \RequirePackage{textfit}
@@ -62,6 +61,7 @@
 
 % Alteração das margens das páginas
 \RequirePackage[pdftex]{geometry}
+% TODO: Ver a opção twoside
 \geometry{a4paper,left=2.5cm,right=2cm,top=2cm,bottom=3.5cm}
 
 % Configuração do espaçamento entre linhas (1,5)
@@ -123,12 +123,6 @@
 }{
 	\end{list}
 }
-
-% Set the \bibname to ABNT rules.
-\renewcommand{\bibname}{Referências}
-
-\RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
-
 
 % Correctly format the footnotes
 % stable: Remove title's footnote mark from TOC.
@@ -231,8 +225,36 @@
 % Adequação das citações e referências a norma ABNT
 \RequirePackage[alf,abnt-url-package=url]{abntcite}
 
+\RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
+
+% Set the \bibname to ABNT rules.
+% \providecommand{\bibname}{Referências}
+\def\mybibname{Referências}
+\def\myrefname{Referências}
+
 % Command to turn all letters uppercase
 \newcommand{\allcaps}[1]{\uppercase\expandafter{#1}}
 
 % Command to underline the text
 \newcommand{\underln}[1]{$\underline{\text{#1}}$}
+
+% Ambiente para citações diretas.
+\renewenvironment{quotation}{
+	\vspace{.5cm}
+	\begin{flushright}
+		\begin{minipage}{\linewidth - 4cm}
+		\singlespacing
+		\small
+}{
+		\end{minipage}
+	\end{flushright}
+	\vspace{.5cm}
+}
+
+% Hacks suggested by Axel Reichert at de.comp.text.tex (removes several LaTeX warnings)
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+\raggedbottom

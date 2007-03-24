@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dissertation}[2003/08/19 ICMC dissertation]
+\ProvidesClass{common-monograph}[2007/03/23 Customized monograph]
 
-\LoadClass{common-dissertation}
+\LoadClass{common-book}
 
 \RequirePackage{fancyhdr}
 
@@ -83,7 +83,6 @@
 \titleformat{\chapter}[display]
 	{
 		\sffamily\Huge
-%		\hrulefill a
 	}
 	{
 		\begin{tabular}{|c|}
@@ -104,42 +103,32 @@
  	\vskip-2.4ex\hfill\rule{.8\textwidth}{2pt}\\
  	\vskip 1.5ex]
 
-% Comando para criar a dedicatória
-\newcommand{\dedicate}{
-	\cleardoublepage
-	\vfill
-	\hfill
-	\parbox{.4\linewidth}{\textsl{\@dedication}}
-	\vspace{3cm}
-}
-
-% Ambientes para colocar o resumo (português e inglês). Observe que as margens
-% desses ambientes são ligeiramente reduzidas, dando uma aparência, hum, melhor.
-\newenvironment{abstract}{
-	\chapter*{Abstract}
-	\addcontentsline{toc}{chapter}{Abstract}
-	\narrower
-	\vfill
-}{
-	\vfill
-}
-\newenvironment{resumo}{
-	\chapter*{Resumo}
-	\addcontentsline{toc}{chapter}{Resumo}
-	\narrower
-	\vfill
-}{
-	\vfill
-}
 
 % Configura cabeçalho e rodapé das páginas do corpo do texto para
 % conter, páginas pares, o nome da seção e, nas páginas impares, o nome
 % do capítulo.
+\renewcommand\frontmatter{%
+	% \pagestyle{fancy}
+	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+	\cleardoublepage
+	\@mainmatterfalse
+	\pagenumbering{roman}
+}
+
 \renewcommand\mainmatter{
 	\cleardoublepage
 	\@mainmattertrue
 	\pagenumbering{arabic}
 	\pagestyle{fancy}
+	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+	\acresetall{}
+}
+
+\renewcommand\backmatter{%
+	% \pagestyle{fancy}
+	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+	\cleardoublepage
+	\@mainmatterfalse
 }
 
 \fancyhead{}
@@ -147,9 +136,15 @@
 \fancyhead[RE]{\slshape \rightmark} % pagina par - seção
 \fancyhead[LO]{\slshape \leftmark} % pagina impar - capítulo
 
-% "Proíbe" linhas orfas e viuvas
-\widowpenalty = 10000
-\clubpenalty = 10000
+
+% Remove o nome do capítulo dos cabeçalhos das páginas
+% \renewcommand{\chaptermark}[1]{
+% }
+%
+% Remove o nome das seções dos cabeçalhos das páginas
+%\renewcommand{\sectionmark}[1]{
+%}
+
 
 \renewcommand{\chaptermark}[1]{
 	\markboth{
@@ -161,8 +156,3 @@
 \renewcommand{\sectionmark}[1]{
 	\markright{\thesection\ #1}
 }
-
-\RequirePackage[bf,hang]{caption} %nooneline - tirei do colchetes para centralizar o indice de figuras Tatiana 10/01/02
-
-% Fonte sem serifa e em negrito para definição de títulos de seções
-% \RequirePackage[sf,bf]{titlesec}

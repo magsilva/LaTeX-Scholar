@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{magsilva-common}[2007/03/23 Common packages and settings]
+\ProvidesClass{common-article}[2007/03/23 Common packages and settings]
 
 \RequirePackage{ifthen}
 \newboolean{speciallicense}
@@ -24,6 +24,7 @@
 
 \LoadClass{article}
 
+\RequirePackage{common}
 
 \def\email#1{\gdef\@email{#1}}%
 \def\@email{\@latex@error{No \noexpand\email given}\@ehc}%
@@ -33,7 +34,7 @@
 
 % Do no use uppercase for \bibname.
 \renewenvironment{thebibliography}[1]{
-	\section*{\bibname}%
+	\section*{\mybibname}%
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
 	}{
