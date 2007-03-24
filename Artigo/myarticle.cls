@@ -81,7 +81,7 @@
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{epstopdf}
 
-\RequirePackage{url}
+\RequirePackage[obeyspaces]{url}
 
 % Alteração das margens das páginas
 \RequirePackage[pdftex]{geometry}
@@ -202,8 +202,8 @@
 
 
 % Corretly format the footnotes
-% stable: Remove title's footnote mark from TOC. 
-% multiple: Adds a command between multiple sequencial footnote marks 
+% stable: Remove title's footnote mark from TOC.
+% multiple: Adds a command between multiple sequencial footnote marks
 % marginal,flushmarginal: Keeps the footnotes within the margin and without indentation
 % bottom: Footnotes will be inserted always at the page's bottom.
 \RequirePackage[bottom,marginal,flushmargin,stable,multiple]{footmisc}
@@ -237,6 +237,7 @@
 
 
 % Utilizado para listagens de código-fonte
+\RequirePackage{textcomp} % Required by upquote option.
 \RequirePackage{listings}
 
 % Traduz os nomes de listagens e fragmentos de código para português
@@ -256,6 +257,7 @@
 \lstset{float}
 \lstset{captionpos=b}
 \lstset{extendedchars=true}
+\lstset{upquote=true}
 
 
 % Resolve um warning do latex.
@@ -285,7 +287,7 @@
 	\end{center}
 }
 
-	
+
 \RequirePackage{enumerate}
 
 % Altera a numeração do enumerate para 1.1, 1.2.1, etc (sempre números arábicos).
@@ -324,5 +326,5 @@
 		\def\thefootnote{\origfootnote}
 	}{
 		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \number\year \  \@author.}
-	}	
+	}
 }

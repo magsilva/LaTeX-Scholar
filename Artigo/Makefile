@@ -1,5 +1,5 @@
 ROOT = root
-BIBTEX = 
+BIBTEX = *.bib
 PDFLATEX_ARGS = -file-line-error -interaction nonstopmode -recorder --src-specials
 
 all: clean pdf
@@ -13,7 +13,9 @@ check:
 	bibclean $(BIBTEX) > /dev/null
 
 pdf:
-	cat $(BIBTEX) > $(ROOT).bib
+	rm -f $(ROOT).bib $(ROOT).bib.tmp
+	cat $(BIBTEX) > $(ROOT).bib.tmp
+	mv $(ROOT).bib.tmp $(ROOT).bib
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	bibtex $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)

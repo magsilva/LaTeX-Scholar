@@ -663,7 +663,7 @@ FUNCTION {mastersthesis}
   new.block
   format.title "title" output.check
   new.block
-  "Master's thesis" format.thesis.type output.nonnull
+  "Dissertação de mestrado" format.thesis.type output.nonnull
   school "school" output.check
   address output
   new.block
