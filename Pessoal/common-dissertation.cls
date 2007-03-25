@@ -114,26 +114,6 @@
     \dp0=0in\ht0=0in\box0}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-% Title definitions
-%
-% The 'titlesec' package is fabulous! Changing the \chapter and friends is a nightmare. That
-% package makes the job easy, piece of cake actually!
-%
-% noindentafter: Do not indent the first paragraph after a title definition
-% rigidchapters: Set a fixed space for chapters
-% nobottontitles*: Do not allow a title hanging at the botton (like a widow line)
-% largestsep: Uses the largest space between two following titles.
-% clearempty: Do not show the page number in an empty page (pretty common in doubleepage docs).
-\RequirePackage[noindentafter,rigidchapters,nobottomtitles*,largestsep,clearempty]{titlesec}
-% \RequirePackage[sf,sl,outermarks]{titlesec}
-
-% Add a dot after the section/subsection/etc counters.
-\titlelabel{\thetitle.\quad}
-
-% titlespacing{<command>}{<left>}{<before>}{<after>}[<right>]
-\titlespacing{\section}{0pt}{1.5em}{1em}[0pt]
-
 % Pretty chapter start
 \font\chapternumberfont= goxi2074 scaled 2000
 \titleformat{\chapter}[display]

@@ -1,6 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{common}[2007/03/23 Common packages and settings]
 
+\makeatletter
+
 % l10n
 \RequirePackage[english,brazil]{babel}
 
@@ -16,6 +18,8 @@
 \pdfcompresslevel=9
 \pdfpkresolution=1200
 \pdfimageresolution=600
+
+\newcommand{\floatmargin}{.3cm}
 
 \newcommand{\metadata}{
 	\pdfinfo {
@@ -41,9 +45,14 @@
 \floatplacement{figure}{!htb}
 
 % Otimização no espaço ocupado por floats
+%
+% Space left between floats
 \renewcommand{\floatsep}{8pt}
+% Space left on top and bottom of an in-text float.
 \renewcommand{\intextsep}{12pt}
+% Space between last top float or first bottom float and the text.
 \renewcommand{\textfloatsep}{12pt}
+
 
 % Libera mais espaço da página para floats
 % \setlength{topnumber}{3}
@@ -150,8 +159,11 @@
   \parbox[t]{\myFootnoteWidth}{#1}%
 }
 
-% TODO: bf,center,nooneline
-\RequirePackage[indention=0pt,labelformat=simple,labelsep=period,justification=justified,singlelinecheck=false,font=small,labelfont=bf,parskip=4pt]{caption}
+\RequirePackage[format=plain,indention=0pt,labelformat=simple,labelsep=period,justification=justified,singlelinecheck=false,font=small,labelfont=bf,parskip=4pt,margin=\floatmargin]{caption}
+\DeclareCaptionFont{singlespacing}{\setstretch{1}}
+\DeclareCaptionFont{onehalfspacing}{\onehalfspacing}
+\DeclareCaptionFont{doublespacing}{\doublespacing}
+\captionsetup{font={singlespacing,small}}
 
 % Cores
 \RequirePackage[cmyk,table]{xcolor}
@@ -179,10 +191,10 @@
 \lstset{tabsize=4}
 \lstset{frame=single}
 \lstset{frameround=tttt}
-\lstset{aboveskip=.5cm}
-\lstset{belowskip=.5cm}
-\lstset{xleftmargin=.3cm}
-\lstset{xrightmargin=.3cm}
+\lstset{aboveskip=16pt}
+\lstset{belowskip=6pt}
+\lstset{xleftmargin=\floatmargin}
+\lstset{xrightmargin=\floatmargin}
 \lstset{resetmargins=true}
 \lstset{float}
 \lstset{captionpos=b}
@@ -298,3 +310,26 @@
 		\color{red}\small{T\thetodo}: \scriptsize{#1}\color{black}
 	}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Title definitions
+%
+% The 'titlesec' package is fabulous! Changing the \chapter and friends is a nightmare. That
+% package makes the job easy, piece of cake actually!
+%
+% noindentafter: Do not indent the first paragraph after a title definition
+% rigidchapters: Set a fixed space for chapters
+% nobottontitles*: Do not allow a title hanging at the botton (like a widow line)
+% largestsep: Uses the largest space between two following titles.
+% clearempty: Do not show the page number in an empty page (pretty common in doubleepage docs).
+\RequirePackage[noindentafter,rigidchapters,nobottomtitles*,largestsep,clearempty]{titlesec}
+% \RequirePackage[sf,sl,outermarks]{titlesec}
+
+% Add a dot after the section/subsection/etc counters.
+\titlelabel{\thetitle.\quad}
+
+% titlespacing{<command>}{<left>}{<before>}{<after>}[<right>]
+\titlespacing{\section}{0pt}{1.5em}{1em}[0pt]
+
+
+\makeatother
