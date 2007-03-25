@@ -15,6 +15,10 @@
 % Espaço entre parágrafos
 \setlength{\parskip}{3pt}
 
+% Criação de tabelas
+\RequirePackage{array}
+\RequirePackage{tabularx}
+
 % Do no use uppercase for \bibname.
 \renewenvironment{thebibliography}[1]{
 	\chapter*{\mybibname}%
@@ -151,6 +155,22 @@
 }{
 	\vfill
 }
+
+\newenvironment{agradecimentos}{
+	\cleardoublepage
+	\chapter*{Agradecimentos}
+	\thispagestyle{empty}
+}{
+	\thispagestyle{empty}
+}
+
+% Glossário
+\RequirePackage{makeglo}
+\makeglossary
+
+% Criação de índice remissivo.
+\RequirePackage{makeidx}
+\makeindex
 
 % referencias com página \vref
 \RequirePackage[brazil]{varioref}

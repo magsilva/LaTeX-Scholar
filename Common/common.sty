@@ -45,6 +45,13 @@
 \renewcommand{\intextsep}{12pt}
 \renewcommand{\textfloatsep}{12pt}
 
+% Libera mais espaço da página para floats
+% \setlength{topnumber}{3}
+% \setlength{bottomnumber}{3}
+% \setlength{totalnumber}{5}
+% \renewcommand{\topfraction}{1}
+% \renewcommand{\bottomfraction}{1}
+
 % Diminui o espaço entre um float e seu caption.
 \setlength{\abovecaptionskip}{4pt}
 
@@ -143,7 +150,8 @@
   \parbox[t]{\myFootnoteWidth}{#1}%
 }
 
-\RequirePackage[bf,hang]{caption}
+% TODO: bf,center,nooneline
+\RequirePackage[indention=0pt,labelformat=simple,labelsep=period,justification=justified,singlelinecheck=false,font=small,labelfont=bf,parskip=4pt]{caption}
 
 % Cores
 \RequirePackage[cmyk,table]{xcolor}
@@ -180,6 +188,21 @@
 \lstset{captionpos=b}
 \lstset{extendedchars=true}
 \lstset{upquote=true}
+
+% Define um subconjunto da linguagem HyperTalk.
+\lstdefinelanguage{hypertalk}{
+	morekeywords={goto},
+	sensitive=false,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+}
+
+% Define os estilos a serem utilizados nos ambientes lstlistings.
+\lstdefinestyle{srccode}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single}
+\lstdefinestyle{srccodeJava}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=java}
+\lstdefinestyle{srccodeXml}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=xml}
+\lstdefinestyle{srccodeHypertalk}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=hypertalk}
 
 
 % Resolve um warning do latex.
@@ -258,3 +281,20 @@
 \hfuzz 0.3pt
 \vfuzz \hfuzz
 \raggedbottom
+
+
+% Cria notas laterais (macro utilizada pelo \todo).
+\newcommand{\marginnote}[1]
+	{\mbox{}\marginpar{\raggedleft\hspace{0pt}#1}}
+
+
+
+% Macro para indicar uma tarefa a fazer
+\newcounter{todo}
+\newcommand{\todo}[1]{
+	\addtocounter{todo}{1}
+	\color{red}\underline{\textbf{T\thetodo}}\color{black}
+	\marginnote{
+		\color{red}\small{T\thetodo}: \scriptsize{#1}\color{black}
+	}
+}
