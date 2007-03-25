@@ -9,8 +9,8 @@
 \RequirePackage{chngpage}
 
 % "Proíbe" linhas orfas e viuvas
-\widowpenalty = 10000
-\clubpenalty = 10000
+\widowpenalty = 9999
+\clubpenalty = 9999
 
 % Espaço entre parágrafos
 \setlength{\parskip}{3pt}
@@ -178,3 +178,138 @@
 % indenta primeiro parágrafo
 \RequirePackage{indentfirst}
 
+% Pretty chapter start at frontmatter
+\newpagestyle{frontmatter}{
+	\sethead{}
+		{}
+		{}
+	\setfoot{}
+		{\thepage}
+		{}
+}
+
+% Pretty chapter start at mainmatter
+\newpagestyle{mainmatter}[\small\sffamily]{
+	\headrule
+	\sethead{}
+		{}
+		{}
+	\setfoot{}
+		{\thepage}
+		{}
+}
+
+% Pretty chapter start at backmatter
+\newpagestyle{backmatter}{
+	\headrule
+	\sethead{}
+		{}
+		{}
+	\setfoot{}
+		{\thepage}
+		{}
+}
+
+
+% Configura cabeçalho e rodapé das páginas do corpo do texto para
+% conter, páginas pares, o nome da seção e, nas páginas impares, o nome
+% do capítulo.
+\renewcommand\frontmatter{%
+	\cleardoublepage
+	\@mainmatterfalse
+	\pagestyle{frontmatter}
+	\pagenumbering{roman}
+	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+}
+
+\renewcommand\mainmatter{
+	\cleardoublepage
+	\@mainmattertrue
+	\pagestyle{mainmatter}
+	\pagenumbering{arabic}
+	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+	\acresetall{}
+}
+
+\renewcommand\backmatter{%
+	\cleardoublepage
+	\@mainmatterfalse
+	\pagestyle{backmatter}
+	\pagenumbering{arabic}
+	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+}
+
+% Macro para destacar as primeiras letras do texto. Um texto do tipo:
+%
+%  \begin{document}
+%    \versal{IN} THE beginning God created the heaven and the earth.  Now the
+%    earth was unformed and void, and darkness was upon the face of the
+%    deep; and the spirit of God hovered over the face of the waters.
+%  \end{document}
+%
+%  produzirá algo como:
+%
+%  I I\  I THE beginning God  created the heaven and  the earth.
+%  I I \ I Now the earth was unformed and void, and darkness was
+%  I I  \I upon the face of the deep; and the spirit of God hov-
+%  ered over the face of the waters.
+\font\versalfont= pzcmi scaled 6500
+\newcommand{\versal}[1]{{\noindent
+    \setbox0\hbox{\versalfont #1 }%
+    \count0=\ht0                   % height of versal
+    \count1=\baselineskip          % baselineskip
+    \divide\count0 by \count1      % versal height/baselineskip
+    \dimen1 = \count0\baselineskip % distance to drop versal
+    \advance\count0 by 1\relax     % no of indented lines
+    \dimen0=\wd0                   % width of versal
+    \global\hangindent\dimen0      % set indentation distance
+    \global\hangafter-\count0      % set no of indented lines
+    \hskip-\dimen0\setbox0\hbox to\dimen0{\raise-\dimen1\box0\hss}%
+    \dp0=0in\ht0=0in\box0}}
+
+
+% Pretty chapter start
+\font\chapternumberfont= goxi2074 scaled 2000
+\titleformat{\chapter}[display]
+	{\normalfont\Large\sffamily}
+	{
+		\filright
+		\rule[32pt]{.7\linewidth}{4pt}
+		\hspace{-8pt}
+		\shadowbox{
+			\begin{minipage}{.18\linewidth}
+				\centering
+				\textsc{\Large\chaptertitlename}\\
+				\vspace{1ex}
+				{\chapternumberfont \thechapter}\\
+				\vspace{1ex}
+			\end{minipage}
+		}
+	}
+	{0pt}
+	{\filcenter\Huge}
+	[\hfill\rule{.8\textwidth}{0.5pt}\\\vskip-1.8ex\hfill\rule{.7\textwidth}{3pt}]
+
+% Cria o cabeçalho da página inicial do capítulo.
+%\titleformat{\chapter}[display]
+%	{
+%		\sffamily\Huge
+%	}
+%	{
+%		\begin{tabular}{|c|}
+%			\rowcolor{black}
+%			\color{white}
+%			\large
+%			\scshape
+%			\chaptername \\
+%			\vspace{-2ex} \\
+%			\Huge
+%			\slshape
+%			\scaletoheight{1cm}{\thechapter} \\ \hline
+%		\end{tabular}
+%	}
+%	{8pt}
+%	{\Huge\bfseries\filleft}
+%	[\hfill\rule{.8\textwidth}{0.5pt}\\
+%	\vskip-2.4ex\hfill\rule{.8\textwidth}{2pt}\\
+%	\vskip 1.5ex]
