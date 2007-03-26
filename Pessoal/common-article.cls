@@ -13,10 +13,6 @@
 	\PassOptionsToClass{10pt,twocolumn}{article}
 }
 
-\DeclareOption{speciallicense}{
-	\setboolean{speciallicense}{true}
-}
-
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
 \ExecuteOptions{oneside,a4paper}
@@ -57,14 +53,27 @@
 	\endlist
 }
 
-\renewenvironment{abstract}{
-	\begin{minipage}[c]{\linewidth - 1cm}
-	\singlespace
+\newenvironment{resumo}{
+	\setstretch{1}
+	\narrower
 	\begin{center}
-		\textbf{\abstractname}
+		\textbf{Resumo}
+		\vspace{-6pt}
 	\end{center}
+	\vspace{-3pt}
 }{
-	\end{minipage}
+}
+
+
+\renewenvironment{abstract}{
+	\setstretch{1}
+	\narrower
+	\begin{center}
+		\textbf{Abstract}
+		\vspace{-6pt}
+	\end{center}
+	\vspace{-3pt}
+}{
 }
 
 

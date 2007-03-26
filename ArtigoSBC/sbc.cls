@@ -66,12 +66,6 @@
 % Impede a hifenização do conteúdo definido na macro \srccode.
 \RequirePackage{hyphenat}
 
-% Macro utilizada para termos em inglês.
-\newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
-
-% Macro utilizada para trechos de código-fonte inseridos no meio do texto.
-\newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
-
 % Utilizado para listagens de código-fonte
 \RequirePackage{listings}
 
@@ -248,3 +242,10 @@
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
+
+
+% Macro utilizada para termos em inglês.
+\newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
+
+% Adequação das citações e referências a norma ABNT
+\RequirePackage[alf,abnt-url-package=url]{abntcite}
