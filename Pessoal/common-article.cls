@@ -22,6 +22,8 @@
 
 \RequirePackage{common}
 
+\setlength{\parskip}{3pt}
+
 \def\email#1{\gdef\@email{#1}}%
 \def\@email{\@latex@error{No \noexpand\email given}\@ehc}%
 
