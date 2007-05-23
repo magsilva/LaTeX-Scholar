@@ -1,0 +1,327 @@
+\section{Estabelecimento de uma estratégia de desenvolvimento do
+processo} \label{estrat}
+
+De acordo com Humphrey, nesta etapa a(s) pessoa(s) responsável(is)
+pela definição do processo deve(m) definir e cumprir tarefas que a(s)
+auxilie(m) a conhecer os processos. Algumas
+sugestões fornecidas para a definição da estratégia são: (1) para
+processos que não são familiares, observe como são executados ou
+colete dados que os tornem explícitos; (2) especifique os
+processos incluindo passos, atividades ou tarefas que, por
+experiência, tenham sido executados com sucesso; (3) se não for
+possível compreender o processo antes de sua especificação, adote
+uma abordagem com foco na simplicidade.
+
+Neste trabalho, a seguinte estratégia foi utilizada para a
+estruturação do processo para desenvolvimento de projetos de pesquisa envolvendo software.
+
+\begin{enumerate}
+
+\item De forma geral, para a \textbf{apresentação do processo} foi
+utilizada a abordagem definida por \cite{mai99}, que propõe a definição de um processo padrão, a partir do qual são definidos processos especializados. Para os diferentes projetos a serem desenvolvidos são realizadas instanciações dos processos especializados.
+
+\item Foram realizados três \textbf{estudos de caso} com o objetivo de
+adquirir conhecimento sobre os processos de documentação, manuntenção e 
+comunicação no domínio de pesquisa.
+
+\item Foi realizado \textbf{outro estudo de caso} em que foi avaliado o
+processo utilizado no desenvolvimento do projeto de uma aplicação
+{\it web} denominada Agenda {\it No-Risk Planning}
+\citep{moura01,Rib2003} com o objetivo de conhecer como os
+estudantes e os pesquisadores envolvidos trataram questões
+relacionadas ao processo de desenvolvimento em um projeto real, em
+que havia rotatividade das pessoas envolvidas e em que os usuários
+finais do sistema solicitavam manutenções constantemente. Além
+disso, iniciativas de melhoria do processo foram consideradas e
+foi possível observar como alguns processos descritos no contexto
+de processos fundamentais, processos organizacionais e processos
+de apoio poderiam ser melhorados e qual foi o impacto da melhoria
+no projeto.
+
+\item Em relação aos processos para os quais não foram coletados
+dados que pudessem auxiliar nas suas especificações, buscou-se
+apresentá-los de forma simples, conforme sugerido por Humphrey.
+Para isso, foi utilizada uma estratégia semelhante àquela usada na
+descrição do modelo \cite{CMMI2002}, em que exemplos para as
+práticas base são fornecidos. Neste trabalho, foram apresentados
+exemplos, referências adicionais, comentários e lições aprendidas indicadas por
+pesquisadores que tiveram alguma experiência com a execução do
+processo. 
+
+\end{enumerate}
+
+A seguir são descritos os três primeiros itens da estratégia utilizada.
+
+\subsection{Abordagem para apresentação do processo}
+
+A abordagem apresentada por \cite{mai99} para a definição de processos, sugere a proposição de um processo padrão, a especialização do processo padrão e a instanciação do processo especializado para projetos específicos, conforme apresentado na Figura \ref{proc_mai}. A proposta foi utilizada inicialmente para o contexto da definição de um processo de software para equipes geograficamente dispersas e para processo de software orientado a domínio \citep{Roc01}. Posteriormente foi utilizado para a definição de um processo para desenvolvimento de módulos educacionais \citep{Bar04}.
+
+O processo padrão tem como principal objetivo fornecer uma
+estrutura única que será utilizada pela organização em seus
+projetos de software, constituindo a base para a definição de seus
+processos. A especialização corresponde ao processo no qual uma
+abstração é representada de forma específica a um determinado
+contexto, por meio da inclusão, modificação ou encapsulamento de
+seus atributos. É necessário ter como referência um modelo que
+determine os diferentes níveis de maturidade de um processo e como
+alcançá-los. O processo especializado deve ser instanciado para
+ser utilizado em um projeto específico, de forma a atender suas
+características \citep{Roc01}. Na Figura \ref{proc_mai} a
+abordagem proposta é esquematizada no contexto da definição de um
+processo para equipes geograficamente dispersas.
+
+\begin{figure} [!ht]
+ \centering
+  \bfseries
+  \includegraphics [width=0.85\textwidth]{proposta_maidantchik.pdf}
+  \caption{Definição de processo de sofware para equipes geograficamente distribuídas \citep{Roc01}}
+  \label{proc_mai}
+\end{figure}
+
+Neste trabalho, para a definição do processo padrão (Apêndice
+\ref{pro_padrao}) foram consideradas a norma \cite{ISO12207} e os
+objetivos, requisitos, critérios e dificuldades discutidos neste
+capítulo. Para a especialização do processo foi considerado o
+modelo de maturidade \cite{CMMI2002} (Seção \ref{especial}). Para a
+instanciação do processo, foi apresentado um exemplo enfatizando a
+alocação de métodos, técnicas de desenvolvimento, recursos humanos
+e tecnológicos para as atividades.
+
+\subsection{Estudos de caso: documentação, manutenção e comunicação}
+
+Os três estudos apresentados a seguir foram realizados no contexto
+de disciplinas de cursos de graduação do ICMC-USP (estudos de caso
+1 e 3) e da Universidade Federal de São Carlos (estudo de caso 2).
+O objetivo foi observar como os estudantes lidam com determinados
+processos, simulando um ambiente de desenvolvimento de pesquisas:
+a maioria dos estudantes não tinha experiência no domínio de
+aplicação proposto e possuía experiência acadêmica em
+desenvolvimento de projetos de software, os trabalhos propostos
+foram desenvolvidos em grupos, houve rotatividade de pessoas para
+cumprir as tarefas planejadas, ou seja, um grupo iniciava e outro
+grupo finalizava as atividades e, em
+particular no estudo de caso 3, foi solicitado que simulassem um
+ambiente em que os membros da equipe estivessem geograficamente
+dispersos e utilizassem alternativas às reuniões presenciais para
+comunicação.
+
+A seguir é apresentada uma breve descrição dos estudos e a
+indicação sobre a utilização dos resultados no processo proposto
+neste trabalho.
+
+\subsubsection{Estudo de caso 1: foco na melhoria da documentação de projetos de software}
+
+Foi realizado um estudo de caso no segundo semestre de 2002 com o
+objetivo de investigar se a abordagem de {\it design rationale}
+poderia contribuir para melhorar a documentação de projetos de
+software. Alguns resultados já haviam sido apresentados na
+literatura, porém, o foco estava em outras áreas de conhecimento,
+por exemplo, Engenharia Mecânica \citep{Kar96}. O objetivo foi,
+portanto, obter indícios sobre a aplicabilidade de {\it design
+rationale} no contexto de software. Foram investigados dois pontos
+principais: 
+\begin{enumerate}
+\item  se {\it design rationale} contribui para que
+engenheiros de software compreendam um projeto anterior; 
+\item  se
+engenheiros de software estão interessados em {\it design
+rationale} quando precisam compreender um projeto.
+\end{enumerate}
+
+Treze estudantes foram divididos em grupos e foi solicitado que
+cumprissem determinadas fases de um ciclo de vida de software
+tradicional para o desenvolvimento de um projeto, ou seja, análise
+de requisitos, projeto, projeto de interfaces e testes. Ao mesmo
+tempo, foi solicitado que capturassem e registrassem {\it design
+rationale} utilizando o modelo IBIS. Os projetos foram trocados
+entre os grupos (os temas eram diferentes para cada grupo) e foi
+solicitado que implementassem o protótipo considerando os
+resultados das fases cumpridas anteriormente, por outro grupo.
+
+Foram elaboradas duas questões para auxiliar a análise dos
+resultados. A primeira questão foi ``para cada estágio do ciclo de
+vida, as informações de {\it design rationale} foram úteis para
+auxiliar a compreensão do projeto?''. Considerando todas as fases
+do projeto, foi observado que, em média, {\it design rationale}
+foi importante por ajudar a responder 34,99\% das dúvidas dos
+estudantes quando eles precisaram compreender o projeto
+desenvolvido por outra equipe. Os resultados em relação a cada um
+dos estágios do ciclo de vida indicou a utilidade de {\it design
+rationale} na compreensão das fases iniciais do desenvolvimento do
+projeto, ou seja, análise de requisitos e projeto arquitetural.
+Resultados semelhantes foram obtidos para outras áreas de
+conhecimento \citep{Kar96} e para o setor industrial
+\citep{ConBur1996}.
+
+A segunda questão foi ``os engenheiros de software estão
+interessados em {\it design rationale}?''. Foi observada a
+frequência de acesso às informações de {\it design rationale}
+pelos grupos. Os resultados obtidos não foram conclusivos, pois
+nem todos os grupos registraram os dados conforme solicitado, ou
+seja, foi registrado apenas que o acesso às informações ocorreu.
+Foi observado que todas as informações de {\it design rationale}
+disponibilizadas foram consultadas. Alguns estudantes mencionaram
+a importância em especializar o modelo de {\it design rationale}
+para as diferentes fases do ciclo de vida. A descrição e os
+resultados do estudo de caso foram apresentados em
+\cite{PaiFor05}.
+
+Os resultados obtidos com a realização deste estudo de caso
+indicaram a importância de {\it design rationale} no contexto da
+melhoria da documentação de software, quando há rotatividade entre
+as pessoas que desenvolve um projeto. Em particular, foram
+observados benefícios quando os artefatos gerados na fase de
+análise de requisitos precisaram ser compreendidos para que o
+desenvolvimento do protótipo pudesse ser realizado. Este resultado motivou a realização de
+estudos adicionais sobre o uso de {\it design rationale} nas fases
+de análise de requisitos e projeto de software, com o objetivo de
+melhorar a documentação obtida. É importante ressaltar que outra
+motivação foi o resultado apresentado na Figura \ref{gra_corrente}
+em relação ao processo cumprido atualmente no desenvolvimento de
+projetos de pesquisa. Foi observado que as fases de análise de
+requisitos e projeto estão entre as três mais valorizadas. Assim,
+observou-se que priorizá-las seria interessante, pois agregaria
+valor a uma atividade que é reconhecida pelos pesquisadores e que
+apresentou resultados positivos em relação ao uso de {\it design
+rationale}.
+
+\subsubsection{Estudo de caso 2: foco na importância de {\it design rationale} para manutenção de software}
+
+Este estudo foi realizado por doze estudantes de pós graduação no segundo semestre de 2003 com o
+objetivo de investigar:
+\begin{enumerate}
+\item  a importância de {\it design
+rationale}, resultante de um processo de reengenharia, na
+manutenção de um sistema de software;
+\item a importância de {\it design rationale} na redução de tempo gasto na manutenção de
+software. Este  segundo item está relacionado a este trabalho.
+\end{enumerate}
+
+Os estudantes foram divididos em 4 grupos e foi proposta uma
+atividade de manutenção em um sistema de oficina eletrônica,
+composta por duas fases. Na primeira fase, foi solicitado que o
+sistema permitisse a realização de uma consulta adicional. Na
+segunda fase foi solicitada a inclusão de uma funcionalidade. Para
+a realização da primeira manutenção, os grupos 1 e 2 tiveram
+acesso às informações de {\it design rationale} e para a segunda
+manutenção, apenas os grupos 3 e 4 tiveram acesso. Os estudantes
+tiveram liberdade para estipular seus horários para desenvolvimento
+do trabalho, porém, foi solicitado que registrassem em um planilha
+fornecida o tempo gasto em cada uma das atividades.
+
+Apesar de ser um estudo de caso piloto, foi observado que as
+informações de {\it design rationale} documentadas durante a
+reengenharia do sistema foram importante auxílio para o
+entendimento do projeto durante a realização da atividade de manutenção. Além
+disso, o resultado obtido indicou que o tempo gasto na manuntenção
+foi menor quando as informações de {\it design rationale} estavam
+disponíveis. A descrição e os resultados do estudo de caso foram apresentados em
+\cite{Cagnin04}.
+
+De forma semelhante ao resultado obtido com a realização do estudo
+de caso 1, o resultado obtido neste estudo motivou a  realização
+de estudos adicionais envolvendo {\it design rationale}, tendo em
+vista a melhoria na manutenção dos projetos.
+
+\subsubsection{Estudo de caso 3: foco na comunicação entre os participantes do projeto}
+
+Para entender como os estudantes lidam com as questões
+relacionadas à comunicação quando um projeto distribuído é
+desenvolvido, foi realizado um estudo de caso no segundo semestre
+de 2004 em que o principal objetivo era tornar explícitas as
+características do processo da comunicação, que é um requisito dos
+usuários do processo proposto.
+
+Como atividade proposta, foi solicitado que estudantes de duas
+turmas da disciplina de Engenharia de Software do ICMC-USP (94
+estudantes no total) realizassem determinadas alterações
+(pré-definidas) em código fonte desenvolvido por estudantes de
+outra disciplina, utilizando ferramentas de software livre para
+apoiar a comunicação e simulando um ambiente de desenvolvimento
+distribuído de software. Os estudantes foram incentivados a
+desenvolver os projetos de forma colaborativa, dividindo tarefas e
+registrando dúvidas, comentários e decisões tomadas, sem realizar
+encontros presenciais. Eles estavam matriculados em dois cursos
+diferentes e os grupos foram formados por estudantes de turmas
+diferentes.
+
+Como resultados obtidos, em resumo, pode-se destacar:
+\begin{enumerate}
+\item no início do desenvolvimento do projeto foi notada a resistência dos estudantes em relação ao estabelecimento inicial da comunicação, o que indicou a necessidade de reforçar o treinamento (em termos teóricos e práticos) e motivar a equipe em relação à comunicação; 
+\item  quando as dúvidas em relação à resolução do problema começaram a surgir, a comunicação foi intensificada e aos poucos se tornou mais natural;
+\item os estudantes se empenharam em conhecer novas ferramentas que auxiliassem a comunicação e a vencer as dificuldades que surgem quando a distribuição geográfica é uma característica do desenvolvimento. 
+\end{enumerate}
+
+A descrição e os resultados do estudo de caso foram apresentados em \cite{Paiva05}. Os resultados obtidos foram positivos no sentido de indicar que é
+possível vencer as limitações do ambiente de desenvolvimento de
+pesquisas, como a escassez de recursos, quando há motivação dos
+estudantes em relação à comunicação e ao desenvolvimento
+distribuído. A importância do treinamento também foi reforçada. %Além disso, foram indicadas vantagens e desvantagens
+%de ferramentas que auxiliam na comunicação, enfatizadas na Seção X
+%(parte de instanciação).
+
+
+\subsection{Estudo de caso: avaliação e melhoria do processo}
+
+O projeto {\it No-Risk Planning} foi iniciado em 2001 por um estudante do curso graduação em Ciência da Computação do ICMC-USP como projeto de fim de curso \citep{moura01}. O objetivo foi desenvolver um sistema de agenda que estivesse disponível na {\it web} e permitisse o agendamento de compromissos de grupos de trabalho. Durante o desenvolvimento do protótipo inicial, apenas o código fonte e o modelo lógico da base de dados foram disponibilizados.
+
+Tendo em vista as dificuldades enfrentadas por dois estudantes (um aluno de iniciação científica e um de mestrado) em dar continuidade ao desenvolvimento do projeto \citep{Rib2003}, decidiu-se por dar ênfase ao processo de desenvolvimento utilizado. Dessa forma, em paralelo à evolução das funcionalidades do software, iniciavam-se as atividades de melhoria do processo de desenvolvimento do sistema. O modelo IDEAL \citep{GreMye97} e a norma \cite{ISO12207} foram utilizados para guiar o cumprimento das atividades de melhoria do processo \citep{PaiSanFor2003}.
+
+Em uma primeira iniciativa, foram priorizadas, basicamente,
+atividades de ciclo de vida (processos fundamentais), atividades
+de gerência (processos organizacionais) e atividades de gerência
+de configuração (processos de apoio). Em relação aos processos
+fundamentais, foram propostas melhorias na execução das atividades
+de especificação de requisitos, análise do sistema, projeto
+navegacional do sistema, realização de testes de unidade e de
+aceitação. Para os processos organizacionais foram considerados o
+gerenciamento de prazos e de recursos. As atividades relacionadas
+aos processos de apoio foram o controle de versões e a garantia da
+conclusão, consistência e correção dos itens. A equipe responsável
+pelo projeto se empenhou em cumprir as atividades priorizadas e,
+como resultado, um processo de desenvolvimento de software inicial
+foi estabelecido e a documentação do sistema foi notoriamente
+melhorada \citep{ribeiro:03}.
+
+A partir do uso expressivo do sistema por usuários finais,
+conforme apresentado por \cite{Frei04}, diversos requisitos novos
+surgiram e notou-se que a implementação eficiente desses
+requisitos exigia mais melhorias em termos de documentação e
+melhor controle (gerenciamento) do processo de desenvolvimento.
+Dessa forma, processos especializados para desenvolvimento de
+software para ambiente {\it web} foram investigados, tendo sido adotada
+a proposta elaborada por \cite{pres01}, que propõe que sejam
+cumpridas as atividades de formulação e planejamento, análise,
+engenharia, geração de testes e avaliação com usuários; além de
+considerar princípios de gerenciamento. Com a adoção dessa
+abordagem foi possível considerar no processo elementos
+característicos de um desenvolvimento voltado para o ambiente {\it web},
+por exemplo, a evolução contínua das aplicações e o planejamento
+de interfaces considerando elementos do contexto {\it web}
+\citep{For04}.
+
+É importante destacar também que o desenvolvimento do projeto {\it
+No-Risk Planning} passou a ser realizado utilizando o conjunto de
+ferramentas oferecidas pela Incubadora Virtual da Fapesp, ou seja,
+foram utilizadas ferramentas para apoio às atividades de controle
+de versões, controle de bugs, gerenciamento de tarefas,
+requisições de novas funcionalidades, gerenciamento de
+documentação, listas de discussão, fóruns, entre outros. A
+utilização dessas ferramentas também contribuiu para a melhoria do
+processo. Outras informações sobre a realização do estudo de caso
+podem ser encontradas em \cite{pfsf04a}.
+
+A experiência adquirida com a realização deste estudo de caso foi
+importante principalmente em relação à forma de implantação do
+processo, ou seja, foi observada na prática a importância em
+propor a melhoria gradual de um processo e em
+considerar elementos do domínio e do tipo de aplicação
+desenvolvido para que os esforços de melhoria sejam bem sucedidos.
+Além disso, os resultados obtidos com o uso de ferramentas que
+apóiam o desenvolvimento de projetos distribuídos em ambiente de
+pesquisa foram considerados.
+
+As etapas seguintes da proposta de Humphrey para definição de
+processos se referem à definição e validação do processo. Os
+resultados obtidos com a execução destas etapas são apresentados
+no Capítulo \ref{proc_pes}.

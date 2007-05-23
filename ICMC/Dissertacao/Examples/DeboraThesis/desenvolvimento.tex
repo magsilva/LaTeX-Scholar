@@ -1,0 +1,529 @@
+\subsection{Processo de Desenvolvimento} \label{processo_desenvolvimento}
+
+O processo de desenvolvimento é composto pelas atividades de
+definição de funcionalidades do protótipo, planejamento rápido,
+projeto rápido, desenvolvimento do protótipo, avaliação do
+protótipo e integração dos resultados das equipes.
+
+\subsubsection{Definição de funcionalidades do protótipo}
+
+\noindent \fbox{{\bf Identificador:} DF}
+
+\noindent {\bf Proposta:} identificar as funcionalidades que serão implementadas no protótipo.
+
+\noindent {\bf Resultados:} como resultado da implementação bem
+sucedida desta atividade espera-se que as funcionalidades do componente software do sistema sejam estabelecidas.
+
+\noindent {\bf Tarefas:} as tarefas relacionadas à atividade de definição de funcionalidades do protótipo foram
+identificadas a partir da norma ISO/IEC 15504, da norma IEEE 830 \citep{ieee830}, nos {\it templates} elaborados no projeto Readyset ({\it Ready-to-use Software Engineering Templates})\footnote{http://readyset.tigris.org/nonav/} e a partir de \cite{Aue02} e \cite{Som2000}.
+
+\begin{description}
+
+\item[DF.1] Especificar os requisitos do protótipo
+
+\begin{itemize}
+
+\item Objetivo: documentar as funções do protótipo, os requisitos de usuários, os requisitos organizacionais e os requisitos não funcionais.
+
+\item Artefatos de entrada: registros de entrevistas com usuários, documentos científicos, documento de análise de requisitos do sistema, projeto arquitetural do sistema,
+
+\item Artefatos de saída: diferentes notações podem ser utilizadas para a especificação de requisitos do protótipo. Por exemplo, quando métodos ágeis são utilizados, estórias dos usuários são enfatizadas. Outras possibilidades são a especificação de casos de uso e a elaboração de documento de requisitos.
+
+1. Registro de estórias dos usuários\\
+1.1. Título\\
+1.2. Data\\
+1.3. Identificação dos participantes \\
+1.4. Estória \\
+
+2. Especificação de casos de uso\\
+2.1. Identificador do caso de uso\\
+2.2. Título do caso de uso\\
+2.3. Autor\\
+2.4. Data\\
+2.5. Atores\\
+2.6. Descrição geral do caso de uso\\
+2.7. Fluxo básico de eventos\\
+2.8. Fluxo alternativo de eventos\\
+
+3. Documento de requisitos\\
+3.1. Introdução\\
+3.2. Proposta\\
+3.3. Escopo\\
+3.4. Definições, acrônimos e abreviações\\
+3.5. Referências\\
+3.6. Perspectiva do protótipo (apresenta o protótipo a ser desenvolvido no contexto de outros projetos de pesquisa em desenvolvimento pelo grupo) \\
+3.7. Funções do protótipo\\
+3.8. Características dos usuários\\
+3.9. Restrições\\
+3.10. Suposições e dependências\\
+3.11. Requisitos funcionais\\
+3.12. Requisitos não-funcionais\\
+3.13. Critérios de verificação e validação
+
+
+\item Informações adicionais, Tabela \ref{est}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Informações adicionais relacionadas à tarefa DF.1}\label{est}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline Explicações: \\
+\hline Estórias descrevem como os usuários poderão interagir com o sistema para cumprir uma tarefa. Estórias dos usuários são breves parágrafos (3 a 5 sentenças) que descrevem um cenário específico. Nestas estórias não são considerados detalhes do sistema pois o foco está na interação do usuário com o sistema \cite{Aue02}.\\
+\hline Um caso de uso é uma descrição de um conjunto de sequência de ações, incluindo variantes realizadas pelo sistema para produzir um resultado observável do ponto de vista de um ator \citep{Jac06}. \\
+\hline Referências:\\
+\hline Descrições relativas ao conteúdo e à qualidade de um documento de requisitos de software são apresentadas na norma IEEE 830 \citep{ieee830}. De forma geral, em relação ao conteúdo, devem ser englobadas introdução, descrição geral e especificação de requisitos. Em relação à qualidade, os requisitos apresentados devem ser corretos, não-ambíguos, completos e consistentes. Além disso, prioridades devem ser indicadas e deve ser possível verificá-los, modificá-los e rastreá-los.  \\
+\hline É importante notar que outras técnicas além da realização de sessões de {\it brainstormings} e revisão da literatura podem ser consideradas na identificação de funcionalidades do protótipo a ser desenvolvido, por exemplo, entrevistas e análise de dados de questionários. Outras informações sobre técnicas para engenharia de requisitos são apresentadas por \cite{kot}.\\
+\hline Experiências:\\
+\hline Conforme observado por \cite{Oli05}, comumente o coordenador do projeto de pesquisa desempenha o papel de usuário final. Neste caso, as estórias podem ser registradas a partir de reuniões individuais entre pesquisador e coordenador do projeto ou a partir de sessões de {\it brainstormings} envolvendo as equipes. \\
+\hline  \cite{seg05} apresenta suas experiências com o desenvolvimento de projetos de pesquisa no laboratório LABtoSPACE e destaca que os cientistas desenvolvem software de forma muito iterativa e os requisitos emergem nas sucessivas iterações. A autora apresenta as dificuldades relacionadas à elaboração e utilização de um documento de requisitos e sugere que seja utilizada uma metodologia ágil e iterativa, que favoreça a inclusão de novos requisitos à medida que o projeto é desenvolvido. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+%\item[DF.1] Registro de estórias dos usuários
+
+%        \begin{enumerate}
+%        \item Sessões de brainstorming precisam ser previamente planejadas e os resultados devem ser registrados. Sugere-se, portanto, o cumprimento das tarefas e o registro das informações apresentadas a seguir \cite{jub99}: \\
+%1. Local, data e horário de início e de término da sessão\\
+%2. Nome do condutor da sessão de brainstorming\\
+%3. Nome dos anotadores/assistentes\\
+%4. Nome dos participantes\\
+%5. Meta da sessão\\
+%6. Tarefas:\\
+%6.1. O condutor da sessão deve deixar claro o motivo da participação de cada um
+%motivando-os e deixando-os à vontade para que a sessão transcorra de forma efetiva\\
+%6.2. Apresentar o elemento-chave que motiva a sessão\\
+%6.3. Solicitar que cada participante exponha seu conhecimento a respeito do elemento-chave  \\
+%6.4. Repetir as tarefas 6.2 e 6.3 até que todas as funcionalidades identificadas tenham sido discutidas \\
+%7. Definir cronograma: estipular tempo máximo para cada tarefa\\
+%8. Disponibilizar recursos necessários para realização da sessão.\\
+
+\end{description}
+
+\subsubsection{Planejamento rápido}
+
+\noindent \fbox{{\bf Identificador:} PR}
+
+\noindent {\bf Proposta:} definir o planejamento do projeto (para a iteração corrente, caso seja utilizada uma abordagem iterativa).
+
+\noindent {\bf Resultados:} como resultado da implementação bem sucedida desta atividade, obtém-se um planejamento para o desenvolvimento do projeto.
+
+%\end{enumerate}
+
+\noindent {\bf Tarefa:} a tarefa relacionada à atividade de planejamento rápido foi identificada a partir dos {\it templates} elaborados no projeto Readyset ({\it Ready-to-use Software Engineering Templates})\footnote{http://readyset.tigris.org/nonav/} e a partir de \cite{Aue02}.
+
+\begin{description}
+
+\item[PR.1] Planejamento 
+
+\begin{itemize}
+
+\item Objetivo: realizar um planejamento elementar que inclui estimativa de tempo para implementar cada estória, caso de uso ou requisito, custos associados, riscos e prioridade (para a iteração corrente, caso seja utilizada uma abordagem iterativa).
+
+\item Artefatos de entrada: registro de estórias dos usuários, especificação de casos de uso, documento de requisitos, cronograma de cada equipe
+
+\item Artefatos de saída:
+
+1. Planejamento\\
+1.1. Identificador das estórias, requisitos ou casos de uso que serão considerados\\
+1.2. Estimativa de tempo para implementação \\
+1.3. Prioridade (alta, moderada, baixa)
+
+\item Informações adicionais, Tabela \ref{plan}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Informações adicionais relacionadas à tarefa PR.1}\label{plan}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline Sugestão: \\
+\hline Conforme sugerido por \cite{Oli05}, o planejamento deve ser realizado pelas equipes e as decisões tomadas devem ser mantidas em um repositório online, de forma que os membros do projeto possam acessá-las facilmente.\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+\end{description}
+
+
+\subsubsection{Projeto ({\it design}) rápido}
+
+\noindent \fbox{{\bf Identificador:} PP}
+
+\noindent {\bf Proposta:} definir um projeto simples do protótipo
+
+\noindent {\bf Resultados:} como resultado da implementação bem sucedida desta atividade, obtém-se o projeto do protótipo (para a iteração corrente, caso seja utilizada uma abordagem iterativa).
+
+\noindent {\bf Tarefas:}
+
+\begin{description}
+
+\item[PP.1] Elaboração de projeto simples
+
+\begin{itemize}
+
+\item Objetivo: elaborar projeto considerando as prioridades estabelecidas no planejamento.
+
+\item Artefatos de entrada: registro de estórias dos usuários, diagrama de casos de uso, documento de requisitos, planejamento.
+
+\item Artefatos de saída: há diversas possibilidades em relação aos artefatos a serem gerados, por exemplo, diagrama de classes, projeto da arquitetura do sistema, projeto de dados, projeto da interface, diagrama de colaboração e outros sugeridos pela linguagem UML.
+
+\item Informações adicionais, Tabela \ref{plan_rap}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Informações adicionais relacionadas à tarefa PP.1}\label{plan_rap}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline Sugestão: \\
+\hline \cite{Oli05} sugeriram, no contexto da metodologia XR ({\it eXtreme Researching}), que a atividade de projeto seja baseado em componentização e orientação a objetos, pois, segundo eles, é uma forma de facilitar a transmissão de conhecimento entre as equipes que trabalham em um projeto de pesquisa e facilitar a interação quando o projeto é desenvolvido de forma multidisciplinar.  \\
+\hline Referência: \\
+\hline Descrições sobre os diagramas que podem ser gerados na tarefa de elaboração de projeto simples podem ser encontradas em \cite{Jac06}. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+\end{description}
+
+\subsubsection{Desenvolvimento do protótipo}
+
+\noindent \fbox{{\bf Identificador:} DP}
+
+\noindent {\bf Proposta:} desenvolver o protótipo e realizar testes de unidade
+
+\noindent {\bf Resultados:} como resultado da implementação bem sucedida desta atividade, o código fonte do protótipo é desenvolvido e testes de unidade são realizados.
+
+\noindent {\bf Tarefas:} as tarefas relacionadas à atividade de desenvolvimento de protótipo foi identificada a partir dos {\it templates} elaborados no projeto Readyset ({\it Ready-to-use Software Engineering Templates})\footnote{http://readyset.tigris.org/nonav/} e do trabalho de \cite{Fil01}.
+
+\begin{description}
+
+\item[DP.1] Implementação do código fonte
+
+\begin{itemize}
+
+\item Objetivo: desenvolver o código fonte do protótipo, considerando as estórias dos usuários, casos de uso ou requisitos elicitados que foram priorizados. Padrões de codificação ({\it coding standards}) devem ser estabelecidos, divulgados e utilizados.
+
+\item Artefatos de entrada: descrição das estórias, casos de uso ou requisitos da iteração corrente, diagramas gerados na atividade de projeto rápido
+
+\item Artefatos de saída: código fonte\\
+
+\end{itemize}
+
+\item[DP.2] Projetar procedimentos e casos de testes de unidade
+
+\begin{itemize}
+
+\item Objetivo: projetar os procedimentos e casos de teste para testes de unidade.
+
+\item Artefatos de entrada: planejamento, artefatos produzidos na tarefa de elaboração de projeto simples, código fonte
+
+\item Artefatos de saída: \\
+1. Procedimentos de teste\\
+1.1. Objetivo\\
+1.2. Fluxo
+
+2. Projeto de casos de teste\\
+2.1. Entradas \\
+2.2. Saídas esperadas 
+
+\item Informações adicionais, Tabela \ref{und1a}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Informações adicionais relacionadas à tarefa DP.2}\label{und1a}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline Explicação:\\
+\hline Os procedimentos de teste contêm uma sequência de ações que devem ser executadas para realizar um grupo de testes semelhantes. O fluxo de procedimento representa os passos que devem ser executados por um testador em termos de telas, campos e comandos. Os valores dos campos são determinados nos casos de teste. Portanto, os casos de teste contêm valores de entrada e valores de saída esperados para cada instância de teste \citep{Fil01}.\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+\item[DP.3] Executar testes de unidade
+
+\begin{itemize}
+
+\item Objetivo: realizar testes de unidade de acordo com o projeto de casos de teste
+
+\item Artefatos de entrada: procedimentos de teste, projeto de casos de teste, código fonte
+
+\item Artefatos de saída: código fonte, relatório de testes de acordo com os interesses e necessidades da equipe
+
+\item Informações adicionais, Tabela \ref{und1}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{ Informações adicionais relacionadas à tarefa DP.3}\label{und1}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline
+Sugestões:\\
+\hline Conforme sugerido por \cite{Amb04}, as pessoas que trabalham no desenvolvimento de um módulo ou de uma parte de um projeto de pesquisa são aquelas que conhecem mais sobre os {\it bugs} e as restrições que fazem parte do mesmo. Os autores sugerem o cumprimento da atividade de rastreio de {\it bugs} ({\it bug tracking}), tendo em vista a alta rotatividade dos membros dos projetos. Outro fator que motiva o cumprimento desta atividade se refere ao fato de que, à medida que os projetos crescem, os problemas causados pelos {\it bugs} tendem a se tornar mais complexos. Dessa forma, caso as descrições dos {\it bugs} não sejam registradas e disponibilizadas, é provável que as manutenções realizadas pelos desenvolvedores  comprometam a qualidade e os objetivos a longo prazo do projeto. \\
+\hline A ferramenta Bugzilla pode ser útil para contribuir na implantação da atividade de rastreio de {\it bugs}. Em especial, o uso da ferramenta pode colaborar para que a comunicação ocorra quando o projeto é desenvolvido de forma distribuída e para registrar informações sobre {\it bugs} que serão úteis quando novos membros assumirem o projeto. A descrição das principais funcionalidades da ferramenta Bugzilla pode ser encontrada em \cite{que05}. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+
+%\end{itemize}
+
+\end{description}
+
+\subsubsection{Avaliação do protótipo}
+
+\noindent \fbox{{\bf Identificador:} AP}
+
+%\noindent {\bf Proposta do processo:} O objetivo deste processo é definir um plano de avaliação do protótipo (teste de aceitação) e realizar a avaliação.
+
+\noindent {\bf Proposta:} realizar testes funcionais no protótipo
+
+\noindent {\bf Resultados:} como resultado da implementação bem sucedida desta atividade, o protótipo é avaliado, ou seja, um conjunto de funcionalidades é avaliado pelos usuários finais e um conjunto de alterações é sugerido.
+
+%\end{enumerate}
+
+\noindent {\bf Tarefas:} as tarefas relacionadas à atividade de avaliação do protótipo foram
+identificadas a partir do trabalho de \cite{hum99} e \cite{Fil01}.
+
+\begin{description}
+
+\item [AP.1] Planejar testes funcionais
+%\item[AA.3.BP1] Definir o plano de avaliação do protótipo, considerenado quais partes do protótipo serão avaliadas e como serão avaliadas. Instruções apresentadas na Norma ISO/IEC 15504-5 \cite{ISO15504} podem ser úteis na definição deste plano;
+
+%\item[AA.3.BP2] Avaliar o protótipo considerando a visão de usuários finais.
+
+\begin{itemize}
+
+\item Objetivos: identificar técnica(s) que serão usadas para realização de testes funcionais, especificar condições de término dos testes e determinar recursos para realização de testes.
+
+\item Artefatos de entrada: registro de estórias dos usuários, especificação de casos de uso, documento de requisitos, planejamento
+
+\item Artefatos de saída:\\
+1. Planejamento de testes funcionais \\
+1.1. Técnica(s) de teste a ser(em) utilizada(s)\\
+1.2. Itens a serem testados\\
+1.3. Grau de cobertura por itens\\
+1.4. Condições de término normal dos testes\\
+1.5. Condições de término anormal dos testes e procedimentos a adotar\\
+1.6. Responsabilidades, cronograma e recursos necessários
+
+\item Informações adicionais, Tabela \ref{tes}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{  Informações adicionais relacionadas à tarefa AP.1}\label{tes}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline
+Comentário:\\
+\hline Avaliações com clientes e usuários são práticas fortemente recomendadas no contexto de metodologias ágeis. Em ambiente de desenvolvimento de pesquisa, a realização de avaliações pode ser favorecida, pois o cliente ou usuário (às vezes o próprio coordenador do projeto) está presente no ambiente de desenvolvimento ({\it on site customer}) \citep{Oli05}.\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+%\item[AP.2] Identificar itens a testar
+
+%\begin{itemize}
+
+%\item Objetivo: definição de requisitos funcionais não funcionais dos itens a serem testados.
+
+%\item Papel:
+
+%\item Artefatos de Entrada: especificação dos requisitos (requisitos funcionais e não funcionais)
+
+%\item Artefatos de Saída:
+%1. Requisitos funcionais dos itens a testar\\
+%2. Requisitos nao funcionais dos itens a testar\\
+
+%\end{itemize}
+
+
+%\item[PE.5.BP3] Fazer o planejamento detalhado dos testes funcionais
+
+%\begin{itemize}
+
+%\item Objetivo: determinar detalhes da técnica definida no planejamento inicial
+
+%\item Papel:
+
+%\item Artefatos de Entrada:
+
+%\item Artefatos de Saída:
+%    1. Template??? ver no livro
+
+%   \end{itemize}
+
+
+\item[AP.2] Projetar testes funcionais
+
+\begin{itemize}
+
+\item Objetivo: projetar os procedimentos e casos de teste.
+
+\item Artefatos de entrada: registro de estórias dos usuários, especificação de casos de uso, documento de requisitos,
+
+\item Artefatos de saída:
+
+1. Projeto dos procedimentos de teste\\
+1.1. Objetivo\\
+1.2. Fluxo
+
+2.Projeto de casos de teste\\
+2.1. Entradas \\
+2.2. Saídas esperadas \\
+
+%\item Informações adicionais, Tabela \ref{fun1}
+
+%\begin{table}[!ht]
+%\begin{center}
+%\caption{}\label{fun1}
+%\begin{tabular}{|p{12.5cm}|}
+%\hline
+%Explicação:\\
+%\hline Testes de aceitação podem ser considerados sob as perspectivas de testes funcionais e testes de sistema \cite{Fil01}. Os testes de sistema possuem o propósito de exercitar completamente um sistema baseado em computador, considerando-se elementos como hardware, pessoas e informações \cite{Pressman05}. Os testes de recuperação, testes de segurança, teste de stress e teste de performance são considerados testes de sistema. \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+
+\end{itemize}
+
+\item[AP.3] Executar testes funcionais
+
+\begin{itemize}
+
+\item Objetivo: realizar testes de acordo com o planejamento de testes funcionais, projeto dos procedimentos de testes funcionais e projeto de casos de teste funcionais.
+
+\item Artefatos de entrada: planejamento dos testes funcionais, procedimentos e casos de teste, registro de estórias dos usuários, especificação de casos de uso, documento de requisitos, código fonte
+
+\item Artefato de saída: \\
+1. Relatório de testes funcionais: \\
+1.1. Data (ou período) em que os testes foram realizados\\
+1.2. Identificação do responsável(is) pela execução dos testes\\
+1.3. Protótipo e configuração testados\\
+1.4. Tempo gasto na execução dos testes\\
+1.5. Descrição dos defeitos encontrados e medidas adotadas\\
+1.6. Outros resultados dos testes relevantes\\
+
+\end{itemize}
+
+
+%\item [PE.5.BP4] Testes de aceitação (ou entao entra na parte de Validação) -- tirei porque acho que ja esta incluido em testes de funcionalidade, que ja havia sido incluida.
+
+%\begin{itemize}
+
+%\item Objetivo: O objetivo deste processo é planejar e realizar testes de aceitação. Os testes de aceitação têm como objetivo fazer a validação do produto, verificando o atendimento aos requisitos especificados. Devem ser projetados para garantir que todos os requisitos funcionais e de desempenho são satisfeitos, a documentação está correta e os requisitos de qualidade são cumpridos \cite{Pressman05}.
+
+%\item Pape
+
+%\item Artefatos de entrada: estórias dos usuários
+
+%\item Artefatos de saída:
+
+%\end{itemize}
+
+\end{description}
+
+\subsubsection{Integração dos resultados das equipes}
+
+\noindent \fbox{{\bf Identificador} IR}
+
+\noindent {\bf Proposta:} realizar a integração dos resultados parciais obtidos com o desenvolvimento do projeto.
+
+\noindent {\bf Resultados:} como resultado da implementação bem sucedida desta atividade espera-se que os protótipos desenvolvidos pelas equipes sejam integrados e testados.
+
+\noindent {\bf Tarefas:} as tarefas relacionadas à atividade de integração dos resultados das equipes foram
+identificadas a partir do trabalho de \cite{hum99}, \cite{paa04} e \cite{Fil01}.
+
+\begin{description}
+
+\item[IR.1] Planejar a integração dos resultados de cada equipe
+
+\begin{itemize}
+
+\item Objetivos: elaborar um plano de integração dos artefatos produzidos pelas equipes e realizar a integração.
+
+\item Artefatos de entrada: artefatos produzidos por cada equipe e que serão integrados, projeto arquitetural do protótipo
+
+\item Artefatos de saída:
+
+1. Plano de integração:\\
+1.1. Módulos (componentes) e artefatos a serem integrados\\
+1.2. Estratégia de teste de integração a ser utilizada ({\it top-down ou bottom-up})\\
+1.4. Responsabilidades, cronograma e recursos necessários
+
+\item Informações adicionais, Tabela \ref{int}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{ Informações adicionais relacionadas à tarefa IR.1}\label{int}
+\begin{tabular}{|p{12.5cm}|}
+%\begin{tabularx}{|X|X|X|}
+\hline
+Comentários:\\
+\hline Conforme apresentado por \cite{paa04}, muitos benefícios podem ser alcançados com a realização de integração após o cumprimento de cada ciclo de iteração. Por exemplo, previne-se que as equipes desenvolvam os projetos por longos períodos independentemente e produzam módulos difíceis de integrar e, além disso, o trabalho das equipes torna-se mais transparente.\\
+\hline Sempre que um novo módulo é integrado ao sistema, podem ocorrer problemas com funções que anteriormente eram executadas de forma correta. Portanto, devem ser realizados testes de regressão que é a re-execução de um conjunto de testes para assegurar que as mudanças não incluíram erros adicionais. O subconjunto de testes a ser executado contém, principalmente, uma amostra representativa de testes que irão exercitar todas as funções de software e testes adicionais com foco em funções que são prováveis de serem afetadas pelas mudanças e testes \citep{Pressman05}.  \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{itemize}
+
+\item[IR.2] Projetar testes de integração
+
+\begin{itemize}
+
+\item Objetivo: projetar os procedimentos e casos de teste de integração.
+
+\item Artefatos de entrada: projeto arquitetural do software
+
+\item Artefatos de saída:
+
+1. Projeto dos procedimentos de teste\\
+1.1. Objetivo\\
+1.2. Fluxo
+
+2.Projeto dos casos de teste\\
+2..1. Entradas \\
+2.2. Saídas esperadas \\
+
+\end{itemize}
+
+\item[IR.3] Executar testes de integração
+
+\begin{itemize}
+
+\item Objetivos: fazer a integração dos artefatos produzidos pelas equipes e realizar testes de acordo com o planejamento de testes de integração, procedimentos de testes de integração e projeto de casos de teste de integração.
+
+\item Artefatos de entrada: projeto arquitetural do software, plano de integração, procedimentos e casos de teste de integração, artefatos integrados
+
+\item Artefatos de saída: \\
+1. Relatório de teste de integração\\
+1.1. Data (ou período) em que os testes foram realizados\\
+1.2. Identificação do responsável(is) pela execução dos testes\\
+1.3. Protótipo e configuração testados\\
+1.4. Tempo gasto na execução dos testes\\
+1.5. Descrição dos defeitos encontrados e medidas adotadas\\
+1.6. Outros resultados relevantes dos testes \\
+
+\end{itemize}
+
+\end{description}

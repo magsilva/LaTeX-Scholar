@@ -1,0 +1,145 @@
+\section{Caracterização do processo atual} \label{atual}
+
+De acordo com Humphrey, as chances de se conseguir resultados
+positivos são maiores quando há planos para a realização de várias
+mudanças incrementais em um processo já existente, ao invés de uma única mudança drástica.
+Assim, não é viável definir um processo completamente novo em que sejam
+desconsideras as práticas adotadas pela comunidade que
+executa o processo. O autor sugere, portanto, que se
+conheça o processo que é cumprido e que se deseja melhorar. Para
+isso, alguns pontos principais precisam ser avaliados, ou seja, é
+preciso descrever as principais atividades cumpridas pelo processo
+atual, como estão relacionadas, o tempo gasto para cumprir cada
+uma delas, os problemas encontrados, os critérios de entrada e saída e os planejamentos e as
+medições que são realizadas com a execução do processo atual.
+
+%O processo cumprido para o desenvolvimento do projeto SAFE é
+%utilizado para caracterização do processo atual, sendo apresentado
+%na próxima subseção. Sob outra perspectiva, a participação e a
+%experiência no projeto SAFE foram fundamentais para a elaboração do
+%processo apresentado, servindo como um estudo de caso que precedeu a
+%elaboração do projeto.
+
+
+%Buscou-se identificar o processo cumprido no desenvolvimento de projetos de pesquisa por meio de revisão da literatura, ou seja, foram buscados documentos científicos que tratassem os processos utilizados nos núcleos de pesquisa. No entanto, poucos documentos científicos foram encontrados \citep{numpra03,wal03}, o que tornou inviável a caracterização do processo utilizado atualmente para o desenvolvimento de pesquisas.
+
+A abordagem utilizada foi a de analisar práticas cumpridas
+registradas em artigos científicos no contexto de projetos de
+pesquisa. Foi possível identificar somente práticas de desenvolvimento de software, e não práticas mais genéricas de desenvolvimento de projetos de pesquisa. Foram analisados documentos de 36 projetos que incluíram
+produção de software, que foram desenvolvidos em
+diferentes países e cujas publicações foram reportadas na literatura
+nos últimos cinco anos. Resumos foram evitados, por fornecerem
+apenas uma descrição breve do projeto. Os documentos foram
+buscados em periódicos, anais, teses, dissertações e repositórios
+de projetos na internet. É importante observar que uma ameaça a
+validade dos resultados obtidos se refere ao fato de que os
+documentos analisados não tinham como objetivo descrever o
+processo utilizado e, portanto, é possível que somente uma parte
+das atividades cumpridas tenham sido apresentadas. Além disso, não
+foi possível inferir o quanto os processos foram cumpridos. Os
+resultados obtidos são apresentados na Figura \ref{gra_corrente}
+em termos de porcentagem do cumprimento das práticas em relação ao
+número total de projetos avaliados. No eixo horizontal são
+apresentadas as atividades mais indicadas nos documentos
+analisados e no eixo vertical são apresentadas as porcentagens. A
+relação entre os projetos analisados e as práticas cumpridas é
+apresentada no Apêndice 1.
+
+\begin{figure} [!ht]
+ \centering
+  \bfseries
+  \includegraphics [width=0.99\textwidth]{grafico.png}
+  \caption{Práticas cumpridas no desenvolvimento de 36 projetos de pesquisa (em termos de porcentagem)}
+  \label{gra_corrente}
+\end{figure}
+
+Pelo resultado apresentado no gráfico é possível notar que, por se tratarem de projetos de software, 100\% dos projetos mencionaram implementação. As atividades cumpridas por pelo menos 50\% dos projetos foram análise de requisitos e projeto. O resultado obtido foi utilizado na elaboração do processo proposto neste trabalho de duas formas:
+\begin{description}
+\item [(a)] balancear requisitos dos usuários e atividades conhecidas por eles para a elaboração do processo e 
+\item [(b)] colaborar na indicação de atividades em que estudos adicionais sobre melhorias na documentação (tendo em vista a melhoria da manutenção dos projetos) seriam realizados, considerando a abordagem de {\it design rationale}. 
+\end{description}
+
+Humphrey sugere que a melhoria de um processo seja iniciada por atividades que são conhecidas pelos usuários do processo.  \cite{Roc01} apresentaram um exemplo de definição de processos em que essa estratégia foi utilizada na prática e os resultados obtidos foram positivos.
+
+Uma revisão da literatura foi conduzida, com o objetivo de coletar dados sobre as práticas genéricas de desenvolvimento de projetos de pesquisa envolvendo software (atividades além daquelas de ciclo de vida de software). Em resumo, foi possível observar que: 
+
+\begin{itemize}
+
+\item Poucas atividades referentes a planejamento e controle são cumpridas, pois há muitas incertezas em relação ao desenvolvimento de projetos de pesquisa. Há incertezas, por exemplo, em relação a: (1) o tempo gasto para provar uma teoria ou obter resultados válidos para experimentos e (2) os requisitos que serão considerados no desenvolvimento do projeto, pois eles são identificados gradualmente, a medida em que o projeto é desenvolvido e os resultados são percebidos \citep{hul05};
+
+\item A documentação gerada nos projetos de pesquisa não é ideal pois, em geral, está restrita a documentos científicos, como artigos, dissertações e teses \citep{wal03,Bol04};
+
+\item Há alta rotatividade dos membros que participam do desenvolvimento de projetos de pesquisas e nem sempre a documentação disponível é adequada para que novos participantes possam entender o estágio em que o projeto se encontra \citep{numpra04,cav89}.
+
+\item As atividades relacionadas a treinamento geralmente ocorrem de formas diferentes, de acordo com o contexto em que é realizado. Em geral, o treinamento em ambiente acadêmico ocorre por meio de uma combinação de aulas e tutorias e não há envolvimento em termos práticos dos participantes com o conteúdo apresentado.  No contexto industrial, é comum que aulas breves sejam ministradas e trabalhos práticos sejam desenvolvidos por pequenos grupos \citep{Ble05}.
+
+\end{itemize}
+
+Durante a etapa de caracterização do processo corrente,  Humphrey ainda sugere que algumas questões sejam respondidas. Para responder as questões, foram considerados, principalmente, os dados apresentados nesta seção. As respostas representam também um resumo sobre as características do desenvolvimento de projetos de pesquisa apresentadas em outras seções.
+
+\begin{enumerate}
+
+\item {\it É possível descrever as principais atividades do
+processo corrente, como estão relacionadas e o tempo gasto para
+execução de cada uma delas?} \\
+ De forma geral observou-se que são
+executadas principalmente atividades de ciclo de vida de desenvolvimento de software, destacando-se: implementação, análise de requisitos e projeto. Não foram encontradas informações sobre o relacionamento entre as
+atividades e o tempo gasto para executá-las.
+
+\item {\it Há problemas relacionados aos processos correntes?
+Liste-os}. \\ 
+Há dificuldades na manutenção
+dos projetos. É comum a re-escrita (ao invés da evolução) de
+funcionalidades dos protótipos.
+\cite{Bol04} e \cite{wal03} destacam as limitações na
+documentação gerada nos projetos, que é um dos principais fatores
+que dificultam a continuidade dos mesmos. Problemas com o
+gerenciamento de projetos, principalmente quando são desenvolvidos
+de forma distribuída, foram indicados por
+\cite{cav02} e \cite{uwa06}. Observam-se também
+problemas no estabelecimento de parcerias entre indústria e
+academia, devido a dificuldades na definição de objetivos e de papéis e no gerenciamento de recursos \citep{Korn03}.
+
+\item {\it Os passos do processo corrente possuem artefatos de
+entrada e de saída bem definidos?} \\
+ Não foram encontrados registros
+que pudessem indicar tais critérios.
+
+\item {\it O processo corrente é planejado e rastreado?} \\
+Não. Conforme apresentado por \cite{hul05}, na prática,
+poucas atividades de planejamento de projetos de pesquisa são
+realizadas ou, pelo menos, reportadas. Os autores consideram também que as diferenças entre o
+desenvolvimento de projetos de pesquisa e o desenvolvimento de software na indústria impõem que o gerenciamento
+dos projetos ocorra de forma diferenciada em ambos os casos.
+
+\item {\it São realizadas medições suficientemente no processo corrente de forma
+a possibilitar que planos de melhoria sejam propostos?} \\
+Foram encontrados alguns relatos que indicam interesse da
+comunidade científica em medir os processos utilizados nos
+laboratórios de pesquisa. \cite{coc03,cocc01} propôs um modelo, aplicado em duzentos
+institutos, para coleta de dados sobre desempenho e
+produtividade em laboratórios de pesquisa. As métricas estabelecidas no modelo estão relacionadas a: (1) {\it auto
+financiamento}, que é a quantidade de recursos obtidos a partir da
+parceria entre universidade e indústria; (2) {\it treinamento}, que é a
+quantidade de pessoas treinadas no instituto, por exemplo, número
+de pessoas que obtiveram alguma titulação e número de pessoas que
+participaram de cursos temporários; (3) {\it ensino}, que é a
+quantidade de cursos oferecidos no instituto e (4) {\it
+produção científica}, que é a quantidade de artigos publicados em
+periódicos nacionais e internacionais. Outras iniciativas e
+experiências também foram apresentadas \citep{har94,luw99}, no
+entanto, não foi discutida a relação entre a aplicação de
+métricas e melhoria dos processos. Em outros estudos, a ênfase
+está no processo de avaliação utilizado e há pouca discussão
+sobre as medições realizadas \citep{wal03,miy98}. Nestes casos, são
+apresentadas relações entre as avaliações e a melhoria dos
+processos. De forma geral, nota-se que há iniciativas no sentido
+de medir, avaliar e melhorar os processos utilizados no
+desenvolvimento de pesquisas. Não foram encontradas, porém, generalizações sobre medições que pudessem indicar como possíveis planos de melhoria podem ser implantados.
+
+
+\end{enumerate}
+
+
+
+

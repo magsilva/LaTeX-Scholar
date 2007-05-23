@@ -1,0 +1,491 @@
+\chapter{Processo para Projetos de Pesquisa em Software} \label{proc_pes}
+
+\section{Considerações iniciais}
+
+Neste capítulo é apresentado o processo proposto para desenvolvimento de projetos de pesquisa em software. Após uma breve discussão, em que são retomados os principais elementos que foram importantes para a definição do processo, é apresentado o processo padrão. Em seguida são apresentados o processo especializado e um exemplo de instanciação da proposta. O modelo CMMI foi utilizado para apoiar a etapa de especialização e a instanciação foi realizada no contexto do desenvolvimento do projeto SAFE ({\it Software Engineering Available for Everyone}). Por fim, são discutidos também aspectos da avaliação do processo. 
+
+\section{Fundamentos para a elaboração do processo proposto} \label{funda}
+
+Para a definição do processo padrão foram considerados aspectos
+específicos do desenvolvimento de projetos distribuídos e
+colaborativos e do desenvolvimento de software livre. Além disso,
+conforme sugerido na literatura, buscou-se combinar elementos de
+metodologias ágeis e de metodologias tradicionais. É importante destacar também os
+processos que tornam viáveis o estabelecimento de parcerias entre
+universidades e empresas.
+
+É possível notar, como características semelhantes entre o
+desenvolvimento de projetos de software livre e o desenvolvimento
+de projetos de pesquisa, a evolução contínua do projeto, em que
+novas versões são frequentemente disponibilizadas; a ausência de um
+conjunto determinado de requisitos no início do desenvolvimento do
+projeto; a dispersão geográfica dos membros e a
+distribuição gratuita do software desenvolvido em grande parte dos
+projetos. Em especial, as experiências e as práticas cumpridas
+pela comunidade de software livre contribuíram para a definição dos processos de coordenação, de comunicação
+e de gerenciamento.
+
+O desenvolvimento distribuído e colaborativo é uma das principais
+características do desenvolvimento de projetos de pesquisa. Assim,
+em particular, práticas indicadas por \cite{mai99} na proposta de
+um processo para o desenvolvimento de projetos distribuídos e por
+\cite{hum99}, na proposta de um processo para desenvolvimento de
+projetos por equipes, foram enfatizadas. De forma geral,
+conforme apresentado no Capítulo \ref{processo_software},
+processos importantes neste contexto se referem ao gerenciamento
+de configuração, comunicação, gerenciamento e coordenação de
+projetos, estabelecimento da infra-estrutura, gerenciamento
+de requisitos, planejamento e controle de projetos e garantia da
+qualidade.
+
+Dois importantes valores defendidos nas propostas de métodos ágeis
+para desenvolvimento de software foram considerados no contexto
+deste trabalho. Em um dos valores é enfatizado que software
+funcional é mais importante que documentação detalhada. Foi
+observado, conforme apresentado no Capítulo \ref{cap_concepcao}, que em geral há
+pouca experiência com o cumprimento de boas práticas para
+desenvolvimento de projetos de pesquisa. Conforme sugerido por
+\cite{Hum95}, propor uma mudança drástica nos processos cumpridos
+correntemente não é viável. Assim, considerando este valor, foi
+proposto uma documentação simplificada das atividades a serem
+cumpridas, porém, incluindo elementos essenciais.
+
+Outro valor importante considerado na proposta de métodos ágeis
+está relacionado a priorizar a resposta a mudanças, ao invés do
+cumprimento de um plano. Trazendo para o contexto do
+desenvolvimento de pesquisas, nota-se que também há a prioridade
+em investigar respostas para as questões de pesquisa quando elas surgem.  Assim, a obtenção
+de conhecimento, a proposta de soluções inovadoras e as
+investigações para a resolução dos problemas de pesquisa também
+devem ser considerados como primordiais.
+
+Conforme observado por \cite{Jen04} e \cite{Mac96}, é difícil
+implementar a parceria entre academia e indústria por diversos
+motivos, dentre eles, a falta de interesse de membros da academia
+em projetar sistemas para a área de negócios e em elaborar
+materiais apropriados para oferecer treinamento para a indústria. No entanto, apesar das dificuldades, membros da academia, da
+indústria e do governo têm buscado desenvolver projetos
+conjuntamente e, sobretudo, aprender com os erros, propor modelos
+de parceria, estender seus domínios e melhorar seus negócios e
+suas pesquisas de acordo com as experiências obtidas.
+
+Diversos autores, baseados em suas experiências, indicaram
+atividades consideradas fundamentais para que a parceria entre
+universidade e indústria aconteça. \cite{Korn03} destacaram a
+importância em definir claramente objetivos, papéis e
+responsabilidades, usar uma abordagem incremental para o
+desenvolvimento de software, elaborar documentação completa dos
+projetos, incluindo elementos de {\it design rationale}.
+\cite{Jen04} destaca a importância do gerenciamento efetivo do
+projeto. \cite{Mac96} indicaram também a importância da definição
+clara de objetivos e papéis e destacaram a importância da formação de
+equipes cujos membros se comunicam com facilidade, da divisão do projeto em
+fases, do uso de um processo iterativo, da compatibilidade entre os
+treinamentos oferecidos e dos interesses das entidades envolvidas.
+
+Em ambiente de desenvolvimento de pesquisas observa-se que os requisitos são
+identificados primordialmente de forma iterativa \citep{seg05}.
+Além disso, há interesse no desenvolvimento de protótipos, com o
+objetivo de validar resultados de pesquisa. Estes protótipos
+geralmente são continuados por diversos estudantes e pesquisadores
+e, conforme observado por \cite{Bol04}, é
+fundamental produzir documentação que contribua para
+garantir a evolução das investigações e a obtenção de resultados
+científicos.
+
+%Conforme apresentado por \cite{paa04}, quando um projeto é desenvolvido de forma distribuída, não é
+%necessário que as equipes envolvidas adotem o mesmo processo.
+%Quando estas equipes cumprem algum processo considerado
+%satisfatório, deve ocorrer apenas a sincronização entre as
+%principais fases do processo e os {\it milestones}. Sugere-se,
+%ainda, que seja utilizado um modelo de processo incremental e os
+%participantes devem sincronizar os ciclos de iteração, isto é,
+%eles devem ter o mesmo tamanho.
+
+%Os processos de engenharia englobam o método da prototipação,
+%práticas de desenvolvimento ágil e o registro de design rationale.
+%Conforme apresentado na Figura \ref{eng}, sugere-se que o
+%desenvolvimento ocorra de forma iterativa, (incremental?? ver
+%termos usados no artigo do seg05 e no livro do praxis),
+%disponibilizando-se releases com a maior frequência possível. Na
+%última iteração disponibiliza-se o protótipo.
+
+%{\bf Visão geral do subprocesso:} engloba atividades de um desenvolvimento ágil consideradas em um contexto de prototipação. Tradicionalmente, protótipos são construídos para ajudar o projetista a refinar os requisitos do sistema. Geralmente é construído um software simples, sem documentação, pouco eficiente. Em ambiente acadêmico geralmente são desenvolvidos protótipos (como resultado das pesquisas realizadas) que são continuados por diversos estudantes e pesquisadores. Neste processo enfatiza-se a utilização das principais fases da prototipação considerando-se práticas de desenvolvimento ágil, de forma que uma documentação elementar seja gerada. (Pressman fala na pagina 75 sobre uso de prototipação junto com métodos ageis).
+
+%O desenvolvimento de protótipos, ao invés de produtos, é uma característica do ambiente acadêmico. São consideradas, basicamente, as atividades propostas pelo método da prototipação. Em ambiente acadêmico, nem sempre é simples definir o tema do projeto que será desenvolvido \cite{DuSoBuRe04a} e, portanto, uma atividade relacionada foi incluída
+
+%OBS: Pg 77 - Pressman: Fuzzy problem solving ability: Há uma relacao entre DR e metodos ageis. Há um link entre metodos ageis, prototipação e lições aprendidas.
+
+
+\section{Processo padrão para desenvolvimento de projetos de pesquisa em software}
+
+Na Figura \ref{fig1} é apresentada uma visão geral do processo padrão para o desenvolvimento de projetos de pesquisa em software. Processos apresentados em caixas com fundo branco são equivalentes a processos apresentados na norma e processos apresentados em caixas com fundo cinza foram incluídos como resultado da realização deste trabalho.
+
+\begin{figure} [!ht]
+ \centering
+  \bfseries
+  \includegraphics [width=0.95\textwidth]{Processo_Padrao.pdf}
+  \caption {Processo padrão para o desenvolvimento de projetos de pesquisa}
+  \label{fig1}
+\end{figure}
+
+%As principais diferenças entre a norma ISO/IEC 12207 e o processo para desenvolvimento de projetos de pesquisa em relação aos processos fundamentais são:
+
+%\begin{itemize}
+
+%\item O processo ``Fornecimento'', presente na norma ISO/IEC 12207, não foi incluído no processo para desenvolvimento de projetos de pesquisa. Foi observado, no entanto, que atividades referentes ao processo ``Estabelecimento de Parceria Universidade-Empresa'' (incluído neste trabalho) estão relacionados ao processo proposto na norma. 
+
+%\item O processo ``Iniciação'' foi incluído com o objetivo de englobar atividades de preparação para desenvolvimento de projetos de pesquisa. %como escolha do tema do projeto de pesquisa e elaboração de um plano de pesquisa.
+
+%\end{itemize}
+
+%As principais diferenças entre a norma ISO/IEC 12207 e o processo para desenvolvimento de projetos de pesquisa em relação aos processos de apoio são:
+
+%\begin{itemize}
+
+%\item O processo ``Auditoria''\footnote{Na norma ISO/IEC 12207, no processo de auditoria é avaliada a conformidade a requisitos, planos e contratos}, presente na norma ISO/IEC 12207, não foi incluído no processo para desenvolvimento de projetos de pesquisa porque, conforme indicado na Seção \ref{funda}, foi priorizado respostas a mudanças, ao invés do cumprimento de planos. É possível, no entato, que tal processo seja importante quando há parcerias entre universidades e empresas. Não foram encontrados relatos na literatura indicando a importância e as atividades relacionadas ao processo neste caso e, assim, optou-se pela não inclusão do processo. 
+
+%\item O processo ``Revisão Sistemática'' foi incluído, apesar de não haver sido mencionado pelos usuários do processo. A inclusão ocorreu devido a observação da importância deste processo durante o desenvolvimento de projetos de pesquisa.
+
+%\item O processo ``{\it Postmortem}'' foi incluído por ter sido mencionado como um requisito dos usuários e por fornecer uma alternativa (bastante valorizada na literatura) para obtenção de conhecimento sobre os projetos. Esse conhecimento pode contribuir para a melhoria na forma como os projetos subjacentes serão desenvolvidos. 
+
+
+%\item Os processos ``Preparação de documentos científicos'', ``Elaboração de módulos educacionais'' e ``Transferência tcnológica'' foram incluídos por serem requisitos dos usuários.
+
+%\end{itemize}
+
+%As principais diferenças entre a norma ISO/IEC 12207 e o processo para desenvolvimento de projetos de pesquisa em relação aos processos organizacionais se refere à inclusão dos processos de ``Planejamento'', ``Divulgação'', ``Comunicação'', ``Coordenação'' e ``Estabelecimento de parceria universidade-empresa'', que foram requisitos dos usuários.
+
+A descrição dos processos considerando-se o contexto de
+desenvolvimento de projetos de pesquisa é apresentada no Apêndice
+2. Conforme indicado no Capítulo \ref{processo_software}, é
+fundamental apresentar {\it guidelines} que auxiliem a execução do
+processo, incluindo, por exemplo, atividades e artefatos a serem
+produzidos. 
+
+Para a descrição do processo padrão, foi utilizada uma estrutura
+semelhante àquela apresentada na norma IS0/IEC 15504, parte 5. Portanto, neste trabalho, para cada processo são descritas suas atividades sendo que para cada atividade são apresentados (a) identificador, (b) proposta, (c) resultados e (d) tarefas. Para cada tarefa são apresentados (a) objetivos, (b) artefatos de entrada e (c) artefatos de saída.  
+
+ 
+\section{Especialização do processo padrão para projetos de pesquisa em software} \label{especial}
+
+De acordo com a proposta apresentada por \cite{mai99}, o processo padrão deve ser especializado
+de forma a indicar uma abstração específica para um determinado
+contexto. A principal motivação para a especialização do processo padrão é permitir que gerentes e coordenadores
+de equipes abstraiam determinados aspectos do processo com o objetivo de atender as áreas de um dado nível de maturidade. Dessa forma, a especialização requer que seja estabelecida a correspondência entre os diferentes aspectos do processo padrão e as áreas apresentadas no modelo de maturidade. Assim, é possível identificar os aspectos do
+processo os quais devem ser enfatizados a fim de atender às áreas de um determinado nível
+de maturidade. 
+
+Neste trabalho, com o objetivo de atender às diferentes
+características das equipes que participam do desenvolvimento de
+projetos de pesquisa, foi realizada a especialização do processo
+padrão de forma a permitir que cada equipe utilize um processo com
+nível de maturidade compatível à sua capacidade. Para especializar
+o processo foi estabelecido como referência o modelo CMMI \citep{CMMI2002} (representação por estágios), no qual
+foram definidos os diferentes níveis de maturidade de um processo. Os resultados obtidos são apresentados na Tabela \ref{epc} (para especialização em relação ao nível 2 do CMMI) e na Tabela \ref{nivel3} (para especialização em relação ao nível 3 do CMMI). Foi observado que para os níveis 4 e 5 do CMMI não há processos correspondentes no processo padrão elaborado. Conforme apresentado no Capítulo \ref{acabou}, o estudo da viabilidade da inclusão dos processos referentes a estes níveis é um dos trabalhos futuros propostos.  
+
+% \input{especializacao_nivel2.tex}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Especialização do processo padrão para o nível 2 do CMMI.  \small No Apêndice B desta tese encontram-se as descrições das atividades e tarefas que estão apresentadas nesta tabela por meio de seus identificadores.}\label{epc}
+\begin{tabular}{|p{3.8cm}|p{4cm}|p{2.5cm}|p{2.8cm}|}
+\hline
+\bf \footnotesize \centering Modelo CMMI \\ \centering (nível 2) & 
+\multicolumn{3}{|c|}{\textbf{\footnotesize Processo Padrão para Projetos de Pesquisa em Software}}\\
+\hline
+\bf \footnotesize  Áreas &
+\bf \footnotesize  Processos &
+\bf \footnotesize  Atividades  &
+\bf \footnotesize Tarefas\\  
+\hline
+\footnotesize Gerenciamento de re\-quisitos & \footnotesize \sffamily Gerenciamento & \footnotesize  GN & \footnotesize  GN.1 \\ 
+\hline
+\footnotesize Planejamento de projeto & \footnotesize \sffamily Planejamento  & \footnotesize   DE, PI, PZ, PC, PS & \footnotesize  DE.1, DE.2, PI.1, PI.2, PI.3, PZ.1, PC.1, PS.1, PS.2, PS.3 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Iniciação & \footnotesize  ET, EP & \footnotesize  ET.1, ET.2, ET.3, ET.4, EP.1, EP.2 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Documentação & \footnotesize  PD & \footnotesize  PD.1 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Infra-estrutura & \footnotesize IT, IF & \footnotesize IT.1, IT.2, IF.1 \\ 
+\hline
+\footnotesize  Monitoramento e con\-trole de projeto & \footnotesize \sffamily Coordenação & \footnotesize MR, EC & \footnotesize MR.1, EC.1 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Aquisição & \footnotesize AQ, AR & \footnotesize AQ.1, AQ.2, AR.1, AR.2, AR.3 \\ 
+\hline
+\footnotesize Gerência de subcontratação & \footnotesize \sffamily Estabelecimento de parceria universidade-empresa & \footnotesize EA & \footnotesize EA.1, EA.2, EA.3 \\ 
+\hline
+\footnotesize Medição e análise & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} \\ 
+\hline
+\footnotesize Garantia de qualidade de processo e de produto & \footnotesize \sffamily Garantia da qualidade & \footnotesize IC, GQ, GA & \footnotesize IC.1, GQ.1, GA.1 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Documentação  & \footnotesize IP, PO & \footnotesize IP.1, PO.1 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Revisão & \footnotesize IB, RR & \footnotesize IB.1, RR.1, RR.2, RR.3 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Resolução de problemas & \footnotesize ID, RP & \footnotesize ID.1, RP.1 \\ 
+\hline
+\footnotesize Gerenciamento de configuração & \footnotesize \sffamily Gerência de configuração & \footnotesize IO, II, CC, AC & \footnotesize IO.1, II.1, CC.1, CC.2, CC.3, AC.1 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Revisão sistemática & \footnotesize IM, RE & \footnotesize IM.1, RE.1, RE.2, RE.3 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Preparação de documentos científicos & \footnotesize RD, FD & \footnotesize RD.1, FD.1 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Elaboração de módulos edu\-ca\-cionais & \footnotesize EM  & \footnotesize EM.1, EM.2, EM.3 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Divulgação & \footnotesize IA, DI & \footnotesize IA.1, DI.1, DI.2 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Comunicação & \footnotesize IN, PC & \footnotesize IN.1, PC.1, PC.2 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+%\input{especializacao_nivel3.tex}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Especialização do processo padrão para o nível 3 do CMMI.  \small No Apêndice B desta tese encontram-se as descrições das atividades e tarefas que estão apresentadas nesta tabela por meio de seus identificadores.}\label{nivel3}
+\begin{tabular}{|p{3.9cm}|p{3.6cm}|p{2.6cm}|p{3cm}|}
+\hline
+\bf \footnotesize \centering Modelo CMMI \\ \centering (nível 3) & 
+\multicolumn{3}{|c|}{\textbf{\footnotesize Processo Padrão para Projetos de Pesquisa em Software}}\\
+\hline
+\bf \footnotesize  Áreas &
+\bf \footnotesize  Processos &
+\bf \footnotesize  Atividades  &
+\bf \footnotesize Tarefas\\  
+\hline
+\footnotesize Desenvolvimento de requisitos & \footnotesize \sffamily Iniciação & \footnotesize AE & \footnotesize AE.1, AE.2  \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Desenvolvimento & \footnotesize DF  & \footnotesize DF.1 \\ 
+\hline
+\footnotesize Solução técnica & \sffamily  \footnotesize Iniciação  & \footnotesize PA  & \footnotesize PA.1 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Desenvolvimento & \footnotesize PR, PP, DP, AP & \footnotesize PR.1, PP.1, DP.1, DP.2, DP.3, AP.1, AP.2, AP.3 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Operação & \footnotesize GU, SU & \footnotesize GU.1, SU.1 \\ 
+\cline{2-4}
+ & \footnotesize \sffamily Manutenção  & \footnotesize PM, RM & \footnotesize PM.1, RM.1, RM.2, RM.3, RM.4 \\ 
+\hline
+\footnotesize Integração do produto  & \footnotesize \sffamily Desenvolvimento & \footnotesize IR  & \footnotesize IR.1, IR.2, IR.3 \\ 
+\hline
+\footnotesize Verificação  & \footnotesize \sffamily Verificação  & \footnotesize IE, VE & \footnotesize IE.1, VE.1 \\ 
+\hline
+\footnotesize Validação & \footnotesize \sffamily Validação & \footnotesize IS, VA & \footnotesize IS.1, VA.1 \\ 
+\hline
+\footnotesize Foco no processo organizacional & \footnotesize \sffamily Melhoria  & \footnotesize DR, AO, MP & \footnotesize DR.1, AO.1, AO.2, MP.1, MP.2 \\ 
+\hline
+\footnotesize Definição do processo da organização & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} \\ 
+\hline
+\footnotesize Treinamento organizacional & \footnotesize \sffamily Treinamento  & \footnotesize IL, TR & \footnotesize IL.1, TR.1 \\ 
+\hline
+\footnotesize Gerenciamento integrado de projeto & \footnotesize \sffamily Gerenciamento  & \footnotesize GE, GR, GC, GT, GO, GS & \footnotesize GE.1, GR.2, GR.3, GR.4, GR.5, GC.1, GC.2, GT.1, GO.1, GS.1 \\ 
+\hline
+\footnotesize Gerenciamento de riscos & \footnotesize \sffamily Gerenciamento & \footnotesize GI & \footnotesize GI.1 \\ 
+\hline
+\footnotesize Análise de decisão e resolução & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} & \multicolumn{1}{c|}{--} \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Postmortem & \footnotesize PE, FA & \footnotesize PE.1, PE.2, FA.1, FA.2 \\ 
+\hline
+\multicolumn{1}{|c|}{--} & \footnotesize \sffamily Transferência Tecnológica & \footnotesize PT, RS & \footnotesize PT.1, PT.2, RS.1, RS.2, RS.3 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{Instanciação do processo padrão para projetos de pesquisa em software} \label{instancia}
+
+Conforme apresentado por \cite{mai99}, a atividade de instanciação consiste na seleção e alocação de métodos, técnicas de desenvolvimento, recursos humanos e tecnológicos para cada uma das atividades de um projeto particular.
+É interessante notar que há uma relação entre a atividade de instanciação proposta pela autora e a atividade de validação do processo, proposta na abordagem de \cite{Hum95} para a definição de processos de software. É possível considerar que a atividade de instanciação contribui para a validação e os seus resultados são fundamentais para que sejam propostas melhorias nos processos padrão e especializado.        
+
+Nesta seção é apresentado um exemplo de instanciação do processo padrão para desenvolvimento de projetos de pesquisa em software. Serão apresentados elementos relacionados a recursos humanos, recursos computacionais, métodos de desenvolvimento e recursos computacionais utilizados para o desenvolvimento do projeto SAFE \citep{For04a}.     
+
+O projeto SAFE foi desenvolvido por membros do ICMC-USP, da UFMS e da empresa Async Open Source, sediada em São Carlos. O projeto teve início em 2004 e foi finalizado em 2006, sendo que seu principal objetivo foi 
+o desenvolvimento de uma infra-estrutura que permitisse integrar
+ferramentas de software livre de apoio às atividades de Engenharia
+de Software. Buscou-se oferecer um suporte
+automatizado para o processo de software livre, que fosse simples o
+suficiente para atrair a colaboração e a participação de
+desenvolvedores, independentemente do seu nível de familiaridade com o
+processo de software livre. 
+
+\subsubsection{Recursos Humanos}
+
+A equipe original do projeto SAFE, conforme descrita na proposta submetida em 2004, era
+composta por 32 pessoas, sendo 3 coordenadores (um de cada uma das entidades envolvidas:
+ICMC-USP, UFMS e Async Open Source); os demais membros assumiram os papéis de analistas e desenvolvedores. 
+
+Por ser realizado principalmente em ambiente acadêmico, onde existe alta rotatividade
+dos pesquisadores envolvidos, ao final do primeiro ano do desenvolvimento do projeto a equipe sofreu algumas alterações, principalmente devido ao fato de que alguns alunos de mestrado e
+de graduação finalizaram seus cursos. Assim, cinco membros foram desligados do projeto e, por outro lado, sete novos membros passaram a compor a equipe. Portanto, no segundo ano de desenvolvimento, 34 pessoas compuseram a equipe de desenvolvimento do projeto SAFE. 
+
+Os principais papéis cumpridos pelos membros das equipes e os processos pelos quais estiveram responsáveis foram:
+
+\begin{description}
+
+\item [1. Coordenador geral:] responsável pelos processos de iniciação, aquisição, garantia da qualidade, planejamento, gerenciamento, estabelecimento de parceria universidade-empresa, comunicação, transferência tecnológica, divulgação, verificação, validação, preparação de documentos científicos e revisão;
+
+\item [2. Coordenador local:] responsável pelos processos de coordenação, garantia da qualidade, gerenciamento, comunicação, divulgação, transferência tecnológica, verificação, validação, preparação de documentos científicos e revisão;
+
+\item [3. Analista:] responsável pelos processos de desenvolvimento, operação, manutenção, preparação de documentos científicos, gerência de configuração e transferência tecnológica;
+
+\item [4. Desenvolvedor:] responsável pelos processos de desenvolvimento, operação, manutenção, gerência de configuração, preparação de documentos científicos e transferência tecnológica;
+
+\item [5. Instrutor:] responsável pelos processos de elaboração de módulos educacionais e treinamento.
+
+\end{description}   
+
+\subsubsection{Processos cumpridos}
+
+Alguns processos que constituem o processo padrão para desenvolvimento de projetos de pesquisa em software foram cumpridos no desenvolvimento do projeto SAFE. De forma a exemplificar, são descritas a seguir atividades e tarefas de desenvolvimento, planejamento e gerenciamento cumpridas. Outras informações sobre o cumprimento dos processos no contexto do projeto SAFE (em especial as lições aprendidas) foram apresentadas em \cite{paiturfor06}. \\    
+
+\begin{itemize}
+
+\item {\bf Desenvolvimento}
+
+No início do projeto foram realizadas diversas reuniões entre os
+membros para a compreensão do objetivo do projeto e a
+identificação dos requisitos iniciais. Os participantes foram
+motivados a expressar suas opiniões a respeito da proposta do projeto,
+identificar casos de uso do software e indicar possíveis
+direcionamentos para o desenvolvimento do projeto (uso de
+metodologias, ferramentas, plataformas e arquiteturas). A maioria
+das reuniões foi realizada em formato de {\it brainstorming},
+cuidando-se do planejamento e do registro (por meio de atas) dos
+itens apresentados e discutidos em cada reunião. Como
+resultado dessas reuniões foram gerados diagramas de casos de uso,
+descrição dos casos de uso e modelo de dados por duas das
+instituições participantes. Toda documentação
+do projeto foi publicada em uma {\it wiki} específica do projeto\footnote{Inicialmente a documentação estava disponível em http://safe.icmc.usp.br/coteia; atualmente está disponível em http://safe.icmc.usp.br/safe}. A comunicação ocorreu principalmente por {\it emails}. Informações relativas ao
+planejamento e ao registro das informações das reuniões, questionamentos e soluções técnicas foram divulgadas a todos os membros.
+
+Foi elaborado um projeto rápido do sistema e um
+protótipo foi desenvolvido pelos membros da terceira instituição
+participante. Os resultados do desenvolvimento inicial do projeto foram discutidos no I Workshop SAFE, em abril de 2005, em que estiveram presentes representantes de todas
+as instituições envolvidas. Foram tomadas diversas decisões
+relacionadas ao planejamento das atividades do projeto, que também
+foram registradas em formato de ata, enviadas por {\it email} aos
+participantes e armazenadas na {\it wiki} do projeto.
+
+A partir do desenvolvimento do protótipo, toda a equipe manifestou que foi possível entender
+melhor e refinar os requisitos do software. Como conseqüência,
+atualizações foram realizadas nos diagramas inicialmente gerados.
+Com esta evolução, decidiu-se por dividir o trabalho de
+implementação entre os membros de cada instituição envolvida,
+reforçando a abordagem colaborativa, tanto na tomada de decisões como na realização das tarefas de desenvolvimento propriamente. Os resultados obtidos foram então
+apresentados no II Workshop SAFE,
+em novembro de 2005. Novamente estiveram presentes membros das três
+instituições envolvidas. Com as discussões ocorridas, os casos de
+uso do sistema foram novamente refinados e a implementação continuou
+a evoluir. É importante observar que durante a realização dos
+{\it workshops}, em que as atividades executadas e os resultados obtidos
+foram apresentados, sentiu-se a necessidade da elaboração de outros
+diagramas (principalmente diagrama de classes e de arquitetura do
+sistema), de forma a facilitar o entendimento e a evolução do
+projeto. Considerando-se que o projeto foi desenvolvido de
+forma distruibuída e colaborativa, comumente os membros das
+diferentes instituições participantes precisavam entender e dar
+continuidade a partes do sistema desenvolvido por outros membros. Um
+problema identificado neste sentido foi a falta de documentação de
+testes realizados, que gerava incertezas a respeito da qualidade da
+implementação.
+
+Para o desenvolvimento do projeto SAFE não foi
+estabelecido inicialmente um modelo de ciclo de vida que deveria ser utilizado
+e, na prática, a abordagem iterativa foi
+adotada e evidenciada como sendo naturalmente necessária.
+
+\item {\bf Planejamento e Gerenciamento}
+
+No início do desenvolvimento do projeto foram geradas planilhas 
+referentes ao planejamento inicial e que serviram como um artefato de entrada para o gerenciamento das atividades do projeto. Nas planilhas foram indicados relacionamentos entre as metas do projeto e as pessoas responsáveis; as
+metas e os prazos para cumprimento; e as metas, prazos 
+e artefatos que deveriam ser elaborados.
+
+As planilhas foram úteis na atribuição inicial das metas aos
+participantes e na definição de prazos e de artefatos a serem
+gerados. Observando-se que a atualização das planilhas estava se
+tornando uma tarefa pouco eficiente à medida que o volume de
+informações aumentava, optou-se por utilizar um sistema de
+gerenciamento {\it online}. As pessoas
+envolvidas foram motivadas a publicar informações referentes ao
+desenvolvimento de suas atividades. Apesar de a equipe ter sido
+treinada para usar a ferramenta e a importância em utilizá-la ter
+sido enfatizada, poucas informações foram registradas. Grande
+parte das informações era registrada por um dos membros do projeto,
+de acordo com as atividades e os resultados apresentados nas
+reuniões. 
+
+De forma similar ao que acontece em ambiente industrial,
+notou-se que não houve entre os participantes a cultura de
+documentar, passo a passo, as atividades que cumprem. No geral,
+apenas os resultados finais de cada atividade foram apresentados na
+forma de um artefato, o que prejudicou o entendimento do projeto
+quando novos membros passaram a compor a equipe.
+
+\end{itemize}
+
+\subsubsection{Recursos computacionais}
+
+A ferramenta OpenOffice Calc\footnote{http://www.openoffice.org/product/calc.html} foi utilizada para a elaboração das planilhas de planejamento e gerenciamento. Outras ferramentas de software livre foram utilizadas para apoiar o
+desenvolvimento, a comunicação entre os membros e a documentação do
+projeto. A ferramenta PHPDoc\footnote{http://www.phpdoc.org/} foi utilizada para a documentação do código desenvolvido em PHP, 
+as ferramentas CVS\footnote{http://www.nongnu.org/cvs/} e Subversion\footnote{http://subversion.tigris.org/} foram utilizadas para controle de versões dos artefatos desenvolvidos, o  
+CMS Plone\footnote{http://plone.org/} foi utilizado para gerenciamento de conteúdo, a ferramenta Bugzilla\footnote{http://www.bugzilla.org/} para controle de alterações e a ferramenta NetOffice\footnote{http://netoffice.sourceforge.net/} para gerenciamento do projeto. 
+
+A instanciação do processo padrão no desenvolvimento do projeto SAFE cobriu apenas partes dos processos, atividades e tarefas propostos. Considerando-se que o projeto SAFE foi desenvolvido de forma distribuída e colaborativa, as dificuldades relacionadas ao gerenciamento do projeto prejudicaram muitas vezes o entendimento sobre o estado corrente de desenvolvimento ou a percepção sobre o projeto. As dificuldades foram notadas, por exemplo, quando havia necessidade de identificar quais metas e qual a porcentagem de cada atividade havia sido cumprida. Além disso, um número limitado de ferramentas foi utilizado. Experiências interessantes poderiam ter sido obtidas caso plataformas  e ferramentas tais como a plataforma GENESIS e a ferramenta MILOS (mencionadas no Capítulo \ref{processo_software}) tivessem sido utilizadas.    
+
+É importante destacar também que a experiência com a instanciação do processo padrão sugeriu a inclusão de um novo processo, que se refere ao apoio à experimentação. De fato, esta é uma prática comum em ambiente de desenvolvimento de pesquisas e a investigação sobre sua inclusão pode ser sugerida como um trabalho futuro.       
+
+
+\section{Avaliação do processo padrão para projetos de pesquisa em software}
+
+Foi realizada uma avaliação simplificada do processo, que visa a contribuir para a validação da proposta (última etapa da proposta de \cite{Hum95} para definição de processos de software). A avaliação consistiu em: 
+
+\begin{enumerate}
+\item  verificar quais requisitos, características e propriedades apresentados na literatura para definição de processos genéricos e discutidos no Capítulo \ref{processo_software} foram cumpridos 
+\item  comparar a proposta com o estado da arte. 
+\end{enumerate}
+Os resultados dessa avaliação são apresentados nas sub-seções seguintes.
+
+\subsection{Em relação a requisitos, ca\-rac\-terísticas e propriedades de processos}
+
+Inicialmente o processo proposto foi avaliado em relação às propriedades de processos identificadas por \cite{Pfl01}, \cite{mad91} e \cite{kel88}. A avaliação foi importante no sentido de indicar elementos fundamentais que precisam ser melhorados. As propriedades e a discussão no contexto do processo proposto são apresentadas a seguir:
+
+\begin{itemize}
+
+\item {\it O processo possui razões que suportam suas definições?} Sim. Foi observado na literatura a importância em  
+cumprir processos para o desenvolvimento de projetos de pesquisa em software. As propostas existentes contemplavam parcialmente os requisitos identificados para um processo de desenvolvimento de projetos de pesquisa.
+
+\item {\it O processo possui as perspectivas funcionais, comportamentais e organizacionais?} Não. Somente a perspectiva funcional foi considerada. 
+
+\item {\it O processo descreve e integra diferentes níveis de abstração?} Não. Foi apresentada apenas uma descrição textual do processo. 
+
+\item {\it O processo apresenta sintaxe e semântica definidas formalmente?} Está sendo iniciado um projeto na UFMS com o objetivo de dar início à representação sintática do processo. O projeto tem como objetivo fazer um levantamento das linguagens de modelagem de processo (PML -- {\it Process Modeling Language}), analisar suas vantagens e desvantagens e aplicar uma delas na modelagem do processo proposto. Um trabalho relacionado à formalização de processos de software foi apresentado por \cite{Re03}. Pretende-se investigar a possibilidade de adoção dos mecanismos de especificação formal explorados pela pesquisadora, em especial a gramática de grafos, no contexto deste trabalho. Pretende-se propor também 
+investigações sobre a aplicação de ontologias e linguagens formais tais como OWL ({\it Web Ontology Language})\footnote{http://www.w3.org/TR/2004/REC-owl-features-20040210/} e RDF ({\it Resource Description Framework})\footnote{http://www.w3.org/RDF/} para a descrição semântica do processo proposto. Um trabalho relacionado à representação semântica de processos foi apresentado por \cite{yan06}. A viabilidade de aplicação dos resultados obtidos pelos autores no contexto deste trabalho deverão ser analisados. 
+
+\item {\it O processo é reutilizável?} Não é possível avaliar, pois depende da utilização do processo na prática.
+
+\item {\it O processo é compreensível em abrangência e em detalhes?} Não é possível avaliar, pois depende da utilização por usuários finais.
+
+%\item {\it O processo é modular e possui interfaces bem definidas?} Foram apresentados diversos sub-processos que compõem o processo maior. Para descrevê-los, foi utilizada uma estrutura semelhante à estrutura apresentada na descrição de processos na Norma ISO/IEC 15504, enfatizando atividades e tarefas. O relacionamento entre os módulos (ou a interface entre eles) não foi enfatizado.   
+
+\end{itemize}
+
+\subsection{Em relação ao estado da arte} \label{arte}
+
+É importante destacar inicialmente que não foram indicadas nas propostas apresentadas na literatura as atividades cumpridas para a concepção dos processos. Assim, na maioria das propostas não foram especificados os objetivos e os requisitos para a definição dos processos e o que se espera obter com a execução dos mesmos. Acredita-se, no entanto, que estas informações sejam fundamentais para promover a evolução das propostas. Além disso, de forma geral, não foi observado nos trabalhos apresentados na literatura a motivação para o cumprimento de atividades relacionadas à especificação do processo (representação sintática e semântica) e ao uso e à melhoria do processo. Portanto, atividades como modelagem do processo, implementação de um ambiente que ofereça suporte automatizado e validação do processo não foram mencionadas pelos autores. 
+
+A proposta apresentada por \cite{Oli05}, denominada {\it eXtreme Researching}, estende a metodologia XP para o contexto de desenvolvimento de pesquisas, considerando um ambiente de distribuição. No entanto, um das principais atividades que devem ser cumpridas para viabilizar o desenvolvimento distribuído é o gerenciamento e poucas práticas relativas ao gerenciamento foram enfatizadas pelos autores. O processo apresentado por \cite{Hwa06} é semelhante à proposta apresentada nesta tese em termos da estrutura utilizada como base para definição da proposta (os autores utilizaram a  norma \cite{ISO15288}). Porém, atividades fundamentais como o apoio ao desenvolvimento distribuído e colaborativo não foram enfatizados. No HDG \citep{wal03}, não há uma visão de processo, e sim uma proposta de práticas base para o desenvolvimento de projetos de pesquisa. É interessante notar, como um fator positivo, a simplicidade na apresentação da proposta, pois os autores exploraram o uso de termos comuns do desenvolvimento de pesquisas para descrevê-la. A proposta apresentada por \cite{numa90} enfatiza essencialmente atividades de ciclo de vida do desenvolvimento de um projeto. 
+
+Neste trabalho, buscou-se enfatizar os requisitos apresentados na Seção \ref{obj} para um processo de desenvolvimento de projetos de pesquisa. É possível observar que a maioria dos requisitos foram cobertos pelas propostas apresentadas na literatura, porém, de forma individual. Portanto, o processo descrito nesta tese pode ser observado como uma proposta inicial de integração desses requisitos em uma única abordagem. As limitações da proposta são apresentadas na Seção \ref{limita}.     
+
+\section{Considerações finais}
+
+Neste capítulo foi apresentada a proposta de um processo para desenvolvimento de projetos de pesquisa em software, um dos principais resultados desta tese. Um conjunto de requisitos identificado na literatura e resultados de estudos de caso realizados fundamentaram a elaboração da proposta.
+
+Em particular, as dificuldades em relação à documentação dos projetos de pesquisa, relatados por alguns autores na literatura, serviram como motivação para que uma alternativa para melhoria do processo de documentação fosse investigada. Os estudos realizados e os resultados obtidos são apresentados no próximo capítulo. 
+

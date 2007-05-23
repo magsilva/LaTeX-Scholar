@@ -1,0 +1,367 @@
+\documentclass[a4paper, 11pt, twoside]{article}
+\usepackage{a4wide}
+\usepackage[latin1]{inputenc}
+\usepackage[brazil] {babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{times}
+%\usepackage[numbers,sort&compress]{natbib}
+\usepackage[authoryear,sort&compress]{natbib}
+%\let\cite=\citep
+\bibliographystyle{apalike}
+
+%\author{
+%    \Large{}\\
+%    \Large{}\\
+%    \Large{}\\
+%}
+
+\title{Modelo de Referência para Desenvolvimento de Software em Ambiente Acadêmico}
+
+%\vspace {5 cm}
+%\author{\fontsize{12pt}{14.4pt}\normalfont\textbf{Simone Domingues Francisco}\\
+%\fontsize{12pt}{14.4pt}\normalfont\textbf{Claudia Akemi Izeki}\\
+%\fontsize{12pt}{14.4pt}\normalfont\textbf{Débora Maria Barroso Paiva}\\
+%\fontsize{12pt}{14.4pt}\normalfont\textbf{Renata Pontin de Mattos
+%Fortes}\\[0.4cm]
+%\fontsize{12pt}{14.4pt}\normalfont Instituto de Ciências Matemáticas e de Computação\\
+%\fontsize{12pt}{14.4pt}\normalfont Universidade de São Paulo\\
+%\fontsize{12pt}{14.4pt}\normalfont Caixa Postal 668 - CEP 13560-970 \\
+%\fontsize{12pt}{14.4pt}\normalfont São Carlos - SP - Brasil\\[0.1cm]
+%\fontsize{12pt}{14.4pt}\normalfont \ttfamily
+%$\{$simonef,cizeki,debora,renata$\}$@icmc.usp.br}
+
+\date{
+%    \vspace{12em}
+%    Instituto de Ciências Matemáticas e de Computação (ICMC)\\
+%    Universidade de São Paulo\\
+%    São Carlos, São Paulo\\
+%    Dezembro de 2002
+}
+
+\parskip=8pt
+
+\begin{document}
+
+\maketitle
+
+\section{Pergunta de Tese}
+
+Qual processo tem sido cumprido para o desenvolvimento de projetos acadêmicos e como melhorá-lo?
+ou:
+Como melhorar o processo cumprido para o desenvolvimento de projeto acadêmico?
+
+Estrategia: Quem são os interessados em processos academicos e quais sao seus interesses?
+alunos-- manutenção de projetos, orientadores... 
+
+\section{Objetivos}
+
+O que queremos atingir com o uso do processo?
+
+\begin{itemize}
+
+\item Melhorar a manutenibilidade das aplicações (evolução de projetos academicos): O que preciso para alcançar manutenibilidade (fazer revisao bibliografica -- alguns resultados estao na coweb)\\ Um elemento que se destaca é o uso de processos e de documentação. Isso envolve entao projetar um novo processo, que atenda as necessidades do contexto que estou considerando (ambiente academico). Estou fazendo um levantamento das necessidades dos clientes do meu processo. Os clientes que estou considerando são: estudantes, coordenadores, empresas, agências de financiamento. Os processos estão sendo identificados a partir dos questionarios e de revisao da literatura. Considerar que os processos sao tipicamente distribuidos e colaborativos. Qual o impacto disso no meu processo? estudar estes dois casos. O que mais interfere na manutenção e que eu preciso considerar? qual o tipo de manutenção cada item do meu processo ataca?
+
+\item Estou identificando processos a partir de revisão da literatura (o que os autores desejam), descrição de projetos acadêmicos (o que é feito na prática) (artigos e repositórios de projetos), estudos de projetos reais, questionários, modelos de referência, entrevistas com as pessoas. Pra obter o conhecimento estou usando a técnica de aquisição de conhecimento do mestrado da Andrea.  
+
+\item Transferência de conhecimento e transferencia de tecnologia: captura de conhecimento, aprendizado por exemplo, design rationale. É difícil implementar a parceria universidade-empresa para desenvolvimento de software por muitos motivos \cite{Jen04,Mac96, Korn03}. Neste trabalho, estamos oferecendo uma pequena contruibuição neste sentido: estamos pensando na trasferencia tecnologica. É importante mencionar que tivemos uma experiência (SAFE) que nos possibilitou tirar algumas conclusões a respeito da parceria. (fornecer os insights). Os artigos referenciados falam de atividades para a parceria entre universidade/industria.
+
+\item Reuso entra na forma de design rationale
+
+\item Posso estudar os projetos de pesquisa que foram desenvolvidos mas preciso estabelecer parâmetros pra poder incluir as práticas que foram cumpridas no meu processo, por exemplo, posso considerar práticas de projetos que cumpriram o orçamento e os prazos (ver outras possíveis medidas -- qualidade científica). Os demais projetos que não me servirem posso usar para apresentar o ``entendimento dos processos existentes''.    
+
+\end{itemize}
+
+Fatores de qualidade que estou considerando na definição do processo: simplicidade, flexibilidade
+
+Foco: projetos pequenos, com escopo bem delimitado, desenvolvido por poucas pessoas (porque não conseguiria avaliar em projetos grandes).
+
+Um exemplo interessante que posso utilizar: curso de HCI, Graça, coteia. Oferece passos simples, templates
+
+Como é o treinamento do meu processo?
+
+Sugerir estrategia de implantaçao
+
+\section{Projeto de processo}
+
+1)- Davenport ressalta que um processo deve ser projetado de modo a produzir resultados que satisfaçam às exigências do cliente. O projeto de um processo deve ter um bom entendimento de quem são os clientes do processo e o que eles querem dele.
+
+- Clientes do processo academico \\
+- estudantes; esperam documentação dos projetos (questionario sobre manutenção), \\
+- coordenadores de projetos; esperam gerenciamento dos projetos (questionario com professores)\\
+- empresas; esperam treinamento e capacitação, transferencia de conhecimento e de tecnologia\\
+-Instituições financiadoras, desenvolvimento de projetos de pesquisa, prestação de contas, gerenciamento de recursos, gerenciamento de recursos financeiros esperam relatorio de prestação de contas, relatorios cientificos, teses, dissertações.\\
+- Agências de financiamento
+
+outros clientes: \\
+-administrativos -- não estou considerando\\
+-Instituições de ensino ou de pesquisa, esperam desenvolvimento de projetos de pesquisa e cumprimento de prazos. Esperam receber relatorios científicos e de atividades, teses, dissertações\\
+- candidatos a participação de grupos de pesquisa (alunos de pós graduação) -- esperam um cronograma com datas de submissao de documentos, resultados, matriculas. Isso envolve todo o processo de seleção de alunos\\
+- secretários, esperam um processo de aquisição de software, equipamentos, materiais\\
+- avaliadores do projeto, que podem ser os membros de uma banca ou avaliadores dos orgaos de pesquisa. 
+
+As organizações precisam definir um responsável pelo funcionamento de cada processo como um todo (process owner).
+
+2)- Savi e Franzoni indicaram que para o modelo de referencia ser construido foi necessario saber, antes de tudo, quais os processos normalmente existem na incubadora (no meu caso, no ambiente academico)
+
+Para a elaboração do modelo de referencia proposto, foram utilizadas as fontes descritas anteriormente. Em relação aos questionarios, foram considerados todos os processos que foram assinalados como importantes por mais de 50\% das pessoas que responderam. Os resultados obtidos são apresentados a seguir.
+
+\begin{enumerate}
+
+\item {\bf Cliente}: Estudantes
+
+\begin{itemize}
+
+\item Necessidades (o que esperam):  Documentação, comunicação (questão 9), garantia de qualidade de produto e de processo (questão 11)
+
+\item Fonte: Questionário 1, aplicado a alunos (manutenção de projetos academicos). Questões 6, 9, 10 e 11
+
+\item Processos: Processos de ciclo de vida (prototipação e metodos ageis), controle de versões, controle de mudanças, atividades de verificação do software, atividades de validação do software
+
+\item Produtos: (1) Artefatos resultantes do ciclo de vida: plano de projeto da pesquisa (contendo definição de escopo, objetivos, restrições), documento de requisitos, diagrama de casos de uso, diagrama de classes, código fonte (questões 6 e 10); (2) versões do sistema; (3) registro de mudanças, resultados da verificação do software, resultados da validação do software (questão 11).
+
+\end{itemize}
+
+\item{\bf Cliente}: Coordenadores (orientadores)
+
+\begin{itemize}
+
+\item Necessidades (o que esperam): qualidade do produto, qualidade do processo, transferência de conhecimento, continuidade e evolução dos projetos, qualidade científica (questão 5, incluindo a parte de comentários)
+
+\item Fonte: Questionário 2, para coordenadores (Questão 5)
+
+\item Processos: Processos de ciclo de vida, atividades de validação do software, controle de prazos, atividades para transferência de conhecimento, atividades que auxiliem a definição rigorosa da proposta, definição, formalização de procedimentos e métodos (definição de metodologia científica), treinamento
+
+\item Produtos:  pelo questionario nao sei quais artefatos
+
+\end{itemize}
+\end{enumerate}
+
+A seguir são apresentadas as necesidades dos clientes do processo acadêmico de acordo com os resultados obtidos a partir de revisão da literatura
+
+\begin{enumerate}
+
+\item {\bf Cliente:} Estudantes
+
+\item {\bf Cliente:} Coordenadores
+
+\begin{itemize}
+
+\item Necessidades (o que esperam): atividades de gerenciamento de projetos, atividades de pré-desenvolvimento, integração do sistema  \cite{Rob98}
+
+\item Processos
+
+\begin{itemize}
+
+\item definição e gerenciamento de tarefas, definição e gerenciamento de cronograma, análise de requisitos e treinamento no domínio da aplicação, projeto e codificação de forma relacionada, validação de sistemas, testes,  documentação e revisão técnica \cite{Rob98}
+
+\item gerenciamento de projetos, gerenciamento de conhecimento, documentação, registro de bugs, comunicação, controle de versões, controle de erros, projeto e geração de código, testes, peer-review, garantir que outras pessoas se tornem familiar com os projetos desenvolvidos \cite{Amb04}
+
+\item Prototipação, suporte a distribuição e colaboração, métodos ageis, testes, verificação, comunicação, brainstormings, gerenciamento de conhecimento \cite{Oli05}
+
+\end{itemize}
+
+\end{itemize}
+
+
+\item {\bf Cliente:} Empresas
+
+\begin{itemize}
+
+\item Necessidades (o que esperam): (1) transferência de conhecimento (boas práticas de Eng. de Software) \cite{Ros05,Jen04}; (2) parcerias com universidades \cite{Korn03}
+
+\item Processos:
+
+\begin{itemize}
+
+\item Elaboração de material para treinamento, Seleção de parceiro, negociação de suporte financeiro para universidade e bolsa de estudos para estudantes envolvidos, identificação de períodos em que o estudante possa fazer intercâmbio na indústria, definição de intercambio de profissionais e professores na empresa e na universidade, criação de infra-estrutura na universidade de forma a suportar o desenvolvimento de software no principal domínio de aplicação da indústria (incluindo equipamentos, documentação e configuração), realização de pesquisa em engenharia de software em áreas de interesse mútuo, transferência de solução e tecnologia para o parceiro da indústria, elaboração de plano de operação (detalhes do projeto de pesquisa, métodos, pessoas, técnicas e artefatos a serem produzidos), definição de papeis e responsabilidades, submissão de proposta para agência financiadora indicando direções de pesquisa, recursos financeiros requisitados e resultados esperados,  avaliação anual dos parceiros envolvidos em relação aos resultados obtidos (parcerias programadas para um ano, podendo haver renovação), captura e reuso de conhecimento, uso de modelos para desenvolvimento, técnicas de verificação, validação e testes  \cite{Korn03}\\
+
+\item definição de objetivos claros \cite{Mac96}
+
+\item identificar o que cada participante ganha (win-win situation), relacionamento entre pesquisadores e profissionais, o principal pesquisador deve conhecer a pesquisa e o desenvolvimento da empresa, o membro da industria responsavel deve ter visão de pesquisa,  contato pessoal e interações frequentes entre os membros (intercambios), definição de papeis e responsabilidades, parcerias programadas para um ano podendo haver renovação, planejamento de ferramentas e equipamentos a serem utilizados, definição de cronograma, milestones e benchmarks e tarefas, organização de reuniões para gerenciamento de projeto, estabelecer acordo sobre confidencialidade de informações da industria e devolução de documentos após o desenvolvimento do projeto, seleção de informaçoes que podem ser disponibilizadas (pela industria),  negociação de suporte financeiro, identificação de recursos fornecidos por cada uma das partes envolvidas, geração de relatorios e documentos pelo pesquisador responsável sobre o funcionamento de laboratorios, relações entre academia e industria, publicações e contratos incluindo direitos de propriedade do software (copyrights e patentes), divisão de lucros, controle da especificação dos projetos e direito de publicação de informações e resultados obtidos; comunicação entre os participantes, gerenciamento de projetos, controle de troca de informação entre países diferentes  \cite{chan90}
+
+\end{itemize}
+
+\item Produtos: material didático, relatórios técnicos, contratos
+
+\end{itemize}
+\end{enumerate}
+
+
+%- Elaboração de projetos de pesquisa (definir tema, definir escopo, estabelecer parcerias, submeter pedido -- livros de pesquisa cientifica identificam sub-processos)\\
+%- Desenvolvimento de projetos de pesquisa ()\\
+%- Finalização de projetos de pesquisa (redação da tese, apresentação)\\
+%- Desenvolvimento de software (fases da prototipação)\\
+%- Gerenciamento de projetos
+
+%outros processos: administrativos -- não estou considerando
+%- Aquisição de software (?)\\
+%- Aquisição de equipamentos (?)\\
+%- Aquisição de material de consumo de laboratorios (?)\\
+
+Processos relacionados aos requisitos de processos acadêmicos: distribuído, colaborativo (processos separados ou pulverizados nos outros processos?)
+
+Outra forma de identificar os processos que serão incluídos no modelo de referencia é observando as atividades que são comumente cumpridas em projetos de pesquisa que são desenvolvidos. Duas abordagens serão usadas: observar a descrição das atividades cumpridas em artigos científicos e observar as atividades cumpridas diretamente em projetos (observar a documentação, entrevistar pessoas).
+
+A seguir são apresentados os resultados da análise de práticas de engenharia de software registradas em artigos científicos. Critérios para seleção dos projetos analisados: artigos/documentos que explicitavam o carater academico dos projetos, artigos completos (resumos e artigos com menos de x paginas foram evitados, por fornecerem apenas uma descrição breve de atividades de processo). Projetos foram buscados em periódicos, anais, teses, dissertações, repositorios de projetos na internet. Algumas pessoas foram contactadas e foram solicitados artigos e relatórios que pudessem descrever processos de projetos desenvolvidos por elas.
+
+\begin{enumerate}
+
+\item {\bf Projeto Genesis}: definição de tema, gerenciamento de conhecimento, analise de requisitos, liberação de releases constantemente (release early, release often), reuso, controle de versões, decisões de plataforma, linguagens e infra estrutura em fases iniciais, divulgação do projeto (planejar e cumprir as tarefas para divulgar) por exemplo por meio de artigos, apresentações em conferencis, CDs, sites, feiras, sourceforge, suporte a comunicação, gerenciamento de riscos, gerenciamento de cronograma, gerenciamento de configurações, testes, revisões técnicas, introdução de elementos de XP, promover a colaboração, promover o trabalho distribuído \cite{Bold04}
+
+\item {\bf Projeto COSPA}: análise de requisitos (questionarios, entrevistas, estorias dos usuarios), desenvolvimento de protótipo, análise custo/benefício da aplicação,  construção e disponibilização de repositório de conhecimento, divulgação de resultados, \cite{suc04}
+
+\item Projeto MVCASE (Daniel Lucredio): especificação do comportamento das operações, melhoria de usabilidade, alguma documentação, registro de bugs e sugestões, análise do pedido de alteração, gerenciamento de pessoas, gerenciamento de tempo, modelo de classes, gerenciamento/atualialização de home page, arquitetura do projeto, implementação, testes para verificar a presença de erros, gerenciamento de mudanças (descrição, implementação e disponibilização da mudança), publicação e disponibilização das mudanças. Descrição da mudança envolve descrever o problema que originou a mudança, mudanças que foram executadas, os arquivos modificados, quem registrou a mudança, suas informaçoes de contato, data em que a mudança foi registrada.   
+Os autores identificaram um processo necessario para o desenvolvimento da MVCASE, que deveria: ser implantável em uma instituição academica, permitir controlar mudanças, envolver um numero suficiente de desenvolvedores e pesquisadores, dirigido ao mercado, considerações inovações propostas por pesquisadores na academia.   
+
+\item Projeto CARA (Computer Assisted Resuscutation Algorithm) \cite{Gua04,Mar04}: uso de um processo incremental, especificação formal (usando linguagens para especificação de sistemas de tempo real), análise de requisitos (documento de requisitos escrito usando linguagem natural), projeto arquitetural, implementação, testes (plano de testes, casos de testes, execução), avaliação de usabilidade, modelagem de sistemas de tempo real, técnicas de geração de código automático, revisão do sistema, projeto de dados, controle de versões, inspeção de requisitos, registro de design rationale, treinamento em técnicas de especificação formal, definição do escopo do projeto, gerenciamento de tempo, orçamento e pessoas, descrição de estados de máquina de estados finitos, verificação, inspeções (provas formais)      
+
+\item CAOS - Collaborative Application for Open Storage (repositorio Java.net, https://caos.dev.java.net/source/browse/caos/RelatoExperiencia/):  Processsos comerciais (pedidos de propostas), processos administrativos (gerenciamento de pessoas, melhoria de processos), processos de desenvolvimento de software: Análise de negócios (contactar o cliente, fornecer informação de status de projeto, responder às expectativas dos clientes), Análise de software (analisar, documentar e manter use-cases, requisitos, arquitetura e modelo de base de dados), teste de software (definir plano de testes, incluindo casos de teste e critérios de aceitação, implementar, executar e validar casos de teste, fornecer relatório de teste), Gerenciamento de projeto (revisão do status do projeto, revisão das estimativas e da documentação de projeto, gerar plano de projeto, registrar status do projeto), Gerenciamento (identificar prioridades, resolver questões estratégicas, oferecer suporte ao desenvolvimento do projeto), Processsos de qualidade (treinamento em garantia de qualidade, garantia de qualidade de software, verificação do produto, manter configuração do projeto, coleta e registro de métricas, garantia e melhoria do processo, elaborar plano de qualidade, avaliar o projeto do software em relação ao plano do projeto, planejar e gerenciar configuração do projeto, configurar e manter o ambiente de gerenciamento do projeto, estabelecer, criar e manter baselines, gerar e publicar releases, identificar objetivos estratégicos para o processo, suportar a definição do processo de qualidade, definir plano de ação para desvios do projeto, fornecer recursos para a realização de atividades do processo de qualidade, registrar pedidos de mudanças, definir responsabilidades para pedidos de mudanças, homologar mudanças) (informações apresentadas em artigo submetido ao SIMS2005, na pasta RelatodeExperiencia)    
+
+\item ADVS (Lawyer activities control system)(http://advs.tigris.org/): analise de requisitos (casos de uso), definição de casos de testes, definição de procedimentos de testes, planejamento da gerência de configuração de software (organização, responsabilidades, interfaces, ambientes, ferramentas), gerência de configuração (Identificação de Configuração, Controle de Mudança e Configuração, controle de versões), treinamento, plano de desenvolvimento do projeto, gerenciamento de pessoas, gerenciamento do projeto, gerenciamento de riscos (Principais riscos ao projeto,	Procedimentos de análise dos riscos), gerenciamento de custos e de prazo, descrições dos envolvidos e usuários (Resumo dos Usuários, Ambiente dos Usuários,	Resumo das Principais Necessidades dos Envolvidos ou Usuários	
+Alternativas e Concorrência)	
+
+\item Projeto Hyperdev: análise de requisitos (identificação de requisitos gerais, requisitos funcionais, requisitos da interface com o usuário), análise e projeto (diagrama de classes, projeto arquitetural, modelagem da base de dados, definição de módulos e funcionalidades associadas a cada um) desenvolvimento de protótipos evolutivos, registro de decisões de projeto (por meio de arquivo de mensagens eletronicas e descrições das deliberações correspondentes a cada versao do sistema e documentação de idéias para futuras versões), documentação dos módulos (por meio da descrição da implementação. Corresponde a um arquivo HTML que contém ligações hipertextuais a programas que executam os módulos), gerenciamento de atividades (coordenação das atividades, determinação da prioridade das tarefas e planejamento das atividades da versao seguinte do sistema), elaboração do manual de uso do sistema. \cite{mai99}
+	
+\item Projeto Canto Livre: definição de escopo, análise de requisitos (documento de requisitos e casos de uso), análise do projeto, projeto arquitetural, testes   planejamento de atividades (gerou um cronograma de atividades) e acompanhamento do progresso do projeto (por meio de reuniões e uso da ferramenta Atlassian, que tornou mais efetivo o acompanhamento da equipe distribuída), revisões, planejamento do projeto, elaboração de propostas técnicas e comerciais, controle de mudanças e gerenciamento das atividades usando o Issue Tracker do site do Tigris, controle de versões, estimativa de esforço, Uso de ferramentas para trocas de mensagens instantaneas e emails, reuniões presenciais, uso de ferramenta de colaboração via web para atualizar as informações do projeto, em que havia duas visoes, uma para o processo e outra para o projeto. Outras ferramentas utilizadas: Atlassian Confluence (ferramenta de colaboração), Issue Tracker (controle de atividades a serem cumpridas), ArgoUML, Eclipse, WinCVS \cite{brito04}
+
+\item Projeto Tupan: projeto participativo foi priorizado, avaliação dos processos e produtos de trabalho, auditoria de processo, gerenciamento do repositorio de versoes, análise de requisitos (documento de requisitos e casos de uso), análise do projeto, projeto arquitetural, testes, acompanhamento do progresso do projeto, revisões (questionamentos, dicas e duvidas dos revisores eram registradas no proprio documento sendo revisado), planejamento do projeto, controle de mudanças e gerenciamento das atividades usando o Issue Tracker do site do Tigris, controle de versões, estimativa de esforço, Uso de ferramentas para trocas de mensagens instantaneas e emails, reuniões presenciais, uso de ferramenta de colaboração via web para atualizar as informações do projeto, em que havia duas visoes, uma para o processo e outra para o projeto. Outras ferramentas utilizadas: Atlassian Confluence (ferramenta de colaboração), Issue Tracker (controle de atividades a serem cumpridas), ArgoUML, Eclipse, WinCVS \cite{Spin04}
+
+\item Protótipo do modelo APSEE: análise de requisitos, análise (diagrama de pacotes, diagrama de classes, transição de estados,) projeto arquitetural, identificação de componentes, construção de prototipo, estudos de caso \cite{Re03} 
+
+\item Prosoft cooperativo: especificações formais, descrição formal de operações que o sistema executa, especificação dinâmica dos processos que compõem o editor \cite{Re98}
+
+\item Controle de acesso para sistemas distribuídos Java, (https://ablp.dev.java.net/): definição de escopo, análise de requisitos, projeto arquitetural, desenvolvimento de protótipo \cite{sodre01}
+
+\item Projeto Balehar, http://balehar.tigris.org/: análise de requisitos, registro de design rationale (troca de mensagens), diagrama de classes, modelo de base de dados, manual de usuário, implementação (projeto desenvolvido na França)
+
+\item Projeto Codecrawler: análise de requisitos, registro de lições aprendidas, projeto arquitetural (justifica a falta de documentação mencionando o ambiente acadêmico de desenvolvimento)
+
+\item Development of a design history information system: análise de requisitos, tradução dos requisitos e dos resultados de pesquisa em um conjunto de especificações (modelos detalhando os requisitos), pesquisa na literatura sobre sistemas PDM (Product Data Management) para obter background para implementação, projeto arquitetural, modelo de dados, implementação e instalação do sistema, avaliação (estudos de caso)    
+
+\item Seurat: análise de requisitos, projeto arquitetural, implementação, avaliação 
+
+\item Projeto Oscar: análise de requisitos, projeto arquitetural, controle de versões, teste de unidade, revisão de código, aplicação de práticas de XP,  
+
+\item Adelfe (relatório tecnico): análise de requisitos, modelagem conceitual
+
+\item Integração de Conhecimento em um Ambiente de Desenvolvimento de Software (AssistPro): análise de requisitos, descrição de cenários de utilização, descrição textual do universo de discurso, modelo de tarefas, modelagem arquitetural, prototipação \cite{falb98}
+
+\item Arquitetura para Gerenciamento de Conhecimentos explícitos sobre Processo de Desenvolvimento de Produto: Análise de requisitos, projeto arquitetural, prototipação, modelagem de dados, modelagem de interface, descrição de cenário de aplicação, etapas para implantação da solução, avaliação \cite{daniel}
+
+\item AutorE: análise de requisitos, modelagem conceitual, projeto arquitetural, prototipação \cite{DG03}
+
+\item Projeto Mae, universidade da california: análise de requisitos, projeto arquitetural, prototipação
+
+\item Projeto Hipikat: análise de requisitos, projeto arquitetural, prototipação  
+
+\item Projeto PDE (desenvolvido no contexto do projeto E-WEBPROJECT): definição de requisitos funcionais e não funcionais, diagrama de casos de uso, diagrama de atividades, diagrama de sequencia, modelo de classes, diagrama de estados, modelo da interação entre objetos, projeto arquitetural, implementação, diagrama de colaboração  \cite{jun03,jun03a}
+ 
+\item Desenvolvimento do ambiente ABCDE-Feature: análise de requisitos, análise (diagrama de classes), projeto arquitetural, implementação \cite{Oli01}
+
+\item Projeto PERF: análise de requisitos, projeto arquitetural, implementação \cite{Goe01,Goe01a}
+
+\item Especificação e desenvolvimento da ferramenta C\&L: controle de versões, análise de requisitos, gerenciamento de tarefas e de pessoas, registro de dificuldades, dúvidas, soluçoes e resultados parciais em lista de discussão, definição e tratamento de cenários (mapa de relacionamentos entre cenários), implementação, elaboração de casos de testes, execução de testes, inspeções de cenários baseadas em checklist, acompanhamento da correção de defeitos, verificação de cenários mantidos, avaliação por meio de estudo de caso \cite{Silva03}     
+
+\item Projeto Adequas: análise de requisitos, projeto arquitetural, avaliação por meio de estudo de caso \cite{Oliv02,Oliv03}.
+
+\item Projeto ProGrid: análise de requisitos, projeto arquitetural, implementação \cite{Zorz05}. 
+
+\item NSCP (distributed system for the design of a network and service control plataform): análise de requisitos, projeto arquitetural, projeto de interface, implementação \cite{Ion05} -- projeto desenvolvido na University of Ottawa, Canada. 
+
+\item Algorithm for Establishing LSPs for Multicast Communication: análise de requisitos, projeto arquitetural, implementação, validação \cite{Est05}
+
+\item Projeto WQoS: análise de requisitos, análise comportamental (uso da notação UCM), implementação, avaliação por meio de estudos de caso \cite{mor05}
+
+\item Projeto Strathcona: definição de cenário, implementação, avaliação \cite{hol05}. Desenvolvido nos Estados Unidos
+
+\item GQMTool: definição de requisitos, diagrama de classes, projeto arquitetural, implementação, validação \cite{Lav05} - desenvolvido na Italia
+
+\item Application for the Critical work of Email and Information Management: gerenciamento de pessoas e definição de papéis, análise de requisitos (documento de requisitos, registro de estórias), estimativa de tempo para desenvolvimento das estórias, revisões técnicas, planning game, implementação, testes de aceitação \cite{bel02} desenvolvido nos Estados
+Unidos    
+
+ver algum projeto do fabio kon 
+
+
+\item ProjectSpace:  
+
+%\item No-risk Planning \cite{For04}
+
+\end{enumerate}
+
+A seguir são apresentados os resultados da análise de projetos para os quais uma observação mais detalhada dos artefatos foi realizada.
+
+\subsection{Projeto SAFE -- Software Engineering Available for Everyone}
+
+\subsection{Projeto Regra}
+
+\subsection{Wiki-RE}
+
+\subsection{No-risk Planning}
+
+\subsection{Projeto DocRationale}
+
+\section{Modelo de Referencia}
+
+
+A Figura \ref{fig1} apresenta uma visao geral do modelo de referencia definido
+
+\begin{figure} [!ht]
+ \centering
+  \bfseries
+  \includegraphics [width=0.9\textwidth]{ModeloReferenciaNovo.pdf}
+  \caption {Modelo de referencia para ambiente acadêmico}
+  \label{fig1}
+\end{figure}
+
+Além dos elementos da 15504, posso colocar comentários -- DR de processo, sugerindo abordagens, por exemplo, XP Research.
+
+{\bf Observações:}
+
+\begin{itemize}
+
+\item O principal resultado de um projeto de pesquisa é o conhecimento (Mauro - poli). Era de se esperar que tivesse um processo de gerenciamento de conhecimento. No entanto, preferiu-se distribuir os elementos relativos ao conhecimento em todo o processo. O conhecimento é o elemento central quando se realiza treinamento, brainstorming, apresentação/participação em congressos e eventos, documentação, DR, repositório de artigos e material didático.    
+
+\item Elaboração de plano de pesquisa: envolve as atividades de definição de tema que eu havia colocado no modelo inicial, incluindo definição de objetivos, motivacao, decisões de plataforma.
+
+\item Boldyref comenta que projetos de open source fazem gerenciamento para evitar os mesmos problemas que ocorrem em amb. academico. Olhar o que posso pegar de open source para o meu trabalho.
+
+\item Ambati, Boldyref, Paula Filho e autores do easyprocess me fornecem requisitos para um processo academico:
+suporte a colaboração (promover a comunicação), suporte a trabalho distribuido (sugere metodos de open source) \cite{bold04,Amb04};
+
+\item atingir flexibilidade: atingir modularidade: trabalho da Soeli?
+
+\item Design rationale: modelo simplificado, foco naquilo que o estudante fez, na decisão tomada. Isso ajuda a entender o projeto na fase de manutenção. Tira foco daquilo que não fez (alternativas, posição).  
+
+\item Estrutura da 15504: Process ID, Process name, process purpose, process outcome, base practices, work products. Estou incluindo na definição do processo academico: papéis, comentários, (sugestão da Rosly: critérios de entrada e métodos de saída). 
+
+\item: Diferenciais do meu trabalho: processos para ambiente academico não foram pensando na forma de modelo de referencia ainda. Não foram considerados sob a perspectiva dos atributos de simplicidade e flexibilidade (acreditamos que considerar tais atributos é fundamental para motivar o uso na pratica). As propostas na literatura para desenvolvimento academico no geral visam o {\it ensino} e nao a {\it pesquisa}. Estas propostas estão voltadas para o desenvolvimento de software e não o desenvolvimento de projetos.
+
+\item Características do modelo de referencia que proponho:
+apresento uma tarefa, mas nao indico uma metodologia rígida que
+deve ser seguida para cumpri-la. Apresento indícios. indico
+referencias sempre que possível. Forneço comentários sugerindo
+bibliografia adicional.
+
+\item Artigo: enriquecendo o codigo com cenarios. Apresenta uma integraçao de documentacao e codigo fonte. Pg 161, anais sbes2003.
+
+\item Há uma tendência e um interesse dos pesquisadores em levar os resultados dos projetos academicos para o contexto industrial. (??) Como observado por Lucredio et al, em sua experiencia com o desenvolvimento da MVCASE, isso exige o cumprimento de um processo de desenvolvimento de software (artigo da MVCASE). Outro artigo que mostra esta tendencia é aquele que fala na divulgação dos projetos. Lucredio tambem fala na divulgação. 
+
+\item Ver projetos:
+
+\begin{itemize}
+
+\item Ver outros projetos no repositorio Java, favoritos no explorer; tigris, relatorios tecnicos de documentacao de ferramentas do icmc. 
+
+\item Herbsleb (1999) descreve alguns problemas que prejudicam a comunicação em equipes distribuidas. Esta referencia está na pag. 125 dos anais do simpros 2004. 
+
+\item Procurar referencias do projeto prosoft
+
+\end{itemize}
+
+\end{itemize}
+
+
+\bibliography{doc}
+
+\end{document}
