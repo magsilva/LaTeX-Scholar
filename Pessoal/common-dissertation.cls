@@ -82,11 +82,11 @@
 		\begin{minipage}{.7\linewidth}
 			\begin{center}
 				\vskip 1.5em
-				% {\Large \textsf{\@title} \par}
-				{\textbf{\fontsize{15pt}{19pt} \selectfont{\normalfont\Large\sffamily\bfseries \@title}}}
+				{\Large \textsf{\@title} \par}
+				% {\textbf{\fontsize{15pt}{19pt} \selectfont \normalfont \Large\sffamily\bfseries \@title}}
 				\vskip 2em
-				% {\large \textbf{\textit{\@author}} \normalsize \par}
-				{\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
+				{\large \textbf{\textit{\@author}} \normalsize \par}
+				% {\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
 				\vskip 1.5em
 			\end{center}
 		\end{minipage}
@@ -106,8 +106,8 @@
 	% \defensebox
 	\begin{center}
 		\vfill
-		{\textbf{\fontsize{16pt}{21pt} \selectfont \@title}}
-            	% {\large \textbf{\@title} \par}
+		% {\textbf{\fontsize{16pt}{21pt} \selectfont \@title}}
+            	{\large \textbf{\@title} \par}
 		\vskip 4em
 		{\textbf{\textit{\@author}} \par}
 		\vskip 3em
