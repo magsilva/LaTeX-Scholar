@@ -73,7 +73,7 @@
 	\end{flushright}
 }
 
-\newcommand{\title1stpage}{
+\newcommand{\coverpageone}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
@@ -98,7 +98,7 @@
 }
 
 
-\newcommand{\title2ndpage}{
+\newcommand{\coverpage2}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 
@@ -133,8 +133,8 @@
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
-		\title1stpage
-		\title2ndpage
+		\coverpage1
+		\coverpage2
 	\end{titlepage}
 }
 
