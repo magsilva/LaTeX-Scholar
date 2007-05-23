@@ -44,7 +44,7 @@
 				\end{footnotesize}
 			\end{center}
 			\vskip .5em
-			Data de Defesa: \@defensedate \par
+			Data de Defesa: \@defensefulldate \par
 			\vskip 1em
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
@@ -62,7 +62,7 @@
 				\end{footnotesize}
 			\end{center}
 			\vskip .5em
-			Data de Depósito: \@depositdate \par
+			Data de Depósito: \@depositfulldate \par
 			\vskip 1em
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
@@ -123,7 +123,8 @@
 	\begin{center}
 	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
 		\@address \par
-		\@date \par
+		% \@defenseshortdate \par
+		\@depositshortdate \par
 	\end{center}
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
