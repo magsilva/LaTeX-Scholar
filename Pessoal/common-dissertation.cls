@@ -42,12 +42,12 @@
 \def\@dissertationgoal{\@latex@error{No \noexpand\dissertationgoal given}\@ehc}%
 
 \newcommand{\defensebox}{
-\begingroup
+	\begingroup
 	\begin{flushright}
 		\begin{boxedminipage}[t]{8cm}
 			\begin{center}
 				\begin{footnotesize}
-				\allcaps{\@graduationsecretary \par
+					\allcaps{\@graduationsecretary} \par
 				\end{footnotesize}
 			\end{center}
 			\vskip .5em
@@ -56,16 +56,17 @@
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
 	\end{flushright}
-\endgroup
+	\endgroup
+}
 
 
 \newcommand{\depositbox}{
-\begingroup
+	\begingroup
 	\begin{flushright}
 		\begin{boxedminipage}[t]{8cm}
 			\begin{center}
 				\begin{footnotesize}
-				\allcaps{\@graduationsecretary \par
+				\allcaps{\@graduationsecretary} \par
 				\end{footnotesize}
 			\end{center}
 			\vskip .5em
@@ -74,7 +75,8 @@
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
 	\end{flushright}
-\endgroup
+	\endgroup
+}
 
 
 \newcommand{\title1stpage}{
@@ -88,7 +90,7 @@
 			\begin{center}
 				\vskip 1.5em
 				% {\Large \textsf{\@title} \par}
-				{\textbf{\fontsize{15pt}{19pt} \selectfont{\normalfont\Large\sffamily\bfseries \@title}
+				{\textbf{\fontsize{15pt}{19pt} \selectfont{\normalfont\Large\sffamily\bfseries \@title}}}
 				\vskip 2em
 				% {\large \textbf{\textit{\@author}} \normalsize \par}
 				{\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
