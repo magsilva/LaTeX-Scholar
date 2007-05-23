@@ -13,6 +13,9 @@
 \def\advisor#1{\gdef\@advisor{#1}}%
 \def\@advisor{\@latex@error{No \noexpand\advisor given}\@ehc}%
 
+\def\address#1{\gdef\@address{#1}}%
+\def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
+
 \def\depositdate#1{\gdef\@depositdate{#1}}%
 \def\@depositdate{\@latex@error{No \noexpand\depositdate given}\@ehc}%
 
@@ -119,7 +122,7 @@
 	\vfill
 	\begin{center}
 	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
-		USP - São Carlos \par
+		\@address \par
 		\@date \par
 	\end{center}
 	\end{adjustwidth}
