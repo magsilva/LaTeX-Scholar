@@ -28,7 +28,6 @@
 \def\defensefulldate#1{\gdef\@defensefulldate{#1}}%
 \def\@defensefulldate{\@latex@error{No \noexpand\defensefulldate given}\@ehc}%
 
-
 \def\dedication#1{\gdef\@dedication{#1}}%
 \def\@dedication{\@latex@warning{No \noexpand\dedication given}\@ehc}%
 
@@ -77,7 +76,6 @@
 	\end{flushright}
 	\endgroup
 }
-
 
 \newcommand{\title1stpage}{
 	\begingroup
