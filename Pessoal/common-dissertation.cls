@@ -16,11 +16,18 @@
 \def\address#1{\gdef\@address{#1}}%
 \def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
 
-\def\depositdate#1{\gdef\@depositdate{#1}}%
-\def\@depositdate{\@latex@error{No \noexpand\depositdate given}\@ehc}%
+\def\depositshortdate#1{\gdef\@depositshortdate{#1}}%
+\def\@depositshortdate{\@latex@error{No \noexpand\depositshortdate given}\@ehc}%
 
-\def\defensedate#1{\gdef\@defensedate{#1}}%
-\def\@defensedate{\@latex@error{No \noexpand\defensedate given}\@ehc}%
+\def\depositfulldate#1{\gdef\@depositfulldate{#1}}%
+\def\@depositfulldate{\@latex@error{No \noexpand\depositfulldate given}\@ehc}%
+
+\def\defenseshortdate#1{\gdef\@defenseshortdate{#1}}%
+\def\@defenseshortdate{\@latex@error{No \noexpand\defenseshortdate given}\@ehc}%
+
+\def\defensefulldate#1{\gdef\@defensefulldate{#1}}%
+\def\@defensefulldate{\@latex@error{No \noexpand\defensefulldate given}\@ehc}%
+
 
 \def\dedication#1{\gdef\@dedication{#1}}%
 \def\@dedication{\@latex@warning{No \noexpand\dedication given}\@ehc}%
