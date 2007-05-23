@@ -41,7 +41,6 @@
 \def\@dissertationgoal{\@latex@error{No \noexpand\dissertationgoal given}\@ehc}%
 
 \newcommand{\defensebox}{
-	\begingroup
 	\begin{flushright}
 		\begin{boxedminipage}[t]{8cm}
 			\begin{center}
@@ -55,12 +54,10 @@
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
 	\end{flushright}
-	\endgroup
 }
 
 
 \newcommand{\depositbox}{
-	\begingroup
 	\begin{flushright}
 		\begin{boxedminipage}[t]{8cm}
 			\begin{center}
@@ -74,11 +71,9 @@
 			Assinatura: \rule{.7\linewidth}{.05mm} \par
 		\end{boxedminipage}
 	\end{flushright}
-	\endgroup
 }
 
 \newcommand{\title1stpage}{
-	\begingroup
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
@@ -100,12 +95,10 @@
 	\vfill
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
-	\endgroup
 }
 
 
 \newcommand{\title2ndpage}{
-	\begingroup
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 
@@ -135,7 +128,6 @@
 	\end{center}
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
-	\endgroup
 }
 
 % Folha de rosto e capa
