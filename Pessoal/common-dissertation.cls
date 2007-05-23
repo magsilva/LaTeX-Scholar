@@ -102,7 +102,7 @@
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 
-	% \depositbox
+	\depositbox
 	% \defensebox
 	\begin{center}
 		\vfill
