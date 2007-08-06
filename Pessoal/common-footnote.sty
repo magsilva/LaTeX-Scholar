@@ -1,0 +1,18 @@
+% Correctly format the footnotes
+% stable: Remove title's footnote mark from TOC.
+% multiple: Adds a command between multiple sequencial footnote marks
+% marginal,flushmarginal: Keeps the footnotes within the margin and without indentation
+% bottom: Footnotes will be inserted always at the page's bottom.
+\RequirePackage[bottom,marginal,flushmargin,stable,multiple]{footmisc}
+
+% Keep the footnote mark within the text area.
+% http://tug.org/TeXnik/mainFAQ.cgi?file=footnotes/footnotes
+\newlength{\myFootnoteWidth}
+\newlength{\myFootnoteLabel}
+\setlength{\myFootnoteLabel}{.8em}%  <-- can be changed to any valid value
+\renewcommand{\@makefntext}[1]{%
+  \setlength{\myFootnoteWidth}{\columnwidth}%
+  \addtolength{\myFootnoteWidth}{-\myFootnoteLabel}%
+  \noindent\makebox[\myFootnoteLabel][r]{\@makefnmark\ }%
+  \parbox[t]{\myFootnoteWidth}{#1}%
+}

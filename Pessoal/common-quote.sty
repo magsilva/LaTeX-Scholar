@@ -1,0 +1,23 @@
+% Ambiente para citações diretas.
+\renewenvironment{quotation}{
+	\vspace{.5cm}
+	\begin{flushright}
+		\begin{minipage}{\linewidth - 4cm}
+		\singlespacing
+		\small
+}{
+		\end{minipage}
+	\end{flushright}
+	\vspace{.5cm}
+}
+
+% Ambiente para definições importantes (termos chaves).
+\RequirePackage{fancybox}
+\renewcommand{\fboxsep}{8pt}
+\newcommand{\definition}[1]{
+	\begin{center}
+		\vspace{.5cm}
+		\ovalbox{\parbox{\linewidth - 2.5cm}{#1}}
+		\vspace{.5cm}
+	\end{center}
+}

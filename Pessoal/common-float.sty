@@ -1,0 +1,32 @@
+
+% Definição do posicionamento padrão das tabelas e figuras
+\RequirePackage{float}
+\restylefloat{table}
+\restylefloat{figure}
+\floatplacement{table}{!htb}
+\floatplacement{figure}{!htb}
+
+
+% Otimização no espaço ocupado por floats
+%
+\newcommand{\floatmargin}{.3cm}
+% Space left between floats
+\renewcommand{\floatsep}{8pt}
+% Space left on top and bottom of an in-text float.
+\renewcommand{\intextsep}{12pt}
+% Space between last top float or first bottom float and the text.
+\renewcommand{\textfloatsep}{12pt}
+
+
+% Libera mais espaço da página para floats
+% \setlength{topnumber}{3}
+% \setlength{bottomnumber}{3}
+% \setlength{totalnumber}{5}
+% \renewcommand{\topfraction}{1}
+% \renewcommand{\bottomfraction}{1}
+
+% Pacote para coordenar o posionamento de floats.
+% Utilize \afterpage{\clearpage} para forçar que todos os floats definidos até
+% aquele momento sejam inseridos.
+\RequirePackage{afterpage}
+

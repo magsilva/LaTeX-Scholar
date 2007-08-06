@@ -3,32 +3,6 @@
 
 \makeatletter
 
-% l10n
-\RequirePackage[english,brazil]{babel}
-
-% i18n
-\RequirePackage[latin1]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{ae}
-
-% Parâmetros que determinam a qualidade e compressão utilizada para os documentos PDF
-% \pdfcompresslevel=6
-% \pdfpkresolution=600
-% \pdfimageresolution=72
-\pdfcompresslevel=9
-\pdfpkresolution=1200
-\pdfimageresolution=600
-
-\newcommand{\floatmargin}{.3cm}
-
-\newcommand{\metadata}{
-	\pdfinfo {
-		/Title (\@title)
-		/Author (\@author)
-		/Keywords (\@keywords)
-	}
-}
-
 \RequirePackage{color}
 \RequirePackage{colortbl}
 \RequirePackage{textfit}
@@ -37,299 +11,35 @@
 \RequirePackage{calc}
 \RequirePackage{version}
 
-% Definição do posicionamento padrão das tabelas e figuras
-\RequirePackage{float}
-\restylefloat{table}
-\restylefloat{figure}
-\floatplacement{table}{!htb}
-\floatplacement{figure}{!htb}
 
-% Otimização no espaço ocupado por floats
-%
-% Space left between floats
-\renewcommand{\floatsep}{8pt}
-% Space left on top and bottom of an in-text float.
-\renewcommand{\intextsep}{12pt}
-% Space between last top float or first bottom float and the text.
-\renewcommand{\textfloatsep}{12pt}
+\RequirePackage{common-i18n}
+\RequirePackage{common-pdf}
+\RequirePackage{common-margin}
+\RequirePackage{common-float}
+\RequirePackage{common-list-environment}
+\RequirePackage{common-footnote}
+\RequirePackage{common-caption}
+\RequirePackage{common-verbatim}
+\RequirePackage{common-todo}
+\RequirePackage{common-title}
+\RequirePackage{common-bibtex}
+\RequirePackage{common-hacks}
+\RequirePackage{common-graphic}
+\RequirePackage{common-text-spacing}
+\RequirePackage{common-font-style}
+\RequirePackage{common-quote}
 
 
-% Libera mais espaço da página para floats
-% \setlength{topnumber}{3}
-% \setlength{bottomnumber}{3}
-% \setlength{totalnumber}{5}
-% \renewcommand{\topfraction}{1}
-% \renewcommand{\bottomfraction}{1}
 
-% Diminui o espaço entre um float e seu caption.
-\setlength{\abovecaptionskip}{4pt}
-
-% Pacote para coordenar o posionamento de floats.
-% Utilize \afterpage{\clearpage} para forçar que todos os floats definidos até
-% aquele momento sejam inseridos.
-\RequirePackage{afterpage}
-
-% Habilitar a utilização de figuras
-\RequirePackage[pdftex]{graphicx}
-\RequirePackage{epstopdf}
-
-\RequirePackage[obeyspaces]{url}
-
-% Alteração das margens das páginas
-\RequirePackage[pdftex]{geometry}
-% TODO: Ver a opção twoside
-\geometry{a4paper,left=2.5cm,right=2cm,top=2cm,bottom=3.5cm}
-
-% Configuração do espaçamento entre linhas (1,5)
-\RequirePackage{setspace}
-\onehalfspace
-
-% Configuração da indentação do parágrafo
-% \setlength{\parindent}{1.3cm}
 
 % Lista de acrônimos
 \RequirePackage[printonlyused]{acronym}
 
-% Macro para zerar os parâmetros relacionados a espaçamento vertical.
-% Originalmente este código pertencia ao FAQ francês sobre LaTeX.
-\def\Nospacing{
-	\itemsep=0pt
-	\partopsep=0pt
-	\parskip=0pt
-	\parsep=0pt
-}
-
-% Redifinição do ambiente description para diminuir o espaçamento entre os itens. Uma solução mais
-% elegante seria aquela adotada para itemize e enumerate nesta mesmo classe, mas ela não funciona
-% (talvez esteja relacionado ao fato do description ser redefinido na classe book).
-\renewenvironment{description}{
-	\list{}{
-		\Nospacing
-		\let\makelabel\descriptionlabel}
-	}
-	{\endlist}
-
-% Redefinição do rótulo de item em description, igual ao do book com exceção
-% dos ":" agoraadicionado no final do rótulo.
-\renewcommand*\descriptionlabel[1]{
-	\hspace
-	\labelsep
-	\normalfont
-	\bfseries #1:
-}
-
-% Redefinição dos ambientes itemize e enumerate, corrigindo o espaçamento entre
-% os itens. Código retirado do FAQ francês sobre LaTeX.
-\let\orig@Itemize =\itemize
-\let\orig@Enumerate =\enumerate
-\renewenvironment{itemize}{\orig@Itemize\Nospacing}{\endlist}
-\renewenvironment{enumerate}{\orig@Enumerate\Nospacing}{\endlist}
-
-% Redefiniçao do ambiente utilizado pela lista de acrônimos, corrigindo o espaçamento
-% entre os itens.
-\renewenvironment{AC@deflist}[1]{
-	\raggedright
-	\begin{list}{}{
-		\Nospacing
-		\settowidth{\labelwidth}{\textbf{\textsf{#1}}}
-		\setlength{\leftmargin}{\labelwidth}
-		\addtolength{\leftmargin}{\labelsep}
-		\renewcommand{\makelabel}{\bflabel}
-	}
-}{
-	\end{list}
-}
-
-% Correctly format the footnotes
-% stable: Remove title's footnote mark from TOC.
-% multiple: Adds a command between multiple sequencial footnote marks
-% marginal,flushmarginal: Keeps the footnotes within the margin and without indentation
-% bottom: Footnotes will be inserted always at the page's bottom.
-\RequirePackage[bottom,marginal,flushmargin,stable,multiple]{footmisc}
-
-% Keep the footnote mark within the text area.
-% http://tug.org/TeXnik/mainFAQ.cgi?file=footnotes/footnotes
-\newlength{\myFootnoteWidth}
-\newlength{\myFootnoteLabel}
-\setlength{\myFootnoteLabel}{.8em}%  <-- can be changed to any valid value
-\renewcommand{\@makefntext}[1]{%
-  \setlength{\myFootnoteWidth}{\columnwidth}%
-  \addtolength{\myFootnoteWidth}{-\myFootnoteLabel}%
-  \noindent\makebox[\myFootnoteLabel][r]{\@makefnmark\ }%
-  \parbox[t]{\myFootnoteWidth}{#1}%
-}
-
-\RequirePackage[format=plain,indention=0pt,labelformat=simple,labelsep=period,justification=justified,singlelinecheck=false,font=small,labelfont=bf,parskip=4pt,margin=\floatmargin]{caption}
-\DeclareCaptionFont{singlespacing}{\setstretch{1}}
-\DeclareCaptionFont{onehalfspacing}{\onehalfspacing}
-\DeclareCaptionFont{doublespacing}{\doublespacing}
-\captionsetup{font={singlespacing,small}}
-
 % Cores
 \RequirePackage[cmyk,table]{xcolor}
 
-% Impede a hifenização do conteúdo definido na macro \srccode.
-\RequirePackage{hyphenat}
-
-% Macro utilizada para termos em inglês.
-\newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
-
-% Macro utilizada para trechos de código-fonte inseridos no meio do texto.
-\newcommand\srccode[1]{\url{#1}}
-% \newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
-
-% Utilizado para listagens de código-fonte
-\RequirePackage{textcomp} % Required by upquote option.
-\RequirePackage{listings}
-
-% Traduz os nomes de listagens e fragmentos de código para português
-\renewcommand{\lstlistingname}{Exemplo}
-\renewcommand{\lstlistlistingname}{Lista de exemplos}
-
-% Define os estilos a serem utilizados nos ambientes lstlistings.
-\lstset{basicstyle=\scriptsize}
-\lstset{tabsize=4}
-\lstset{frame=single}
-\lstset{frameround=tttt}
-\lstset{aboveskip=16pt}
-\lstset{belowskip=6pt}
-\lstset{xleftmargin=\floatmargin}
-\lstset{xrightmargin=\floatmargin}
-\lstset{resetmargins=true}
-\lstset{float}
-\lstset{captionpos=b}
-\lstset{extendedchars=true}
-\lstset{upquote=true}
-
-% Define um subconjunto da linguagem HyperTalk.
-\lstdefinelanguage{hypertalk}{
-	morekeywords={goto},
-	sensitive=false,
-	morecomment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	morestring=[b]",
-}
-
-% Define os estilos a serem utilizados nos ambientes lstlistings.
-\lstdefinestyle{srccode}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single}
-\lstdefinestyle{srccodeJava}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=java}
-\lstdefinestyle{srccodeXml}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=xml}
-\lstdefinestyle{srccodeHypertalk}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=hypertalk}
-
-
-% Resolve um warning do latex.
-\setlength{\headheight}{16pt}
-
-% Ambiente para citações diretas.
-\renewenvironment{quotation}{
-	\vspace{.5cm}
-	\begin{flushright}
-		\begin{minipage}{\linewidth - 4cm}
-		\singlespacing
-		\small
-}{
-		\end{minipage}
-	\end{flushright}
-	\vspace{.5cm}
-}
-
-% Ambiente para definições importantes (termos chaves).
-\RequirePackage{fancybox}
-\renewcommand{\fboxsep}{8pt}
-\newcommand{\definition}[1]{
-	\begin{center}
-		\vspace{.5cm}
-		\ovalbox{\parbox{\linewidth - 2.5cm}{#1}}
-		\vspace{.5cm}
-	\end{center}
-}
-
-% Altera a numeração do enumerate para 1.1, 1.2.1, etc (sempre números arábicos).
-\RequirePackage{enumerate}
-\renewcommand{\labelenumi}{\theenumi.}
-\renewcommand{\theenumii}{\arabic{enumii}}
-\renewcommand{\labelenumii}{\theenumi.\theenumii.}
-\renewcommand{\p@enumii}{\theenumi.}
-\renewcommand{\theenumiii}{\arabic{enumiii}}
-\renewcommand{\labelenumiii}{\theenumi.\theenumii.\theenumiii.}
-\renewcommand{\p@enumiii}{\theenumi.\theenumii.}
-\renewcommand{\theenumiv}{\arabic{enumiv}}
-\renewcommand{\labelenumiv}{\theenumi.\theenumii.\theenumiii.\theenumiv.}
-\renewcommand{\p@enumiv}{\theenumi.\theenumii.\theenumiii.}
-
-% Adequação das citações e referências a norma ABNT
-\RequirePackage[alf,abnt-url-package=url]{abntcite}
 
 \RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
-
-% Set the \bibname to ABNT rules.
-% \providecommand{\bibname}{Referências}
-\def\mybibname{Referências}
-\def\myrefname{Referências}
-
-% Command to turn all letters uppercase
-\newcommand{\allcaps}[1]{\uppercase\expandafter{#1}}
-
-% Command to underline the text
-\newcommand{\underln}[1]{$\underline{\text{#1}}$}
-
-% Ambiente para citações diretas.
-\renewenvironment{quotation}{
-	\vspace{.5cm}
-	\begin{flushright}
-		\begin{minipage}{\linewidth - 4cm}
-		\singlespacing
-		\small
-}{
-		\end{minipage}
-	\end{flushright}
-	\vspace{.5cm}
-}
-
-% Hacks suggested by Axel Reichert at de.comp.text.tex (removes several LaTeX warnings)
-\tolerance 1414
-\hbadness 1414
-\emergencystretch 1.5em
-\raggedbottom
-% Don't bother to report overfull boxes if over-edge is < 1pc
-\vfuzz 1pc
-\hfuzz 1pc
-
-
-% Cria notas laterais (macro utilizada pelo \todo).
-\newcommand{\marginnote}[1]
-	{\mbox{}\marginpar{\raggedleft\hspace{0pt}#1}}
-
-
-
-% Macro para indicar uma tarefa a fazer
-\newcounter{todo}
-\newcommand{\todo}[1]{
-	\addtocounter{todo}{1}
-	\color{red}\underline{\textbf{T\thetodo}}\color{black}
-	\marginnote{
-		\color{red}\small{T\thetodo}: \scriptsize{#1}\color{black}
-	}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-% Title definitions
-%
-% The 'titlesec' package is fabulous! Changing the \chapter and friends is a nightmare. That
-% package makes the job easy, piece of cake actually!
-%
-% noindentafter: Do not indent the first paragraph after a title definition
-% rigidchapters: Set a fixed space for chapters
-% nobottontitles*: Do not allow a title hanging at the botton (like a widow line)
-% largestsep: Uses the largest space between two following titles.
-% clearempty: Do not show the page number in an empty page (pretty common in doubleepage docs).
-\RequirePackage[noindentafter,rigidchapters,largestsep]{titlesec}
-
-% Add a dot after the section/subsection/etc counters.
-\titlelabel{\thetitle.\quad}
-
-% titlespacing{<command>}{<left>}{<before>}{<after>}[<right>]
-\titlespacing{\section}{0pt}{1.2em}{.8em}[0pt]
 
 
 \makeatother

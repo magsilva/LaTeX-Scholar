@@ -1,0 +1,15 @@
+% Cria notas laterais (macro utilizada pelo \todo).
+\newcommand{\marginnote}[1]
+	{\mbox{}\marginpar{\raggedleft\hspace{0pt}#1}}
+
+
+
+% Macro para indicar uma tarefa a fazer
+\newcounter{todo}
+\newcommand{\todo}[1]{
+	\addtocounter{todo}{1}
+	\color{red}\underline{\textbf{T\thetodo}}\color{black}
+	\marginnote{
+		\color{red}\small{T\thetodo}: \scriptsize{#1}\color{black}
+	}
+}

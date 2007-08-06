@@ -1,0 +1,63 @@
+% Macro para zerar os parâmetros relacionados a espaçamento vertical.
+% Originalmente este código pertencia ao FAQ francês sobre LaTeX.
+\def\Nospacing{
+	\itemsep=0pt
+	\partopsep=0pt
+	\parskip=0pt
+	\parsep=0pt
+}
+
+% Redifinição do ambiente description para diminuir o espaçamento entre os itens. Uma solução mais
+% elegante seria aquela adotada para itemize e enumerate nesta mesmo classe, mas ela não funciona
+% (talvez esteja relacionado ao fato do description ser redefinido na classe book).
+\renewenvironment{description}{
+	\list{}{
+		\Nospacing
+		\let\makelabel\descriptionlabel}
+	}
+	{\endlist}
+
+% Redefinição do rótulo de item em description, igual ao do book com exceção
+% dos ":" agoraadicionado no final do rótulo.
+\renewcommand*\descriptionlabel[1]{
+	\hspace
+	\labelsep
+	\normalfont
+	\bfseries #1:
+}
+
+% Redefinição dos ambientes itemize e enumerate, corrigindo o espaçamento entre
+% os itens. Código retirado do FAQ francês sobre LaTeX.
+\let\orig@Itemize =\itemize
+\let\orig@Enumerate =\enumerate
+\renewenvironment{itemize}{\orig@Itemize\Nospacing}{\endlist}
+\renewenvironment{enumerate}{\orig@Enumerate\Nospacing}{\endlist}
+
+% Redefiniçao do ambiente utilizado pela lista de acrônimos, corrigindo o espaçamento
+% entre os itens.
+\renewenvironment{AC@deflist}[1]{
+	\raggedright
+	\begin{list}{}{
+		\Nospacing
+		\settowidth{\labelwidth}{\textbf{\textsf{#1}}}
+		\setlength{\leftmargin}{\labelwidth}
+		\addtolength{\leftmargin}{\labelsep}
+		\renewcommand{\makelabel}{\bflabel}
+	}
+}{
+	\end{list}
+}
+
+% Altera a numeração do enumerate para 1.1, 1.2.1, etc (sempre números arábicos).
+\RequirePackage{enumerate}
+\renewcommand{\labelenumi}{\theenumi.}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumi.\theenumii.}
+\renewcommand{\p@enumii}{\theenumi.}
+\renewcommand{\theenumiii}{\arabic{enumiii}}
+\renewcommand{\labelenumiii}{\theenumi.\theenumii.\theenumiii.}
+\renewcommand{\p@enumiii}{\theenumi.\theenumii.}
+\renewcommand{\theenumiv}{\arabic{enumiv}}
+\renewcommand{\labelenumiv}{\theenumi.\theenumii.\theenumiii.\theenumiv.}
+\renewcommand{\p@enumiv}{\theenumi.\theenumii.\theenumiii.}
+
