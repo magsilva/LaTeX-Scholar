@@ -70,10 +70,10 @@
 
 % to avoid [...] in the bibliography
 % \item[] instead of \item[\@biblabel{#1}\hfill]
-\def\@lbibitem[#1]#2{\item[]\if@filesw
-      {\let\protect\noexpand
-       \immediate
-       \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
+%\def\@lbibitem[#1]#2{\item[]\if@filesw
+%      {\let\protect\noexpand
+%       \immediate
+%       \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
 \renewenvironment{thebibliography}[1]
      {\section*{\refname
         \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
