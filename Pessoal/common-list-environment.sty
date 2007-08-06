@@ -33,20 +33,6 @@
 \renewenvironment{itemize}{\orig@Itemize\Nospacing}{\endlist}
 \renewenvironment{enumerate}{\orig@Enumerate\Nospacing}{\endlist}
 
-% Redefiniçao do ambiente utilizado pela lista de acrônimos, corrigindo o espaçamento
-% entre os itens.
-\renewenvironment{AC@deflist}[1]{
-	\raggedright
-	\begin{list}{}{
-		\Nospacing
-		\settowidth{\labelwidth}{\textbf{\textsf{#1}}}
-		\setlength{\leftmargin}{\labelwidth}
-		\addtolength{\leftmargin}{\labelsep}
-		\renewcommand{\makelabel}{\bflabel}
-	}
-}{
-	\end{list}
-}
 
 % Altera a numeração do enumerate para 1.1, 1.2.1, etc (sempre números arábicos).
 \RequirePackage{enumerate}

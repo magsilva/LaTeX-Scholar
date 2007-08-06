@@ -1,0 +1,17 @@
+% Lista de acrônimos
+\RequirePackage[printonlyused]{acronym}
+
+% Redefiniçao do ambiente utilizado pela lista de acrônimos, corrigindo o espaçamento
+% entre os itens.
+\renewenvironment{AC@deflist}[1]{
+	\raggedright
+	\begin{list}{}{
+		\Nospacing
+		\settowidth{\labelwidth}{\textbf{\textsf{#1}}}
+		\setlength{\leftmargin}{\labelwidth}
+		\addtolength{\leftmargin}{\labelsep}
+		\renewcommand{\makelabel}{\bflabel}
+	}
+}{
+	\end{list}
+}
