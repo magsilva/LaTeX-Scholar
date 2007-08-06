@@ -25,81 +25,31 @@
 \LoadClass{article}
 
 
-% l10n
-\RequirePackage[english,brazil]{babel}
-
-% i18n
-\RequirePackage[latin1]{inputenc}
-\RequirePackage[T1]{fontenc}
-
-% Parâmetros que determinam a qualidade e compressão utilizada para os documentos PDF
-% \pdfcompresslevel=6
-% \pdfpkresolution=600
-% \pdfimageresolution=72
-\pdfcompresslevel=9
-\pdfpkresolution=1200
-\pdfimageresolution=600
-
-\newcommand{\metadata}{
-	\pdfinfo {
-		/Title (\@title)
-		/Author (\@author)
-		/Keywords (\@keywords)
-	}
-}
-
-% Habilitar a utilização de figuras
-\RequirePackage[pdftex]{graphicx}
-\RequirePackage{epstopdf}
-
-\RequirePackage{url}
+\RequirePackage{common-i18n}
+\RequirePackage{common-pdf}
+\RequirePackage{common-graphic}
+\RequirePackage{common-verbatim}
 \def\UrlFont{\tt\fontseries{uc}\fontsize{10}{1}\selectfont}
+\renewcommand{\lstlistingname}{Exemplo}
+\renewcommand{\lstlistlistingname}{Lista de exemplos}
 
-
-% Alteração das margens das páginas
-\RequirePackage[pdftex]{geometry}
+\RequirePackage{common-margin}
 % margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
 % margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
 % margem esq/dir 3 cm
 \geometry{a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm}
 
-% Impede a hifenização do conteúdo definido na macro \srccode.
-\RequirePackage{hyphenat}
+\RequirePackage{common-bibtex}
 
-% Utilizado para listagens de código-fonte
-\RequirePackage{listings}
 
-% Traduz os nomes de listagens e fragmentos de código para português
-\renewcommand{\lstlistingname}{Exemplo}
-\renewcommand{\lstlistlistingname}{Lista de exemplos}
-
-% Define os estilos a serem utilizados nos ambientes lstlistings.
-\lstset{basicstyle=\tiny}
-\lstset{tabsize=4}
-\lstset{frame=single}
-\lstset{frameround=tttt}
-\lstset{aboveskip=.5cm}
-\lstset{belowskip=.5cm}
-\lstset{xleftmargin=.3cm}
-\lstset{xrightmargin=.3cm}
-\lstset{resetmargins=true}
-\lstset{float}
-\lstset{captionpos=b}
-\lstset{extendedchars=true}
+%%% End of generic LaTeX code %%%
 
 \setlength{\parindent}{1.27cm}
 \setlength{\parskip}{6pt}
 
 \flushbottom
 
-% TODO: captions2 is obsoleted by new 'caption'.
-% captions
-\RequirePackage[bf,sf,footnotesize,indent]{caption2}
-\setlength{\captionmargin}{0.8cm}
-\renewcommand{\captionfont}{\sffamily\footnotesize\bfseries}
-\renewcommand{\captionlabeldelim}{.}
-
-% font
+% Font
 % \RequirePackage{times} % Obsoleted
 \RequirePackage{mathptmx}
 \RequirePackage[scaled=.9]{helvet}
@@ -145,7 +95,7 @@
       \widowpenalty4000%
       \sfcode`\.\@m}
      {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
+       {\@latex@warning{Empty thebibliography environment}}%
       \endlist}
 
 
@@ -189,9 +139,6 @@
                        {\normalfont\normalsize\bfseries\boldmath
                         \rightskip=\z@ \@plus 8em\pretolerance=10000 }}
 
-%\renewcommand{\thesection}{\arabic{section}.}
-%\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
-%\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
 
 \RequirePackage{titlesec}
 \titlelabel{\thetitle.\hspace{1ex}}
@@ -242,10 +189,3 @@
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
-
-
-% Macro utilizada para termos em inglês.
-\newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
-
-% Adequação das citações e referências a norma ABNT
-\RequirePackage[alf,abnt-url-package=url]{abntcite}
