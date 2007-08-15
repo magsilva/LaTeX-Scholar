@@ -27,6 +27,4 @@ pdf: clean bibtex
 	-bibtex $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
-	rm -f $(ROOT).bib
-
 
