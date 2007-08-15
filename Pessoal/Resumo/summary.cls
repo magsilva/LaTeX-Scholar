@@ -5,12 +5,25 @@
 \ProcessOptions
 
 \LoadClass{common-article}
+\RequirePackage{footbib}
+
+\def\titleref#1{\gdef\@titleref{#1}}%
+\def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
+
+\AtBeginDocument{
+	\maketitle
+}
+
+\AtEndDocument{
+	\footbibliography{root}
+	\footbibliographystyle{plain}
+}
 
 \def\@maketitle{
 	\null
 	\begin{center}
 		{\large Resumo do trabalho \par}
-		{\LARGE \@title \par}
+		{\LARGE \@title \footcite{\@titleref}\par}
 		\vskip 1.5em
 		{
 			\large
