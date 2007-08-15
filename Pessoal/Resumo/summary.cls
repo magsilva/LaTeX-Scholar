@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{myarticle}[2006/06/21 Customized article]
+\ProvidesClass{summary}[2006/06/21 Customized text summary]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{common-article}}
 \ProcessOptions
@@ -10,13 +10,12 @@
 	\null
 	\vskip 1em
 	\begin{center}
-		{\LARGE \@title \par}
+		{\par \large Resumo do trabalho}
+		{\par \LARGE \@title \par}
 		\vskip 1.5em
-		{
-			\large
-			\lineskip .5em
+		{\par \large
 			\begin{tabular}[t]{c}
-				\@author <\@email>
+				\@author <\@email> \\
 				\today
 			\end{tabular}
 		}

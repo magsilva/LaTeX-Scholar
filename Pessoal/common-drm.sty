@@ -1,0 +1,25 @@
+\makeatletter
+
+\newcommand{\defaultlicense}{All rights reserved.}
+\iflanguage{brazil}{\renewcommand{\defaultlicense}{Todos os direitos reservados.}}{}
+
+\newcommand{\licenseprefix}{This work is available under the terms of the}
+\iflanguage{brazil}{\renewcommand{\licenseprefix}{Este trabalho está disponível sob os termos da }}{}
+
+
+\def\license#1{\gdef\@license{#1}}%
+\def\@license{
+	\@latex@warning{No \noexpand\license given}\@ehc
+	\license{\defaultlicense{}.}
+}
+
+\newcommand{\printlicense}{
+	\ifthenelse{\boolean{showlicense}}{
+		\let\origfootnote=\thefootnote
+		\def\thefootnote{\relax}
+		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \number\year \  \@author. \licenseprefix{} \@license.}
+		\def\thefootnote{\origfootnote}
+	}
+}
+
+\makeatother
