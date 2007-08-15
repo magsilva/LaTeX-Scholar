@@ -9,11 +9,12 @@
 	\PassOptionsToClass{10pt,twocolumn}{article}
 }
 
-\RequirePackage{ifthen}
-\newboolean{showlicense}
-\setboolean{showlicense}{false}
-\DeclareOption{license}{\setboolean{showlicense}{true}}
-\DeclareOption{nolicense}{\setboolean{showlicense}{false}}
+\DeclareOption{license}{
+	\PassOptionsToPackage{license}{commons-drm}
+}
+\DeclareOption{nolicense}{
+	\PassOptionsToPackage{nolicense}{commons-drm}
+}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
