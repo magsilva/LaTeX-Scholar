@@ -10,18 +10,18 @@
 }
 
 \DeclareOption{license}{
-	\PassOptionsToPackage{license}{commons-drm}
+	\PassOptionsToPackage{license}{common-drm}
 }
 \DeclareOption{nolicense}{
-	\PassOptionsToPackage{nolicense}{commons-drm}
+	\PassOptionsToPackage{nolicense}{common-drm}
 }
 
 \DeclareOption{abnt-num}{
-	\PassOptionsToPackage{abnt-num}{commons-bibtex}
+	\PassOptionsToPackage{abnt-num}{common-bibtex}
 }
 
 \DeclareOption{abnt-alf}{
-	\PassOptionsToPackage{abnt-alf}{commons-bibtex}
+	\PassOptionsToPackage{abnt-alf}{common-bibtex}
 }
 
 
