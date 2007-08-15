@@ -4,7 +4,8 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{common-article}}
 \ProcessOptions
 
-\LoadClass[abnt-num]{common-article}
+\PassOptionsToPackage{num}{abntcite}
+\LoadClass{common-article}
 
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%

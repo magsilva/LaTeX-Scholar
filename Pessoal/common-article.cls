@@ -16,14 +16,6 @@
 	\PassOptionsToPackage{nolicense}{common-drm}
 }
 
-\DeclareOption{abnt-num}{
-	\PassOptionsToPackage{abnt-num}{common-bibtex}
-}
-
-\DeclareOption{abnt-alf}{
-	\PassOptionsToPackage{abnt-alf}{common-bibtex}
-}
-
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
