@@ -14,7 +14,7 @@
 		{
 			\large
 			\begin{tabular}[t]{c}
-				\@author \hspace{1em} <\@email> \\
+				\@author \hspace{.3em} <\@email> \\
 				\today
 			\end{tabular}
 		}
