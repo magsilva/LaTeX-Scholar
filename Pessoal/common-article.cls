@@ -16,6 +16,15 @@
 	\PassOptionsToPackage{nolicense}{commons-drm}
 }
 
+\DeclareOption{abnt-num}{
+	\PassOptionsToPackage{abnt-num}{commons-bibtex}
+}
+
+\DeclareOption{abnt-alf}{
+	\PassOptionsToPackage{abnt-alf}{commons-bibtex}
+}
+
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
 \ExecuteOptions{oneside,a4paper}
