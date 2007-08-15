@@ -12,15 +12,41 @@
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
 
-% \AtBeginDocument{
-%	\maketitle
-% }
 
-% \AtEndDocument{
-%	\bibliographystyle{abnt-alf}
-%	\nobibliography{root}
-%	\bibliography{root}
-% }
+\AtBeginDocument{
+	\maketitle
+}
+
+\AtEndDocument{
+	\bibliographystyle{abnt-alf}
+	\bibliography{root}
+}
+
+
+% Do no use uppercase for \bibname.
+\renewenvironment{thebibliography}[1]{
+	\list{
+		\@biblabel{\@arabic\c@enumiv}
+	}{
+		\settowidth\labelwidth{\@biblabel{#1}}%
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\@openbib@code
+		\usecounter{enumiv}%
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}
+	}
+	\sloppy
+	\clubpenalty4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000%
+	\sfcode`\.\@m
+}{
+	\def\@noitemerr
+	{\@latex@warning{Empty thebibliography environment}}
+	\endlist
+}
+
 
 \def\@maketitle{
 	\null
