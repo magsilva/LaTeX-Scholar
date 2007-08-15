@@ -1,3 +1,11 @@
+\DeclareOption{abnt-alf}{
+	\RequirePackage[alf,abnt-url-package=url]{abntcite}
+}
+\DeclareOption{abnt-num}{
+	\RequirePackage[num,abnt-url-package=url]{abntcite}
+}
+\ProcessOptions*
+
 % Adequação das citações e referências a norma ABNT
 \RequirePackage[alf,abnt-url-package=url]{abntcite}
 

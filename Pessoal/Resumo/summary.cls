@@ -4,10 +4,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{common-article}}
 \ProcessOptions
 
-\LoadClass{common-article}
-% \RequirePackage[noomitting,nocheckidem]{opcit}
-% \RequirePackage[custombst]{opcit}
-
+\LoadClass[abnt-num]{common-article}
 
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
