@@ -10,7 +10,6 @@
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
 
-
 \AtBeginDocument{
 	\maketitle
 }
