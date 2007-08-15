@@ -8,7 +8,6 @@
 
 \def\@maketitle{
 	\null
-	\vskip 1em
 	\begin{center}
 		{\LARGE \@title \par}
 		\vskip 1.5em
@@ -16,7 +15,7 @@
 			\large
 			\lineskip .5em
 			\begin{tabular}[t]{c}
-				\@author <\@email>
+				\@author <\@email> \\
 				\today
 			\end{tabular}
 		}

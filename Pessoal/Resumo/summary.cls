@@ -8,7 +8,6 @@
 
 \def\@maketitle{
 	\null
-	\vskip 1em
 	\begin{center}
 		{\par \large Resumo do trabalho}
 		{\par \LARGE \@title \par}
