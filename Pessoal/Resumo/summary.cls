@@ -5,7 +5,7 @@
 \ProcessOptions
 
 \LoadClass{common-article}
-\RequirePackage[noomitting,noidemcheck]{opcit}
+\RequirePackage[noomitting,nocheckidem]{opcit}
 % \RequirePackage[custombst]{opcit}
 
 
