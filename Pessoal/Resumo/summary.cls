@@ -5,22 +5,22 @@
 \ProcessOptions
 
 \LoadClass{common-article}
-\RequirePackage[noomitting,nocheckidem]{opcit}
+% \RequirePackage[noomitting,nocheckidem]{opcit}
 % \RequirePackage[custombst]{opcit}
 
 
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
 
-\AtBeginDocument{
+% \AtBeginDocument{
 %	\maketitle
-}
+% }
 
-\AtEndDocument{
+% \AtEndDocument{
 %	\bibliographystyle{abnt-alf}
 %	\nobibliography{root}
 %	\bibliography{root}
-}
+% }
 
 \def\@maketitle{
 	\null
