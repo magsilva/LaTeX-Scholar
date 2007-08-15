@@ -5,8 +5,8 @@
 \ProcessOptions
 
 \LoadClass{common-article}
-% \RequirePackage[custombst,noomitting,noidemcheck]{opcit}
-\RequirePackage[custombst]{opcit}
+\RequirePackage[noomitting,noidemcheck]{opcit}
+% \RequirePackage[custombst]{opcit}
 
 
 \def\titleref#1{\gdef\@titleref{#1}}%
@@ -17,8 +17,8 @@
 }
 
 \AtEndDocument{
-	\bibliography{root}
-	\bibliographystyle{plain}
+	\nobibliography{root}
+%	\bibliographystyle{plain}
 }
 
 \def\@maketitle{
