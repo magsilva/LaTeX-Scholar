@@ -9,12 +9,13 @@
 \def\@maketitle{
 	\null
 	\begin{center}
-		{\par \large Resumo do trabalho}
-		{\par \LARGE \@title \par}
+		{\large Resumo do trabalho \par}
+		{\LARGE \@title \par}
 		\vskip 1.5em
-		{\par \large
+		{
+			\large
 			\begin{tabular}[t]{c}
-				\@author <\@email> \\
+				\@author \hspace{1em} <\@email> \\
 				\today
 			\end{tabular}
 		}

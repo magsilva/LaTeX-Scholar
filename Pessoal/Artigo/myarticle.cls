@@ -13,9 +13,8 @@
 		\vskip 1.5em
 		{
 			\large
-			\lineskip .5em
 			\begin{tabular}[t]{c}
-				\@author <\@email> \\
+				\@author \hspace{1em} <\@email> \\
 				\today
 			\end{tabular}
 		}
