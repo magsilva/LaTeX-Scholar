@@ -43,7 +43,7 @@
 }
 
 \def\@maketitle{
-	{\large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}
+	{\large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
 	{\large \@author \hspace{.3em} <\@email> \par}
 	\today
 	\vskip 1em
