@@ -15,6 +15,8 @@
 }
 
 \AtEndDocument{
+	\small
+	\singlespacing
 	\bibliographystyle{abnt-alf}
 	\bibliography{root}
 }
@@ -44,8 +46,7 @@
 
 \def\@maketitle{
 	{\noindent \large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
-	{\noindent \@author \hspace{.3em} <\@email> \par}
-	{\noindent \today}
+	\noindent \@author \hspace{.3em} <\@email> \\\today
 	\vskip 1em
 	\printlicense
 }
