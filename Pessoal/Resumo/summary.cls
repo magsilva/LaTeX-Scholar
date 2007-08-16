@@ -23,7 +23,7 @@
 
 
 \renewenvironment{thebibliography}[1]{
-	\vspace{1.6em}
+	\vspace{.5em}
 	\footnoterule
 	\vspace{-.8em}
 	\list{
