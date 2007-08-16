@@ -43,20 +43,10 @@
 }
 
 \def\@maketitle{
-	\null
-	\begin{center}
-		{\large Resumo do trabalho \par}
-		{\LARGE \@title \cite{\@titleref}\par}
-		\vskip 1.5em
-		{
-			\large
-			\begin{tabular}[t]{c}
-				\@author \hspace{.3em} <\@email> \\
-				\today
-			\end{tabular}
-		}
-	\end{center}
-	\par
+	{\large Resumo do artigo @title \cite{\@titleref} \par}
+	\vskip 1.5em
+	{\large \@author \hspace{.3em} <\@email> \par}
+	\today
 	\vskip 1.5em
 	\printlicense
 }
