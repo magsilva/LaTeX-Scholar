@@ -20,14 +20,12 @@
 }
 
 
-% Do no use uppercase for \bibname.
 \renewenvironment{thebibliography}[1]{
+	\vspace{1.6em}
+	\footnoterule
+	\vspace{-.8em}
 	\list{
-		\@biblabel{\@arabic\c@enumiv}
 	}{
-		\settowidth\labelwidth{\@biblabel{#1}}%
-		\leftmargin\labelwidth
-		\advance\leftmargin\labelsep
 		\@openbib@code
 		\usecounter{enumiv}%
 		\let\p@enumiv\@empty
@@ -43,7 +41,6 @@
 	{\@latex@warning{Empty thebibliography environment}}
 	\endlist
 }
-
 
 \def\@maketitle{
 	\null
