@@ -43,9 +43,9 @@
 }
 
 \def\@maketitle{
-	{\large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
-	{\large \@author \hspace{.3em} <\@email> \par}
-	\today
+	{\noindent \large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
+	{\noindent \@author \hspace{.3em} <\@email> \par}
+	{\noindent \today}
 	\vskip 1em
 	\printlicense
 }
