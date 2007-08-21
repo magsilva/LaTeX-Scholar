@@ -1,0 +1,15 @@
+2007-07-07 Stéphane GALLAND <galland@arakhne.org>
+	* Privide commands to change the bibliography style
+
+2007-07-06 Stéphane GALLAND <galland@arakhne.org>
+	* Bug fix: use varioref for the footnote references.
+
+2007-07-05 Stéphane GALLAND <galland@arakhne.org>
+	* Add people name formatting function.
+
+2007-07-04 Stéphane GALLAND <galland@arakhne.org>
+	* Bug fix: front page layout
+
+2007-07-03 Stéphane GALLAND <galland@arakhne.org>
+	* First public release
+
