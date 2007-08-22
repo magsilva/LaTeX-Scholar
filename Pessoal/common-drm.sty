@@ -17,17 +17,41 @@
 \iflanguage{brazil}{\renewcommand{\licenseprefix}{Este trabalho está disponível sob os termos da }}{}
 
 
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}}%
+\def\@copyrightyear{
+	\@latex@warning{No \noexpand\copyrightyear given}\@ehc
+	\copyrightyear{\year}
+}
+
+\def\copyrightmonth#1{\gdef\@copyrightmonth{#1}}%
+\def\@copyrightmonth{
+	\@latex@warning{No \noexpand\copyrightmonth given}\@ehc
+	\copyrightmonth{\month}
+}
+
+\def\copyrightday#1{\gdef\@copyrightday{#1}}%
+\def\@copyrightday{
+	\@latex@warning{No \noexpand\copyrightdate given}\@ehc
+	\copyrightday{\day}
+}
+
 \def\license#1{\gdef\@license{#1}}%
 \def\@license{
 	\@latex@warning{No \noexpand\license given}\@ehc
 	\license{\defaultlicense{}.}
 }
 
+\AtBeginDocument{
+	\makeatletter
+	\newdate{copyrightdate}{\@copyrightday}{\@copyrightmonth}{\@copyrightyear}
+	\makeatother
+}
+
 \newcommand{\printlicense}{
 	\ifthenelse{\boolean{showlicense}}{
 		\let\origfootnote=\thefootnote
 		\def\thefootnote{\relax}
-		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \number\year \  \@author. \licenseprefix{} \@license.}
+		\footnotetext{\hspace{-1.8em}Copyright \copyright\  \getdateyear{copyrightdate} \  \@author. \licenseprefix{} \@license.}
 		\def\thefootnote{\origfootnote}
 	}
 }

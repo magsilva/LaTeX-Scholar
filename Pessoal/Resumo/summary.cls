@@ -10,6 +10,9 @@
 \def\titleref#1{\gdef\@titleref{#1}}%
 \def\@titlerefl{\@latex@error{No \noexpand\titleref given}\@ehc}%
 
+\newcommand{\datename}{Date}
+\iflanguage{brazil}{\renewcommand{\datename}{Data}}{}
+
 \AtBeginDocument{
 	\maketitle
 }
@@ -46,7 +49,7 @@
 
 \def\@maketitle{
 	{\noindent \large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
-	\noindent \@author \hspace{.3em} <\@email> \\\today
+	\noindent \@author \hspace{.3em} <\@email> \\\datename: \getdateday{copyrightdate}/\getdatemonth{copyrightdate}/\getdateyear{copyrightdate}
 	\vskip 1em
 	\printlicense
 }
