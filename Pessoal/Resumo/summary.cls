@@ -15,15 +15,20 @@
 
 \AtBeginDocument{
 	\maketitle
+	% Something after the \maketitle is setting the pagestyle.
+	\thispagestyle{empty}
 }
 
 \AtEndDocument{
 	\small
 	\singlespacing
+	\nocite{\@titleref}
 	\bibliographystyle{abnt-alf}
 	\bibliography{root}
 }
 
+\geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm}
+\pagestyle{empty}
 
 \renewenvironment{thebibliography}[1]{
 	\vspace{.5em}
@@ -48,7 +53,7 @@
 }
 
 \def\@maketitle{
-	{\noindent \large Resumo do artigo: \textbf{\@title} {\scriptsize \cite{\@titleref} \par}}
+	{\noindent \large Resumo do artigo: \textbf{\@title} \par}
 	\noindent \@author \hspace{.3em} <\@email> \\\datename: \getdateday{copyrightdate}/\getdatemonth{copyrightdate}/\getdateyear{copyrightdate}
 	\vskip 1em
 	\printlicense
