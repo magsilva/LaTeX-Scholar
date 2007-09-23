@@ -224,8 +224,8 @@
 
 \renewcommand\mainmatter{
 	\cleardoublepage
+	\pagestyle{mainmatter}
 	\@mainmattertrue
-	% \pagestyle{mainmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
 }
