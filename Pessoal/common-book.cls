@@ -223,7 +223,7 @@
 }
 
 \renewcommand\mainmatter{
-	\cleardoublepage
+%	\cleardoublepage
 	\@mainmattertrue
 	\pagestyle{mainmatter}
 	\pagenumbering{arabic}
