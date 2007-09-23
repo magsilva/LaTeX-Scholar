@@ -189,15 +189,15 @@
 }
 
 % Pretty chapter start at mainmatter
-%\newpagestyle{mainmatter}[\small\sffamily]{
-%	\headrule
-%	\sethead{}
-%		{}
-%		{}
-%	\setfoot{}
-%		{\thepage}
-%		{}
-%}
+\newpagestyle{mainmatter}[\small\sffamily]{
+	\headrule
+	\sethead{}
+		{}
+		{}
+	\setfoot{}
+		{\thepage}
+		{}
+}
 
 % Pretty chapter start at backmatter
 \newpagestyle{backmatter}{
