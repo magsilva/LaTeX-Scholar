@@ -179,7 +179,7 @@
 \RequirePackage{indentfirst}
 
 % Pretty chapter start at frontmatter
-\newpagestyle{frontmatter}{
+\newpagestyle{psfrontmatter}{
 	\sethead{}
 		{}
 		{}
@@ -189,7 +189,7 @@
 }
 
 % Pretty chapter start at mainmatter
-\newpagestyle{mainmatter}[\small\sffamily]{
+\newpagestyle{psmainmatter}[\small\sffamily]{
 	\headrule
 	\sethead{}
 		{}
@@ -200,7 +200,7 @@
 }
 
 % Pretty chapter start at backmatter
-\newpagestyle{backmatter}{
+\newpagestyle{psbackmatter}{
 	\headrule
 	\sethead{}
 		{}
@@ -217,7 +217,7 @@
 \renewcommand\frontmatter{%
 	\cleardoublepage
 	\@mainmatterfalse
-	% \pagestyle{frontmatter}
+	\pagestyle{psfrontmatter}
 	\pagenumbering{roman}
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
@@ -225,7 +225,7 @@
 \renewcommand\mainmatter{
 	\cleardoublepage
 	\@mainmattertrue
-	% \pagestyle{mainmatter}
+	\pagestyle{psmainmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
 }
@@ -233,7 +233,7 @@
 \renewcommand\backmatter{%
 	\cleardoublepage
 	\@mainmatterfalse
-	% \pagestyle{backmatter}
+	\pagestyle{psbackmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
