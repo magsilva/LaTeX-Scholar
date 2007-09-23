@@ -74,7 +74,6 @@
 }
 
 \newcommand{\coverpageone}{
-	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
 	\begin{center}
@@ -94,12 +93,10 @@
 	\end{center}
 	\vfill
 	\end{adjustwidth}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
 
 \newcommand{\coverpagetwo}{
-	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 
 	\depositbox
@@ -127,13 +124,14 @@
 		\@depositshortdate \par
 	\end{center}
 	\end{adjustwidth}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
+	\pagestyle{empty}
 	\begin{titlepage}
 		\coverpageone
+		\cleardoublepage
 		\coverpagetwo
 	\end{titlepage}
 }
