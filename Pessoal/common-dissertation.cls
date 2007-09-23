@@ -74,6 +74,8 @@
 }
 
 \newcommand{\coverpageone}{
+	\cleardoublepage
+
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
 	\begin{center}
@@ -97,6 +99,7 @@
 
 
 \newcommand{\coverpagetwo}{
+	\cleardoublepage
 	\begin{adjustwidth}{-.5cm}{}
 
 	\depositbox
@@ -131,9 +134,9 @@
 	\pagestyle{empty}
 	\begin{titlepage}
 		\coverpageone
-		\cleardoublepage
 		\coverpagetwo
 	\end{titlepage}
+	\pagestyle{plain}
 }
 
 % Traduz os nomes de listagens e fragmentos de código para português
