@@ -233,7 +233,7 @@
 \renewcommand\backmatter{%
 	\cleardoublepage
 	\@mainmatterfalse
-	\pagestyle{backmatter}
+	% \pagestyle{backmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
