@@ -74,7 +74,7 @@
 }
 
 \newcommand{\coverpageone}{
-	\cleardoublepage
+%	\cleardoublepage
 
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
@@ -99,7 +99,7 @@
 
 
 \newcommand{\coverpagetwo}{
-	\cleardoublepage
+%	\cleardoublepage
 	\begin{adjustwidth}{-.5cm}{}
 
 	\depositbox
@@ -131,12 +131,12 @@
 
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
-	\pagestyle{empty}
+%	\pagestyle{empty}
 	\begin{titlepage}
 		\coverpageone
 		\coverpagetwo
 	\end{titlepage}
-	\pagestyle{plain}
+%	\pagestyle{plain}
 }
 
 % Traduz os nomes de listagens e fragmentos de código para português
