@@ -230,13 +230,13 @@
 	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
 }
 
-% \renewcommand\backmatter{%
-%	\cleardoublepage
-%	\@mainmatterfalse
+\renewcommand\backmatter{%
+	\cleardoublepage
+	\@mainmatterfalse
 %	\pagestyle{backmatter}
 %	\pagenumbering{arabic}
-%	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
-%}
+	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+}
 
 % Macro para destacar as primeiras letras do texto. Um texto do tipo:
 %
