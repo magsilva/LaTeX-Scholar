@@ -73,7 +73,7 @@
 	\end{flushright}
 }
 
-\newcommand{\coverpageone}{
+\newcommand{\coverpage1}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 	\vfill
@@ -134,7 +134,7 @@
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
 		\coverpage1
-		\coverpage2
+		% \coverpage2
 	\end{titlepage}
 }
 
