@@ -269,7 +269,7 @@
 
 
 % Pretty chapter start
-% \font\chapternumberfont= goxi2074 scaled 2000
+\font\chapternumberfont= goxi2074 scaled 2000
 \titleformat{\chapter}[display]
 	{\normalfont\Large\sffamily}
 	{
