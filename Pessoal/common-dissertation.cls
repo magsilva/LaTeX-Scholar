@@ -59,40 +59,40 @@
 
 \newcommand{\depositbox}{
 	\begin{flushright}
-		\begin{boxedminipage}[t]{8cm}
+		\fbox{\begin{minipage}[t][2.8cm]{8cm}
 			\begin{center}
 				\begin{footnotesize}
-				\allcaps{\@graduationsecretary} \par
+					\allcaps{\@graduationsecretary}
 				\end{footnotesize}
 			\end{center}
-			\vskip .5em
 			Data de Depósito: \@depositfulldate \par
-			\vskip 1em
-			Assinatura: \rule{.7\linewidth}{.05mm} \par
-		\end{boxedminipage}
+			\vspace{0.4cm}
+			Assinatura: \rule{4.5cm}{.05mm} \par
+		\end{minipage}}
 	\end{flushright}
 }
+
 
 \newcommand{\coverpageone}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
-	\vfill
+	\null
+	\vspace{10.7cm}
 	\begin{center}
-		\rule{.8\linewidth}{.3mm}
-		\begin{minipage}{.7\linewidth}
+		\rule{11.5cm}{.3mm}
+		\begin{minipage}{10.6cm}
 			\begin{center}
-				\vskip 1.5em
+				\vspace{0.6cm}
 				{\Large \textsf{\@title} \par}
 				% {\textbf{\fontsize{15pt}{19pt} \selectfont \normalfont \Large\sffamily\bfseries \@title}}
-				\vskip 2em
+				\vspace{0.75cm}
 				{\large \textbf{\textit{\@author}} \normalsize \par}
 				% {\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
-				\vskip 1.5em
+				\vspace{0.5cm}
 			\end{center}
 		\end{minipage}
-		\rule{.8\linewidth}{.3mm}
+		\rule{11.5cm}{.3mm}
 	\end{center}
-	\vfill
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
@@ -103,22 +103,26 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\depositbox
 	% \defensebox
+	\vspace{2.8cm}
 	\begin{center}
-		\vfill
-		% {\textbf{\fontsize{16pt}{21pt} \selectfont \@title}}
-		{\large \textbf{\@title} \par}
-		\vskip 4em
+		\begin{minipage}{12cm}
+			\centering
+			{\LARGE \textsf{\@title} \par}
+		\end{minipage}
+	\end{center}
+	\begin{center}
+		\vspace{1.3cm}
 		{\textbf{\textit{\@author}} \par}
-		\vskip 3em
+		\vspace{1.3cm}
 		{\textbf{Orientador: \textit{\@advisor}} \par}
 	\end{center}
-	\vfill
+	\vspace{2.8cm}
 	\begin{flushright}
-		\begin{minipage}{.7\linewidth}
-			{\hyphenpenalty=10000 \@dissertationgoal \par}%
+		\begin{minipage}{11.4cm}
+			{\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
 		\end{minipage}
 	\end{flushright}
-	\vfill
+	\vspace{2.8cm}
 	\begin{center}
 	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
 		\@address \par
