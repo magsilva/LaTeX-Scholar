@@ -98,37 +98,37 @@
 }
 
 
-\newcommand{\coverpage2}{
-	\thispagestyle{empty}
-	\begin{adjustwidth}{-.5cm}{}
-
-	\depositbox
-	% \defensebox
-	\begin{center}
-		\vfill
-		% {\textbf{\fontsize{16pt}{21pt} \selectfont \@title}}
-            	{\large \textbf{\@title} \par}
-		\vskip 4em
-		{\textbf{\textit{\@author}} \par}
-		\vskip 3em
-		{\textbf{Orientador: \textit{\@advisor}} \par}
-	\end{center}
-	\vfill
-	\begin{flushright}
-		\begin{minipage}{.7\linewidth}
-			{\hyphenpenalty=10000 \@dissertationgoal \par}%
-		\end{minipage}
-	\end{flushright}
-	\vfill
-	\begin{center}
-	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
-		\@address \par
-		% \@defenseshortdate \par
-		\@depositshortdate \par
-	\end{center}
-	\end{adjustwidth}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
-}
+%\newcommand{\coverpage2}{
+%	\thispagestyle{empty}
+%	\begin{adjustwidth}{-.5cm}{}
+%
+%	\depositbox
+%	% \defensebox
+%	\begin{center}
+%		\vfill
+%		% {\textbf{\fontsize{16pt}{21pt} \selectfont \@title}}
+%		{\large \textbf{\@title} \par}
+%		\vskip 4em
+%		{\textbf{\textit{\@author}} \par}
+%		\vskip 3em
+%		{\textbf{Orientador: \textit{\@advisor}} \par}
+%	\end{center}
+%	\vfill
+%	\begin{flushright}
+%		\begin{minipage}{.7\linewidth}
+%			{\hyphenpenalty=10000 \@dissertationgoal \par}%
+%		\end{minipage}
+%	\end{flushright}
+%	\vfill
+%	\begin{center}
+%	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
+%		\@address \par
+%		% \@defenseshortdate \par
+%		\@depositshortdate \par
+%	\end{center}
+%	\end{adjustwidth}
+%	\clearpage{\pagestyle{empty}\cleardoublepage}
+%}
 
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
