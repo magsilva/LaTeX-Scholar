@@ -189,15 +189,15 @@
 }
 
 % Pretty chapter start at mainmatter
-\newpagestyle{mainmatter}[\small\sffamily]{
-	\headrule
-	\sethead{}
-		{}
-		{}
-	\setfoot{}
-		{\thepage}
-		{}
-}
+%\newpagestyle{mainmatter}[\small\sffamily]{
+%	\headrule
+%	\sethead{}
+%		{}
+%		{}
+%	\setfoot{}
+%		{\thepage}
+%		{}
+%}
 
 % Pretty chapter start at backmatter
 \newpagestyle{backmatter}{
@@ -222,14 +222,13 @@
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
 
-%\renewcommand\mainmatter{
-%	\cleardoublepage
-%	\@mainmattertrue
-%	\pagestyle{mainmatter}
-%	\pagenumbering{arabic}
-%	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
-%	\acresetall{}
-%}
+\renewcommand\mainmatter{
+	\cleardoublepage
+	\@mainmattertrue
+	\pagestyle{mainmatter}
+	\pagenumbering{arabic}
+	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+}
 
 \renewcommand\backmatter{%
 	\cleardoublepage
