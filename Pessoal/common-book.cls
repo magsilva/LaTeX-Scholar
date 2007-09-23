@@ -222,14 +222,14 @@
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
 
-\renewcommand\mainmatter{
+%\renewcommand\mainmatter{
 %	\cleardoublepage
-	\@mainmattertrue
-	\pagestyle{mainmatter}
-	\pagenumbering{arabic}
-	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
-	\acresetall{}
-}
+%	\@mainmattertrue
+%	\pagestyle{mainmatter}
+%	\pagenumbering{arabic}
+%	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+%	\acresetall{}
+%}
 
 \renewcommand\backmatter{%
 	\cleardoublepage
