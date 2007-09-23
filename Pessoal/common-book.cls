@@ -217,15 +217,15 @@
 \renewcommand\frontmatter{%
 	\cleardoublepage
 	\@mainmatterfalse
-	\pagestyle{frontmatter}
+	% \pagestyle{frontmatter}
 	\pagenumbering{roman}
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
 
 \renewcommand\mainmatter{
 	\cleardoublepage
-	\pagestyle{mainmatter}
 	\@mainmattertrue
+	% \pagestyle{mainmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
 }
@@ -233,7 +233,7 @@
 \renewcommand\backmatter{%
 	\cleardoublepage
 	\@mainmatterfalse
-	\pagestyle{backmatter}
+	% \pagestyle{backmatter}
 	\pagenumbering{arabic}
 	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
 }
