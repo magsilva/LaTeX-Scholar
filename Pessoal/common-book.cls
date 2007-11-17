@@ -166,6 +166,7 @@
 
 % Glossário
 \RequirePackage{makeglo}
+\renewcommand{\glossaryname}{Glossário}
 \makeglossary
 
 % Criação de índice remissivo.
