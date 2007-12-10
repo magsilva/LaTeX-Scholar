@@ -23,9 +23,8 @@
 
 
 \renewcommand{\maketitle}{%
-	\pagestyle{empty}
 	\begin{titlepage}
-		\newpage
+		\thispagestyle{empty}
 		\null
 		\vfill
 		\begin{minipage}{.9\linewidth}
@@ -45,7 +44,7 @@
 		\end{minipage}
 		\vfill
 		\begin{flushleft}
-			{\large \textbf{Bolsista:}\textit{\@author} \normalsize \par}
+			{\large \textbf{Bolsista:} \textit{\@author} \normalsize \par}
 			\vskip 1em
 			{\large \textbf{Coordenador:} \textit{\@advisor} \normalsize \par}
 			\vskip 1.5em
@@ -56,5 +55,5 @@
 			{\large \@date \par}
 		\end{center}
 	\end{titlepage}
-	\cleardoublepage
+	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
