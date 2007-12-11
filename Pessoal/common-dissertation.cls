@@ -138,7 +138,21 @@
 	\begin{titlepage}
 		\coverpageone
 		\coverpagetwo
+		\ifx\@dedication\@empty\else{
+        		\dedicate
+		}
+		\fi
 	\end{titlepage}
+}
+
+% Comando para criar a dedicatória
+\newcommand{\dedicate}{
+	\thispagestyle{empty}
+	\null
+	\vfill
+	\hfill \noindent\textsl{\@dedication} \hspace{1cm} \par
+        \vspace{3cm}
+	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
 % Traduz os nomes de listagens e fragmentos de código para português
