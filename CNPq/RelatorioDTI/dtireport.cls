@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{techreport}[2007/11/07 CNPQ-ITI Report]
+\ProvidesClass{dtireport}[2007/11/07 CNPQ-ITI Report]
 \LoadClass{common-book}
 
 
