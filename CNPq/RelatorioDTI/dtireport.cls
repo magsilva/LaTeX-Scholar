@@ -23,37 +23,35 @@
 
 
 \renewcommand{\maketitle}{%
-	\begin{titlepage}
-		\thispagestyle{empty}
-		\null
-		\vfill
-		\begin{minipage}{.9\linewidth}
-			\begin{center}
-				{\Large \textbf{Projeto} \par}
-				\vskip 1em
-				{\Large \textsf{\@masterproject} \par}
-				\vskip 1em
-				{\large Processo nº \@processid}
-			\end{center}
-			\vskip 7em
-			\begin{center}
-				{\Large \textbf{Relatório} \par}
-				\vskip 1em
-				{\LARGE \textsf{\@title} \par}
-			\end{center}
-		\end{minipage}
-		\vfill
-		\begin{flushleft}
-			{\large \textbf{Bolsista:} \textit{\@author} \normalsize \par}
-			\vskip 1em
-			{\large \textbf{Coordenador:} \textit{\@advisor} \normalsize \par}
-			\vskip 1.5em
-		\end{flushleft}
-		\vfill
+	\thispagestyle{empty}
+	\null
+	\vfill
+	\begin{minipage}{.9\linewidth}
 		\begin{center}
-			{\large \@address \par}
-			{\large \@date \par}
+			{\Large \textbf{Projeto} \par}
+			\vskip 1em
+			{\Large \textsf{\@masterproject} \par}
+			\vskip 1em
+			{\large Processo nº \@processid}
 		\end{center}
-	\end{titlepage}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
+		\vskip 7em
+		\begin{center}
+			{\Large \textbf{Relatório} \par}
+			\vskip 1em
+			{\LARGE \textsf{\@title} \par}
+		\end{center}
+	\end{minipage}
+	\vfill
+	\begin{flushleft}
+		{\large \textbf{Bolsista:} \textit{\@author} \normalsize \par}
+		\vskip 1em
+		{\large \textbf{Coordenador:} \textit{\@advisor} \normalsize \par}
+		\vskip 1.5em
+	\end{flushleft}
+	\vfill
+	\begin{center}
+		{\large \@address \par}
+		{\large \@date \par}
+	\end{center}
+	{\pagestyle{empty}\cleardoublepage}
 }

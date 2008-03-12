@@ -2,11 +2,11 @@
 \ProvidesClass{common-article}[2007/03/23 Common packages and settings]
 
 \DeclareOption{onecolumn}{
-	\PassOptionsToClass{11pt,onecolumn}{article}
+	\PassOptionsToClass{12pt,onecolumn}{article}
 }
 
 \DeclareOption{twocolumn}{
-	\PassOptionsToClass{10pt,twocolumn}{article}
+	\PassOptionsToClass{11pt,twocolumn}{article}
 }
 
 \DeclareOption{license}{
@@ -19,7 +19,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
-\ExecuteOptions{oneside,a4paper}
+\ExecuteOptions{twoside,a4paper}
 \ProcessOptions
 
 \LoadClass{article}
