@@ -347,8 +347,8 @@ FUNCTION {format.edition}
 { edition empty$
     { "" }
     { output.state mid.sentence =
-	{ edition "l" change.case$ " edition" * }
-	{ edition "t" change.case$ " edition" * }
+	{ edition "l" change.case$ " ed." * }
+	{ edition "t" change.case$ " ed." * }
       if$
     }
   if$
@@ -412,7 +412,7 @@ FUNCTION {format.chapter.pages}
 { chapter empty$
     'format.pages
     { type empty$
-	{ "chapter" }
+	{ "capítulo " }
 	{ type "l" change.case$ }
       if$
       chapter tie.or.space.connect
@@ -565,14 +565,14 @@ FUNCTION {inbook}
   format.btitle "title" output.check
   crossref missing$
     { format.bvolume output
-      format.chapter.pages "chapter and pages" output.check
+      format.chapter.pages "capítulo e páginas " output.check
       new.block
       format.number.series output
       new.sentence
       publisher "publisher" output.check
       address output
     }
-    { format.chapter.pages "chapter and pages" output.check
+    { format.chapter.pages "capítulo e páginas " output.check
       new.block
       format.book.crossref output.nonnull
     }

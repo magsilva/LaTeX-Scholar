@@ -39,7 +39,11 @@
 % margem esq/dir 3 cm
 \geometry{a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm}
 
-\RequirePackage{common-bibtex}
+\RequirePackage[num,abnt-url-package=url]{abntcite}
+% Set the \bibname to ABNT rules.
+% \providecommand{\bibname}{Refer<EA>ncias}
+\def\mybibname{Refer<EA>ncias}
+\def\myrefname{Refer<EA>ncias}
 
 
 %%% End of generic LaTeX code %%%

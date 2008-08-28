@@ -146,7 +146,7 @@
 }
 
 % Comando para criar a dedicatória
-\newcommand{\dedicate}{
+\renewcommand{\dedicate}{
 	\thispagestyle{empty}
 	\null
 	\vfill
