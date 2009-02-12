@@ -103,7 +103,7 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\depositbox
 	% \defensebox
-	\vspace{2.8cm}
+	\vfill
 	\begin{center}
 		\begin{minipage}{12cm}
 			\centering
@@ -116,13 +116,13 @@
 		\vspace{1.3cm}
 		{\textbf{Orientador: \textit{\@advisor}} \par}
 	\end{center}
-	\vspace{2.8cm}
+	\vfill
 	\begin{flushright}
 		\begin{minipage}{11.4cm}
 			{\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
 		\end{minipage}
 	\end{flushright}
-	\vspace{2.8cm}
+	\vfill
 	\begin{center}
 	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
 		\@address \par
