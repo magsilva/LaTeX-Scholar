@@ -16,11 +16,11 @@
   \begin{centering}
     \begin{beamercolorbox}[sep=8pt,center,#1]{title}
       \usebeamerfont{title}\inserttitle\par%
-      \ifx\insertsubtitle\@empty%
-      \else%
-        \vskip0.25em%
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-      \fi%
+       \ifx\insertsubtitle\@empty%
+       \else%
+         \vskip0.25em%
+         {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+       \fi%
     \end{beamercolorbox}%
     \vskip1em\par
     \begin{beamercolorbox}[sep=8pt,center,#1]{author}
@@ -32,11 +32,8 @@
     \begin{beamercolorbox}[sep=8pt,center,#1]{date}
       \usebeamerfont{date}\insertdate
     \end{beamercolorbox}\vskip0.5em
-    % {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
   \end{centering}
-
-  \vfill
-  \insertlogo%
 }
 
 

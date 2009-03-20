@@ -3,22 +3,25 @@
 % This program can be redistributed and/or modified under the terms
 % of the GNU Public License, version 2.
 
+\mode<article>
+{
+\usepackage{beamerbasearticle}
+\usepackage{fullpage}
+\usepackage{hyperref}
+}
+
 \mode<presentation>
-
-\newif\ifbeamer@secheader
-\beamer@secheaderfalse
-
-\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
-\ProcessOptionsBeamer
-
+{
+\usetheme{Ilmenau}
 \usecolortheme{whale}
 \usecolortheme{orchid}
-\useinnertheme[shadow]{magsilva}
+\useinnertheme{magsilva}
 \useoutertheme{magsilva}
-
-\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
-
 \setbeamercovered{transparent}
+}
 
-\mode
-<all>
+\mode<all>
+{
+\usepackage{common-i18n}
+\newcommand{\newpart}{\vspace{.3cm}}
+}
