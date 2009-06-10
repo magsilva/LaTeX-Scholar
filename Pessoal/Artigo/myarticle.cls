@@ -16,7 +16,7 @@
 			\large
 			\begin{tabular}[t]{c}
 				\@author \hspace{.3em} <\@email> \\
-				\@copyrightday/\@copyrightmonth/\@copyrightyear
+%				\@copyrightday/\@copyrightmonth/\@copyrightyear
 			\end{tabular}
 		}
 	\end{center}
