@@ -51,7 +51,7 @@
 	\end{minipage}
 	\vskip 1em
 	\rule{.8\linewidth}{.3mm}
-	\par \vspace{6em}
+	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
 	\includegraphics[scale=.15]{\@logo}
@@ -83,7 +83,7 @@
 	\end{minipage}
 	\vskip 1em
 	\rule{.8\linewidth}{.3mm}
-	\par \vspace{5em}
+	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
 	\includegraphics[scale=.15]{\@logo}
