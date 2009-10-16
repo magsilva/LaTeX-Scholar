@@ -80,12 +80,6 @@
 %%%%%%%%%%%%%%%%%%%%
 % Comandos para inserção de código-fonte, scripts e comandos no texto.
 
-% Impede a hifenização do conteúdo definido na macro \srccode.
-\RequirePackage{hyphenat}
-
-% Macro utilizada para trechos de código-fonte inseridos no meio do texto.
-\newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
-
 % Utilizado para listagens de códigos e comandos longos.
 \RequirePackage{listings}
 
