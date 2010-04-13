@@ -173,7 +173,7 @@
 \makeindex
 
 % referencias com página \vref
-\RequirePackage[brazil]{varioref}
+% \RequirePackage[brazil]{varioref}
 
 % indenta primeiro parágrafo
 \RequirePackage{indentfirst}

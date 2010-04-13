@@ -34,6 +34,17 @@
 	morestring=[b]",
 }
 
+\lstdefinelanguage{diff}{
+    morekeywords={+, -},
+    sensitive=false,
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]{+},
+    morecomment=[l]{-},
+    morestring=[b]",
+}
+
+
 % Define os estilos a serem utilizados nos ambientes lstlistings.
 \lstdefinestyle{srccode}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single}
 \lstdefinestyle{srccodeJava}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=java}
