@@ -312,3 +312,21 @@
 %	[\hfill\rule{.8\textwidth}{0.5pt}\\
 %	\vskip-2.4ex\hfill\rule{.8\textwidth}{2pt}\\
 %	\vskip 1.5ex]
+
+\RequirePackage{enumitem}
+\setdescription{topsep=0pt, partopsep=6pt, parsep=0pt, itemsep=0pt}
+\setitemize{topsep=0pt, partopsep=6pt, parsep=0pt, itemsep=0pt}
+
+\renewcommand{\descriptionlabel}[1]
+	{\hspace{\labelsep}\textsf{#1}:}
+
+% Ambiente para cita<E7><F5>es diretas.
+\renewenvironment{quotation}{
+        \begin{flushright}
+                \begin{minipage}{\linewidth - 4cm}
+                \singlespacing
+                \small
+}{
+                \end{minipage}
+        \end{flushright}
+}
