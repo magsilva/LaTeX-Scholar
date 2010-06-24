@@ -5,8 +5,6 @@
 \RequirePackage{common}
 \RequirePackage{indentfirst}
 
-\RequirePackage{hyperref}
-\RequirePackage{url}
 \RequirePackage{multirow}
 
 \def\cleardoublepage{%
