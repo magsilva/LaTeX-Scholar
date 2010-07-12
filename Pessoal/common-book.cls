@@ -176,7 +176,7 @@
 % \RequirePackage[brazil]{varioref}
 
 % indenta primeiro parágrafo
-\RequirePackage{indentfirst}
+% \RequirePackage{indentfirst}
 
 % Pretty chapter start at frontmatter
 \newpagestyle{frontmatter}{

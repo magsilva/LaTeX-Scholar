@@ -38,7 +38,7 @@
 	\vspace{4em}
 	{\LARGE \allcaps{\@university} \par} % TODO: fonte outline com sombra
 	{\Large \@institute \par}
-	\vspace{11em}
+	\vspace{9em}
 	\rule{.8\linewidth}{.3mm}
 	\vskip 1em
 	\begin{minipage}{.7\linewidth}
@@ -54,8 +54,8 @@
 	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
-	\includegraphics[scale=.15]{\@logo}
-	\vfill
+	{\includegraphics[scale=.15]{\@logo} \par}
+	\vspace{.5em}
 	{\large \textbf{\@address} \par}
 	\end{adjustwidth}
 
@@ -70,7 +70,7 @@
 	\begin{flushright}
 		ISSN: \@issn
 	\end{flushright}
-	\vspace{10em}
+	\vspace{8em}
 	\rule{.8\linewidth}{.3mm}
 	\vskip 1em
 	\begin{minipage}{.7\linewidth}
@@ -86,8 +86,8 @@
 	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
-	\includegraphics[scale=.15]{\@logo}
-	\vfill
+	{\includegraphics[scale=.15]{\@logo} \par}
+	\vspace{.5em}
 	{\large \textbf{\@address} \par}
 	{\large \textbf{\@date} \par}
 	\end{adjustwidth}
