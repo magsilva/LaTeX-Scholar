@@ -1,0 +1,56 @@
+\resizebox{100\unitlength}{106\unitlength}%
+{{\unitlength1pt\begin{picture}(100,106)(-10,-18)
+\put(40,60){\circle{40}}
+\put(32,64){\circle*{6}}
+\put(48,64){\circle*{6}}
+\put(40,56){\circle*{5}}
+\put(40,48){\line(0,1){8}}
+\put(40,52){\oval(12,8)[b]}
+%
+\put(21.5,78)
+    {\put(0,0){\oval(20,20)[t]}
+    \put(0,0){\oval(20,20)[bl]}
+    \put(0,0){\circle{10}}}
+\put(58.5,78)
+    {\put(0,0){\oval(20,20)[t]}
+    \put(0,0){\oval(20,20)[br]}
+    \put(0,0){\circle{10}}}
+%
+\put(40,-3){\oval(30,86)[t]}
+%
+\put(10,33)
+    {\put(0,0){\oval(32,16)}
+    \put(-8,0){\circle{8}}
+    \put(-18,0){\circle*{4}}
+    \put(-16,5){\circle*{4}}
+    \put(-16,-5){\circle*{4}}}
+\put(70,33)
+    {\put(0,0){\oval(32,16)}
+    \put(8,0){\circle{8}}
+    \put(18,0){\circle*{4}}
+    \put(16,5){\circle*{4}}
+    \put(16,-5){\circle*{4}}}
+%
+\put(12,-10)
+    {{\put(4,0){\oval(30,16)[r]}
+    \put(4,2){\oval(42,20)[bl]}
+    \put(-8,11){\oval(18,18)[t]}
+    \put(4,11){\oval(6,6)[bl]}
+    \put(-17,0){\line(0,1){12}}}
+    \put(-8,20){\circle*{4}}
+    \put(-14,18){\circle*{4}}
+    \put(-2,18){\circle*{4}}
+    \put(-8,6){\oval(8,14)}}
+\put(68,-10)
+    {{\put(-4,0){\oval(30,16)[l]}
+    \put(-4,2){\oval(42,20)[br]}
+    \put(8,11){\oval(18,18)[t]}
+    \put(-4,11){\oval(6,6)[br]}
+    \put(17,0){\line(0,1){12}}}
+    \put(8,20){\circle*{4}}
+    \put(14,18){\circle*{4}}
+    \put(2,18){\circle*{4}}
+    \put(8,6){\oval(8,14)}}
+\put(40,-10){\oval(18,16)[b]}
+\end{picture}}}%^^A
+\endinput

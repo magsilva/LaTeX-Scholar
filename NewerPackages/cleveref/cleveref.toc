@@ -1,0 +1,45 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Usage}{4}
+\contentsline {section}{\numberline {3}Type-Setting Cross-References}{5}
+\contentsline {section}{\numberline {4}Sorting and Compressing}{6}
+\contentsline {section}{\numberline {5}Capitalising All Cross-Reference Names}{7}
+\contentsline {section}{\numberline {6}Customising the Cross-Reference Format}{9}
+\contentsline {subsection}{\numberline {6.1}Customising the Cross-Reference Components}{9}
+\contentsline {subsubsection}{\numberline {6.1.1}Global Customisation}{9}
+\contentsline {subsubsection}{\numberline {6.1.2}Customising Individual Cross-Reference Types}{11}
+\contentsline {subsubsection}{\numberline {6.1.3}Automatic \textbackslash \texttt {newtheorem} Definitions}{13}
+\contentsline {subsection}{\numberline {6.2}Low-Level Customisation: Taking Full Control}{13}
+\contentsline {subsubsection}{\numberline {6.2.1}Single Cross-References}{14}
+\contentsline {subsubsection}{\numberline {6.2.2}Reference Ranges}{15}
+\contentsline {subsubsection}{\numberline {6.2.3}Multiple Cross-References}{15}
+\contentsline {subsubsection}{\numberline {6.2.4}Label Cross-References}{16}
+\contentsline {subsection}{\numberline {6.3}Language and \texttt {babel} support}{16}
+\contentsline {section}{\numberline {7}Overriding the Cross-Reference Type}{17}
+\contentsline {section}{\numberline {8}Poor Man's \texttt {cleveref}}{19}
+\contentsline {section}{\numberline {9}Interaction with Other Packages}{20}
+\contentsline {section}{\numberline {10}Known Bugs and Possible Improvements}{21}
+\contentsline {subsection}{\numberline {10.1}Known Bugs, Non-Bugs, and Work-Arounds}{21}
+\contentsline {subsection}{\numberline {10.2}Possible Improvements}{22}
+\contentsline {section}{\numberline {11}Thanks}{22}
+\contentsline {section}{\numberline {12}Implementation}{23}
+\contentsline {subsection}{\numberline {12.1}Redefinitions of \LaTeX {} kernel macros}{23}
+\contentsline {subsection}{\numberline {12.2}Utility Macros}{34}
+\contentsline {subsubsection}{\numberline {12.2.1}miscelaneous}{34}
+\contentsline {subsubsection}{\numberline {12.2.2}aux file information}{35}
+\contentsline {subsubsection}{\numberline {12.2.3}Stack data structures}{37}
+\contentsline {subsubsection}{\numberline {12.2.4}Sorting and comparison of counters}{40}
+\contentsline {subsubsection}{\numberline {12.2.5}Reference stack processing}{46}
+\contentsline {subsection}{\numberline {12.3}Cross-Referencing Commands}{50}
+\contentsline {subsection}{\numberline {12.4}Reference Format Customisation Commands}{58}
+\contentsline {subsubsection}{\numberline {12.4.1}Format Component Commands}{58}
+\contentsline {subsubsection}{\numberline {12.4.2}Cross-Reference Format Definition Commands}{67}
+\contentsline {subsection}{\numberline {12.5}\texttt {hyperref} Support}{73}
+\contentsline {subsection}{\numberline {12.6}\texttt {ntheorem} Support}{77}
+\contentsline {subsection}{\numberline {12.7}\cs {\char 110\relax ewtheorem} Support}{78}
+\contentsline {subsection}{\numberline {12.8}\texttt {amsthm} Support}{80}
+\contentsline {subsection}{\numberline {12.9}\texttt {varioref} Support}{82}
+\contentsline {subsection}{\numberline {12.10}Poor Man's \texttt {cleveref}}{85}
+\contentsline {subsection}{\numberline {12.11}Sort and Compress options}{97}
+\contentsline {subsection}{\numberline {12.12}Capitalise option}{98}
+\contentsline {subsection}{\numberline {12.13}Language and \texttt {babel} Support}{98}
+\contentsline {subsubsection}{\numberline {12.13.1}Default Cross-Reference Formats}{142}
