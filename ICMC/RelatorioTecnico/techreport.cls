@@ -57,6 +57,7 @@
 	{\includegraphics[scale=.15]{\@logo} \par}
 	\vspace{.5em}
 	{\large \textbf{\@address} \par}
+	{\large \textbf{\@date} \par}
 	\end{adjustwidth}
 
 
