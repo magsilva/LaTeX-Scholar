@@ -107,7 +107,7 @@
 		
 			\vskip 1.5em
 			{\large \textbf{Orientador}: \@advisor{} \par}
-			{\large \textbf{Orientador (\@coadvisorinst)}: \@coadvisor{} \par}%
+			{\large \textbf{Coorientador (\@coadvisorinst)}: \@coadvisor{} \par}%
 			\vskip 0.5em
 			\hrule
 		\end{minipage}
