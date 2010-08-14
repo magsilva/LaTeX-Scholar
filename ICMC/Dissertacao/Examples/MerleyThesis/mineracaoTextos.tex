@@ -1,0 +1,219 @@
+
+\chapter{Mineração de Textos}
+
+%	2.1 Considerações Iniciais
+%	2.2 Dados, Informação e Conhecimento
+%	2.3 Processo de Mineração de Textos
+%		2.3.1 Identificação do Problema
+%		2.3.2 Pré-Processamento
+%		2.3.3 Extração de Padrões
+%		2.3.4 Pós-Processamento
+%		2.3.5 Utilização do Conhecimento
+%	2.4 Aplicabilidade da Mineração de Textos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Considerações Iniciais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Considerações Iniciais}
+A Mineração de Textos (MT) é um processo utilizado para descobrir padrões e co\-nhe\-ci\-men\-to útil em um conjunto de dados textuais. As bases textuais utilizadas no processo de Mineração de Textos são coleções de documentos em linguagem natural, sem formato predefinido para seus conteúdos, como acontece com as bases de dados \citep{AraujoTarapanoff:2006}. A MT oferece a possibilidade de se trabalhar com dados textuais não estruturados de textos, enquanto a Mineração de Dados trabalha com dados estruturados.
+
+Deve-se ressaltar que o foco deste trabalho é o pré-processamento dos dados textuais, especialmente a identificação de atributos (termos, palavras, características). Nesta fase são executadas as transformações necessárias, ou seja, adequação do formato dos dados disponíveis para a extração de conhecimento, ressaltando que tais transformações devem estar de acordo com os objetivos do processo de extração para que o conjunto de dados gerado apresente as características necessárias que permita cumprir com os objetivos pré-estabelecidos. Porém, para melhor entendimento deste trabalho, neste capítulo será explicado o processo por inteiro.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Dados, Informação e Conhecimento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dados, Informação e Conhecimento} 
+\label{sec:dad_info_conh}
+
+%%%%%%%%%%%%%  Arrumar!! %%%%%%%%%%
+Os conceitos de dados, informação e conhecimento estão interligados e são de fundamental importância para o entendimento deste trabalho, já que este aborda com dados e informação de um domínio específico.
+
+Na Figura ~\ref{fig:dado_info_conhec} é mostrada uma representação gráfica do relacionamento entre dados, informação e conhecimento, em função da capacidade de entendimento e da independência de contexto que cada um destes conceitos implica.
+
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.5]{dado_info_conhec}
+	\caption{Dado, informação e conhecimento \citep{Rezende:2003a}}
+	\label{fig:dado_info_conhec}
+\end{figure}
+
+O \textbf{dado} é um elemento puro, em seu estado primário. Dados são fatos, números, texto ou qualquer mídia que possa ser processada pelo computador. Entre os dados armazenados atualmente em bases de dados, Web e outros repositórios estão:
+
+\begin{itemize}
+	\item Dados operacionais ou transacionais como vendas, custos, inventários, folhas de pagamento ou contas correntes;
+	\item Dados não operacionais como previsões de mercado, vendas ao nível industrial, e dados macro-econômicos;
+	\item Metadados, ou dados descrevendo a estrutura dos dados armazenados, como projetos lógicos de bancos de dados ou dicionários de dados;
+	\item Mídia contendo imagens, sons ou uma combinatória de ambos, que além de ser armazenada, pode ser catalogada eletronicamente;
+	\item Textos que servem de entrada para o processo de Mineração de Textos, podendo ter como objetivo, por exemplo, a recuperação de informação.
+\end{itemize}
+
+A \textbf{informação} é um conjunto de dados ao qual o ser humano atribui um significado, e pode gerar conhecimento que ajude na análise de padrões históricos para conseguir uma previsão dos fatos futuros. Por exemplo, a informação dos dados sumarizados nas vendas de um determinado ambiente comercial pode ser analisada com a finalidade de fornecer informações relacionadas com a natureza dos clientes.
+
+O \textbf{conhecimento} envolve a capacidade de resolver problemas, inovar e aprender baseando-se em experiências prévias. O conhecimento refere-se à habilidade de criar um modelo mental que descreva o objeto e indique as ações a programar e as decisões a tomar, podendo ser representado como uma combinação de estruturas de dados e procedimentos interpretáveis que levam a um comportamento conhecido. Este comportamento fornece informações e conhecimento que podem, então, serem utilizadas para planejar e decidir.
+
+A compreensão, análise e síntese necessárias para a tomada de decisões inteligentes são realizadas a partir do nível do conhecimento. Assim, é fundamental que se mantenha a coerência dos dados que estão armazenados nos diferentes repositórios e das informações nos diferentes níveis \citep{Rezende:2003a}.
+
+Como exemplo de aplicação que necessite trabalhar com dados, informação e conhecimento pode-se citar a geração de conhecimento de um domínio específico utilizando dados (documentos textuais) e informações sobre este domínio, possibilitando a hie\-rar\-quia, identificação e seleção da informação potencialmente mais relevante, auxiliando, assim, no trabalho dos especialistas do domínio para tomar decisões inteligentes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Processo de Mineração de Textos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Processo de Mineração de Textos}
+A Mineração de Textos é uma área de pesquisa cujo objetivo é a busca por padrões, tendências e regularidades em textos escritos em língua natural. Normalmente refere-se ao processo de extrair conhecimento interessante de textos não estruturados, tendo sido ins\-pi\-ra\-da na Mineração de Dados e por vezes considerada uma subárea da mesma. A Mi\-ne\-ra\-ção de Dados pode ser definida como a extração de conhecimento implícito, previamente desconhecido e potencialmente útil, ou a busca por relações e padrões globais existentes em bases de dados \citep{Frawley:1992}. Mineração de Dados implica em encontrar o conhecimento a partir de um conjunto de dados para ser usado em um processo de tomada de decisão \citep{Fayyad:1996a}. Mineração de Textos é uma área interdisciplinar, relativamente nova, que engloba: processamento de língua natural, mais particularmente a lingüística computacional; aprendizado de máquina; recuperação de informação; mi\-ne\-ra\-ção de dados; estatística; e visualização de informação.
+  
+%Enquanto a mineração de dados trabalha sobre bases de dados pré-organizadas, a mineração de textos trabalha sobre dados inerentemente não estruturados \citep*{Weiss:2005}. Os textos que não obedecem a um padrão de formatação são chamados \textbf{não-estruturados}; os que seguem algum padrão, como textos científicos que são divididos em tópicos pré-definidos, ou livros divididos em capítulos, etc, são conhecidos como \textbf{semi-estruturados}; e, neste trabalho tratamos por \textbf{textos estruturados} aqueles representados em uma linguagem de marcação\footnote{Neste caso, a linguagem de marcação utilizada será sempre a XML - \textit{eXtended Markup Language}.}, que possui seus metadados e seus conteúdos originais padronizados e no mesmo arquivo de dados, geralmente gerados a partir de uma base de dados.  
+
+%Atualmente, muitas ferramentas de busca \textit{web} têm incorporado mineração de textos, tanto na indexação dos mesmos quanto na apresentação dos resultados em agrupamentos ou categorias. Por vezes, os métodos empregados em ferramentas de mineração de textos e de recuperação de informações têm sido tão comuns que provocam confusões entre os objetivos das duas. Assim, deve-se notar que, na recuperação de informação textual, o usuário tipicamente está procurando por algo que já é conhecido e que foi documentado (escrito, catalogado, armazenado, etc), enquanto que na mineração de textos o objetivo é descobrir um padrão ainda não conhecido e que, por isso, não poderia ter sido diretamente documentado \citep*{Hearst:2003,Hearst:1999}.
+
+%Nas próximas seções são apresentados o processo de mineração de textos, os conceitos indispensáveis à sua compreensão e a delimitação do escopo deste trabalho.
+
+%% Arrumar: Acho q seria bom falar q neste trab é não considerado como se fosse o KDD por completo (explicação da Solange anotada no meu caderno de TCC.
+Atualmente, o volume de dados armazenado é gigantesco e continua crescendo rapidamente. Infelizmente, devido à dificuldade do ser humano de interpretar uma elevada quantidade de dados, muita informação e conhecimento, possivelmente úteis, podem estar sendo desperdiçados, ficando ocultos dentro das bases de dados espalhadas pelo mundo. Em conseqüência disso, a necessidade de se desenvolver novas ferramentas e técnicas de extração de conhecimento a partir de dados armazenados também vem crescendo e se mostrando cada vez mais indispensável \citep{Rezende:2003b}.
+
+Devido à popularização de computadores, o armazenamento de dados se tornou um método eficaz e muito praticado nos dias de hoje, tornando viável o custo do armazenamento em bases de dados. Por este motivo, atualmente é fácil encontrar elevadas quantidades de dados textuais espalhadas em vários setores como bolsa de valores, mercados, comércio lojista, dados textuais médicos e publicações de artigos em diversas áreas de pesquisa. Esse volume de dados textuais armazenados, principalmente em empresas e ins\-ti\-tui\-ções acadêmicas, vem sendo muito valorizado e analisado, pois muitas informações realmente novas e interessantes estão armazenadas nessas bases de dados, sendo este um dos motivos do crescimento de pesquisas na área de Mineração de Textos e, conseqüentemente, o desenvolvimento da mesma.
+
+%Arrumar: baseado em PUC-Rio Certificação Digital Nº 0310437\CA) e falar das vantagens tb de MT
+Entretanto, de acordo com \cite{Aranha:2007}, um dos maiores problemas da área de Mineração de Textos é trabalhar com espaço de dimensão muito alto quando é considerado um espaço-vetorial em que cada termo representa uma dimensão. Nesta abordagem, quantidade de dimensões equivalerá ao número de palavras diferentes. Dessa forma, um dos problemas importantes tratados no pré-processamento dos dados é reduzir o número de termos.
+
+O processo de Mineração de Textos, neste trabalho, é tratado como uma particularidade do processo de Mineração de Dados, sendo que esta pode ser definida como o ``processo de identificação de padrões válidos, novos, potencialmente úteis e compreensíveis embutidos nos dados'' \citep{Fayyad:1996a}.
+
+%arrumar: Isto também pode ser aplicado na Mineração de Textos????
+Na Mineração de Dados, segundo \cite{zhou:2003}, três diferentes perspectivas podem ser avaliadas: banco de dados, aprendizado de máquina e estatística, e ressalta as diferentes formas de Mineração de Dados abordados por cada uma. Na perspectiva de Banco de Dados, ressalta-se a eficiência computacional no processo da descoberta do conhecimento em uma enorme quantidade de dados. No conceito de Aprendizado de Máquina, aborda-se o tema sob a perspectiva da efetividade da descoberta do conhecimento e que possui um potencial muito útil no dia a dia. E por fim, na estatística, \cite{zhou:2003} descreve que a perspectiva está na validade dos dados encontrados com os seus relacionamentos inesperados em forma de resultados matemáticos.
+
+Os autores \cite{BacarditButz:2004} afirmam que vários tipos de problemas podem ser apontados em uma Mineração de Dados, como volume de dados, tamanho do espaço de pesquisa e tipo, complexidade do conceito, valor da missão ou problemas de \textit{overfitting} (isto é, o modelo gerado pode memorizar os dados do conjunto de treinamento, não se adequando para utilização com novos exemplos).
+
+%Rezende et al (2003) descrevem que na caracterização da área de Mineração de Dados é importante, também, discutir a caracterização do que na literatura é chamado de KDD (Knowledge Discovery in Databases). De acordo com o autor W. Frawley (1992), KDD é a "extração de conhecimento previamente desconhecida, implícita e potencialmente útil, a partir de dados". E os autores Fayyad, Piatetsky-Shapiro, e Smyth (1996), definem como sendo um processo não trivial de identificação de padrões valido, modernos, potencialmente úteis e o último modelo compreensível em dados.
+%O foco central de Mineração de Dados é o de como transformar dados armazenados em conhecimento, expresso em termos de formalismos de representação, tal como regras e relações entre dados. Existe conhecimento que pode ser extraído diretamente de dados sem o uso de qualquer técnica, entretanto, existe também muito conhecimento que está de certa forma "embutido" na Base de Dados, na forma de relações existentes entre itens de dados que, para ser extraído, é necessário o desenvolvimento de técnicas especiais (REZENDE et al 2003).
+
+%Não tenho esta referência -> Feelders, Daniels e Holsheimer
+%Feelders, Daniels e Holsheimer disseram que recentemente tem sido argumentado que o usual algoritmo de mineração de dados pode também ter vários níveis baixa, quando usado para fazer suporte à decisão do mundo real. As limitações estão diretamente ligadas a uma variedade de fatores tais como:
+%- A incompatibilidade do domínio do conhecimento com modelo de transação da base de dados, tais como conhecimento embutido em corporação com regras políticas e regulamento de negócios;
+%- Dificuldade na representação como dúvida, imprecisão ou conhecimento incompleto sobre o fenômeno considerado;
+%- A imprópria adequação na representação a priori do conhecimento, tais como conhecimento causal;
+%- Em algumas aplicações, gasto computacional;
+
+A Mineração de Dados é dividida em cinco grandes etapas: identificação do problema, pré-processamento, extração de padrões, pós-processamento e utilização do conhecimento, conforme ilustrado na Figura ~\ref{fig:md}. Devido a Mineração de Textos ser uma subárea da Mineração de Dados, estas etapas podem ser consideradas também para a MT.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=0.80\textwidth]{md}
+	\caption{Etapas do processo de Mineração de Dados \citep{Rezende:2003a}}
+	\label{fig:md}
+\end{figure}
+
+Cada etapa será discutida a seguir, particularizando-as para dados textuais, bem como suas definições e conceitos necessários à sua compreensão.
+
+%----------------------------------------------------------------
+%	Identificação do Problema
+%----------------------------------------------------------------
+\subsection{Identificação do Problema}
+%arrumar
+A Identificação do Problema é uma etapa muito importante, dado que não existe descoberta de conhecimento sem demanda pelo mesmo. Nesta etapa o especialista do domínio identifica e delimita o problema, o subdomínio do problema, a coleção de textos a ser analisada ou sua fonte de busca, se existe algum conhecimento prévio de domínio que possa ser utilizado na análise, o que se espera obter e como os resultados poderão ser utilizados. É uma etapa que demanda muito esforço tanto do especialista do domínio quanto do especialista em Mineração de Textos, pois a mesma fornece subsídios a todo o processo, permitindo identificar requisitos e possíveis ferramentas para cada passo.
+
+%----------------------------------------------------------------
+%	Pré-Processamento
+%----------------------------------------------------------------
+\subsection{Pré-Processamento}
+
+O pré-processamento é a etapa na qual ocorre a obtenção dos dados a serem tra\-ba\-lha\-dos, considerando que estes podem estar armazenados em diferentes bases e formatos, necessitando que seja feita a unificação dessas bases, bem como a padronização dos dados, já que normalmente estes dados não estão em formato e/ou quantidade de memória ocupada adequados para poder aplicar os algoritmos de extração de padrão (que é a pró\-xi\-ma etapa). Em seguida, é feita a limpeza dos dados, removendo dados desnecessários e/ou danificados \footnote{ \textcolor{red}{Neste trabalho, considera-se como dados danificados os caracteres inválidos, ou seja, que não possuem nenhum significado. Isto pode ocorrer, por exemplo, durante a padronização da base de textos, na qual os textos são transformados para somente um formato, podendo gerar, durante esta transformação, dados danificados. (Ex: qdo transforma um arquivo de pdf para txt, pode-se obter caracteres inválidos)} }, para, então, ocorrer a seleção dos dados adequados para atingir o objetivo final, preocupando-se também com a redução dos mesmos devido às restrições de memória ou tempo de processamento \citep{Rezende:2003a}.
+
+Nessa etapa está a principal diferença entre o processo de Mineração de Dados e o de Mineração de Textos. Nos dois casos, o problema resume-se ao fato dos dados não estarem sempre em um formato adequado para a extração de padrões; é necessário aplicar-lhes um processo de tratamento, limpeza e, em geral, redução do volume de dados, sempre lhes preservando as características necessárias para que os objetivos sejam cumpridos \citep{Batista:2003}.
+
+Particularmente, em se tratando de textos, existem duas possibilidades para a transformação dos dados, obtendo-se uma forma intermediária que pode ser baseada em conceitos ou baseada em documentos \citep{Tan:1999}.
+
+Na \textbf{forma intermediária baseada em conceitos}, ocorre um processo de extração de conhecimento dos documentos originais, em que cada entidade identificada representa um objeto ou conceito do domínio específico. As análises obtidas a partir desta inferem relações sobre os objetos ou conceitos nesse domínio de aplicação.
+
+Na \textbf{forma intermediária baseada em documentos}, cada entidade obtida cor\-res\-pon\-de a um do\-cu\-men\-to analisado e a sua análise infere padrões e relações entre documentos; por exemplo, agrupamento por similaridades naturais (\textit{clustering}) ou categorização, classificação a partir de uma lista predeterminada de  categorias (rótulos). A forma baseada em documentos pode ser transformada em baseada em conceitos, após  algumas inferências sobre os conceitos que ela representa em um domínio. A transformação mais comumente aplicada à coleção de textos, em tarefas de Mi\-ne\-ra\-ção de Textos com ênfase em métodos estatísticos, leva à uma representação matricial dos documentos, termos utilizados e alguma medida sobre os termos em cada documento  \citep{Weiss:2005}.
+
+O \textbf{termo}, também chamado de \textbf{característica} ou \textbf{atributo}, pode ser uma palavra simples ou composta; por exemplo, ``inteligência'', ``inteligência artificial'' e ``processo de Mineração de Textos''. Cada elemento da matriz será representado por uma medida escolhida, que pode ser binária (presença ou ausência do termo no texto), freqüência de ocorrência do termo na coleção de  textos, entre outras \citep{Weiss:2005,Matsubara:2003}. Essa matriz é uma das generalizações do  modelo de espaço vetorial, que é um dos mais utilizados por ferramentas de busca e de Mineração de Textos, dada a simplicidade e baixa complexidade computacional de se trabalhar com vetores \citep{Howland:2004}. Um dos principais temas de suporte à área de Mineração de Textos é a transformação do texto em dados numéricos, seja a matriz atributo-valor ou outra representação a ser utilizada. Embora a representação em algum passo do processo de mineração seja di\-fe\-ren\-te da matriz numérica, os dados são movidos para a codificação que remete ao processo clássico de Mineração de Dados \citep{Weiss:2005}. Essa codificação permite o emprego de um grande leque de ferramentas de aprendizado de máquina, e de exploração algébrica de estrutura em geral, aplicadas ao contexto de Mineração de Dados, que dependem exclusivamente da matriz atributo-valor.
+
+A coleção de documentos, que será transformada e colocada em uma forma in\-ter\-me\-diá\-ria nesta etapa, foi definida na etapa de identificação do problema, na qual selecionaram-se os documentos úteis para atingir o objetivo final. Porém, na etapa de pré-processamento deve-se analisar os termos de interesse para a análise. Esta etapa do processo pode ser redefinida e então repetida após as próximas etapas, uma vez que a descoberta de alguns padrões pode levar a se estabelecer melhorias a serem empregadas sobre as medidas utilizadas na matriz atributo-valor. Por exemplo, o uso de algum fator de ponderação - estabelecido a partir da presença ou ausência de um conjunto de atributos no texto; o uso de algum tipo de taxonomia após a descoberta da mesma; o descarte ou inclusão de algum vocábulo ou combinação deles.
+
+%----------------------------------------------------------------
+%	Extração de Padrões
+%----------------------------------------------------------------
+\subsection{Extração de Padrões}
+%arrumar
+Na etapa de extração de padrões são realizadas as tarefas necessárias para o cumprimento dos objetivos delimitados na identificação do problema. Essas tarefas podem ser:
+
+\vspace{0.4cm} %pular espaço de 0,4 cm
+\textbf{Tarefas preditivas}
+\vspace{0.3cm}
+
+Consistem na generalização de exemplos ou experiências passadas com respostas co\-nhe\-ci\-das.  Essas tarefas utilizam os chamados modelos de \textbf{aprendizado de máquina supervisionado} uma vez que as categorias são sempre pré-conhecidas e disponíveis junto aos dados. Estes modelos podem ser divididos em \textbf{tarefas de classificação}, referente ao processo em que o atributo classe tem valor categórico, e \textbf{tarefas de regressão}, busca-se predizer valores de variáveis que possuem valores contínuos.
+
+Por exemplo, a partir da seleção de uma coleção de artigos sobre esportes e outros de uma área diferente, pode-se inferir um modelo de classificação para artigos da área de esporte, que é dito uma tarefa de classificação. Deve-se observar que a categoria ou classe, nesse caso, é um atributo discreto e que os dados são mapeados em um número finito de categorias, no qual cada categoria corresponde a um \textbf{rótulo}.
+Já como exemplo de uma tarefa de regressão, pode-se considerar a predição do ganho ou da perda de produção em uma cultura, com base no estudo de diferentes adubações no qual a medida de produtividade é um atributo contínuo.
+
+Mas quando apenas parte dos exem\-plos são rotulados, podem ser aplicados modelos de \textbf{aprendizado de máquina semi-supervisionados}, em que a informação dos rotulados ajuda a gerar modelos para rotular os dados não rotulados, ou aplica-se um método não supervisionado para gerar rótulos e então um classificador para tentar melhorar a rotulação, repetindo-se o processo enquanto algum critério de avaliação do mesmo indicar que houve melhora \citep{Matsubara:2003,BrefeldScheffer:2004}.
+
+\vspace{0.4cm} %pular espaço de 0,6 cm
+\textbf{Tarefas descritivas}
+\vspace{0.3cm}
+
+As tarefas descritivas consistem na identificação de comportamentos intrínsecos da coleção de dados, sendo que esses dados são \textbf{exemplos não rotulados} ou tratados como não rotulados. Nestas tarefas são utilizados modelos de \textbf{aprendizado de máquina não-super\-vi\-siona\-do}, e as principais tarefas são regras de associação, agrupamento (\textit{clustering}), sumarização e visualização. 
+
+Nesta etapa, resultados genéricos, após suas análises, podem indicar a necessidade de repetir passos do pré-processamento ou mesmo refazê-lo. Ainda, a cada técnica citada correspondem algumas formas de validação, que geralmente resultam em métricas objetivas, que devem ser utilizadas. Porém, muitas vezes, em se dispondo de especialistas do domínio para auxiliarem o processo de análise, é interessante permitir que o julgamento subjetivo auxilie a condução da análise.    
+
+%----------------------------------------------------------------
+%	Pós-Processamento e Utilização do Conhecimento
+%----------------------------------------------------------------
+\subsection{Pós-Processamento e Utilização do Conhecimento}
+
+O pós-processamento é a fase de validação das descobertas efetuadas pela etapa de processamento dos dados e da visualização dos resultados encontrados. É a fase de extração de algum conhecimento dos dados e a apresentação do mesmo, seja por ferramentas de visualização ou simplesmente por tabelas de resultados, não sendo a etapa final do processo de mi\-ne\-ra\-ção. A análise minuciosa dos resultados obtidos permite que se valide a sua u\-ti\-li\-da\-de e até mesmo o próprio processo, determinando a necessidade de retomar passos anteriores, reestruturando-os. Nesta etapa o especialista do domínio e o de Mineração de Textos devem trabalhar juntos, procurando responder a questões como: representatividade do conhecimento obtido;  o que há de novo nos resultados encontrados;  de que maneira o co\-nhe\-ci\-men\-to do especialista difere do obtido;  validação dos resultados obtidos; identificação da adequação de procedimentos nas etapas anteriores para tentar melhorar os resultados; e de que maneira os resultados obtidos devem ser utilizados.
+
+Na etapa de utilização do conhecimento supõe-se que os resultados estão validados para poderem ser utilizados como parâmetros para suporte à decisão. Dessa forma, espera-se que o processo de mineração possa ser transformado em um sistema de suporte à decisão, ou que os resultados sejam efetivamente o conhecimento a ser utilizado; sendo que qualquer dessas opções deve ter sido definida na etapa de identificação do problema. 
+
+%De acordo com \citep*{AlmOlivAl:2006}, somente nos últimos dez anos pode-se notar mais explicitamente a contribuição da computação nas pesquisas terminológicas no Brasil, causada devido ao aumento de pesquisas na área de lingüística computacional, proporcionando, consequentemente, a melhora e desenvolvimento de ferramentas computacionais voltadas para o processamento da língua portuguesa.
+
+%Com os avanços nestes estudos, são possíveis a observação e a manutenção de co\-nhe\-ci\-men\-to extraído de textos, que eram impossíveis de perceber anteriormente, já que os pro\-ce\-di\-men\-tos de observação e manutenção eram feitos com recursos manuais apenas, ou seja, não automatizados.
+
+%Dessa forma, pode-se ressaltar a necessidade da extração de conhecimento em re\-po\-si\-tó\-rios de dados, que é feita por meio de aplicação de técnicas de Mineração de Dados, cujas definções desta área podem ser dadas como ``exploração e análise, por meios automáticos ou semi-au\-to\-má\-ti\-cos, destes repositórios para descobrir padrões e regras significativas'' \citep*{BerryLinoff:1997} ou ``processo de identificação de padrões válidos, inovadores, potencialmente úteis e, principalmente, compreensíveis em conjuntos de dados'' \citep*{Fayyad:1996b}. Como não se pode esperar a extração de conhecimento útil simplesmente submetendo um conjunto de dados a uma ``caixa preta'' \citep*{Mannila:1996}, a mineração de dados é um processo centrado na interação entre os usuários, especialistas do domínio e responsáveis por sua aplicação. Portanto, esse é um processo que pode ser visto como interativo e iterativo, envolvendo diversas etapas e contando com a interação dos usuários.
+
+%Porém, considerando que a forma de armazenamento dos dados usados para esta extração de co\-nhe\-ci\-men\-to geralmente é não-estruturada e que a Mineração de Dados trabalha sobre dados inerentemente estruturados \citep*{Weiss:2005}, tor\-na-se ne\-ces\-sá\-rio a inclusão de técnicas de Mineração de Textos, já que estas trabalham com dados armazenados de forma não-estruturada. Assim, recentemente pesquisas técnicas de Mineração de Textos estão sendo estudadas e desenvolvidas.
+
+%Arrumar
+%A mineração de textos é uma área interdisciplinar, relativamente nova, que engloba: processamento de língua natural, mais particularmente a lingüística computacional; aprendizado de máquina; recuperação de informação; mi\-ne\-ra\-ção de dados; estatística; e visualização de informação. Pode ser considerada como uma subárea da mineração de dados, trabalhando sobre dados inerentemente não estruturados \citep*{Weiss:2005}. Desta forma, pode ser dividida em cinco grandes etapas: identificação do problema, pré-\-pro\-ces\-sa\-men\-to, extração de padrões,  pós-processamento e utilização do conhecimento \citep*{Rezende:2003a}, conforme apresenta a Figura ~\ref{fig:md}.
+
+%----------------------------------------------------------------
+%	Aplicabilidade da Mineração de Textos
+%----------------------------------------------------------------
+\section{Aplicabilidade da Mineração de Textos}
+%Tirado da minha apresentação:
+%- Descoberta de conceitos;
+%- Categorização automática de textos (Ex: mensagens de correio eletrônico em banco de investimento);
+%- Encontrar agrupamentos dos documentos.
+%- Hierarquia entre os documentos
+% 		Recuperar melhor
+% 		Navegar mais facilmente entre os assuntos relacionados, originalmente classificados em diferentes categorias
+
+%-------- INÍCIO arrumar: rever itens, citando exemplo e as respectivas referências:
+Mineração de Textos tem como principal função identificar, nos mesmos, informações singulares, e não necessariamente informações principais, como é o caso da recuperação e preservação da idéia central. Todavia, ela pode ser aplicada para diversos fins, como em algumas das aplicações listadas a seguir:
+\begin{itemize}
+	\item \textbf{Sumarização para documentos não estruturados}. Considera-se como sumarização a geração de sumário, um resumo, com o objetivo de transmitir ou comunicar somente o que é importante de uma fonte textual de informação \citep{RinoPardo:2003};
+%arrumar: verificar o ano do artigo!!!
+	\item \textbf{Classificação de textos} que consiste em ``induzir um classificador a partir de uma coleção de documentos de treinamento rotulados, com o objetivo de classificar novos textos (documentos) com uma boa
+precisão'' \citep{MartMatsubMon:2003};
+	\item \textbf{Recuperação de documentos} que, para uma certa ``chave de busca'', visa produzir uma coleção de documentos relevantes, sem necessariamente condensá-los \citep{RinoPardo:2003};
+	\item \textbf{Extração de informação}, que não necessariamente tem a condensação de informação como restrição fundamental;
+	\item \textbf{Indexação}, que visa identificar termos convenientes para a recuperação de informação. 
+	%Tirado Araújo Júnior e Tarapanoff 2006
+No trabalho de \cite{AraujoTarapanoff:2006} foi feita uma comparação entre indexação manual e indexação utilizando uma ferramenta de Mineração de Textos, por meio da análise do índice de precisão de resposta no processo de busca e recuperação da informação. Como universo da pesquisa foram utilizados 1.520 documentos da Caixa Econômica Fe\-de\-ral, e o índice de precisão foi calculado levando-se em conta a precisão em relação à lista de palavras chave utilizadas na indexação manual por bibliotecários da Caixa. No caso do uso de ferramenta de Mineração de Textos levou-se em consideração a precisão da indexação obtida com o auxílio do software de Mineração de Textos \textit{BR/Search}, que auxiliou na seleção de termos (itens bi\-bli\-o\-grá\-fi\-cos) a serem utilizados na indexação. Neste trabalho pôde-se concluir que, neste caso, não houve ganho significativo no índice de precisão no processo de busca e recuperação da informação utilizando a ferramenta de Mineração de Textos, porém esta traz como resposta maior quantidade de itens bibliográficos do que a lista de palavras-chave utilizadas na indexação manual.
+\end{itemize}
+
+
+O processamento automático de mensagens (\textit{e-mails}) e a busca de referências em uma coleção de artigos também podem ser exemplos da aplicação de Mineração de Textos, assim como a organização da informação. E para a organização da informação, faz-se necessário gerar termos que representem a coleção de textos a ser organizada, como no caso deste trabalho.
+
+%-------- FIM
+
+
+%----------------------------------------------------------------
+%	Considerações Finais
+%----------------------------------------------------------------
+\section{Considerações Finais}
+Neste capítulo foram abordados alguns conceitos das principais etapas do processo de Mineração de Textos. Ressaltou-se a elevada importância da representação dos documentos neste processo, sendo que no capítulo a seguir será abordada tal representação.
+
+No decorrer do desenvolvimento deste trabalho, alguns procedimentos necessários que serão feitos para atingir o objetivo do mesmo servirão também para amenizar o pro\-ble\-ma do espaço de dimensão muito alto no processo de Mineração de Textos, conforme citado neste capítulo. Como exemplo dos procedimentos, pode-se citar a limpeza da base de textos, no qual acarretará na diminuição do espaço de dimensão com qualidade, visando melhorar o tempo de processamento e a memória ocupada utilizada para processar os dados.
+
+Para melhor entendimento, os conceitos necessários serão apresentados no próximo capítulo.

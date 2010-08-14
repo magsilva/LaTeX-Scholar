@@ -1,0 +1,196 @@
+
+\chapter{Processo de Mineração de Textos}
+\label{pre_processamento}
+
+%	2.1 Considerações Iniciais
+%	2.2 Processo de Mineração de Textos
+%	2.3 Pré-Processamento de Documentos
+%	2.4 Trabalhos Relacionados
+% 	2.4.1 TopTax - Topic Taxonomy Environment
+% 	2.4.2 Exemplos de Aplicações da Mineração de Textos
+%	2.5 Considerações Finais
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Considerações Iniciais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Considerações Iniciais}
+O processo de Mineração de Textos (MT) é utilizado para descobrir padrões e co\-nhe\-ci\-men\-to útil em um conjunto de dados textuais. As bases textuais utilizadas no processo de Mineração de Textos são coleções de documentos em linguagem natural, sem formato predefinido para seus conteúdos \citep{AraujoTarapanoff:2006}. Os textos que não obedecem a um padrão de formatação são chamados \textbf{não-estruturados}; os que seguem algum padrão, como textos científicos que são divididos em tópicos pré-definidos e livros divididos em capítulos, são denominados textos \textbf{semi-estruturados}. Neste trabalho, tratamos os textos representados em uma linguagem de marcação como \textbf{textos estruturados}.
+
+A Mineração de Textos foi ins\-pi\-ra\-da na Mineração de Dados e por vezes considerada uma subárea da mesma. A Mi\-ne\-ra\-ção de Dados pode ser definida como a extração de conhecimento implícito, previamente desconhecido e potencialmente útil, ou a busca por relações e padrões globais existentes em bases de dados \citep{Frawley:1992}. Mineração de Textos é uma área interdisciplinar, relativamente nova, que engloba: processamento de língua natural, mais particularmente a lingüística computacional; aprendizado de máquina; recuperação de informação; mi\-ne\-ra\-ção de dados; estatística e visualização de informação. A MT oferece a possibilidade de se trabalhar com dados textuais não estruturados, enquanto a Mineração de Dados trabalha com dados estruturados.
+
+O foco deste trabalho é a extração de termos (atributos, características), atividade desenvolvida na etapa de Pré-Processamento do processo de Mineração de Textos, na qual são executadas as transformações necessárias para a adequação do formato dos textos disponíveis para a extração de conhecimento.
+
+A seguir, são descritas as etapas do processo de Mineração de Textos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Processo de Mineração de Textos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Etapas do Processo de Mineração de Textos}
+
+A Mineração de Textos é dividida em cinco grandes etapas: Identificação do Problema, Pré-Processamento, Extração de Padrões, Pós-Processamento e Utilização do Conhecimento, conforme ilustrado na Figura ~\ref{fig:md}. Este processo pode ser instanciado de acordo com o objetivo pré-estabelecido. Cada etapa é discutida a seguir, bem como as definições e conceitos necessários à sua compreensão.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.75\textwidth]{figuras/md.png}
+	\caption{Etapas do processo de Mineração de Textos \citep{Rezende:2003a}}
+	\label{fig:md}
+\end{figure}
+
+
+
+%----------------------------------------------------------------
+%	Identificação do Problema
+%----------------------------------------------------------------
+\subsection{Identificação do Problema}
+
+A Identificação do Problema é uma etapa muito importante, dado que não existe descoberta de conhecimento sem demanda pelo mesmo. Nesta etapa o especialista do domínio identifica e delimita o problema, o subdomínio do problema, a coleção de textos a ser analisada ou sua fonte de busca, a existência de algum conhecimento prévio de domínio que possa ser utilizado na análise, o que se espera obter e como os resultados poderão ser utilizados. É uma etapa que demanda muito esforço tanto do especialista do domínio quanto do especialista em Mineração de Textos, pois a mesma fornece subsídios a todo o processo, permitindo identificar requisitos e possíveis ferramentas para cada passo.
+
+%----------------------------------------------------------------
+%	Pré-Processamento
+%----------------------------------------------------------------
+\subsection{Pré-Processamento}
+
+Na etapa de Pré-Processamento encontra-se a principal diferença entre o processo de Mineração de Dados e o de Mineração de Textos. Nos dois casos, o problema resume-se ao fato dos dados não estarem sempre em um formato adequado para a Extração de Padrões; é necessário adequá-los para um formato manipulável por algoritmos de extração de conhecimento, além de aplicar-lhes um processo de tratamento, limpeza e, em geral, redução do volume de textos, sempre lhes preservando as características necessárias para que os objetivos do processo de mineração sejam cumpridos \citep{Batista:2003}.
+
+Nessa etapa, a partir da coleção de textos, ocorre a preparação dos textos para poder extrair os termos importantes da coleção. Estes termos devem discriminar a coleção de textos que, por sua vez, é representada na forma matriz atributo-valor, conforme ilustrado na Figura ~\ref{fig:preProc} e detalhado a seguir.
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[scale=0.75]{figuras/preProc.png}
+    \caption{Etapas do Pré-Processamento da coleção de textos - Adaptada de \citet{Moura:2006}}
+    \label{fig:preProc}
+\end{figure}
+
+Os dados de entrada correspondem à coleção de documentos de in\-te\-res\-se (\textbf{coleção de textos}). Esta coleção pode estar em diferentes formatos, como documentos hipertextos ou formatos \textit{.pdf}. Dependendo de como os documentos foram armazenados ou gerados, há a necessidade de padronizar as formas em que se encontram. Na \textbf{padronização dos textos}, geralmente, os documentos são convertidos para o forma de texto plano sem formatação.
+
+Em seguida, na \textbf{limpeza dos textos}, elimina-se dos mesmos as {\textit{stopwords}, que são aquelas palavras que nada acrescentam à representatividade dos termos ou que sozinhas nada significam, como artigos, pronomes e advérbios. Sua definição depende dos objetivos estabelecidos e do domínio do conhecimento, e seu uso pode ser considerado como uma ``forma de seleção inicial de termos, pois ajuda a reduzir a dimensão final do vocabulário eliminando termos não significativos para a análise'' \citep{Moura:2006}. O conjunto de \textit{stopwords} é chamado de \textit{stoplist}. Segundo \citet{ManningRagSchutze:2008}, tal eliminação reduz significativamente a quantidade de palavras que são armazenadas, podendo-se deduzir que a quantidade de palavras que são processadas e o tempo gasto para isto também são reduzidos.
+
+%vantagens da utilização de bag of words em RT  Nº 205 da Carolina Monard et al p.3
+O número de termos que compõem os textos da coleção após a remoção das \textit{stopwords} pode ainda ser muito grande e, em geral, alguns termos se referem ao mesmo conceito. Assim, na \textbf{extração dos termos}, faz-se necessária a busca por padrões que simplifiquem as diversas formas de apresentação de termos com o mesmo significado essencial. Entre as técnicas mais utilizadas para este fim, encontram-se a radicalização, a lematização e a substantivação.  Além disso, a partir dos termos simplificados, existe a possibilidade de extrair termos compostos e um vocabulário controlado, como explicado na Seção \ref{tecnicasSimplif} do Capítulo \ref{extracaoTermos}.
+
+Uma vez extraídos os termos que representam a coleção, passa-se à estruturação da coleção textual em uma representação que seja manipulável por algoritmos utilizados na etapa de Extração de Padrões. A representação mais comumente aplicada à coleção de textos, em tarefas de Mi\-ne\-ra\-ção de Textos com ênfase em métodos estatísticos, leva à forma matricial dos documentos \citep{Weiss:2005}. Esta forma matricial dos documentos engloba os termos utilizados e algum \textbf{valor do atributo}, sendo que este valor pode ser, ba\-si\-ca\-men\-te, binário (presença ou ausência do termo no texto) ou freqüência de ocorrências do termo na coleção de textos, entre outras \citep{Weiss:2005}. A escolha e cálculo desse valor do atributo depende do objetivo, e possibilita calcular a re\-pre\-sen\-ta\-ti\-vi\-da\-de de cada termo em seu respectivo documento e/ou na coleção de textos.%(pág.29 Moura:2006)
+
+Normalmente, os termos extraídos de uma coleção textual são tratados como um conjunto desordenado de palavras independentes - conhecido como \textit{bag of words}. A principal limitação dessa representação é considerar apenas a co-ocorrência dos termos. Por exemplo, polissemias (ocorrências de termos cuja grafia é idêntica ou muito próxima), mas cujo significado depende do contexto, são tratadas como termos únicos e si\-nô\-ni\-mos como termos independentes \citep{Dupret:2005}, não obtendo, portanto, uma descrição fiel do conteúdo do documento. O efeito negativo das ocorrências de polissemias na coleção de textos pode ser bastante reduzido quando a coleção vem de um {\textit{corpus de es\-pe\-ci\-a\-li\-da\-de}, ou seja, de uma coleção de textos proveniente de um domínio de conhecimento específico. %O foco deste trabalho é o tratamento de documentos de um domínio específico.
+
+%Baseado no exemplo de \citep{Martins:2003}
+A representação \textit{bag of words} pode ser estruturada por meio da \textbf{matriz atributo-valor}. Um exemplo dessa representação pode ser observado na Tabela \ref{tab:matriz} \citep{Martins:2003}, na qual $d_{i}$ corresponde ao i-ésimo documento, $t_{j}$ representa o j-ésimo atributo (termo), $a_{ij}$ é o valor do j-ésimo atributo no i-ésimo documento. O $y_{i}$, que representa a classe do i-ésimo documento, não está presente na matriz quando a coleção de textos é não-rotulada.
+
+\begin{table}[h] 
+\footnotesize \centering
+\begin{tabular}{c|c c c c|c} 
+\hline
+         & $t_1$    &  $t_2$    & \ldots & $t_M$    & $Y$\\ \hline \hline
+  $d_1$  & $a_{11}$ &  $a_{12}$ & \ldots & $a_{1M}$ & $y_{1}$\\
+  $d_2$  & $a_{21}$ &  $a_{22}$ & \ldots & $a_{2M}$ & $y_{2}$\\
+ $\vdots$& $\vdots$ &  $\vdots$ &$\ddots$& $\vdots$ & $\vdots$ \\
+  $d_N$  & $a_{N1}$ &  $a_{N2}$ & \ldots & $a_{NM}$ & $y_{N}$\\ \hline
+\end{tabular}
+\caption{Padrão de matriz atributo-valor} \label{tab:matriz}
+\end{table}
+
+A matriz atributo-valor é caracteristicamente esparsa e possui alta dimensionalidade, dado que cada palavra presente nos documentos é candidata a a\-tri\-bu\-to da tabela. Entretanto, várias dessas palavras não estão presentes em todos os documentos, fazendo com que seus valores internos sejam nulos - ou inexistentes. %Não diz nada este parágrafo: Ainda, o número de documentos da coleção e de termos que os descrevem estão diretamente relacionados à qualidade dos resultados obtidos.
+
+Essa representação (matriz atributo-valor) permite o emprego de um grande leque de ferramentas de aprendizado de máquina, aplicadas ao contexto de Mineração de Textos.
+
+Após a representação matricial dos documentos, pode-se, ainda, diminuir a quantidade de termos a ser trabalhada utilizando abordagens de seleção de termos, como o método de Luhn, Salton, \textit{Term Variance}. Estes métodos são detalhados no trabalho de \citet{NogueiraDissert:2009}.
+
+Deve-se ressaltar, que esta etapa de Pré-Processamento pode ser redefinida e então repetida após as próximas etapas, uma vez que a descoberta de alguns padrões pode levar a estabelecer melhorias a serem empregadas sobre o valor do atributo utilizado na matriz atributo-valor. Por exemplo, o uso de algum fator de ponderação - estabelecido a partir da presença ou ausência de um conjunto de atributos no texto; o uso de algum tipo de taxonomia após a descoberta da mesma; o descarte ou inclusão de algum vocábulo ou combinação deles.
+
+
+%----------------------------------------------------------------
+%	Extração de Padrões
+%----------------------------------------------------------------
+\subsection{Extração de Padrões}
+
+Na etapa de Extração de Padrões são definidas as tarefas a serem realizadas de acordo com o objetivo do processo. Essas tarefas podem ser preditivas ou descritivas.
+
+As \textbf{tarefas preditivas} consistem na generalização de exemplos ou experiências passadas com respostas co\-nhe\-ci\-das.  Essas tarefas utilizam os chamados modelos de aprendizado de máquina supervisionado, uma vez que as categorias são sempre pré-conhecidas e disponíveis junto aos dados. Estes modelos podem ser divididos em tarefas de classificação, referente ao processo em que o atributo classe tem valor categórico, e tarefas de regressão, na qual busca-se predizer valores de variáveis que possuem valores contínuos.
+
+Por exemplo, a partir da seleção de uma coleção de artigos sobre esportes e outros de uma área diferente, pode-se inferir um modelo de classificação para artigos da área de esporte, que é dito uma tarefa de classificação. Deve-se observar que a categoria ou classe, nesse caso, é um atributo discreto e que os dados são mapeados em um número finito de categorias, no qual cada categoria corresponde a um rótulo.
+Já como exemplo de uma tarefa de regressão, pode-se considerar a predição do ganho ou da perda de produção em uma cultura, com base no estudo de diferentes adubações no qual a medida de produtividade é um atributo contínuo.
+
+Quando apenas parte dos exem\-plos são rotulados, podem ser aplicados modelos de aprendizado de máquina semi-supervisionados, em que a informação dos rotulados ajuda a gerar modelos para rotular os dados não rotulados, ou aplica-se um método não supervisionado para gerar rótulos e então um classificador para tentar melhorar a rotulação, repetindo-se o processo enquanto algum critério de avaliação do mesmo indicar que houve melhora \citep{Matsubara:2003,BrefeldScheffer:2004}.
+
+As \textbf{tarefas descritivas}, por sua vez, consistem na identificação de comportamentos intrínsecos da coleção de textos, sendo que esses dados são exemplos não rotulados ou tratados como não rotulados. Nestas tarefas, são utilizados modelos de aprendizado de máquina não-super\-vi\-siona\-do, e as principais tarefas são regras de associação, agrupamento (\textit{clustering}), sumarização e visualização. 
+
+Nesta etapa de Extração de Padrões, os resultados genéricos podem ser validados por métricas objetivas ou, ainda, por julgamento subjetivo de especialistas do domínio em questão, o que pode auxiliar na condução da análise desses resultados. As validações sob esses resultados genéricos podem indicar a necessidade de repetir passos do Pré-Processamento ou mesmo refazê-lo.     
+
+%----------------------------------------------------------------
+%	Pós-Processamento
+%----------------------------------------------------------------
+\subsection{Pós-Processamento e Utilização do Conhecimento}
+
+O Pós-Processamento é a etapa de validação das descobertas efetuadas. É a etapa de avaliação do conhecimento obtido e a apresentação do mesmo, seja por ferramentas de visualização ou simplesmente por tabelas de resultados. A análise minuciosa dos resultados obtidos permite que se valide a sua u\-ti\-li\-da\-de e até mesmo o próprio processo, determinando a necessidade de retomar passos anteriores e reestruturando-os se necessário. Nesta etapa o especialista do domínio e o de Mineração de Textos devem trabalhar juntos, procurando responder a questões como: representatividade do conhecimento obtido;  o que há de novo nos resultados encontrados;  de que maneira o co\-nhe\-ci\-men\-to do especialista difere do obtido;  validação dos resultados obtidos; identificação da adequação de procedimentos nas etapas anteriores para tentar melhorar os resultados; e de que maneira os resultados obtidos devem ser utilizados.
+
+Na etapa de Utilização do Conhecimento os resultados estão validados e aptos a serem utilizados. Dessa forma, o conhecimento extraído pode ser aplicado para apoiar algum processo de tomada de decisão, conforme objetivo pré-estabelecido na etapa de Identificação do Problema. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Algumas aplicações da Mineração de Textos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Algumas aplicações da Mineração de Textos}
+
+%arrumar: rever itens, citando exemplo e as respectivas referências:
+Mineração de Textos tem como principal função identificar, nos mesmos, informações singulares, e não necessariamente informações principais, como é o caso da recuperação e preservação da idéia central. Todavia, ela pode ser aplicada para diversos fins, como em algumas das aplicações listadas a seguir.
+\begin{itemize}
+	\item \textbf{Sumarização para documentos não estruturados} corresponde a geração de sumário, um resumo, com o objetivo de transmitir ou comunicar somente o que é importante de uma fonte textual de informação \citep{RinoPardo:2003};
+%arrumar: verificar o ano do artigo!!!
+	\item \textbf{Classificação de textos} consiste em classificar novos textos (documentos) pertencentes a um conjunto de documentos pré-definido em uma ou mais categorias ou classes \citep{Sebastiani:2006}; %consiste em ``induzir um classificador a partir de uma coleção de documentos de treinamento rotulados, com o objetivo de classificar novos textos (documentos) com uma boa precisão'' \citep{MartMatsubMon:2003};
+	%\item \textbf{Recuperação de informação} visa produzir uma coleção de documentos relevantes, sem necessariamente condensá-los \citep{RinoPardo:2003};
+	\item \textbf{Recuperação de informação} tem como objetivo encontrar documentos que contenham uma determinada informação procurada a partir de uma coleção de textos \citep{ManningEtAl:2008};
+%	\item \textbf{Extração de informação}, que não necessariamente tem a condensação de informação como restrição fundamental;
+	\item \textbf{Extração de informação} consiste em extrair a partir de documentos alguma informação relevante \citep{TurmoEtAl:2006}; %visa extrair a partir de documentos apenas os dados relevantes ao usuário; \citep{prudencio:2005};
+	\item \textbf{Indexação} visa identificar termos convenientes para a recuperação de informação.
+	%Tirado Araújo Júnior e Tarapanoff 2006
+No trabalho de \cite{AraujoTarapanoff:2006} foi feita uma comparação entre indexação manual e indexação utilizando uma ferramenta de Mineração de Textos, por meio da análise do índice de precisão de resposta no processo de busca e recuperação da informação.
+	\item \textbf{Agrupamento de documentos} almeja descobrir agrupamentos naturais e, então, apresentar as possíveis classes em uma coleção de textos \citep{AndFox:2007}.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Exemplo de instanciação da Mineração de Textos: Metodologia TopTax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Exemplo de instanciação da Mineração de Textos: Metodologia TopTax}
+\label {toptax}
+
+Como exemplo de um processo instanciado de Mineração de Textos, pode-se citar a metodologia para extração de taxonomia de tópicos TopTax (\textit{Topic Taxonomy Environment}) \citep{Moura:2006,ConradoWTI:2008}. Esta metodologia tem como objetivo auxiliar especialistas de um domínio específico a organizar e manter a informação do mesmo. Tal organização é possível devido à criação de uma taxonomia de tópicos. A taxonomia considerada é uma classificação hierárquica de tópicos extraídos de uma coleção de textos, na qual os tópicos superiores são \textit{pais} dos inferiores, ou seja, os inferiores são especializações dos tópicos superiores. Além disso, a cada nível da taxonomia pode-se associar recursos da base textual referentes ao seu domínio, facilitando, assim, a organização da informação sob essa taxonomia.
+
+Para isto, é necessário analisar o conhecimento do domínio e construir a hierarquia dos tópicos específicos do domínio, isto é, uma taxonomia de tópicos sobre o conhecimento do domínio representado pela coleção de textos, ou os metadados sobre outros tipos de recursos, bem como fornecer critérios que possibilitam aos especialistas decidirem sobre o crescimento da coleção de textos (o limite do aumento da quantidade de textos na taxonomia existente). 
+
+Pode-se haver algumas confusões em relação a definição de taxonomia e ontologia. Para a comunidade de Inteligência Artificial, ontologia é ``uma especificação de uma conceituação'' \citep{Gruber:1995}, isto é, é uma especificação explícita, com um vocabulário formal e regida por axiomas, dos conceitos em um domínio e as relações entre eles. Considera-se como axiomas as regras pertinentes ao domínio em questão. Neste sentido, uma taxonomia pode se tornar uma ontologia com a inclusão de axiomas.
+
+A TopTax, para atingir seus objetivos, conforme mostrado na Figura ~\ref{fig:toptax}, segue as etapas do processo de Mineração de Textos.
+
+\begin{figure}[ht]
+    \centering
+        \includegraphics[scale=0.78]{figuras/toptax.png}
+    \caption{TopTax - Metodologia de extração de taxonomias de tópicos \citep{ConradoWTI:2008}}
+    \label{fig:toptax}
+\end{figure}
+
+A etapa de Identificação do Problema visa delimitar o problema a ser abordado, que no caso é fornecer auxílio aos especialistas de um domínio específico a organizar e manter a informação do mesmo. A partir deste problema, pretende-se encontrar uma solução para o mesmo, traçando o objetivo a ser alcançado para que este problema possa ser resolvido, que no caso é a construção de uma taxonomia de tópicos do domínio em questão. Após a definição do problema e do objetivo, pode-se, então, com a ajuda de especialistas do domínio, recuperar os documentos do mesmo que formarão a base de textos a ser trabalhada, considerando que esses documentos podem vir de bases e formatos distintos. Além disso, nesta etapa são selecionadas as ferramentas que auxiliarão no processo de Mineração de Textos.
+
+Já na etapa do Pré-Processamento, os documentos da base de textos obtida são preparados para servirem de entrada para as ferramentas que serão utilizadas. Esta preparação abrange as atividade de limpeza, padronização, extração de termos e cálculo do valor do atributo que será utilizado na matriz atributo-valor. Durante a padronização, os documentos que não estiverem em formato textual serão descartados, mas os que estiverem em fontes de informação em formato de figuras e filmes, serão considerados seus metadados, caso existam. Na atividade de extração de termos que descrevem a base de textos, os termos são representados em uma matriz atributo-valor. Mas como a quantidade de termos é muito elevada, utilizam-se técnicas que simplifiquem tais termos, o que diminuirá a dimensionalidade dessa matriz, facilitando o seu processamento e, como conseqüência, na compreensão dos termos. Mesmo assim, a dimensionalidade da matriz que representa tais termos pode continuar elevada. Neste caso, a TopTax sugere utilizar métodos de seleção de termos, com o objetivo de diminuir a quantidade de termos a ser trabalhada. Como exemplos desses métodos, pode-se citar os métodos de Luhn, Salton, e \textit{Term Variance}, que são detalhados no trabalho de \citet{NogueiraDissert:2009}.
+
+Em seguida, na etapa de Extração de Padrões, visando a construção de uma taxonomia de tópicos, efetua-se o processo de agrupamento hierárquico de documentos. % para agrupar documentos com conteúdos semelhantes.
+Para isso, aplicam-se métodos de agrupamento hierárquico, como o \textit{complete linkage}, \textit{average likage} ou \textit{single linkage} \citep{MardiaEtAl:1979}.
+
+Com a hierarquia, os agrupamentos obtidos retêm tópicos ou sub tópicos aos quais os documentos se referem. Em seguida, conforme descrito em \citet{ConradoWTI:2008}, gera-se os rótulos para cada grupo encontrado pela obtenção dos termos mais significativos, sendo possível adicionar a cada nó recursos de informação de tópicos, como documentos, vídeos e imagens associadas. Por fim, na etapa do Pós-Processamento, esta hierarquia obtida é visualizada e validada para que a mesma possa ser utilizada para dar suporte às decisões e organização da informação ali contida. Tal visualização e validação é apoiada pela ferramenta TaxTools \citep{MarcaciniRezende:2008}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Considerações Finais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Considerações Finais}
+Neste capítulo foram abordados alguns conceitos das etapas do processo de Mineração de Textos, com ênfase na etapa de Pré-Processamento, que é o foco deste trabalho. Além disso, destacou-se a elevada importância da representação dos documentos neste processo.
+
+Foram apresentadas algumas das aplicações da Mineração de Textos, bem como um resumo da metodologia TopTax, que é um exemplo de processo instanciado de Mineração de Textos. Deve-se ressaltar que os passos da metodologia de extração de termos apresentada neste trabalho (detalhada no Capítulo \ref{abordExtracao}), além de outros fins, são utilizados na etapa de Pré-Processamento da TopTax. A metodologia proposta neste trabalho é semi-au\-to\-ma\-ti\-za\-da já que em determinados momentos ocorre interação com especialistas.
+
+No decorrer do desenvolvimento deste trabalho, poder-se-á notar que a escolha de alguns procedimentos serve, também, para amenizar o pro\-ble\-ma do espaço de dimensão muito alta no processo de Mineração de Textos. Como exemplo desses procedimentos, pode-se citar a limpeza da base de textos, que acarreta na diminuição do espaço de armazenamento dos dados trabalhados mantendo a qualidade, visando melhorar o tempo de processamento e o espaço de armazenamento necessário para os dados.
+
+No capítulo a seguir é detalhada uma das tarefas do Pré-Processamento da Mineração de Textos, que é a Extração de Termos.

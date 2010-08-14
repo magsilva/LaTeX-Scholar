@@ -1,0 +1,392 @@
+
+\chapter{Metodologia do Trabalho}
+%   4.1 Considerações Iniciais
+%   4.2 Requisitos, Atividades e Cronograma
+%   4.3 Arquitetura da Ferramenta
+%   4.4 Funcionalidades da Ferramenta
+%       4.4.1 Interface
+%       4.4.2 Tecnologias Utilizadas
+%   4.5 Trabalhos Relacionados -> SUBSTITUI POR "Contribuições Esperados"
+%   4.6 Considerações Finais
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Considerações Iniciais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Considerações Iniciais}
+%\versal{N}este capítulo...
+Neste capítulo são apresentados os requisitos necessários para a obtenção do título de Mestre em Ciências da Computação e Matemática Computacional pelo ICMC-USP. Bem como serão abordadas a metodologia escolhida para o desenvovimento deste trabalho, as ferramentas que serão utilizadas para o mesmo e as atividades a serem executadas juntamente com o cronograma, além da infra-estrutura disponível.
+
+A ferramenta que será desenvolvida neste trabalho dará apoio à metodologia proposta por \citet{Moura:2006}, que tem como objetivo auxiliar especialistas de um domínio específico a organizar e manter a informação do mesmo. Tal organização será possível devido à criação de uma taxonomia de tópicos. A taxonomia considerada é uma classificação hierárquica de tópicos extraídos de uma coleção de textos, na qual os tópicos superiores são \textit{pais} dos inferiores, ou seja, os inferiores são especializações dos tópicos superiores. Além disso, a cada nível da taxonomia poder-se-á associar recursos da base textual referentes ao seu domínio, facilitando, assim, a organização da informação sob essa taxonomia.
+
+Para isto, esta metodologia necessita analisar o conhecimento do domínio e construir a hierarquia dos tópicos específicos do domínio, isto é, uma taxonomia de tópicos sobre o conhecimento do domínio representado pela coleção de textos, ou os metadados sobre outros tipos de recursos, bem como fornecerá critérios que possibilitarão aos especialistas decidirem sobre o crescimento da coleção de textos (o limite do aumento da quantidade de textos na taxonomia existente). Ressaltando que, tanto a metodologia proposta por \citet{Moura:2006} quanto a ferramenta que será desenvolvida neste trabalho serão semi-au\-to\-ma\-ti\-za\-das já que em determinados momentos haverá a avaliação de especialistas, dado que o ambiente é todo direcionado à interação com o mesmo.
+
+Assim, neste capítulo também serão mostrados a arquitetura da ferramenta que será desenvolvida, juntamente com os resultados esperados e as análises que serão realizadas para avaliar os resultados.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Desenvolvimento do Projeto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Desenvolvimento do Projeto}
+%arrumar: colocar o porquê surgiu o projeto geral e depois focar a parte que é o meu projeto, falar da Embrapa
+
+\textcolor{red}{Rever lugar: O trabalho de \citet{Silic:2007} compara o uso de \textit{n-grams} com normalização mor\-fo\-ló\-gi\-ca, sendo que os autores consideram como normalização morfológica as técnicas de le\-ma\-ti\-za\-ção, radicalização e normalização derivacional. O objetivo de tal comparação é verificar qual destas técnicas melhor auxilia na classificação supervisionada de textos.} \textcolor{red}{definir normalização derivacional}
+
+\textcolor{red}{Como resultado do referido trabalho, aponta-se um melhor desempenho computacional (tempo de execução e consumo de memória) do classificador para a língua inglesa e, quanto ao uso das técnicas, uma de suas conclusões é que em pequenos e grandes subconjuntos de termos obtêm-se melhores resultados com o uso da normalização morfológica do que com o uso dos \textit{n-grams}. Entretanto, quando se tem termos fixos, pode-se substituir o uso da normalização morfológica pelo dos \textit{n-grams}, mantendo-se também resultados satisfatórios.} \textcolor{red}{verificar o pq deste resultado??}
+
+\textcolor{red}{Os autores \citet{Silic:2007} avaliam o comportamento das técnicas de geração de termos para a classificação supervisionada de textos, enquanto este trabalho tem como objetivo principal avaliar as formas de geração de termos para verificar qual(is) a(s) melhor(es) forma(s) e, então, usá-la(s) para apoiar a ferramente de \citet{Moura:2006} a organizar a informação de textos de maneira não-supervisionada. Além disso, este trabalho utilizará textos na língua portuguesa, enquanto o trabalho de \citet{Silic:2007} utilizou textos nas línguas inglesa e croata.}
+
+\textcolor{red}{Ed.: melhorar.} Mesmo com as diferenças apontadas nos trabalhos, pode-se observar os resultados positivos da utilização das téc\-ni\-cas/for\-mas de geração de termos, a diferença de resultados da utilização de uma mesma técnica para diferentes línguas, bem como confirma que a geração de termos pode ser usada para mais de um fim. Assim, ressalta-se a motivação de obter resultados positivos com o desenvolvimento deste trabalho, sendo este explicado detalhadamente a seguir.
+
+O desenvolvimento deste trabalho é dividido em três grandes fases. A primeira fase é a \textbf{Revisão Bibliográfica} dos conteúdos necessários para a execução deste trabalho, a segunda fase é a \textbf{Geração de Termos} propriamente dita e a terceira fase é denominada \textbf{Avaliação dos Termos}.
+
+Para melhor entendimento, deve-se ressaltar que este trabalho pretende colaborar com a metodologia de extração de taxonomia de tópicos proposta por \citet{Moura:2006}, que abrange todas as etapas do processo de Mineração de Textos, culminando com a extração do conhecimento representado por uma taxonomia de tópicos para um domínio específico. As etapas principais da metodologia proposta por \citet{Moura:2006}, ilustrando o foco deste trabalho que é a avaliação de diferentes formas de geração de termos, são mostradas na Figura \ref{fig:etaGeral}.
+
+\begin{figure}[ht]
+    \centering
+        \includegraphics[scale=0.6]{etaGeral}
+    \caption{Etapas principais do projeto geral \textcolor{red}{trocar a figura pela a desenhada pelo Bruno.}}
+    \label{fig:etaGeral}
+\end{figure}
+%\FloatBarrier %organiza o lugar da figura na seção que a mesma foi citada.
+
+Após a obtenção e adequação da base de textos, segue-se com a etapa de \textbf{pré-processamento} que abrange a Geração de Termos, ou seja, gerar os termos que melhor representem a coleção de textos para o domínio específico. Devido à geração de termos ser o principal objetivo deste trabalho, o foco do mesmo está na etapa de pré-processamento de textos. Ainda na mesma etapa, pode-se citar a Seleção de Termos, na qual serão selecionados os termos representativos na coleção de textos do domínio, preocupando-se também com a redução dos termos para diminuir a dimensionalidade da matriz atributo-valor.
+
+A próxima etapa é a \textbf{extração de padrões}, na qual, de forma geral, os termos gerados acima serão agrupados, sendo que para cada grupo será criada uma lista de rótulos a partir dos termos mais discriminativas de cada grupo.
+Por fim, a etapa do \textbf{pós-processamento} abrange a visualização, que poderá ser executada, por exemplo, na forma de uma árvore hiperbólica. \textcolor{red}{definir árvore hiperbólica.} A partir de então será possível a navegação nos dados por meio da forma de visualização obtida. Ressalta-se, que mesmo após a visualização da informação, caso necessário, poderão ser feitas mudanças em qualquer etapa do processo com o objetivo de melhorar os resultados.
+
+Serão descritos a seguir três grandes fases para o desenvolvimento deste trabalho:
+
+\vspace{0.4cm} %pular espaço de 0,4 cm
+\textbf{Fases do desenvolvimento deste trabalho}
+
+\vspace{-1cm}
+\begin{fase}
+\item \textbf{Fase 1:} Revisão bibliográfica
+
+Inicialmente será realizada uma revisão bibliográfica, focando em determinados pontos importantes para esta pesquisa, como:
+\begin{itemize}
+    \item Processo de Mineração de Dados e de Textos como um todo, apesar de este trabalho se encontrar na etapa de pré-processamento da MT.
+    \item \textcolor{red}{Ed.: explicar melhor.} Representação de coleção de textos, que conforme visto no Capítulo 3, algumas das formas de representar as coleções textuais são Modelo Espaço Vetorial e Modelo Matriz Atributo-Valor. Neste trabalho será utilizado o modelo matriz atributo-valor por dois motivos. O primeiro é devido à sua disposição, há uma economia de memória obtida com o uso do mesmo no cálculo da similaridade, quando aplicado algoritmos de \textit{clusters}, por usar menos memória para este cálculo, já que não é necessário ``carregar'' a matriz inteira. O segundo motivo de tal escolha é que uma das ferramentas que será utilizada neste trabalho (a PreTexT) gera como resultado tal modelo.
+    \item Vocabulários e técnicas para uma possível comparação da maneira mais a\-de\-qua\-da de geração de termos - ou uma combinação destas - para o domínio específico. Para a obtenção dos termos serão estudadas as técnicas de lematização, radicalização, como também serão estudadas as taxonomias, já para a combinação de termos serão estudadas formas de obtenção de \textit{N-grams}, conforme descrito no Capítulo 3.
+\end{itemize}
+
+\vspace{0.3cm}
+\item \textbf{Fase 2:} Geração de termos
+
+Esta é a fase altamente importante deste trabalho, pois nela serão gerados os a\-tri\-bu\-tos propriamente ditos, podendo ser dividida em seis subfases:
+
+\vspace{-0.9cm}
+\begin{fase}
+	\item \textbf{Subfase 2.1:} Recuperação dos dados de interesse
+
+Nesta subfase, os arquivos textos que formarão a base de textos serão obtidos. Pretende-se inicialmente trabalhar com dois domínios de coleção de textos neste trabalho, tendo como objetivo, também, ser possível a utilização do resultado encontrado em outros domínios além dos especificados, com poucas alterações necessárias a serem feitas para que isso seja possível.
+
+O primeiro domínio refere-se à área de Inteligência Artificial. Foram obtidos de congressos, workshops e conferências 743 artigos em português desse domínio, sendo sua distribuição mostrada na Tabela~\ref{tab:baseIA}
+
+\begin{table}[!htp]
+\setlength{\extrarowheight}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{|l|c|}
+	\hline
+	\multicolumn{1}{|c|}{\bf Eventos} & \multicolumn{1}{c|}{\bf Nº de artigos} \\ \hline \hline 
+	ENIA - Encontro Nacional de Inteligência Artificial & 220 \\ \hline
+	Workshops associados ao SBIA - Simpósio Brasileiro de Inteligência Artificial & 89 \\ \hline
+	WTDIA - Workshop de Teses e Dissertações em Inteligência Artificial & 17 \\ \hline
+	SBRN - Simpósio Brasileiro de Redes Neurais & 173 \\ \hline
+	Simpósios de Teses e Dissertações do ICMC/USP & 120 \\ \hline
+	Workcomp-Sul - Workshop de Computação da Região Sul & 29 \\ \hline
+	Til - Workshop em Tecnologia da Informação e da Linguagem Humana & 95 \\ \hline \hline
+	\bf Total & \bf 743 \\ \hline
+\end{tabular}
+\caption{Base de textos do domínio de Inteligência Artificial} \label{tab:baseIA}
+\end{table}
+
+O segundo domínio será relacionado a assuntos específicos da Embrapa \footnote{Empresa Brasileira de Pesquisa Agropecuária}. \textcolor{red}{colocar qtde de arquivos da base da Embrapa.} Devem-se citar que as coleções de textos atuais da Embrapa estão algumas em formato XML e outras precisam ser coletadas.
+
+\vspace{0.1cm}
+	\item \textbf{Subfase 2.2:} Padronização dos arquivos
+	
+Após a obtenção da coleção de textos, consideram-se as mudanças necessárias da etapa de pré-processamento, neste sentido, os textos devem ser padronizados de acordo com as ferramentas que serão utilizadas nesta fase.
+
+Como experimentos iniciais, para que os resultados possam ser mais facilmente analisados, foram separados somente 48 artigos pu\-bli\-ca\-dos no ENIA, sendo que estes foram convertidos para o formato \textit{.txt} sem formatação, que é o padrão da entrada da ferramenta PreTexT e do pacote NSP.
+
+Ainda com o objetivo de padronizar os arquivos, tem-se em fase final de implementação um programa que insere \textit{tags} nos mesmos, isto é, identifica cada parte do arquivo texto (local onde o artigo foi publicado, título, autor, resumo, palavras-chave, \textit{abstract}, conteúdo e referências), o que será útil na escolha de qual(is) parte(s) dos textos pretende-se trabalhar. Exemplo: deseja-se trabalhar somente com a parte do título e resumo do artigo, portanto, serão selecionadas mais facilmente com as \textit{tags} já identificadas, somente essas duas partes para se trabalhar.
+
+Para auxiliar a colocação de \textit{tags} de título e de autor nos do\-cu\-men\-tos textos, esperando obter um resultado melhor e mais confiável, o \textit{dicionário de nomes próprios}, elaborado no trabalho de \citet{Muniz:2004}, poderá ser utilizado para identificar o início da \textit{tag} do autor, melhorando, portanto, o resultado de tal programa.
+
+\vspace{0.1cm}
+	\item \textbf{Subfase: 2.3:} Limpeza da base de textos e remoção de \textit{stopwords}
+	
+%arrumar: a limpeza da base de textos não já engloba tb a remoção de stopwords???
+Com o objetivo de uma obtenção de termos melhor (mais) re\-pre\-sen\-ta\-ti\-va, ou seja, obtenção dos termos que realmente são re\-pre\-sen\-ta\-ti\-vos da coleção de textos, e menor dimensão de sua re\-pre\-sen\-ta\-ção, os textos foram ``limpos''. Para tal limpeza, foi verificado se existiam arquivos danificados devido à conversão do formato para \textit{.txt}. Caso existissem, estes seriam removidos da base de textos, o que não ocorreu para a base do ENIA. Ainda para a limpeza da base, foram eliminados os acentos e cedilhas das palavras pertencentes aos mesmos por meio do programa desenvolvido neste trabalho, bem como efetuou-se a remoção de \textit{stopwords}, que foram explicadas no Capítulo 3. Para a remoção de \textit{stopwords}, foi utilizada a opção da ferramenta PreTexT e do pacote NSP, sendo necessário disponibilizar a lista de \textit{stopwords} para estes e padronizá-la no formato exigido pelos mesmos.
+
+\vspace{0.1cm}		
+	\item \textbf{Subfase 2.4:} Obtenção e combinação dos termos
+
+%arrumar: conferir a explicação do por quê da escolha das ferramentas MXPost, PreTexT e NSP
+Para a base de 48 artigos pu\-bli\-ca\-dos no ENIA, foram aplicadas as técnicas de obtenção dos termos que foram tratados nas subfases anteriores. Para aplicá-las, foi utilizada a ferramenta PreTexT. Para a combinação dos termos, foi usado o pacote NSP e futuramente serão utilizadas a ferramenta MXPost para ser possível aplicar a técnica de lematização, e a ferramenta Stemmer. Inicialmente, foram gerados tanto na PreTexT como no NSP \textit{1-gram} e \textit{2-grams}, números estes que serão aumentados em experimentos futuros. Além disso, haverá uma verificação da pos\-si\-bi\-li\-da\-de de combinação do \textit{n-gram} com outras técnicas para melhorar os resultados que serão obtidos nesta fase do desenvolvimento do trabalho.
+
+%Arrumar: detalhar mais a explicação desta figura:
+\textcolor{red}{Thiago: são arquiteturas genéricas??} Na Figura \ref{fig:etaTermos} são ilustradas três formas de representação da geração dos termos na fase de pré-processamento dentro do processo de Mineração de Textos: utilizando a ferramenta MXPost, o pacote NSP e a ferramenta PreTexT, res\-pec\-ti\-va\-men\-te. Todas estas são formas de geração de \textit{n-grams}, e serão utilizadas na ferramenta proposta para este fim.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{etaTermos}
+\caption{Formas de geração de \textit{n-grams} em coleções textuais \citep{Moura:2006}}
+\label{fig:etaTermos}
+\end{figure}
+
+Na primeira forma de representação da geração dos termos será utilizada a técnica de lematização. Para isto será necessário que as palavras dos textos estejam classificadas gramaticalmente, o que poderá ser feito com a utilização da ferramenta MXPost.
+
+Na segunda forma de representação da geração dos termos foi utilizada o pacote NSP, com a qual foram gerados, a partir da base, \textit{1-gram} e \textit{2-grams}, gerando 113.727 e 113.679 termos, respectivamente. Para obter termos melhor (mais) representativos na base, o que ajudaria também na diminuição da quantidade dos mesmos, para \textit{1-gram} foram usados os pontos de corte superior e inferior que são encontrados por tentativa e erro. Ou seja, foram removidos os \textit{grams} cujas freqüências são superiores e inferiores a um determinado valor, pois foi considerado que os \textit{grams} que aparecem muito ou que aparecem muito pouco não discriminam bem estes textos.
+
+Já para \textit{2-grams} (bigramas) foi observado que ao utilizar os pontos de corte superior e inferior como cortou o \textit{1-gram}, o resultado não representava adequadamente a base de textos, pois os bigramas a serem eliminados deveriam ser os que não representam corretamente a base e não os que aparecem em menor e maior quantidade (pontos de corte superior e inferior). Dessa forma, optou-se inicialmente por usar o pacote estatístico para bigramas disponível no NSP chamado \textit{chi-squared test} ($\chi^{2}$). \textcolor{red}{Thiago.: colocar referência da parte de como funciona a matemática do X2. Ed.: explicar/ilustrar melhor o uso de X2.} A execução da medida de associação oferecida pelo $\chi^{2}$ nos bigramas tem como objetivo identificar os bigramas que não são muito representativos nos textos. Isto é possível por esta medida ter como resultado as associações entre os \textit{tokens} de cada bigrama, podendo, então, identificar os que em determinada ordem são menos representativos do que os outros, permitindo, portanto, sua remoção.
+
+Com isto foi possível observar a associação entre as palavras que compõem os bigramas em forma de rank, de modo a identificar os bigramas que podem ser removidos sem prejudicar a representatividade da coleção de textos.
+
+Para o resultado do uso do NSP utilizando a medida $\chi^{2}$, pode-se mostrar como parte dos resultados três bigramas, observando que estes correspondem realmente a termos que representam o domínio:
+
+\begin{center}
+inteligencia<>artificial<>260 19564.5175 25 31 117
+
+rede<>neural<>382 13681.1005 62 219 145 
+
+mineracao<>texto<>4704 390.0574 6 68 150 
+\end{center}
+
+O primeiro número que aparece após cada bigrama equivale a sua posição no ranqueador. O segundo número é calculado pelo $\chi^{2}$, que a partir deste é feito o ranqueamento por ordem crescente. O terceiro número é o quantidade de vezes que o bigrama ocorre no arquivo texto de entrada, o quarto número é a quantidade de vezes em que o \textit{token} da esquerda (inteligencia) ocorre do lado esquerdo dos bigramas, e, por fim, o quinto número corresponde a quantidade de vezes em que o \textit{token} da direita (artificial) ocorre do lado direito dos bigramas.
+
+Na terceira forma de representação da geração dos termos foi utilizada a ferramenta PreTexT. Também foram ge\-ra\-dos, a partir da mesma base, \textit{1-gram} e \textit{2-grams}, obtendo 10.744 e 78.023 termos, respectivamente. Para \textit{1-gram} também foram usados os pontos de corte superior e inferior. Mas para verificar a associação dos \textit{tokens} nos bigramas gerados na PreTexT, foi implementado um programa que calcula as freqüências necessárias e padroniza o arquivo de modo que seja possível executar o $\chi^{2}$ (método que pertence ao NSP, mas possui código aberto para ser utilizado em outra ferramenta), tornando, portanto, possível observar os bigramas que podem ser removidos sem prejudicar a re\-pre\-sen\-ta\-ti\-vi\-da\-de da coleção de textos.
+
+Para o resultado do uso da ferramenta PreTexT seguida da execução do $\chi^{2}$, pode-se mostrar como parte dos resultado três bigramas, observando que estes correspondem realmente a termos que representam o domínio:
+
+\begin{center}
+inteligencia<>artifici<>1499 840.7104 6 30 110
+
+rede<>neural<>2088 499.9010 17 327 130
+
+mineracao<>texto<>5894 71.2458 3 56 163
+\end{center}
+
+Novamente, o primeiro número que aparece após cada bigrama equivale a sua posição no ranqueador. O segundo número é calculado pelo $\chi^{2}$, que a partir deste é feito o ranqueamento por ordem crescente. O terceiro número é o quantidade de vezes que o bigrama ocorre no arquivo texto de entrada, o quarto número é a quantidade de vezes em que o \textit{token} da esquerda (inteligencia) ocorre do lado esquerdo dos bigramas, e o quinto número corresponde a quantidade de vezes em que o \textit{token} da direita (artifici) ocorre do lado direito dos bigramas.
+
+Assim, considerando o total de bigramas gerados a partir da ferramenta PreTexT (78.023), o rank obtido dos três exemplos da mesma estão praticamente no topo da classificação, mostrando que os \textit{tokens} que compõem estes bigramas realmente têm relação quando aparecem juntos e nesta ordem. Portanto, eles não deveriam ser removidos da base de textos, pois são importantes na representação do domínio.
+
+Em suma, pode-se perceber que, para experimentos iniciais com esta co\-le\-ção de textos, a ferramenta PreTexT gerou menor quantidade de termos em relação a ferramenta NSP. Todavia, para esta última, se consideradas a posição de ranqueamento dos termos mostrados e a quantidade de termos gerados, foi obtido um rank melhor do que a PreTexT, afirmando que, estes termos são representativo do domínio.
+
+Deve-se ressaltar que estes resultados não podem ser ge\-ne\-ra\-li\-za\-dos por serem somente experimentos iniciais e por possuirem uma pequena quantidade de documentos textuais, sendo, assim, o objetivo destes é ``sentir'' o comportamento das ferramentas para um domínio pequeno e específico, bem como automatizar as pa\-dro\-ni\-za\-ções necessárias nos arquivos para que se possa, ao final da execução, comparar os resultados, como foi feito para a execução do método estatístico $\chi^{2}$. Estes experimentos iniciais também foram feitos para que posteriormente possam ser estendidos para domínios maiores e, por sua vez, obter resultados mais confiáveis.
+
+\vspace{0.1cm}
+	\item \textbf{Subfase 2.5:} Representação dos termos
+
+Com os termos gerados, é então necessário representá-los em uma forma que seja possível a utilização desses dados. Neste sentido, os termos gerados foram representados em uma matriz atributo-valor, na qual o documento que o termo pertence é colocado na linha da matriz, os termos (atributos) gerados são posicionados na co\-lu\-na, sendo esta matriz preenchida com a freqüência absoluta deste termo no respectivo do\-cu\-men\-to.
+
+\vspace{0.1cm}		
+	\item \textbf{Subfase 2.6:} Comparação dos resultados
+
+Os termos gerados passarão pela seleção de atributos, que resultará em termos mais representativos ainda a partir destes iniciais gerados, considerando que a matriz gerada deva estar com dimensão menor e menos esparsa por razões de desempenho. Com isso, será possível comparar os resultados anteriormente encontrados com os obtidos aqui e, se necessário, definir critérios de ajustes (melhorias sobre as ferramentas utilizadas na última etapa), implementando, portanto, tais melhorias. Também, caso necessário, poderão ser implementados conversores, como foi feito com o resultado da PreTexT na subfase 2.4 para executar a medida de associação $\chi^{2}$ sobre este.
+		
+\end{fase}
+
+\vspace{0.3cm}
+\item \textbf{Fase 3:} Avaliação dos termos gerados \textcolor{red}{ver na minha versão da quali as observações feitas pelo Eduardo.}
+
+Ao completar a fase anterior, a etapa de pré-processamento da metodologia geral é terminada. Após a etapa de pós-processamento será possível avaliar se os resultados obtidos estão em conformidade com os resultados esperados. Esta comparação será efetuada da seguinte maneira na ordem que se segue:
+
+\begin{itemize}
+    \item Gerar diferentes taxonomias de tópicos, com as diferentes formas de ge\-ra\-ção dos termos;
+    \item \textcolor{red}{ver comentários do Eduardo.} Submetê-las à análise subjetiva dos especialistas do domínio, sendo possível devido à elaboração de uma forma de apresentação clara dos termos gerados, permitindo a avaliação dos resultados obtidos. Tal avaliação possibilitará a verificação de qual (ou quais) opção é mais adequada para apoiar os es\-pe\-ci\-a\-lis\-tas do domínio específico na recuperação da informação e uma melhor e mais fácil navegação entre os assuntos relacionados, originalmente classificados em diferentes categorias.
+%arrumar: conferir se vai ser feito esta avaliação de precisão no meu trabalho ou não!
+    \item Com esta avaliação, será possível verificar se há necessidade da implementação de outra forma de geração de termos, ou melhora de alguma já existente, que seja mais adequada para este domínio. Ainda para avaliar os resultados obtidos, poderá ser aplicado o cálculo de precisão da representatividade dos termos gerados em relação ao domínio em questão.
+\end{itemize}
+
+\end{fase}
+
+\vspace{0.6cm}
+Enfim, estas fases deverão ser desenvolvidas em módulos bem definidos, o que pos\-si\-bi\-li\-ta\-rá a independência de algoritmos, facilitando a inserção e alteração de algoritmos sem a necessidade de alteração da estrutura interna do sistema, bem como atingirá o objetivo principal deste trabalho que é a avaliação das diferentes formas de geração de termos. Após o término destas etapas, o conhecimento gerado (taxonomia gerada) será finalmente utilizado para o objetivo pré-estabelecido.
+
+%arrumar: acho q não precisa falar da preparação da qualificação, Publicação dos resultados e   Preparação e defesa da tese, não é?!??
+
+%arrumar:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Funcionalidades da Ferramenta
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Funcionalidades da Ferramenta}
+%blablabla
+
+%----------------------------------------------------------------
+%   Interface
+%----------------------------------------------------------------
+%\subsection{Interface}
+%blablabla
+
+%----------------------------------------------------------------
+%   Tecnologias Utilizadas
+%----------------------------------------------------------------
+%\subsection{Tecnologias Utilizadas}
+%blablabla
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Contribuições Esperadas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contribuições Esperadas}
+
+As contribuições esperadas ao final deste trabalho serão: (i) a análise e comparação de maneiras e técnicas de representação e extração de termos estatisticamente relevantes de maneira automática, podendo levar, portanto, a ser capaz de concluir qual a mais a\-de\-qua\-da para ser utilizada no desenvolvimento da ferramenta deste projeto; (ii) a obtenção de uma ferramenta que dará suporte a metodologia proposta por \cite{Moura:2006}.
+
+Para avaliar se os resultados obtidos estão em conformidade com os resultados es\-pe\-ra\-dos serão realizados os seguintes experimentos e espera-se contribuições relacionadas à:
+
+\begin{itemize}
+    \item Avaliação da aplicação de técnicas de extração automática de termos, selecionando apenas os estatisticamente mais relevantes, a fim de reduzir a dimensão da matriz atributo-valor;
+    \item Obtenção de diferentes taxonomias de tópicos, com as diferentes formas de geração dos termos, e submetê-los à análise subjetiva dos especialistas do domínio, a fim de verificar quais formas são consideradas mais adequadas pelos especialistas.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Requisitos, Atividades e Cronograma
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos, Atividades e Cronograma}
+
+Os requisitos para a obtenção do título de Mestre em Ciências da Computação e Ma\-te\-má\-ti\-ca Computacional pelo ICMC-USP são:
+
+\begin{itemize}
+    \item Créditos em disciplinas - mínimo 66 (sessenta e seis) créditos em disciplinas de pós-graduação, sendo 2 (duas) disciplinas do núcleo-básico e 1 (uma) específica da área de pesquisa;
+    \item Exame de proficiência - ao aluno é exigida a comprovação de proeficiência na língua inglesa por meio de um exame aplicado pelo programa;
+    \item Exame de qualificação - o exame é composto pela entrega de uma monografia sobre o tema do projeto de pesquisa do aluno, e uma prova oral ou virtual sobre a mesma;
+    \item Elaboração da dissertação e defesa da mesma.
+\end{itemize}
+
+A aluna foi aprovada no exame de proficiência da língua inglesa e cursou 8 disciplinas, listadas na Tabela \ref{TAB:cursando}. O total de créditos acumulados com as disciplinas da pós-graduação ao final deste ano será de 72 créditos, cumprindo o necessário exigido pelo programa. Assim, os requisitos faltantes para a obtenção do título de mestre são o exame de qualificação e a defesa da dissertação.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+
+\multicolumn{3}{|c|}{\bf Disciplinas da Pós-Graduação}\\
+\hline
+\raisebox{0.0ex}[0pt][0pt]{\bf \it Disciplina} & {\bf \it Créditos} & {\bf \it Conceitos}\\
+\hline \hline
+SCE-5846-5-1 Seminários em Computação I & 4 & A\\
+\hline
+SCE-5763-9-4 Tipos e Estruturas de Dados & 12 & B\\
+\hline
+SCE-5723-11-x Sistemas Operacionais & 12 & B\\
+\hline
+SCE-5764-13-x Engenharia de Software & 12 & A\\
+\hline
+SMA-5839-9 Preparação Pedagógica & 4 & B\\
+\hline
+SCE-5870-1-x Práticas em Preparação Pedagógica & 4 & A\\
+\hline
+SCE-5790-8 Seminários em Inteligência Artificial & 12 & A\\
+\hline
+SCE-5810-8 Sistemas Inteligentes & 12 & A\\
+\hline
+
+\end{tabular}
+\caption{Disciplinas cursadas} \label{TAB:cursando}
+\end{table}
+
+As atividades previstas durante o desenvolvimento deste projeto de pesquisa envolvem, inicialmente, a realização de uma revisão bibliográfica sobre o processo de Mineração de Textos, ressaltando que este trabalho se concentra na fase de pré-processamento; representação de coleção de textos; vocabulários e técnicas para extração de termos estatisticamente relevantes para o processo. Além de avaliar maneiras de representação dos termos, de modo que seja possível verificar qual é a mais adequada para o objetivo deste trabalho, e assim, conseqüentemente, utilizá-la.% Em seguida, será desenvolvida a ferramenta que dará suporte à metodologia proposta por \citet{Moura:2006}.
+
+Resumidamente, tais atividades podem ser descritas em:
+
+\begin{enumerate}
+
+\item Revisão bibliográfica sobre o processo de Mineração de Dados, Mineração de Textos e técnicas de extração automática de termos estatisticamente relevantes;
+\item Preparação da monografia para o exame de qualificação;
+\item Exame de qualificação;
+\item Projeto e implementação da ferramenta que dará suporte à metodologia proposta por \citep{Moura:2006};
+\item Investigação e implementação de técnicas de extração automática de termos;
+\item Análise dos resultados: avaliação das formas de geração termos para os domínios escolhidos neste trabalho;
+\item Preparação e redação de artigos com os resultados do trabalho desenvolvido;
+\item Redação da Dissertação de Mestrado;
+\item Defesa da Dissertação de Mestrado.
+
+\end{enumerate}
+
+O cronograma definido para a realização dessas atividades pode ser visto na Tabela \ref{TAB:CRONOGRAMA}.
+
+\begin{table}[!htp]
+\small
+\centering
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+
+\hline
+
+& \multicolumn{5}{|c|}{{\bf 2007}} & \multicolumn{6}{|c|}{{\bf 2008}} & \multicolumn{2}{|c|}{{\bf 2009}}\\
+
+\cline{2-14}
+%Arrumar
+\raisebox{0.0ex}[0pt][0pt]{\scriptsize{\textbf{Ativ.}}} & {\bf \scriptsize{Mar/}} & {\scriptsize{\bf Mai/}} & {\scriptsize{\bf Jul/}} & \scriptsize{{\bf Set/}} & \scriptsize{{\bf Nov/}} & \scriptsize{{\bf Jan/}} & \scriptsize{{\bf Mar/}} & \scriptsize{{\bf Mai/}} & \scriptsize{{\bf Jul/}} & \scriptsize{{\bf Set/}} & \scriptsize{{\bf Nov/}} & \scriptsize{{\bf Jan/}} & \scriptsize{{\bf Mar/}}\\
+ & \scriptsize{{\bf Abr}} & \scriptsize{{\bf Jun}} & \scriptsize{{\bf Ago}} & \scriptsize{{\bf Out}} & \scriptsize{{\bf Dez}} & \scriptsize{{\bf Fev}} & \scriptsize{{\bf Abr}} & \scriptsize{{\bf Jun}} & \scriptsize{{\bf Ago}} & \scriptsize{{\bf Out}} & \scriptsize{{\bf Dez}} & \scriptsize{{\bf Fev}} & \scriptsize{{\bf Abr}}\\
+
+\hline \hline
+
+\footnotesize{1} & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & &\\
+
+\hline
+
+\footnotesize{2} & & & & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & &\\
+
+\hline
+
+\footnotesize{3} & & & & & & & $\bullet$ & & & & & & \\
+
+\hline
+
+\footnotesize{4} & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & &\\
+
+\hline
+
+\footnotesize{5} & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & &\\
+
+\hline
+
+\footnotesize{6} & & & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & &\\
+
+\hline
+
+\footnotesize{7} & & & & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$\\
+
+\hline
+
+\footnotesize{8} & & & & & & & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ \\
+
+\hline
+
+\footnotesize{9} & & & & & & & & & & & & & $\bullet$ \\
+
+\hline
+
+\end{tabular}
+
+\caption{Cronograma de atividades} \label{TAB:CRONOGRAMA}
+
+\end{table}
+
+
+\vspace{0.6cm} %pular espaço de 0,5 cm
+\textbf{Infra-estrutura disponível}
+\vspace{0.6cm}
+
+Serão utilizados, para o desenvolvimento deste trabalho de pesquisa, os recursos computacionais do LABIC, o qual conta com vários microcomputadores e estações de trabalho em rede. Quanto aos softwares, encontram-se disponíveis no LABIC algumas versões de compiladores e interpretadores das linguagens de programação mais adequadas para o desenvolvimento do mesmo, além de ferramentas. Também estão disponíveis, no laboratório, a biblioteca de aprendizado de máquina MLC++, as ferramentas desenvolvidas pelo próprio LABIC (como a PreTexT) e também pelo NILC (Núcleo Interinstitucional de Lingüística Computacional).
+
+Em relação ao levantamento bibliográfico, serão utilizados os recursos da biblioteca Prof. Achille Bassi do ICMC-USP que possui acervo nas áreas de Matemática, Computação, Estatística e Ciências afins. O acervo é constituído de mais de 30.000 volumes de livros e 670 títulos de periódicos, além de relatórios técnicos, anais de congresso, microfichas e CD's. A biblioteca faz parte do programa COMUT, no qual está integrada a biblioteca base. Bem como, também serão utilizados os artigos publicados disponíveis na Internet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Considerações Finais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Considerações Finais}
+
+Este trabalho possibilitará o melhor entendimento dos conceitos sobre o processo de Mineração de Textos, as formas de representação de termos de uma coleção de textos, bem como o conhecimento de aplicações reais relacionadas ao tema. Com o entendimento de tais conceitos, será possível seguir a seqüência de fases citadas neste capítulo, o que resultará no desenvolvimento deste trabalho e, principalmente, atingir da melhor forma possível o objetivo do mesmo, que é a avaliação de diferentes formas de geração de termos.
+
+Neste sentido, consideram-se as possíveis alterações que podem ser necessárias durante todo o processo no decorrer de seu desenvolvimento e avaliação, visando sempre a melhora do resultado final.
+
+Ao se avaliar as formas de geração de termos é possível verificar qual(is) desta(s) é considerada(s) mais adequada(s) para os domínios específicos aqui trabalhados e, assim, realmente dar apoio a metodologia proposta por \citep{Moura:2006}, possibilitando também a utilização do resultado encontrado em outros domínios além dos especificados.
+
+Deve-se ressaltar que o apoio de tal metodologia trará também outros benefícios finais, como auxiliar os especialistas na organização e manutenção da informação do domínio específico, bem como fornecer critérios que os auxiliarão a decidir sobre o crescimento da coleção de textos.

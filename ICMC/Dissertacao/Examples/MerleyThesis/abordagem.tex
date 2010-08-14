@@ -1,0 +1,403 @@
+
+\chapter{Metodologia para a Utilização de Diferentes Formas de Extração de Termos a partir de Coleções Textuais}
+\label{abordExtracao}
+% 4 Visão Geral da Abordagem para a utilização de Diferentes Formas de Extração de Termos a partir de Coleções Textuais
+%		4.1 Considerações Iniciais
+%		4.2 Descrição da Abordagem para a Aplicação de Diferentes Formas de Extração de Termos
+%		4.3 Considerações Finais
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Considerações Iniciais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Considerações Iniciais}
+Neste capítulo é descrita a metodologia para a utilização de diferentes formas de extração de termos a partir de coleções textuais de domínio específico. Essas diferentes formas englobam a utilização de três técnicas que simplificam os termos extraídos: a radicalização, a substantivação e a lematização. Tal metodologia, além de poder ser utilizada para outros fins, visa apoiar a metodologia proposta por \citet{Moura:2006} e \citet{ConradoWTI:2008}, denominada TopTax, descrita na Seção \ref{toptax} do Capítulo \ref{pre_processamento}. % Além disso, neste capítulo serão descritos cada experimento feito de extração de termos com a metodologia proposta e sua respectiva forma de avaliação, juntamente com os resultados.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Descrição da metodologia para a Aplicação de Diferentes Formas de Extração de Termos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descrição da Metodologia para a Utilização de Diferentes Formas de Extração de Termos}
+O impacto das técnicas de extração de termos é bem perceptível em tarefas de organização de informação em que a compreensibilidade, representatividade e o número de termos extraídos têm impacto direto na interpretabilidade dos modelos gerados. Assim, neste trabalho avalia-se a extração de termos, para que estes sejam utilizados, principalmente, no contexto de extração de taxonomias de tópicos, como no Projeto TopTax\footnote{TopTax - http://labic.icmc.usp.br/projects/researchproject.2008-06-04.9415524093}, o qual tem por objetivo auxiliar especialistas de um domínio específico a organizar e manter a informação do mesmo, por meio da criação e atualização de uma taxonomia de tópicos para domínios específicos.
+
+A metodologia para aplicação de diferentes formas de extração de termos divide-se em duas principais fases, a saber: preparação dos textos e extração de termos. Primeiramente, é necessário delimitar os textos nos quais irão trabalhar, sendo que estes podem prover de diferentes repositórios (bases de textos). Após a obtenção dos textos, deve-se condensá-los em uma base de textos e garantir a qualidade desta base por meio da \textbf{preparação dos textos} para posteriormente realizar a \textbf{extração de termos} importantes do domínio desta base textual.
+
+
+%----------------------------------------------------------------
+%	Fase 1: Preparação dos Textos
+%----------------------------------------------------------------
+\subsection{Fase 1: Preparação dos Textos}
+
+A preparação dos textos para a extração de termos, mostrada na Figura \ref{fig:fase1}, afeta o resultado final da metodologia de extração de termos caso suas atividades não sejam cuidadosamente executadas.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figuras/fase1.png}
+\caption{Preparação dos textos para a metodologia de extração de termos}
+\label{fig:fase1}
+\end{figure}
+
+Considerando que os documentos podem vir de bases distintas, pode haver formatos diferentes de arquivos, sendo necessário a \textbf{padronização dos textos}, colocando a base padronizada a ser trabalhada em um único repositório.
+
+A padronização dos textos consiste em transformar todo o conteúdo destes documentos para sua forma minúscula e padronizar os documentos para o formato de texto plano. Alguns documentos podem não permitir tal padronização, por exemplo, o documento pode estar protegido contra cópias ou estar em formato de figuras e imagens. Sendo assim, deve-se analisar subjetivamente o número de documentos não danificados e, caso este número seja considerado insuficiente, deve-se buscar por mais documentos. Todo o processo pode ser repetido até se obter uma coleção textual satisfatória para atingir os objetivos pré-estabelecidos.
+ 
+Em seguida, é realizada a \textbf{remoção de pontuação} dos textos, dado que a pontuação somente aumentaria a quantidade de termos extraídos, já que os algoritmos utilizados na extração de termos não diferenciam pontuação de palavras, extraindo, assim, termos compostos por pontuações.
+
+Pode-se também realizar a \textbf{remoção de números} dependendo do objetivo, ou seja, quando não é necessário trabalhar com números nos textos. Já para a melhor compreensão e junção das palavras iguais por técnicas próprias (como a radicalização, a lematização e a substantivação), é feita a \textbf{remoção de acentos} das palavras dos textos.
+
+\textbf{Remoção de palavras com tamanho \textit{<= t}}, sendo \textit{t} o número de caracteres de uma palavra. Tal remoção é útil quando se tem caracteres sem nenhum significado, como por exemplo os caracteres \textit{z}, \textit{u} e \textit{rc}.
+
+Na Tabela \ref{tab:doc_orig}, para melhor exemplificar as atividades da preparação dos textos, são mostrados dois parágrafos de um documento original da base de textos utilizada, como exemplo, neste trabalho. Na Tabela \ref{tab:doc_exe} são mostrados esses parágrafos preparados para serem utilizados, ou seja, o resultado dos mesmos após a preparação dos textos seguindo os passos da fase 1 e após a remoção de \textit{stopwords}. Mesmo para apenas dois parágrafos de um documento, pode-se notar a redução do tamanho do mesmo, o que afeta a dimensionalidade da matriz atributo-valor. \\ \\
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|} \hline
+\\
+\textit{``Em virtude dos bons resultados com animais em crescimento, os fazendeiros passaram} \\
+\textit{alimentar com mistura de cana e uréia as vacas em lactação durante o período seco do ano.''} \\ \\
+
+\textit{``Nestes sistemas de pastejo extensivo de produção de leite, em que as vacas são} \\
+\textit{alimentadas com cana-de-açúcar e uréia, espera-se uma produção de leite elevada,} \\
+\textit{não considerando o leite mamado pelo bezerro, além de ao final do período seco} \\
+\textit{as vacas apresentarem boa condição corporal e fertilidade adequada.''} \\ \\
+\hline
+\end{tabular}
+\caption{Parágrafos retirados de um documento original da base de textos} \label{tab:doc_orig}
+\end{table}
+
+
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|} \hline
+\\
+\textit{virtude bons resultados animais crescimento fazendeiros passaram}\\ 
+\textit{alimentar mistura cana ureia vacas lactacao periodo seco ano} \\  \\ 
+
+\textit{sistemas pastejo extensivo producao leite vacas alimentadas cana acucar} \\ 
+\textit{ureia esperase producao leite elevada considerando leite mamado bezerro} \\ 
+\textit{final periodo seco vacas apresentarem boa condicao corporal fertilidade adequada} \\ \\
+\hline
+\end{tabular}
+\caption{Parágrafos, referentes aos parágrafos mostrados na Tabela \ref{tab:doc_orig}, preparados para serem utilizados na metodologia de extração de termos} \label{tab:doc_exe}
+\end{table}
+
+
+Após este passo, a base de textos a ser trabalhada é considerada preparada, permitindo, então, efetuar a extração de termos de um domínio, que é explicada na Fase 2.
+
+
+
+%----------------------------------------------------------------
+%	Fase 2: Extração dos Termos
+%----------------------------------------------------------------
+\subsection{Fase 2: Extração dos Termos}
+\label{extracao}
+
+Dado o objetivo deste trabalho, que é avaliar o efeito do uso de diferentes formas de extração de termos, o processo proposto aqui faz uso de três técnicas de simplificação de termos, descritas conceitualmente no Capítulo \ref{extracaoTermos}: a radicalização por meio da ferramenta PreTexT II; a lematização, usando a base de lemas do Lematizador de Nunes; e a substantivação, utilizando as ferramentas FORMA e CHAMA. Este processo pode ser estendido para outras diferentes técnicas.
+
+O processo de extração de termos proposto, conforme ilustrado na Figura \ref{fig:fase2}, inicia-se com a base de textos considerada preparada para ser utilizada.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{figuras/fase2_v2.png}
+\caption{Extração de termos}
+\label{fig:fase2}
+\end{figure}
+
+O usuário pode escolher se deseja aplicar alguma técnica de simplificação de termos durante esta fase. Caso positivo, deve escolher qual técnica mais contribui para seu objetivo final. A seguir, são mostrados exemplos de palavras após a aplicação de cada uma destas técnicas, considerando como base os parágrafos de um documento mostrados na Tabela \ref{tab:doc_exe}.
+
+
+Quando a técnica de radicalização é aplicada, todas as palavras da coleção de textos são transformadas em unigramas radicalizados com o uso da ferramenta PreTexT II. Essa transformação pode ser vista nas palavras que se encontram radicalizadas, que é mostrada na Tabela \ref{tab:palavras_radic}.%, sendo essas mostradas a seguir. \\ \\ \\
+
+%\textit{\textbf{Palavras radicalizadas:}}
+
+%\textit{virtud bom result anim cresciment fazende pass aliment mistur can ure vac lactaca period sec ano}
+
+%\textit{sistem pastej extens produca leit vac aliment can acuc ure esperas produca leit elev consider leit mam bezerr final period sec vac apresent boa condica corporal fertil adequ} \\ \\
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|} \hline
+\\
+\textit{virtud bom result anim cresciment fazende pass}\\ 
+\textit{aliment mistur can ure vac lactaca period sec ano} \\  \\ 
+
+\textit{sistem pastej extens produca leit vac aliment can acuc} \\ 
+\textit{ure esperas produca leit elev consider leit mam bezerr} \\ 
+\textit{final period sec vac apresent boa condica corporal fertil adequ} \\ \\
+\hline
+\end{tabular}
+\caption{Palavras radicalizadas} \label{tab:palavras_radic}
+\end{table}
+
+Para a aplicação da técnica de lematização, utiliza-se a base de lemas do Lematizador de Nunes, que é composta por palavras na Língua Portuguesa e seus respectivos lemas. Como resultado, obtém-se todas as palavras da coleção de textos transformadas em palavras lematizadas, conforme mostrado na Tabela~\ref{tab:palavras_lemat}.%no exemplo a seguir. \\ \\
+
+
+%\textit{\textbf{Palavras lematizadas:}}
+
+%\textit{virtude resultado animal crescimento fazendeiro passar alimentar misturar cana ureia vaca lactacao periodo seco ano}
+
+%\textit{sistema pastejo extensivo producao leite vaca alimentar cana acucar ureia esperase producao leite elevar considerar leite mamar bezerro alar final periodo seco vaca apresentar condicao corporal fertilidade adequar} \\ \\
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|} \hline
+\\
+\textit{virtude resultado animal crescimento fazendeiro passar}\\ 
+\textit{alimentar misturar cana ureia vaca lactacao periodo seco ano} \\  \\ 
+
+\textit{sistema pastejo extensivo producao leite vaca alimentar cana acucar} \\ 
+\textit{ureia esperase producao leite elevar considerar leite mamar bezerro} \\ 
+\textit{alar final periodo seco vaca apresentar condicao corporal fertilidade adequar} \\ \\
+\hline
+\end{tabular}
+\caption{Palavras lematizadas} \label{tab:palavras_lemat}
+\end{table}
+
+Já para a aplicação da técnica de substantivação são utilizadas as ferramentas FORMA e CHAMA. Como resultado, tem-se todas as palavras transformadas para seus substantivos correspondentes, conforme mostrado na Tabela~\ref{tab:palavras_subst}.% A seguir, é mostrado um dessa transformação. \\ \\
+
+
+%\textit{\textbf{Palavras substantivadas:}}
+
+%\textit{virtude resultados animais crescimento fazendeiros passagem alimentar mistura cana ureia vacas lactacao periodo secura ano}
+
+%\textit{sistemas pastejo extensividade producao leite vacas alimentacao cana acucar ureia esperase producao leite elevacao consideracao leite mamacao bezerro final periodo secura vacas apresentacao bondade condicao corporal fertilidade adequacao} \\ \\
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|} \hline
+\\
+\textit{virtude resultados animais crescimento fazendeiros passagem}\\ 
+\textit{alimentar mistura cana ureia vacas lactacao periodo secura ano} \\  \\ 
+
+\textit{sistemas pastejo extensividade producao leite vacas alimentacao cana acucar} \\ 
+\textit{ureia esperase producao leite elevacao consideracao leite mamacao bezerro} \\ 
+\textit{final periodo secura vacas apresentacao bondade condicao corporal fertilidade adequacao} \\ \\
+\hline
+\end{tabular}
+\caption{Palavras substantivadas} \label{tab:palavras_subst}
+\end{table}
+
+Para a obtenção de um documento substantivado, conforme mostrado na Figura \ref{fig:exe_forma_chama2}, na qual utiliza como exemplo de entrada as palavras \textit{vaca}, \textit{alimentadas} e \textit{cana}, primeiramente efetua-se a (a) aplicação das ferramentas FORMA e CHAMA em cada palavra do texto. Esta aplicação resulta em: \textit{<palavra\_original> <lema> <substantivo\_abstrato> <substantivo\_concreto> <classe\_gramatical>}. Cada palavra original do texto (indicada por \textit{<palavra\_original>}) é transformada para seu lema (\textit{<lema>}), bem como é gerado, a partir dessa palavra original, o substantivo abstrato correspondente a essa palavra (indicado por \textit{<substantivo\_abstrato>}). Gera-se também o correspondente substantivo concreto (\textit{<substantivo\_concreto>}) e indica-se a classe gramatical (<classe\_gramatical>) a qual a palavra original pertence.
+
+Além disso, é colocada uma \textit{tag} em cada palavra original, sendo que neste caso as \textit{tags} colocadas foram: \_SUB (indica substantivo) e \_AP (indica particípio passado). O procedimento para a obtenção das palavras substantivadas desenvolvido neste trabalho e detalhado no Algoritmo \ref{ALG:meu_subst}, (b) considera como palavra substantivada o substantivo abstrato da palavra original, caso não possua, é considerado o substantivo concreto. Se as ferramentas não encontrarem nenhum destes substantivos, então, é considerado o lema, já que a substantivação de algumas das palavras originais corresponde ao seu próprio lema, como o caso das palavras \textit{vaca} e \textit{cana}.
+
+
+\begin{figure} [h]
+\centering
+\includegraphics[width=1\textwidth]{figuras/exe_forma_chama2.png}
+\caption{Exemplo da obtenção das palavras substantivadas}
+\label{fig:exe_forma_chama2}
+\end{figure}
+
+
+\begin{algorithm}[h!]
+\floatname{algorithm}{Algoritmo}	
+	\caption{Substantivação das palavras da coleção de textos}
+	\label{ALG:meu_subst}
+	\algsetup{indent=2em}
+	\begin{algorithmic}[1]
+	\REQUIRE coleção de documentos original  $D$ $\{d_ 1, d_ 2,\ldots, d_ n\}$
+	\ENSURE coleção de documentos com palavras substantivadas  $Ds$
+	\STATE $D \leftarrow \{d_ 1, d_ 2,\ldots, d_ n\}$
+	\STATE $Ds \leftarrow \{ \}$
+	
+		\FORALL {$d_ i$  $\epsilon$  $D$}			
+			\STATE $d'_ i \leftarrow$ aplica ferramentas FORMA e CHAMA $(d_ i)$
+			\STATE $ds_ i \leftarrow$ pega palavras substantivadas $(d'_ i)$
+		\ENDFOR
+		
+	\end{algorithmic}
+\end{algorithm}
+
+
+
+
+Após a aplicação das técnicas supra citadas, são geradas três coleções de textos contendo palavras simplificadas, uma coleção para cada técnica. Para a obtenção de uma lista de unigramas a partir dessas palavras simplificadas, uma lista para cada coleção textual, aplica-se, separadamente, a ferramenta PreTexT II, com a opção de não radicalizar as palavras contidas nos documentos dessas coleções.
+
+Mesmo com a lista de unigramas contendo somente termos simplificados de acordo com cada técnica (uma lista para cada técnica separadamente) tem-se um elevado número de unigramas, porém nem todos representam positivamente os documentos. Para a \textbf{extração dos unigramas} mais representativos e os correspondentes \textit{n-gramas} que deles são derivados, pode-se considerar apenas os termos que aparecem, no mínimo, em \textit{d} documentos na coleção textual (\textit{\textbf{Document Frequency} - DF}), sendo que \textit{d} é fornecido pelo usuário e corresponde à quantidade mínima de documentos no qual o termo deve aparecer. Além disso, remove-se uma lista de \textbf{\textit{stopwords}} padrão para português (com artigos, interjeições, etc). Após a remoção dos unigramas a partir da utilização da \textit{Document Frequency} e da remoção das \textit{stopwords}, obtém-se os \textbf{unigramas selecionados}.
+
+Em seguida, efetua-se a \textbf{extração dos \textit{n-gramas}} (bigramas e trigramas). Para isso, os unigramas que foram removidos a partir da \textit{Document Frequency} (ou qualquer outra medida que o usuário aplicar para remover os unigramas não representativos da coleção) formam uma nova lista de termos, denominada \textbf{\textit{\-stoplist\-} da coleção} - lista de \textit{stopwords} da coleção.
+
+A \textit{stoplist} da coleção visa remover as palavras dos documentos que não são indicadas para formarem bons bigramas e trigramas, já que estas palavras foram removidas na formação dos unigramas, o que indica que tal palavra não contribui para a representação da coleção.
+
+Assim, cada uma das técnicas de simplificação terá uma lista de \textbf{bigramas} e uma lista de \textbf{trigramas selecionados}. Para exemplificar a diferença do uso de cada técnica na obtenção dessas combinações (\textit{n-gramas}), a seguir são mostrados os trigramas extraídos dos parágrafos de um documento exemplo apresentados na Tabela \ref{tab:doc_exe}. Os trigramas obtidos utilizando a técnica de radicalização a partir desses parágrafos são mostrados na Tabela \ref{tab:tri_radic}.
+
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c c c|} \hline
+& & \\
+virtud\_bom\_result 			& period\_sec\_ano 				& elev\_consider\_leit \\
+bom\_result\_anim 				& sistem\_pastej\_extens 	& consider\_leit\_mam \\
+result\_anim\_cresciment 	& pastej\_extens\_produca & leit\_mam\_bezerr \\
+anim\_cresciment\_fazende & extens\_produca\_leit 	& mam\_bezerr\_final \\
+cresciment\_fazende\_pass & produca\_leit\_vac 			& bezerr\_final\_period \\
+fazende\_pass\_aliment 		& leit\_vac\_aliment 			& final\_period\_sec \\
+pass\_aliment\_mistur 		& vac\_aliment\_can 			& period\_sec\_vac \\
+aliment\_mistur\_can 			& aliment\_can\_acuc 			& sec\_vac\_apresent \\
+mistur\_can\_ure 					& can\_acuc\_ure 					& vac\_apresent\_boa \\
+can\_ure\_vac 						& acuc\_ure\_esperas 			& apresent\_boa\_condica \\
+ure\_vac\_lactaca 				& ure\_esperas\_produca 	& boa\_condica\_corporal \\
+vac\_lactaca\_period 			& esperas\_produca\_leit 	& condica\_corporal\_fertil \\
+lactaca\_period\_sec 			&  produca\_leit\_elev 		& corporal\_fertil\_adequ \\
+													& leit\_elev\_consider & \\
+& & \\
+\hline
+\end{tabular}
+\caption{Trigramas obtidos com a técnica de radicalização a partir dos parágrafos de um documento exemplo mostrados na Tabela \ref{tab:doc_orig}} \label{tab:tri_radic}
+\end{table}
+
+
+
+Já na Tabela \ref{tab:tri_lemat}, são apresentados os trigramas obtidos com a aplicação da técnica de lematização. Nota-se que as palavras \textit{\textbf{bons}} e \textit{\textbf{boa}}, após a lematização, correspondem a palavra \textit{\textbf{bom}}, sendo esta eliminada pela lista de \textit{stopwords} padrão. Com isso os trigramas \textit{virtud\_bom\_result}, \textit{bom\_result\_anim}, \textit{vac\_apresent\_boa}, \textit{apresent\_boa\_condica} e \textit{boa\_condica\_corporal} não são construídos para a lematização e sim, formam-se diferentes trigramas com a remoção da palavra \textit{\textbf{bom}}, que são: \textit{virtude\_resultado\_animal} e \textit{apresentar\_condicao\_corporal}.
+
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c c c|} \hline
+& & \\
+virtude\_resultado\_animal 			& sistema\_pastejo\_extensivo		& leite\_elevar\_considerar \\
+resultado\_animal\_crescimento	& pastejo\_extensivo\_producao	& elevar\_considerar\_leite \\
+animal\_crescimento\_fazendeiro	& extensivo\_producao\_leite		& considerar\_leite\_mamar \\
+crescimento\_fazendeiro\_passar	& producao\_leite\_vaca					& leite\_mamar\_bezerro \\
+fazendeiro\_passar\_alimentar		& leite\_vaca\_alimentar				& mamar\_bezerro\_final \\
+passar\_alimentar\_misturar			& vaca\_alimentar\_cana					& bezerro\_final\_periodo \\
+alimentar\_misturar\_cana				& alimentar\_cana\_acucar				& final\_periodo\_seco \\
+misturar\_cana\_ureia						& cana\_acucar\_ureia						& periodo\_seco\_vaca \\
+cana\_ureia\_vaca								& acucar\_ureia\_esperase				& seco\_vaca\_apresentar \\
+ureia\_vaca\_lactacao						& ureia\_esperase\_producao			& vaca\_apresentar\_condicao \\
+vaca\_lactacao\_periodo					& esperase\_producao\_leite			& apresentar\_condicao\_corporal \\
+lactacao\_periodo\_seco					& producao\_leite\_elevar				& condicao\_corporal\_fertilidade \\
+periodo\_seco\_ano							&																& corporal\_fertilidade\_adequar \\
+& & \\
+\hline
+\end{tabular}
+\caption{Trigramas obtidos com a técnica de lematização a partir dos parágrafos de um documento exemplo mostrados na Tabela \ref{tab:doc_orig}} \label{tab:tri_lemat}
+\end{table}
+
+
+Na Tabela \ref{tab:tri_subst}, é mostrado um exemplo dos trigramas obtidos utilizando a técnica de substantivação.
+
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c c c|} \hline
+& & \\
+virtude\_bons\_resultados 					& periodo\_secura\_ano							& elevacao\_consideracao\_leite \\
+bons\_resultados\_animais						& sistemas\_pastejo\_extensividade	& consideracao\_leite\_mamacao \\
+resultados\_animais\_crescimento		& pastejo\_extensividade\_producao	& leite\_mamacao\_bezerro \\
+animais\_crescimento\_fazendeiros		& extensividade\_producao\_leite		& mamacao\_bezerro\_final \\
+crescimento\_fazendeiros\_passagem	& producao\_leite\_vacas						& bezerro\_final\_periodo \\
+fazendeiros\_passagem\_alimentar		& leite\_vacas\_alimentacao 				& final\_periodo\_secura \\
+passagem\_alimentar\_mistura				& vacas\_alimentacao\_cana					& periodo\_secura\_vacas \\
+alimentar\_mistura\_cana						& alimentacao\_cana\_acucar					& secura\_vacas\_apresentacao \\
+mistura\_cana\_ureia								& cana\_acucar\_ureia 							& vacas\_apresentacao\_bondade \\
+cana\_ureia\_vacas									& acucar\_ureia\_esperase						& apresentacao\_bondade\_condicao \\
+ureia\_vacas\_lactacao							& ureia\_esperase\_producao					& bondade\_condicao\_corporal \\
+vacas\_lactacao\_periodo						& esperase\_producao\_leite					& condicao\_corporal\_fertilidade \\
+lactacao\_periodo\_secura						& producao\_leite\_elevacao					& corporal\_fertilidade\_adequacao \\
+																		& leite\_elevacao\_consideracao			& \\
+& & \\
+\hline
+\end{tabular}
+\caption{Trigramas obtidos com a técnica de substantivação a partir dos parágrafos de um documento exemplo mostrados na Tabela \ref{tab:doc_orig}} \label{tab:tri_subst}
+\end{table}
+
+
+Devido ao elevado número de combinações obtidas (bigramas e trigramas) com a aplicação de cada uma das técnicas de simplificação de termos, na tentativa de eliminar as combinações que não representam muito a coleção, são extraídas somente as combinações de palavras que contenham na lista de unigramas finais. Para isso, é utilizada a \textit{stoplist} da coleção, que é a lista de palavras eliminadas no processo de construção dos unigramas finais da coleção. % ?? colocar exemplo da stoplist da coleção ??
+
+Mesmo assim, quando se trata de coleções de textos de tamanhos elevados, o número dessas combinações (bigramas e trigramas) é ainda alto e grande parte delas não tem significado semântico. Neste sentido, é necessário aplicar-lhes \textbf{métodos estatísticos}, como a medida (\textbf{\textit{Document Frequency} - DF}) e o \textbf{teste da razão de máxima verossimilhança - MVS}.
+
+O teste da razão de máxima verossimilhança, disponível no pacote NSP, visa detectar se as combinações são mais do que simples co-ocorrências casuais nos documentos, fornecendo, para isso, uma lista de todos os candidatos à combinações. Segundo \citet{ManniSchut:2001} e \citet{GarraoDias:2008}, para a elaboração desta lista (para o caso de bigramas $w^{1} w^{2}$, por exemplo), faz-se necessário a formulação das duas hipóteses mostradas a seguir. Sendo que $H$ = hipótese, $P$ = probabilidade e $w =$ palavra, que pertence à combinação (grama).
+
+\begin{center}
+$H1: P (w^{1}| w^{2}) = P (w^{1}| \neg w^{2})$ \\
+$H2: P (w^{1}| w^{2}) \neq P (w^{1}| \neg w^{2})$
+\end{center}
+
+A hipótese 1 ($H1$) é a formalização da independência, isto é, a ocorrência de $w^{2}$ é independente da ocorrência de $w^{1}$. A hipótese 2 ($H2$) é a formalização da dependência, e quando ela é satisfeita significa que pode ter sido encontrada uma combinação interessante.
+
+Por exemplo, assumindo que o bigrama \textit{cana\_acucar} é uma combinação, tem-se:
+
+\begin{center}
+$H2:P(cana|acucar) \neq P(cana|\neg acucar)$ \\
+$H1:P(cana|acucar) = P(cana|\neg acucar)$
+\end{center}
+
+Espera-se que a hipótese de independência $H1$ seja falsa, indicando que provavelmente foi encontrada uma combinação interessante.
+
+O resultado da aplicação deste teste é um \textit{rank} dos \textit{n-gramas} em ordem decrescente de importância de acordo com o valor obtido pelo teste para cada \textit{n-grama}. Considerando ainda o documento utilizado como exemplo anteriormente, na Tabela \ref{tab:teste_ll}, são listados alguns dos bigramas e trigramas obtidos com o uso da técnica de radicalização a partir de tal documento, juntamente com as respectivas freqüências no documento e os valores do teste da razão de máxima verossimilhança. Segundo os valores desse teste, o termo \textit{sistem\_pastej\_extens} é considerado como mais importante do que o termo \textit{leit\_vac}.
+
+
+\begin{table}[!ht] \footnotesize \centering
+\begin{tabular}{|c|c|c|} \hline
+\textit{N-gramas}				& Freqüências	& Valores do teste\\ \hline \hline
+sistem\_pastej\_extens	& 4						& 18.9027 \\ \hline
+sistem\_pastej					& 3 					& 9.4990 \\ \hline
+pastej\_extens					& 3 					& 9.4990 \\ \hline
+can\_acuc								& 4 					& 6.7264 \\ \hline
+vac\_aliment						& 7 					& 3.0061 \\ \hline
+leit\_vac							& 8 					& 2.0609 \\ \hline
+\end{tabular}
+\caption{Exemplos dos valores obtidos pela aplicação do teste da razão de máxima verossimilhança para alguns bigramas e trigramas} \label{tab:teste_ll}
+\end{table}
+
+
+Por fim, a base de textos, agora representada pelos termos extraídos da mesma, é estruturada em uma \textbf{matriz atributo-valor}, na qual o documento a que o termo pertence é colocado como linha da matriz, os termos extraídos como co\-lu\-nas, e a matriz é preenchida, neste caso, com a freqüência absoluta deste termo no respectivo documento. Deve-se ressaltar que o sucesso de tarefas de Extração de Padrões é diretamente afetado pela qualidade dos termos que compõem esta matriz. Ressalta-se, portanto, a importância de se obter termos representativos do domínio, sendo, então, necessário escolher uma técnica adequada para a extração desses termos.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Ferramenta ExtraT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ferramenta ExtraT}
+Para a aplicação da metodologia de extração de termos proposta aqui foi desenvolvida uma ferramenta denominada ExtraT (Ferramenta para Extração de Termos) utilizando a linguagem de programação Java juntamente com o ambiente integrado para desenvolvimento de software Eclipse\footnote{Eclipse - http://www.eclipse.org/platform} Versão 3.3.2. Para a aplicação da técnica de lematização utiliza-se a base de palavras e seus respectivos lemas contidos no Lematizador de Nunes. Na aplicação da técnica de substantivação são utilizadas conjuntamente as ferramentas FORMA e CHAMA. Já para a aplicação da radicalização e a obtenção dos \textit{n-gramas}, independente de qual técnica o usuário escolher, é utilizada a ferramenta PreTexT II. Por fim, a aplicação do método estatístico do teste da razão de máximo verossimilhança faz uso do pacote NSP.
+
+A opção por utilizar a PreTexT é devido ao fato que esta, ao contrário das outras ferramentas de radicalização, possibilita também a combinação dos \textit{stems} (\textit{n-gramas}). Já a escolha pelo uso do Lematizador de Nunes é que este apresentou bons resultados em trabalhos anteriores, como no trabalho de \citet{AleixoPardo:2008}. Além disso, o FLANOM foi desenvolvido somente para a Língua Espanhola e o software Sphinx é proprietário. Quanto ao uso dos etiquetadores morfossintáticos citados, não é interessante utilizá-los para auxiliar na aplicação da lematização devido a necessidade de se aplicar outra ferramenta para lematizar o resultado destes etiquetadores.
+
+Deve-se ressaltar que o trabalho aqui proposto tem um maior foco na abordagem estatística já que, segundo \citet{Teline:2003}, o uso de métodos lingüísticos têm como conseqüência sua aplicação somente a uma língua e, às vezes, até mesmo a uma única variante. Porém, a técnica de radicalização, por exemplo, pode ser aplicada em outras diversas línguas além do Português, já a substantivação, encontrada na literatura, só é aplicável à Língua Portuguesa. Tanto as \textit{stopwords}, que podem ser obtidas ou construídas para outras línguas, quanto o \textit{thesaurus}, ambos utilizados neste trabalho, estão inseridos na abordagem lingüística. O \textit{thesaurus} é utilizado na abordagem proposta de avaliação de termos extraídos, explicada no Capítulo \ref{avaliacao}.
+
+Dentro da abordagem estatística, este trabalho faz uso do teste da razão de máxima verossimilhança que visa indicar se um termo candidato é uma boa colocação para ser utilizada na coleção de textos em questão. Este teste foi escolhido para ser utilizado pois, segundo \citet{ManniSchut:2001}, é o mais adequado para ser utilizado quando se trabalha com dados bastante esparsos, que é o caso da Mineração de Textos. Além disso, o estimador $\chi^2$ é menos recomendado para trabalhar com coleções textuais pequenas e é menos interpretável, se comparado ao teste razão de máxima verossimilhança, pois este último fornece um \textit{ranking}, não sendo necessário utilizar uma tabela, como no $\chi^2$ \citep{MantelEtAl:1985}.
+
+Esta ferramenta permite que o usuário execute a extração de termos utilizando diferentes técnicas de simplificação dos termos para bases de textos da sua escolha. Os passos para essa execução seguem as fases desta metodologia conforme descritas neste capítulo. Na Figura \ref{fig:extrat}(a) é ilustrada a especificação dos diretórios de entrada e saída escolhidos pelo usuário, ou seja, como diretório de entrada tem-se as bases de textos que o usuário deseja processar e o diretório de saída corresponde ao diretório que o usuário deseja que sejam gerados os resultados do processamento.
+
+%\begin{figure} [h]
+%\centering
+%\includegraphics[width=15cm,height=5cm]{figuras/tela1.jpg}
+%\caption{Escolha de diretórios na ferramenta ExtraT}
+%\label{fig:tela1}
+%\end{figure}
+
+
+A primeira fase da metodologia, que é a preparação dos textos, pode ser executada na ferramenta ExtraT conforme mostrada na Figura \ref{fig:extrat}(b), e a segunda fase da metodologia, que é a extração dos termos é ilustrada na Figura \ref{fig:extrat}(c).
+
+
+%\begin{figure} [h]
+%\centering
+%\includegraphics[width=14.5cm,height=5cm]{figuras/tela2.jpg}
+%\caption{Preparação dos textos na ferramenta ExtraT}
+%\label{fig:tela2}
+%\end{figure}
+%
+%
+%\begin{figure} [h]
+%\centering
+%\includegraphics[width=14.5cm,height=5cm]{figuras/tela3.jpg}
+%\caption{Extração dos termos na ferramenta ExtraT}
+%\label{fig:tela3}
+%\end{figure}
+
+
+\begin{figure}
+\center
+\subfigure[a][Escolha de diretórios na ferramenta ExtraT]{\includegraphics[scale=0.45]{figuras/tela1.jpg}}\\
+\subfigure[b][Preparação dos textos na ferramenta ExtraT]{\includegraphics[scale=0.4]{figuras/tela2.jpg}}\\
+\subfigure[c][Extração dos termos na ferramenta ExtraT]{\includegraphics[scale=0.4]{figuras/tela3.jpg}}\\
+\caption{Ferramenta para extração de termos - ExtraT}
+\label{fig:extrat}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Contribuições Finais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagebreak[4]
+\section{Considerações Finais}
+
+Neste capítulo foi descrita a metodologia para a aplicação de diferentes formas de extração de termos a partir de coleções textuais de domínio específico, bem como a ferramenta ExtraT, que foi desenvolvida para apoiar a utilização de tal metodologia. Essas diferentes formas englobam a utilização de três técnicas que simplificam os termos extraídos: a radicalização, a substantivação e a lematização.
+
+Esta metodologia engloba duas fases, que é a preparação dos documentos da base de textos da qual é trabalhada e a extração dos termos utilizando as técnicas anteriormente citadas. Após a obtenção dos termos extraídos, estes devem ser avaliados garantindo que seu uso contribua positivamente para atingir os objetivos pré-estabelecidos pelo usuário. Sendo assim, neste trabalho também é proposta uma abordagem de avaliação, descrita no Capítulo \ref{avaliacao}, que faz uso de taxonomias \textit{gold} e a medida de avaliação de termos CTW (\textit{Context Term Weight}). Além disso, a metodologia de extração de termos pode ser estendida para outras técnicas de simplificação de termos além das três supra citadas que foram encontradas na literatura.
