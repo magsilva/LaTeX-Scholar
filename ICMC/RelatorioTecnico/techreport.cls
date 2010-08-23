@@ -35,7 +35,6 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\null
 	\centering
-	\vspace{4em}
 	{\LARGE \allcaps{\@university} \par} % TODO: fonte outline com sombra
 	{\Large \@institute \par}
 	\vspace{9em}
@@ -55,7 +54,7 @@
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
 	{\includegraphics[scale=.15]{\@logo} \par}
-	\vspace{.5em}
+	\vfill
 	{\large \textbf{\@address} \par}
 	{\large \textbf{\@date} \par}
 	\end{adjustwidth}
@@ -65,7 +64,6 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\null
 	\centering
-	\vspace{4em}
 	{\LARGE \allcaps{\@university} \par} % TODO: fonte outline com sombra
 	{\Large \@institute \par}
 	\begin{flushright}
@@ -88,7 +86,7 @@
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
 	{\includegraphics[scale=.15]{\@logo} \par}
-	\vspace{.5em}
+	\vfill
 	{\large \textbf{\@address} \par}
 	{\large \textbf{\@date} \par}
 	\end{adjustwidth}
