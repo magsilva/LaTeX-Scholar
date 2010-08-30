@@ -227,7 +227,7 @@
 	\@mainmattertrue
 	% \pagestyle{mainmatter}
 	\pagenumbering{arabic}
-	\titlespacing{\chapter}{0pt}{2.5em}{20em}[0pt]
+	\titlespacing{\chapter}{0pt}{2.5em}{26em}[0pt]
 }
 
 \renewcommand\backmatter{%
