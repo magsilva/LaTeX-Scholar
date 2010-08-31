@@ -1,29 +1,20 @@
-% \RequirePackage[obeyspaces]{url}
-\RequirePackage{url}
-% \def\UrlFont{\tt\fontseries{uc}\fontsize{10}{1}\selectfont}
-
-% Utilizado para listagens de código-fonte
 \RequirePackage{textcomp} % Required by upquote option.
 \RequirePackage{listings}
 
-% Traduz os nomes de listagens e fragmentos de código para português
-\renewcommand{\lstlistingname}{Exemplo}
-\renewcommand{\lstlistlistingname}{Lista de exemplos}
-
-% Define os estilos a serem utilizados nos ambientes lstlistings.
+% Default settings for listings
+\lstset{extendedchars=true}
+\lstset{upquote=false}
 \lstset{basicstyle=\scriptsize}
 \lstset{tabsize=4}
 \lstset{frame=single}
 \lstset{frameround=tttt}
 \lstset{aboveskip=16pt}
 \lstset{belowskip=6pt}
-% \lstset{xleftmargin=\floatmargin}
-% \lstset{xrightmargin=\floatmargin}
+\lstset{xleftmargin=\floatmargin}
+\lstset{xrightmargin=\floatmargin}
 \lstset{resetmargins=true}
-% \lstset{float}
+\lstset{float}
 \lstset{captionpos=b}
-\lstset{extendedchars=true}
-\lstset{upquote=false}
 
 % Define um subconjunto da linguagem HyperTalk.
 \lstdefinelanguage{hypertalk}{
@@ -45,16 +36,11 @@
 }
 
 
-% Define os estilos a serem utilizados nos ambientes lstlistings.
-\lstdefinestyle{srccode}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single}
-\lstdefinestyle{srccodeJava}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=java}
-\lstdefinestyle{srccodeXml}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=xml}
-\lstdefinestyle{srccodeHypertalk}{aboveskip=2em, basicstyle=\scriptsize, belowskip=2em, extendedchars=true, frame=single, language=hypertalk}
-
-
-% Impede a hifenização do conteúdo definido na macro \srccode.
-\RequirePackage{hyphenat}
 
 % Macro utilizada para trechos de código-fonte inseridos no meio do texto.
+\RequirePackage[obeyspaces]{url}
 \newcommand\srccode[1]{\url{#1}}%
+
+% Impede a hifenização do conteúdo definido na macro \srccode.
+% \RequirePackage{hyphenat}
 % \newcommand\srccode[1]{\foreignlanguage{english}{\textnhtt{\small{#1}}}}
