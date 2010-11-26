@@ -19,3 +19,26 @@
 % \renewcommand{\lstlistingname}{Exemplo}
 % \renewcommand{\lstlistlistingname}{Lista de exemplos}
 
+
+\usepackage[capitalise]{cleveref}
+\iflanguage{brazil}{%
+\crefname{chapter}{Capítulo}{Capítulos}
+\Crefname{chapter}{Capítulo}{Capítulos}
+\crefname{section}{Seção}{Seções}
+\Crefname{section}{Seção}{Seções}
+\crefname{table}{Tabela}{Tabelas}
+\Crefname{table}{Tabela}{Tabelas}
+\crefname{figure}{Figura}{Figuras}
+\crefname{figure}{Figura}{Figuras}
+\Crefname{figure}{Figura}{Figuras}
+\crefname{subfigure}{Figura}{Figuras}
+\Crefname{subfigure}{Figura}{Figuras}
+\crefname{equation}{Equação}{Equações}
+\Crefname{equation}{Equação}{Equações}
+\crefname{lstlisting}{Código-fonte}{Código-fonte}
+\Crefname{lstlisting}{Código-fonte}{Código-fonte}
+\crefname{lstnumber}{Linha}{Linhas}
+\Crefname{lstnumber}{Linha}{Linhas}
+\crefrangelabelformat{chapter}{#3#1#4~a~#5#2#6}
+\crefrangelabelformat{section}{#3#1#4~a~#5#2#6}
+}{}
