@@ -12,8 +12,13 @@
 
 % Set the \bibname to ABNT rules.
 % \providecommand{\bibname}{Referências}
+\iflanguage{brazil}{%
 \def\mybibname{Referências}
 \def\myrefname{Referências}
+}{
+\def\mybibname{References}
+\def\myrefname{References}
+}
 
 % Traduz os nomes de listagens e fragmentos de código para português
 % \renewcommand{\lstlistingname}{Exemplo}
