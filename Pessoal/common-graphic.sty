@@ -1,3 +1,8 @@
 % Habilitar a utilização de figuras
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{epstopdf}
+
+% Extends the file name processing of package 'graphics' to support a larger
+% range of file names (with several dots, with spaces, etc).
+\RequirePakcage{stringenc}
+\RequirePackage[extendedchars,filenameencoding=utf8]{grffile}
