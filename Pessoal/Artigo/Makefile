@@ -16,4 +16,5 @@ pdf: clean
 	-bibtex $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
+	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 
