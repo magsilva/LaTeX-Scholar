@@ -13,7 +13,7 @@
 
 % Otimização no espaço ocupado por floats
 %
-\newcommand{\floatmargin}{.3cm}
+\newcommand{\floatmargin}{0cm}
 % Space left between floats
 \renewcommand{\floatsep}{8pt}
 % Space left on top and bottom of an in-text float.
@@ -22,12 +22,28 @@
 \renewcommand{\textfloatsep}{12pt}
 
 
-% Libera mais espaço da página para floats
-% \setlength{topnumber}{3}
-% \setlength{bottomnumber}{3}
-% \setlength{totalnumber}{5}
-% \renewcommand{\topfraction}{1}
-% \renewcommand{\bottomfraction}{1}
+%
+% Configure limits of floats per page
+%
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+
+% Max fraction of floats at top
+\renewcommand{\topfraction}{0.9}
+
+% Max fraction of floats at bottom
+\renewcommand{\bottomfraction}{0.8}
+
+% Other settings:
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7} % floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}
 
 % Pacote para coordenar o posionamento de floats.
 % Utilize \afterpage{\clearpage} para forçar que todos os floats definidos até
