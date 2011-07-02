@@ -2,7 +2,6 @@
 \ProvidesClass{cnpq-php-report}[2007/11/07 CNPQ Report (PhD version)]
 \LoadClass{common-book}
 
-
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university{} given}\@ehc}%
 
@@ -33,39 +32,66 @@
 \def\knowledgearea#1{\gdef\@knowledgearea{#1}}%
 \def\@knowledgearea{\@latex@error{No \noexpand\knowledgearea given}\@ehc}%
 
+\def\tender#1{\gdef\@tender{#1}}%
+\def\@tender{\@latex@error{No \noexpand\tender given}\@ehc}%
+
+\def\term#1{\gdef\@term{#1}}%
+\def\@term{\@latex@error{No \noexpand\term given}\@ehc}%
+
+\def\grantterm#1{\gdef\@grantterm{#1}}%
+\def\@grantterm{\@latex@error{No \noexpand\grantterm given}\@ehc}%
 
 
+\def\reporttype#1{\gdef\@reporttype{#1}}%
+\def\@reporttype{\@latex@error{No \noexpand\reporttype given}\@ehc}%
+
+\def\abstract#1{\gdef\@abstract{#1}}%
+\def\@abstract{\@latex@error{No \noexpand\abstract given}\@ehc}%
 
 \renewcommand{\maketitle}{%
 	\thispagestyle{empty}
-	\null
+	\begin{center}
+		{\Large \textbf{Projeto de Pesquisa}\\}
+		{\large \@tender \par}
+	\end{center}
 	\vfill
-	\begin{minipage}{.9\linewidth}
-		\begin{center}
-			{\Large \textbf{Projeto} \par}
-			\vskip 1em
-			{\Large \textsf{\@title} \par}
-			\vskip 1em
-			{\large Processo-mãe \@masterprocessid}
-		\end{center}
-		\vskip 7em
-		\begin{center}
-			{\Large \textbf{Relatório parcial} \par}
-			\vskip 1em
-			{\large Processo \@processid}
-		\end{center}
-	\end{minipage}
+	\begin{center}
+		{\Large \textsf{\@title} \par}
+		\vskip 2em
+		{\Large \textbf{\@reporttype}\\}
+		\vskip 1em
+		{\large Período: \@term}
+	\end{center}
 	\vfill
 	\begin{flushleft}
-		{\large \textbf{Bolsista:} \textit{\@author} \normalsize \par}
-		\vskip 1em
-		{\large \textbf{Orientador:} \textit{\@advisor} \normalsize \par}
-		\vskip 1.5em
+		\textbf{Bolsista:} \textit{\@author} \normalsize (Processo \@processid)\\
+		\textbf{Modalidade da bolsa:} \@degree\\
+		\textbf{Orientador:} \textit{\@advisor} \normalsize (Processo \@masterprocessid)
 	\end{flushleft}
 	\vfill
 	\begin{center}
 		{\large \@address \par}
 		{\large \@date \par}
 	\end{center}
+	{\pagestyle{empty}\cleardoublepage}
+
+	\thispagestyle{empty}
+	\section*{Identificação}
+	\begin{description}
+		\item[\projecttitlename] \@title
+		\item[\projectscholarname] \@author
+		\item[Processo do bolsista] \@processid
+		\item[\projectadvisorname] \@advisor
+		\item[\projectinstitutionname] \@departament{} (\@university{}) 
+		\item[\projectprogramname] \@graduationprogram
+		\item[\projectknowledgeareaname] \@knowledgearea
+		\item[\projectcnaename] \@cnae
+		\item[\projectdegreename] \@degree
+		\item[Edital] \@tender
+		\item[Período de bolsa concedido] \@grantterm
+	\end{description}
+	\textbf{Resumo do projeto:}\\
+	\noindent\@abstract
+
 	{\pagestyle{empty}\cleardoublepage}
 }
