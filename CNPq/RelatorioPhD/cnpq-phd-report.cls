@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cnpq-php-report}[2007/11/07 CNPQ Report (PhD version)]
-\LoadClass{common-book}
+\LoadClass{common-article}
 
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university{} given}\@ehc}%
@@ -51,7 +51,7 @@
 \renewcommand{\maketitle}{%
 	\thispagestyle{empty}
 	\begin{center}
-		{\Large \textbf{Projeto de Pesquisa}\\}
+		{\Large \textbf{\projecttypename}\\}
 		{\large \@tender \par}
 	\end{center}
 	\vfill
@@ -60,13 +60,13 @@
 		\vskip 2em
 		{\Large \textbf{\@reporttype}\\}
 		\vskip 1em
-		{\large Período: \@term}
+		{\large \projecttermname: \@term}
 	\end{center}
 	\vfill
 	\begin{flushleft}
-		\textbf{Bolsista:} \textit{\@author} \normalsize (Processo \@processid)\\
+		\textbf{\projectscholarname:} \textit{\@author} \normalsize (Processo \@processid)\\
 		\textbf{Modalidade da bolsa:} \@degree\\
-		\textbf{Orientador:} \textit{\@advisor} \normalsize (Processo \@masterprocessid)
+		\textbf{\projectadvisorname:} \textit{\@advisor} \normalsize (Processo \@masterprocessid)
 	\end{flushleft}
 	\vfill
 	\begin{center}
@@ -76,19 +76,19 @@
 	{\pagestyle{empty}\cleardoublepage}
 
 	\thispagestyle{empty}
-	\section*{Identificação}
+	\section*{\idsectionname}
 	\begin{description}
 		\item[\projecttitlename] \@title
 		\item[\projectscholarname] \@author
-		\item[Processo do bolsista] \@processid
+		\item[\projectidscholarname] \@processid
 		\item[\projectadvisorname] \@advisor
-		\item[\projectinstitutionname] \@departament{} (\@university{}) 
+		\item[\projectinstitutionname] \@departament{} (\@university{})
 		\item[\projectprogramname] \@graduationprogram
 		\item[\projectknowledgeareaname] \@knowledgearea
 		\item[\projectcnaename] \@cnae
 		\item[\projectdegreename] \@degree
-		\item[Edital] \@tender
-		\item[Período de bolsa concedido] \@grantterm
+		\item[\tendername] \@tender
+		\item[\projecttermgrantedname] \@grantterm
 	\end{description}
 	\textbf{Resumo do projeto:}\\
 	\noindent\@abstract
