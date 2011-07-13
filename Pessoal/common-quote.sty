@@ -1,4 +1,4 @@
-% Ambiente para citações diretas.
+% Direct citation environment
 \renewenvironment{quotation}{
 	\vspace{.5cm}
 	\begin{flushright}
@@ -11,13 +11,17 @@
 	\vspace{.5cm}
 }
 
-% Ambiente para definições importantes (termos chaves).
+% Important definitions environment (box with rounded corners)
 \RequirePackage{fancybox}
-\renewcommand{\fboxsep}{8pt}
+\newcommand{\worddefinitionboxmargin}{8pt}
+\newcommand{\fboxsepdefault}{\fboxsep}
 \newcommand{\worddefinition}[1]{
 	\begin{center}
+		\renewcommand{\fboxsepdefault}{\fboxsep}
+		\renewcommand{\fboxsep}{\wordefinitionboxmargin}
 		\vspace{.5cm}
 		\ovalbox{\parbox{\linewidth - 2.5cm}{#1}}
 		\vspace{.5cm}
+		\renewcommand{\fboxsep}{\fboxsepdefault}
 	\end{center}
 }

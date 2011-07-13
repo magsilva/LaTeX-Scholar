@@ -1,6 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{techreport}[2006/07/05 ICMC Technical Report]
-\LoadClass{common-book}
+\ProvidesClass{techreport}[2011/07/14 v2 ICMC Technical Report]
+
+%
+% Execution of options
+\ProcessOptions\relax
+
+%
+% Package loading
+%
+\LoadClassWithOptions{book}
+
+\RequirePackage{common-book}
 
 
 \def\university#1{\gdef\@university{#1}}%
@@ -24,8 +34,6 @@
 \def\logo#1{\gdef\@logo{#1}}%
 \def\@logo{\@latex@error{No \noexpand\logo (filename) given}\@ehc}%
 
-\newcommand{\techreportname}{Relatórios técnicos}
-
 
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
@@ -35,7 +43,7 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\null
 	\centering
-	{\LARGE \allcaps{\@university} \par} % TODO: fonte outline com sombra
+	{\LARGE \allcaps{\@university} \par}%
 	{\Large \@institute \par}
 	\vspace{9em}
 	\rule{.8\linewidth}{.3mm}
@@ -46,7 +54,7 @@
 		\vskip 2em
 		{\large \textbf{\textit{\@author}} \par}
 		\vskip 1.5em
-		{\large \textbf{nº \@trnumber} \par}
+		{\large \textbf{n. \@trnumber} \par}
 	\end{minipage}
 	\vskip 1em
 	\rule{.8\linewidth}{.3mm}
@@ -64,7 +72,7 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\null
 	\centering
-	{\LARGE \allcaps{\@university} \par} % TODO: fonte outline com sombra
+	{\LARGE \allcaps{\@university} \par}
 	{\Large \@institute \par}
 	\begin{flushright}
 		ISSN: \@issn
@@ -78,7 +86,7 @@
 		\vskip 2em
 		{\large \textbf{\textit{\@author}} \par}
 		\vskip 1.5em
-		{\large \textbf{nº \@trnumber} \par}
+		{\large \textbf{n. \@trnumber} \par}
 	\end{minipage}
 	\vskip 1em
 	\rule{.8\linewidth}{.3mm}
