@@ -35,6 +35,8 @@
 \def\@logo{\@latex@error{No \noexpand\logo (filename) given}\@ehc}%
 
 
+\newcommand{\techreportname}{Technical report}
+
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
 \pagestyle{empty}

@@ -54,7 +54,7 @@
 
 \def\@maketitle{
 	{\noindent \large Resumo do artigo: \textbf{\@title} \par}
-	\noindent \@author \hspace{.3em} <\@email> \\\datename: \getdateday{copyrightdate}/\getdatemonth{copyrightdate}/\getdateyear{copyrightdate}
+	\noindent \@author \hspace{.3em} <\@email>
 	\vskip 1em
 	\printlicense
 }

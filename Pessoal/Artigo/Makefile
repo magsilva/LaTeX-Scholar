@@ -14,6 +14,8 @@ check:
 pdf: clean
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	-bibtex $(ROOT)
+	iconv --from-code=ISO-8859-1 --to-code=UTF-8  root.bbl >  root.bbl2
+	mv root.bbl2 root.bbl
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
 	pdflatex $(PDFLATEX_ARGS) $(ROOT)
