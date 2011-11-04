@@ -6,11 +6,7 @@
 
 \RequirePackage{fancyhdr}
 
-% Variáveis utilizadas para criar a capa da dissertação
-% - advisor: Nome completo do(a) orientador(a)
-% - fulldate: Data por extenso da entrega da dissertação
-% - dedication: Dedicatória
-% - keywords: Palavras-chaves
+
 \def\advisor#1{\gdef\@advisor{#1}}%
 \def\@advisor{\@latex@error{No \noexpand\advisor given}\@ehc}%
 
@@ -66,7 +62,7 @@
 					\allcaps{\@graduationsecretary}
 				\end{footnotesize}
 			\end{center}
-			Data de Depósito: \@depositfulldate \par
+			Data de Depsito: \@depositfulldate \par
 			\vspace{0.4cm}
 			Assinatura: \rule{4.5cm}{.05mm} \par
 		\end{minipage}}
@@ -125,7 +121,7 @@
 	\end{flushright}
 	\vfill
 	\begin{center}
-	 	% ``\textsc{Versão Revisada Após a Defesa}'' \par
+	 	% ``\textsc{VersÃ£o revisada apÃ³s a defesa}'' \par
 		\@address \par
 		% \@defenseshortdate \par
 		\@depositshortdate \par
@@ -134,7 +130,8 @@
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
-% Folha de rosto e capa
+% Title and cover page
+%
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
 		\coverpageone
@@ -146,7 +143,8 @@
 	\end{titlepage}
 }
 
-% Comando para criar a dedicatória
+% Dedicate page
+%
 \renewcommand{\dedicate}{
 	\thispagestyle{empty}
 	\null
@@ -156,6 +154,4 @@
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
-% Traduz os nomes de listagens e fragmentos de código para português
-\renewcommand{\lstlistingname}{Fragmento de código}
-\renewcommand{\lstlistlistingname}{Lista de fragmentos de código}
+
