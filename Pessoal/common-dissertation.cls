@@ -62,7 +62,7 @@
 					\allcaps{\@graduationsecretary}
 				\end{footnotesize}
 			\end{center}
-			Data de Depsito: \@depositfulldate \par
+			Data de Depósito: \@depositfulldate \par
 			\vspace{0.4cm}
 			Assinatura: \rule{4.5cm}{.05mm} \par
 		\end{minipage}}
