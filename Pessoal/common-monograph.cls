@@ -1,8 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{common-monograph}[2007/03/23 Common monograph]
 
-\LoadClass{common-book}
-
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university given}\@ehc}%
 
@@ -24,6 +22,7 @@
 \def\logo#1{\gdef\@logo{#1}}%
 \def\@logo{\@latex@error{No \noexpand\logo (filename) given}\@ehc}%
 
+\RequirePackage{common-book}
 
 % Folha de rosto e capa
 \renewcommand{\maketitle}{%
