@@ -3,7 +3,7 @@
 % Created by Jomi Hubner & Rafael Bordini, june 2001
 % updated march 2005
 %
-% Changed by Marco Aurélio Graciotto Silva (Oct/2006).
+% Changed by Marco AurÃ©lio Graciotto Silva (Oct/2006).
 % Now it is a class, not a package
 
 \NeedsTeXFormat{LaTeX2e}
@@ -24,26 +24,16 @@
 
 \LoadClass{article}
 
-
 \RequirePackage{common-i18n}
 \RequirePackage{common-pdf}
 \RequirePackage{common-graphic}
 \RequirePackage{common-verbatim}
 \def\UrlFont{\tt\fontseries{uc}\fontsize{10}{1}\selectfont}
-\renewcommand{\lstlistingname}{Exemplo}
-\renewcommand{\lstlistlistingname}{Lista de exemplos}
 
 \RequirePackage{common-margin}
-% margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
-% margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
-% margem esq/dir 3 cm
 \geometry{a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm}
 
 \RequirePackage[num,abnt-url-package=url]{abntcite}
-% Set the \bibname to ABNT rules.
-% \providecommand{\bibname}{Refer<EA>ncias}
-\def\mybibname{Refer<EA>ncias}
-\def\myrefname{Refer<EA>ncias}
 
 
 %%% End of generic LaTeX code %%%
@@ -55,7 +45,7 @@
 
 % Font
 % \RequirePackage{times} % Obsoleted
-\RequirePackage{mathptmx}
+% \RequirePackage{mathptmx}
 \RequirePackage[scaled=.9]{helvet}
 \RequirePackage{courier}
 
