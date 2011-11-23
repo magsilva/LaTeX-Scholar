@@ -46,12 +46,6 @@
 \geometry{a4paper,left=3cm,right=2.5cm,top=3cm,bottom=2.5cm}
 
 
-%%%%%%%%%%%%%%%%%%%%
-% Configuração dos caracteres de entrada e fontes utilizadas.
-%
-% Sim, utilizamos ISO-8859-1 ao invés de UTF-8.
-\RequirePackage[latin1]{inputenc}
-
 
 %%%%%%%%%%%%%%%%%%%
 % Configuração dos idiomas utilizados no texto
