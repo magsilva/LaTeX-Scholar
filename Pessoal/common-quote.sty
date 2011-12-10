@@ -1,6 +1,11 @@
 % Direct citation environment
-\renewenvironment{quotation}{
+\newsavebox{\quotationsavebox}
+\renewenvironment{quotation}[1][]{
+	\savebox{\quotationsavebox}{#1}
 	\vspace{.5cm}
+	\begin{flushleft}%
+		#1
+	\end{flushleft}
 	\begin{flushright}
 		\begin{minipage}{\linewidth - 4cm}
 		\singlespacing
@@ -8,6 +13,7 @@
 }{
 		\end{minipage}
 	\end{flushright}
+	\\\hspace*\fill\usebox{\quotationsavebox}
 	\vspace{.5cm}
 }
 
