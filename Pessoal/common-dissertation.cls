@@ -6,6 +6,7 @@
 
 \RequirePackage{fancyhdr}
 
+\RequirePackage[alf,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
 
 \def\advisor#1{\gdef\@advisor{#1}}%
 \def\@advisor{\@latex@error{No \noexpand\advisor given}\@ehc}%
