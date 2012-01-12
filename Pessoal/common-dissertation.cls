@@ -62,9 +62,9 @@
 					\allcaps{\@graduationsecretary}
 				\end{footnotesize}
 			\end{center}
-			Data de Depósito: \@depositfulldate \par
+			\depositdatename: \@depositfulldate \par
 			\vspace{0.4cm}
-			Assinatura: \rule{4.5cm}{.05mm} \par
+			\signaturename: \rule{4.5cm}{.05mm} \par
 		\end{minipage}}
 	\end{flushright}
 }
@@ -111,7 +111,7 @@
 		\vspace{1.3cm}
 		{\textbf{\textit{\@author}} \par}
 		\vspace{1.3cm}
-		{\textbf{Orientador: \textit{\@advisor}} \par}
+		{\textbf{\advisorname: \textit{\@advisor}} \par}
 	\end{center}
 	\vfill
 	\begin{flushright}
@@ -121,9 +121,7 @@
 	\end{flushright}
 	\vfill
 	\begin{center}
-	 	% ``\textsc{Versão revisada após a defesa}'' \par
 		\@address \par
-		% \@defenseshortdate \par
 		\@depositshortdate \par
 	\end{center}
 	\end{adjustwidth}

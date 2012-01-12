@@ -1,21 +1,18 @@
 % Direct citation environment
 \newsavebox{\quotationsavebox}
-\renewenvironment{quotation}[1][]{
-	\savebox{\quotationsavebox}{#1}
+\renewenvironment{quotation}[1]{
+	\sbox{\quotationsavebox}{#1}
 	\vspace{.5cm}
-	\begin{flushleft}%
-		#1
-	\end{flushleft}
-	\begin{flushright}
-		\begin{minipage}{\linewidth - 4cm}
+	\hfill
+	\begin{minipage}[c]{.80952381\linewidth}
 		\singlespacing
 		\small
 }{
-		\end{minipage}
-	\end{flushright}
+	\end{minipage}
 	\\\hspace*\fill\usebox{\quotationsavebox}
 	\vspace{.5cm}
 }
+
 
 % Important definitions environment (box with rounded corners)
 \RequirePackage{fancybox}
