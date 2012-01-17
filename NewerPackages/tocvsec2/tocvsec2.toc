@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}The \textsf {tocvsec2} package}{2}
+\contentsline {subsection}{\numberline {2.1}Changing ToC appearances}{3}
+\contentsline {section}{\numberline {3}Changing section numbering}{4}
+\contentsline {section}{\numberline {4}The package code}{5}
+\contentsline {subsection}{\numberline {4.1}Resetting and returning to previous values}{7}

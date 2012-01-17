@@ -1,0 +1,71 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [1][-]{section.2}{Usage}{}
+\BOOKMARK [1][-]{section.3}{Comparison with Other Packages}{}
+\BOOKMARK [1][-]{section.4}{Typesetting Cross-References}{}
+\BOOKMARK [1][-]{section.5}{Sorting and Compressing}{}
+\BOOKMARK [1][-]{section.6}{Options that Modify the Cross-Reference Format}{}
+\BOOKMARK [2][-]{subsection.6.1}{Capitalising All Cross-Reference Names}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{Including Names in Hyperlink Targets}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{Avoiding Abbreviations in Cross-Reference Names}{section.6}
+\BOOKMARK [1][-]{section.7}{Customising the Cross-Reference Formats}{}
+\BOOKMARK [2][-]{subsection.7.1}{Customising the Cross-Reference Components}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Global Customisation}{subsection.7.1}
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Customising Individual Cross-Reference Types}{subsection.7.1}
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Automatic \134newtheorem Definitions}{subsection.7.1}
+\BOOKMARK [2][-]{subsection.7.2}{Low-Level Customisation: Taking Full Control}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Single Cross-References}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Reference Ranges}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Multiple Cross-References}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Label Cross-References}{subsection.7.2}
+\BOOKMARK [2][-]{subsection.7.3}{Language and babel support}{section.7}
+\BOOKMARK [1][-]{section.8}{Overriding the Cross-Reference Type}{}
+\BOOKMARK [1][-]{section.9}{The cleveref.cfg File}{}
+\BOOKMARK [1][-]{section.10}{Poor Man's cleveref}{}
+\BOOKMARK [1][-]{section.11}{Interaction with Other Packages}{}
+\BOOKMARK [1][-]{section.12}{Known Bugs and Possible Improvements}{}
+\BOOKMARK [2][-]{subsection.12.1}{Known Bugs, Non-Bugs, and Work-Arounds}{section.12}
+\BOOKMARK [2][-]{subsection.12.2}{Possible New Features and Other Improvements}{section.12}
+\BOOKMARK [1][-]{section.13}{Thanks}{}
+\BOOKMARK [1][-]{section.14}{Implementation}{}
+\BOOKMARK [2][-]{subsection.14.1}{Redefinitions of LaTeX Kernel Macros}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Utility Macros}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.2.1}{miscellaneous}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.2}{aux file information}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.3}{Stack data structures}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.4}{Sorting and comparison of counters}{subsection.14.2}
+\BOOKMARK [3][-]{subsubsection.14.2.5}{Reference stack processing}{subsection.14.2}
+\BOOKMARK [2][-]{subsection.14.3}{Cross-Referencing Commands}{section.14}
+\BOOKMARK [2][-]{subsection.14.4}{Page-Referencing Commands}{section.14}
+\BOOKMARK [2][-]{subsection.14.5}{Reference Format Customisation Commands}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.5.1}{Format component commands}{subsection.14.5}
+\BOOKMARK [3][-]{subsubsection.14.5.2}{Format definition commands}{subsection.14.5}
+\BOOKMARK [2][-]{subsection.14.6}{Support for Other Packages}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.6.1}{hyperref support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.2}{amsmath support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.3}{amsthm support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.4}{ntheorem support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.5}{varioref support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.6}{algorithm support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.7}{listings support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.8}{algorithm2e support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.9}{subfig support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.10}{caption support}{subsection.14.6}
+\BOOKMARK [3][-]{subsubsection.14.6.11}{aliascnt support}{subsection.14.6}
+\BOOKMARK [2][-]{subsection.14.7}{Poor Man's cleveref}{section.14}
+\BOOKMARK [2][-]{subsection.14.8}{Sort and Compress Options}{section.14}
+\BOOKMARK [2][-]{subsection.14.9}{Capitalise Option}{section.14}
+\BOOKMARK [2][-]{subsection.14.10}{Nameinlink Option}{section.14}
+\BOOKMARK [2][-]{subsection.14.11}{Noabbrev Option}{section.14}
+\BOOKMARK [2][-]{subsection.14.12}{Language and babel Support}{section.14}
+\BOOKMARK [3][-]{subsubsection.14.12.1}{English}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.2}{German}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.3}{Dutch}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.4}{French}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.5}{Spanish}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.6}{Italian}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.7}{Russian}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.8}{Ukrainian}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.9}{Norsk}{subsection.14.12}
+\BOOKMARK [3][-]{subsubsection.14.12.10}{Danish}{subsection.14.12}
+\BOOKMARK [2][-]{subsection.14.13}{Default Cross-Reference Formats}{section.14}
+\BOOKMARK [2][-]{subsection.14.14}{cleveref.cfg Config File}{section.14}

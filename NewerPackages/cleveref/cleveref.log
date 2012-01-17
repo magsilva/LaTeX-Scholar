@@ -1,0 +1,699 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2012.1.5)  16 JAN 2012 14:43
+entering extended mode
+ %&-line parsing enabled.
+**cleveref.dtx
+(./cleveref.dtx
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/share/texmf/tex/latex/base/ltxdoc.cls
+Document Class: ltxdoc 1999/08/08 v2.0u Standard LaTeX documentation class
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/base/doc.sty
+Package: doc 2006/02/02 v2.1d Standard LaTeX documentation package (FMi)
+\c@StandardModuleDepth=\count87
+\guard@level=\count88
+\MacrocodeTopsep=\skip43
+\MacroIndent=\dimen103
+\macro@cnt=\count89
+\MacroTopsep=\skip44
+\index@excludelist=\toks14
+
+(/usr/share/texmf/tex/latex/tools/multicol.sty
+Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
+\c@tracingmulticols=\count90
+\mult@box=\box26
+\multicol@leftmargin=\dimen104
+\c@unbalance=\count91
+\c@collectmore=\count92
+\doublecol@number=\count93
+\multicoltolerance=\count94
+\multicolpretolerance=\count95
+\full@width=\dimen105
+\page@free=\dimen106
+\premulticols=\dimen107
+\postmulticols=\dimen108
+\multicolsep=\skip45
+\multicolbaselineskip=\skip46
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count96
+\c@finalcolumnbadness=\count97
+\last@try=\dimen109
+\multicolovershoot=\dimen110
+\multicolundershoot=\dimen111
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+)
+\IndexMin=\dimen112
+\c@IndexColumns=\count98
+\GlossaryMin=\dimen113
+\c@GlossaryColumns=\count99
+\check@sum=\count100
+\bslash@cnt=\count101
+\wrong@table=\toks15
+\c@CodelineNo=\count102
+))
+(/usr/share/texmf/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+)
+(/usr/share/texmf/tex/latex/psnfss/pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/share/texmf/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/share/texmf/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+(/usr/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+\@linkdim=\dimen114
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
+
+(/usr/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2006/08/22 v2.4 Connects package keyval with LaTeX options (
+HO)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 2238.
+Package hyperref Info: Option `linktocpage' set `true' on input line 2238.
+Package hyperref Info: Hyper figures OFF on input line 2288.
+Package hyperref Info: Link nesting OFF on input line 2293.
+Package hyperref Info: Hyper index ON on input line 2296.
+Package hyperref Info: Plain pages OFF on input line 2303.
+Package hyperref Info: Backreferencing OFF on input line 2308.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2444.
+LaTeX Info: Redefining \url on input line 2599.
+\Fld@menulength=\count105
+\Field@Width=\dimen115
+\Fld@charsize=\dimen116
+\Choice@toks=\toks17
+\Field@toks=\toks18
+Package hyperref Info: Hyper figures OFF on input line 3102.
+Package hyperref Info: Link nesting OFF on input line 3107.
+Package hyperref Info: Hyper index ON on input line 3110.
+Package hyperref Info: backreferencing OFF on input line 3117.
+Package hyperref Info: Link coloring ON on input line 3120.
+\Hy@abspage=\count106
+\c@Item=\count107
+\c@Hfootnote=\count108
+)
+*hyperref using default driver hdvips*
+(/usr/share/texmf/tex/latex/hyperref/hdvips.def
+File: hdvips.def 2007/02/07 v6.75r Hyperref driver for dvips
+
+(/usr/share/texmf/tex/latex/hyperref/pdfmark.def
+File: pdfmark.def 2007/02/07 v6.75r Hyperref definitions for pdfmark specials
+\pdf@docset=\toks19
+\pdf@box=\box52
+\pdf@toks=\toks20
+\pdf@defaulttoks=\toks21
+\Fld@listcount=\count109
+)) (./cleveref.sty
+Package: cleveref 2011/12/24{} v0.18.1{} Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2216.
+LaTeX Info: Redefining \cref on input line 2216.
+LaTeX Info: Redefining \Cref on input line 2216.
+LaTeX Info: Redefining \crefrange on input line 2216.
+LaTeX Info: Redefining \Crefrange on input line 2216.
+LaTeX Info: Redefining \cpageref on input line 2216.
+LaTeX Info: Redefining \Cpageref on input line 2216.
+LaTeX Info: Redefining \cpagerefrange on input line 2216.
+LaTeX Info: Redefining \Cpagerefrange on input line 2216.
+LaTeX Info: Redefining \labelcref on input line 2216.
+LaTeX Info: Redefining \labelcpageref on input line 2216.
+Package cleveref Info: always capitalise cross-reference names on input line 67
+30.
+Package cleveref Info: loaded `english' language definitions on input line 6750
+.
+Package cleveref Info: always capitalise cross-reference names on input line 67
+51.
+)
+\@indexfile=\write3
+\openout3 = `cleveref.idx'.
+
+
+Writing index file cleveref.idx
+\@glossaryfile=\write4
+\openout4 = `cleveref.glo'.
+
+Writing glossary file cleveref.glo 
+\c@tmpcount=\count110
+(./cleveref.aux)
+\openout1 = `cleveref.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+Package doc Info: Made | a short reference for \verb on input line 53.
+ (/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+(/usr/share/texmf/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+Package hyperref Info: Link coloring ON on input line 53.
+
+(/usr/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
+
+(/usr/share/texmf/tex/latex/oberdiek/refcount.sty
+Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
+)
+\c@section@level=\count111
+)
+LaTeX Info: Redefining \ref on input line 53.
+LaTeX Info: Redefining \pageref on input line 53.
+ (./cleveref.out)
+(./cleveref.out)
+\@outlinefile=\write5
+\openout5 = `cleveref.out'.
+
+ (./cleveref.dtx
+***************************
+* Character table correct *
+***************************
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 268.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 268.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 268.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 268.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 268.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 270.
+
+Underfull \hbox (badness 1112) in paragraph at lines 270--281
+[]\OT1/cmr/m/n/9 The \OT1/cmtt/m/n/9 cleveref \OT1/cmr/m/n/9 pack-age en-hances
+ L[]T[]X's cross-referencing fea-tures,
+ []
+
+[1
+
+] (./cleveref.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 7.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+ (/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 22.
+ [2
+
+]
+Overfull \hbox (3.55565pt too wide) detected at line 69
+\OT1/cmr/m/n/10 14.12.10 
+ []
+
+)
+\tf@toc=\write6
+\openout6 = `cleveref.toc'.
+
+ [3] [4
+
+] [5]
+Underfull \hbox (badness 1490) in paragraph at lines 425--446
+[]\OT1/cmr/m/n/10 The en-hanced ref-er-enc-ing fea-ture pro-vided by the \OT1/c
+mtt/m/n/10 varioref \OT1/cmr/m/n/10 pack-age's
+ []
+
+[6]
+Underfull \hbox (badness 5446) in paragraph at lines 491--497
+[][][]\OT1/cmr/m/n/10 To type-set a cross-reference range, e.g. []\OT1/cmtt/m/n
+/10 Eqs.~(1.1) to~(1.5)\OT1/cmr/m/n/10 , use
+ []
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+[7] [8] [9] [10] [11]
+
+LaTeX Warning: Marginpar on page 12 moved.
+
+
+Overfull \hbox (5.76967pt too wide) in paragraph at lines 868--870
+[] \U/pzd/m/n/10 å []\OT1/cmtt/m/n/10 \crefrangeconjunction\ref{thm2}\crefrange
+postconjunction 
+ []
+
+[12]
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+Overfull \hbox (1.57352pt too wide) in paragraph at lines 903--903
+ []|\OT1/cmtt/m/n/9 \crefmiddlegroupconjunction
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 912--912
+[][][][][][][][]\OT1/cmr/m/n/8 More ac-cu-rately, if you re-de-fine $\OMS/cmsy/
+m/n/8 n$\OT1/cmr/m/n/8 crefpairconjunction etc. in your pream-ble,
+ []
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+[13] [14]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1020.
+
+ [15]
+
+LaTeX Warning: Marginpar on page 16 moved.
+
+[16]
+Underfull \hbox (badness 4060) in paragraph at lines 1153--1159
+[][]\OT1/cmr/m/n/10 The for-mat for ref-er-ence ranges is de-fined by []\OT1/cm
+tt/m/n/10 \crefrangeformat \OT1/cmr/m/n/10 and
+ []
+
+
+LaTeX Warning: Marginpar on page 17 moved.
+
+
+LaTeX Warning: Marginpar on page 17 moved.
+
+
+LaTeX Warning: Marginpar on page 17 moved.
+
+
+LaTeX Warning: Marginpar on page 17 moved.
+
+[17]
+Overfull \hbox (8.02023pt too wide) in paragraph at lines 1210--1214
+[]\OT1/cmtt/m/n/10 \crefrangemultiformat{$\OMS/cmsy/m/n/10 h$[]\OT1/cmr/m/it/10
+ type$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$[]\OT1/cmr/m/
+it/10 first$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$[]\OT1/
+cmr/m/it/10 second$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$
+[]\OT1/cmr/m/it/10 middle$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/
+n/10 h$[]\OT1/cmr/m/it/10 last$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 } 
+ []
+
+
+Overfull \hbox (8.02023pt too wide) in paragraph at lines 1210--1214
+[]\OT1/cmtt/m/n/10 \Crefrangemultiformat{$\OMS/cmsy/m/n/10 h$[]\OT1/cmr/m/it/10
+ type$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$[]\OT1/cmr/m/
+it/10 first$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$[]\OT1/
+cmr/m/it/10 second$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/n/10 h$
+[]\OT1/cmr/m/it/10 middle$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 }{$\OMS/cmsy/m/
+n/10 h$[]\OT1/cmr/m/it/10 last$\OMS/cmsy/m/n/10 i$[]\OT1/cmtt/m/n/10 } 
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1262.
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1288
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1340
+[]\OT1/cmtt/m/n/10 \Cref@$\OMS/cmsy/m/n/10 h$[]\OT1/cmr/m/it/10 type$\OMS/cmsy/
+m/n/10 i$[][]\OT1/cmtt/m/n/10 @name@plural\OT1/cmr/m/n/10 .
+ []
+
+[20]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1437.
+
+ [21]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 1478
+.
+ (/usr/share/texmf/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1478.
+
+ [22]
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+
+LaTeX Warning: Marginpar on page 23 moved.
+
+[23]
+Underfull \hbox (badness 1552) in paragraph at lines 1630--1642
+[]\OT1/cmr/m/n/10 When us-ing \OT1/cmtt/m/n/10 varioref \OT1/cmr/m/n/10 and \OT
+1/cmtt/m/n/10 hyperref \OT1/cmr/m/n/10 with \OT1/cmtt/m/n/10 cleveref\OT1/cmr/m
+/n/10 , the \OT1/cmtt/m/n/10 cleveref
+ []
+
+[24] [25] [26] [27
+
+]
+Underfull \hbox (badness 3977) in paragraph at lines 1850--1854
+[]\OT1/cmr/m/n/10 Footnotes don't use the \OT1/cmtt/m/n/10 \refstepcounter \OT1
+/cmr/m/n/10 mech-a-nism, but in-stead set
+ []
+
+[28]
+Underfull \hbox (badness 7796) in paragraph at lines 1898--1911
+\OT1/cmtt/m/n/10 \@ythm\OT1/cmr/m/n/10 . We add au-to-matic def-i-ni-tions of \
+OT1/cmtt/m/n/10 \cref@$\OMS/cmsy/m/n/10 h$[]\OT1/cmtt/m/it/10 type$\OMS/cmsy/m/
+n/10 i$[]\OT1/cmtt/m/n/10 @name \OT1/cmr/m/n/10 and
+ []
+
+[29] [30] [31] [32] [33] [34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 2335--2339
+\OT1/cmr/m/n/10 empty or full, re-spec-tively, and set the cor-re-spond-ing con
+-di-tion-als
+ []
+
+[36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
+[51] [52] [53] [54] [55] [56]
+Overfull \hbox (9.74933pt too wide) in paragraph at lines 3607--3612
+\OT1/cmr/m/n/10 range ref-er-enc-ing com-mands, and \OT1/cmtt/m/n/10 \labelcpag
+eref \OT1/cmr/m/n/10 (the coun-ter-part to \OT1/cmtt/m/n/10 \labelcref\OT1/cmr/
+m/n/10 ). 
+ []
+
+[57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67]
+Overfull \hbox (5.31265pt too wide) in paragraph at lines 4264--4264
+ [][]        \OT1/cmtt/m/n/9 \expandafter\@tempname\expandafter\nobreakspace\@t
+emplabel@first}% 
+ []
+
+
+Overfull \hbox (5.31265pt too wide) in paragraph at lines 4264--4264
+ [][]        \OT1/cmtt/m/n/9 \expandafter\@tempName\expandafter\nobreakspace\@t
+emplabel@first}% 
+ []
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 4292--4295
+\OT1/cmr/m/n/10 Assemble the ar-gu-ments for \OT1/cmtt/m/n/10 \crefrangeformat\
+OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 \Crefrangeformat \OT1/cmr/m/n/10 and
+ []
+
+[68]
+Underfull \hbox (badness 4193) in paragraph at lines 4351--4354
+\OT1/cmr/m/n/10 Assemble the ar-gu-ments for \OT1/cmtt/m/n/10 \crefmultiformat\
+OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 \Crefmultiformat \OT1/cmr/m/n/10 and
+ []
+
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 4415--4418
+\OT1/cmr/m/n/10 If type has cus-tom la-bel for-mat, bun-dle all four ar-gu-ment
+s for
+ []
+
+[70] [71]
+Underfull \hbox (badness 10000) in paragraph at lines 4510--4513
+\OT1/cmr/m/n/10 If type has cus-tom la-bel for-mat, bun-dle all four ar-gu-ment
+s for
+ []
+
+
+Underfull \hbox (badness 6188) in paragraph at lines 4535--4538
+[]\OT1/cmtt/m/n/10 \@labelcrefdefinedefaultformats \OT1/cmr/m/n/10 de-fines the
+ de-fault for-mats for the
+ []
+
+[72]
+Underfull \hbox (badness 2426) in paragraph at lines 4544--4548
+\OT1/cmr/m/n/10 Assemble the ar-gu-ments that need to be passed to \OT1/cmtt/m/
+n/10 \labelcrefformat\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4544--4548
+\OT1/cmtt/m/n/10 \labelcrefrangeformat\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 \label
+crefmultiformat \OT1/cmr/m/n/10 and
+ []
+
+[73] [74] [75] [76] [77] [78] [79] [80]
+Underfull \hbox (badness 1742) in paragraph at lines 5048--5055
+[]\OT1/cmr/m/n/10 The \OT1/cmtt/m/n/10 hyperref \OT1/cmr/m/n/10 pack-age stores
+ the orig-i-nal \OT1/cmtt/m/n/10 \refstepcounter \OT1/cmr/m/n/10 def-i-ni-tion 
+as
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5071--5084
+[]\OT1/cmtt/m/n/10 hyperref\OT1/cmr/m/n/10 's \OT1/cmtt/m/n/10 \refstepcounter\
+OT1/cmr/m/n/10 , which ends up stored in our
+ []
+
+[81] [82] [83] [84] [85] [86] [87] [88] [89]
+Overfull \hbox (19.48749pt too wide) in paragraph at lines 5758--5758
+ [][]    \OT1/cmtt/m/n/9 \let\tag\gobble@tag \let\label\@gobble@optarg%  <<< cl
+everef modification 
+ []
+
+[90] [91] [92] [93] [94] [95] [96]
+Underfull \hbox (badness 1472) in paragraph at lines 6017--6022
+[]\OT1/cmr/m/n/10 Now we de-fine \OT1/cmtt/m/n/10 cleveref\OT1/cmr/m/n/10 -enha
+nced ver-sions of the other \OT1/cmtt/m/n/10 varioref \OT1/cmr/m/n/10 cross-
+ []
+
+[97] [98] [99] [100] [101] [102] [103] [104] [105]
+Overfull \hbox (5.18417pt too wide) in paragraph at lines 6700--6709
+\OT1/cmr/m/n/10 cesses \OT1/cmtt/m/n/10 cleveref\OT1/cmr/m/n/10 's op-tional \O
+T1/cmtt/m/n/10 \label \OT1/cmr/m/n/10 ar-gu-ment, if any. It then calls \OT1/cm
+tt/m/n/10 \cref@old@label\OT1/cmr/m/n/10 .
+ []
+
+[106] [107] [108] [109] [110] [111] [112]
+Overfull \hbox (19.48749pt too wide) in paragraph at lines 7163--7163
+ [][]      \OT1/cmtt/m/n/9 \lowercase{\edef\@tempa{s/||usepackage|(|[.*|]|)|<0,
+1|><cleveref>//g}}% 
+ []
+
+
+Overfull \hbox (5.31265pt too wide) in paragraph at lines 7163--7163
+ [][]      \OT1/cmtt/m/n/9 \lowercase{\edef\@tempa{s/||[cC]refmultiformat<.*><.
+*><.*><.*>//g}}% 
+ []
+
+[113] [114] [115] [116] [117]
+Underfull \hbox (badness 10000) in paragraph at lines 7440--7448
+[]\OT1/cmr/m/n/10 Redefine \OT1/cmtt/m/n/10 \@@setcref\OT1/cmr/m/n/10 , \OT1/cm
+tt/m/n/10 \@@setcrefrange\OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 \@@setcpageref \OT1
+/cmr/m/n/10 and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7440--7448
+\OT1/cmtt/m/n/10 \@@setcpagerefrange\OT1/cmr/m/n/10 , as well as the con-junc-t
+ion macros
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7440--7448
+\OT1/cmtt/m/n/10 \@setcref@pairgroupconjunction\OT1/cmr/m/n/10 , to ap-pend tex
+t they type-set to
+ []
+
+[118] [119] [120] [121]
+Underfull \hbox (badness 10000) in paragraph at lines 7663--7669
+\OT1/cmtt/m/n/10 \cref@poorman@text\OT1/cmr/m/n/10 , we have to re-de-fine \OT1
+/cmtt/m/n/10 \@@setvpageref \OT1/cmr/m/n/10 and
+ []
+
+
+Underfull \hbox (badness 7963) in paragraph at lines 7690--7692
+[]\OT1/cmr/m/n/10 Finally, we make sure the con-junc-tions also get ap-pended t
+o the
+ []
+
+[122] [123] [124]
+Underfull \hbox (badness 7308) in paragraph at lines 7889--7905
+[]\OT1/cmr/m/n/10 For \OT1/cmtt/m/n/10 babel \OT1/cmr/m/n/10 sup-port, we add t
+he ap-pro-pri-ate re-def-i-ni-tions to the
+ []
+
+[125] [126] [127] [128] [129] [130] [131] [132] [133] [134] [135]
+Overfull \hbox (0.5877pt too wide) in paragraph at lines 8531--8531
+ [][]        \OT1/cmtt/m/n/9 \crefname@preamble{equation}{Vergel\ij{}king}{Verg
+el\ij{}kingen}% 
+ []
+
+[136]
+Overfull \hbox (0.5877pt too wide) in paragraph at lines 8531--8531
+ [][]        \OT1/cmtt/m/n/9 \crefname@preamble{equation}{vergel\ij{}king}{verg
+el\ij{}kingen}% 
+ []
+
+[137] [138] [139] [140] [141] [142] [143] [144] [145] [146] [147] [148]
+[149] [150] [151] [152] [153] [154] [155] [156] [157] [158] [159] [160]
+[161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
+[173] [174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184]
+[185] [186] [187] [188] [189] [190] [191] [192] [193] [194] [195] [196]
+[197] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207] [208]
+[209] [210] [211]
+No file cleveref.gls.
+No file cleveref.ind.
+*******************
+* Checksum passed *
+*******************
+) (./cleveref.aux) ) 
+Here is how much of TeX's memory you used:
+ 4516 strings out of 256217
+ 74823 string characters out of 1917096
+ 198998 words of memory out of 1500000
+ 7772 multiletter control sequences out of 10000+200000
+ 13509 words of font info for 49 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 30i,8n,37p,270b,1553s stack positions out of 5000i,500n,6000p,200000b,15000s
+
+Output written on cleveref.dvi (211 pages, 821732 bytes).

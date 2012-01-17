@@ -1,0 +1,30 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [1][-]{section.2}{The package}{}
+\BOOKMARK [1][-]{section.3}{Keys}{}
+\BOOKMARK [2][-]{subsection.3.1}{Label and cross references format}{section.3}
+\BOOKMARK [2][-]{subsection.3.2}{Horizontal spacing of labels}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{More on horizontal spacing}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Numbering, stopping, and resuming}{section.3}
+\BOOKMARK [2][-]{subsection.3.5}{Series}{section.3}
+\BOOKMARK [2][-]{subsection.3.6}{Penalties}{section.3}
+\BOOKMARK [2][-]{subsection.3.7}{Description styles}{section.3}
+\BOOKMARK [2][-]{subsection.3.8}{Compact lists}{section.3}
+\BOOKMARK [2][-]{subsection.3.9}{``Wide'' lists}{section.3}
+\BOOKMARK [1][-]{section.4}{Inline lists}{}
+\BOOKMARK [1][-]{section.5}{Global settings}{}
+\BOOKMARK [1][-]{section.6}{enumerate-like labels}{}
+\BOOKMARK [1][-]{section.7}{Cloning the basic lists}{}
+\BOOKMARK [1][-]{section.8}{More about counters}{}
+\BOOKMARK [2][-]{subsection.8.1}{New counter representation}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{Restarting enumerates}{section.8}
+\BOOKMARK [1][-]{section.9}{Generic keys and values}{}
+\BOOKMARK [1][-]{section.10}{Package options}{}
+\BOOKMARK [1][-]{section.11}{Three patterns}{}
+\BOOKMARK [1][-]{section.12}{The trivlist issue}{}
+\BOOKMARK [1][-]{section.13}{Samples}{}
+\BOOKMARK [1][-]{section.14}{Afterword}{}
+\BOOKMARK [2][-]{subsection.14.1}{LaTeX lists}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Known issues}{section.14}
+\BOOKMARK [2][-]{subsection.14.3}{What's new in 3.0}{section.14}
+\BOOKMARK [2][-]{subsection.14.4}{Bug fixes}{section.14}
+\BOOKMARK [2][-]{subsection.14.5}{Acknowledgements}{section.14}
