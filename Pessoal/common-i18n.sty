@@ -83,8 +83,8 @@
 
 \usepackage[capitalise]{cleveref}
 \iflanguage{brazil}{%
-\crefname{chapter}{Cap\'tulo}{Cap\'itulos}
-\Crefname{chapter}{Cap\'tulo}{Cap\'itulos}
+\crefname{chapter}{Cap\'itulo}{Cap\'itulos}
+\Crefname{chapter}{Cap\'itulo}{Cap\'itulos}
 \crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
 \Crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
 \crefname{line}{Linha}{Linhas}
@@ -104,6 +104,22 @@
 \Crefname{lstnumber}{Linha}{Linhas}
 \crefrangelabelformat{chapter}{#3#1#4~a~#5#2#6}
 \crefrangelabelformat{section}{#3#1#4~a~#5#2#6}
+
+% The commands all take five arguments: the cross-reference type, the format
+% for the first cross-reference in a list, the format for the second
+% cross-reference in a list of two, the format for the middle cross-references
+% in a list of more than two, and the format for the last cross-reference in
+% a list of more than two.
+\newcommand{\crefrangeconjunction}{ e }
+\newcommand{\crefpairconjunction}{ e }
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{ e }
+\crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+\Crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+\crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+\Crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+
+
 }{
 \crefname{chapter}{Chapter}{Chapters}
 \Crefname{chapter}{Chapter}{Chapters}

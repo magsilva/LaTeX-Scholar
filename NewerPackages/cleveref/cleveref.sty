@@ -11,8 +11,8 @@
 %% Copyright (C) 2006  Toby Cubitt
 %% See the files README and COPYING.
 %% 
-\def\packagedate{2011/12/24}
-\def\packageversion{0.18.1}
+\def\packagedate{2012/01/23}
+\def\packageversion{0.18.4}
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.2
 %% of this license or (at your option) any later version.
@@ -51,13 +51,13 @@
   \@ifundefined{cref@#1@alias}%
     {\def\@tempa{#1}}%
     {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [\@tempa][\arabic{#1}][\cref@result]%
     \csname p@#1\endcsname\csname the#1\endcsname}}
 \def\refstepcounter@optarg[#1]#2{%
   \cref@old@refstepcounter{#2}%
   \cref@constructprefix{#2}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [#1][\arabic{#2}][\cref@result]%
     \csname p@#2\endcsname\csname the#2\endcsname}}
 \AtBeginDocument{%
@@ -68,32 +68,25 @@
     \@bsphack%
     \cref@old@label{#1}%
     \protected@write\@auxout{}%
-      {\string\newlabel{cref@#1}{{\cref@currentlabel}{\thepage}}}%
+      {\string\newlabel{#1@cref}{{\cref@currentlabel}{\thepage}}}%
     \@esphack}%
   \def\label@optarg[#1]#2{%
     \@bsphack%
     \cref@old@label{#2}%
-    \protected@xdef\cref@currentlabel{%
+    \protected@edef\cref@currentlabel{%
       \expandafter\cref@override@label@type%
         \cref@currentlabel\@nil{#1}}%
     \protected@write\@auxout{}%
-      {\string\newlabel{cref@#2}{{\cref@currentlabel}{\thepage}}}%
+      {\string\newlabel{#2@cref}{{\cref@currentlabel}{\thepage}}}%
     \@esphack}
 }% end of AtBeginDocument
-\let\cref@old@footnotetext\@footnotetext
-\let\cref@old@mpfootnotetext\@mpfootnotetext
-\def\@footnotetext{%
+\let\cref@old@makefntext\@makefntext
+\long\def\@makefntext#1{%
   \cref@constructprefix{footnote}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [footnote][\arabic{footnote}][\cref@result]%
     \p@footnote\@thefnmark}%
-  \cref@old@footnotetext}
-\def\@mpfootnotetext#1{%
-  \cref@constructprefix{mpfootnote}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
-    [footnote][\arabic{mpfootnote}][\cref@result]%
-    \p@footnote\@thefnmark}%
-  \cref@old@mpfootnotetext{#1}}
+  \cref@old@makefntext{#1}}
 \let\cref@old@othm\@othm
 \def\@othm#1[#2]#3{%
   \edef\@tempa{\expandafter\noexpand%
@@ -163,97 +156,99 @@
   \fi%
   \cref@stack@add{#1}{\cref@label@types}%
   \cref@old@ynthm{#1}{#2}}
-\let\cref@old@appendix\appendix
-\renewcommand\appendix{%
-  \cref@old@appendix%
-  \@ifundefined{chapter}{%
-    \gdef\refstepcounter@noarg##1{%
-      \cref@old@refstepcounter{##1}%
-      \cref@constructprefix{##1}{\cref@result}%
-      \ifx\cref@result\@empty%
-        \def\cref@result{2147483647}%
-      \else%
-        \edef\cref@result{2147483647,\cref@result}%
-      \fi%
-      \def\@tempa{##1}%
-      \def\@tempb{section}%
-      \ifx\@tempa\@tempb%
-        \protected@xdef\cref@currentlabel{%
-          [appendix][\arabic{##1}][\cref@result]%
-          \csname p@##1\endcsname\csname the##1\endcsname}%
-      \else%
-        \def\@tempa{##1}%
-        \def\@tempb{subsection}%
-        \ifx\@tempa\@tempb%
-          \protected@xdef\cref@currentlabel{%
-            [subappendix][\arabic{##1}][\cref@result]%
-            \csname p@##1\endcsname\csname the##1\endcsname}%
+\@ifundefined{appendix}{}{%
+  \let\cref@old@appendix\appendix
+  \renewcommand\appendix{%
+    \cref@old@appendix%
+    \@ifundefined{chapter}{%
+      \gdef\refstepcounter@noarg##1{%
+        \cref@old@refstepcounter{##1}%
+        \cref@constructprefix{##1}{\cref@result}%
+        \ifx\cref@result\@empty%
+          \def\cref@result{2147483647}%
         \else%
-          \def\@tempa{##1}%
-          \def\@tempb{subsubsection}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [subsubappendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
-            \@ifundefined{cref@##1@alias}%
-              {\def\@tempa{##1}}%
-              {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-            \protected@xdef\cref@currentlabel{%
-              [\@tempa][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}
-          \fi%
+          \edef\cref@result{2147483647,\cref@result}%
         \fi%
-      \fi}%
-  }{%
-    \def\refstepcounter@noarg##1{%
-      \cref@old@refstepcounter{##1}%
-      \cref@constructprefix{##1}{\cref@result}%
-      \ifx\cref@result\@empty%
-        \def\cref@result{2147483647}%
-      \else%
-        \edef\cref@result{2147483647,\cref@result}%
-      \fi%
-      \def\@tempa{##1}%
-      \def\@tempb{chapter}%
-      \ifx\@tempa\@tempb%
-        \protected@xdef\cref@currentlabel{%
-          [appendix][\arabic{##1}][\cref@result]%
-          \csname p@##1\endcsname\csname the##1\endcsname}%
-      \else%
         \def\@tempa{##1}%
         \def\@tempb{section}%
         \ifx\@tempa\@tempb%
-          \protected@xdef\cref@currentlabel{%
-            [subappendix][\arabic{##1}][\cref@result]%
+          \protected@edef\cref@currentlabel{%
+            [appendix][\arabic{##1}][\cref@result]%
             \csname p@##1\endcsname\csname the##1\endcsname}%
         \else%
           \def\@tempa{##1}%
           \def\@tempb{subsection}%
           \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [subsubappendix][\arabic{##1}][\cref@result]%
+            \protected@edef\cref@currentlabel{%
+              [subappendix][\arabic{##1}][\cref@result]%
               \csname p@##1\endcsname\csname the##1\endcsname}%
           \else%
             \def\@tempa{##1}%
             \def\@tempb{subsubsection}%
             \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subsubsubappendix][\arabic{##1}][\cref@result]%
+              \protected@edef\cref@currentlabel{%
+                [subsubappendix][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}%
             \else%
               \@ifundefined{cref@##1@alias}%
                 {\def\@tempa{##1}}%
                 {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-              \protected@xdef\cref@currentlabel{%
+              \protected@edef\cref@currentlabel{%
                 [\@tempa][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}
             \fi%
           \fi%
+        \fi}%
+    }{%
+      \def\refstepcounter@noarg##1{%
+        \cref@old@refstepcounter{##1}%
+        \cref@constructprefix{##1}{\cref@result}%
+        \ifx\cref@result\@empty%
+          \def\cref@result{2147483647}%
+        \else%
+          \edef\cref@result{2147483647,\cref@result}%
         \fi%
-      \fi}%
+        \def\@tempa{##1}%
+        \def\@tempb{chapter}%
+        \ifx\@tempa\@tempb%
+          \protected@edef\cref@currentlabel{%
+            [appendix][\arabic{##1}][\cref@result]%
+            \csname p@##1\endcsname\csname the##1\endcsname}%
+        \else%
+          \def\@tempa{##1}%
+          \def\@tempb{section}%
+          \ifx\@tempa\@tempb%
+            \protected@edef\cref@currentlabel{%
+              [subappendix][\arabic{##1}][\cref@result]%
+              \csname p@##1\endcsname\csname the##1\endcsname}%
+          \else%
+            \def\@tempa{##1}%
+            \def\@tempb{subsection}%
+            \ifx\@tempa\@tempb%
+              \protected@edef\cref@currentlabel{%
+                [subsubappendix][\arabic{##1}][\cref@result]%
+                \csname p@##1\endcsname\csname the##1\endcsname}%
+            \else%
+              \def\@tempa{##1}%
+              \def\@tempb{subsubsection}%
+              \ifx\@tempa\@tempb%
+                \protected@edef\cref@currentlabel{%
+                  [subsubsubappendix][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}%
+              \else%
+                \@ifundefined{cref@##1@alias}%
+                  {\def\@tempa{##1}}%
+                  {\def\@tempa{\csname cref@##1@alias\endcsname}}%
+                \protected@edef\cref@currentlabel{%
+                  [\@tempa][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}
+              \fi%
+            \fi%
+          \fi%
+        \fi}%
+    }%
   }%
-}
+}% end of \@ifundefined{appendix}
 \def\@gobble@optarg{\@ifnextchar[\@@gobble@optarg\@gobble@orig}%]
 \def\@gobble@orig#1{}
 \def\@@gobble@optarg[#1]#2{}
@@ -261,13 +256,13 @@
   \edef\act{\noexpand#1={\the#1\the\toks0}}%
   \act}%
 \def\cref@getref#1#2{%
-  \expandafter\let\expandafter#2\csname r@cref@#1\endcsname%
+  \expandafter\let\expandafter#2\csname r@#1@cref\endcsname%
   \expandafter\expandafter\expandafter\def%
     \expandafter\expandafter\expandafter#2%
     \expandafter\expandafter\expandafter{%
       \expandafter\@firstoftwo#2}}
 \def\cref@getpageref#1#2{%
-  \expandafter\let\expandafter#2\csname r@cref@#1\endcsname%
+  \expandafter\let\expandafter#2\csname r@#1@cref\endcsname%
   \expandafter\expandafter\expandafter\def%
     \expandafter\expandafter\expandafter#2%
     \expandafter\expandafter\expandafter{%
@@ -456,10 +451,10 @@
     \ifx\@tempa\@empty%
       \def\cref@result{2}%
     \else%
-      \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+      \expandafter\ifx\csname r@#1@cref\endcsname\relax%
         \def\cref@result{2}%
       \else%
-        \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+        \expandafter\ifx\csname r@#2@cref\endcsname\relax%
           \def\cref@result{1}%
         \else%
           \cref@getcounter{#1}{\@countera}%
@@ -528,10 +523,10 @@
     \ifx\@tempa\@empty%
       \def\cref@result{2}%
     \else%
-      \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+      \expandafter\ifx\csname r@#1@cref\endcsname\relax%
         \def\cref@result{2}%
       \else%
-        \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+        \expandafter\ifx\csname r@#2@cref\endcsname\relax%
           \def\cref@result{1}%
         \else%
           \cref@getpageref{#1}{\@tempa}%
@@ -731,7 +726,7 @@
   \expandafter\endgroup\@after}
 \def\cref@processgroup#1#2{%
   \edef\@nextref{\cref@stack@top{#1}}%
-  \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+  \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
     \def\@grouptype{\@undefined}%
     \def\@groupformat{\@undefined}%
   \else%
@@ -757,7 +752,7 @@
         \let\@nexttype\@grouptype%
         \let\@nextforamt\@groupformat%
       \else%
-        \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+        \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
           \def\@nexttype{\@undefined}%
           \def\@nextformat{\@undefined}%
         \else%
@@ -780,7 +775,7 @@
 \def\cref@processgroupall#1#2{%
   \cref@stack@init{\@tempstack}%
   \edef\@nextref{\cref@stack@top{#1}}%
-  \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+  \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
     \def\@grouptype{\@undefined}%
     \def\@groupformat{\@undefined}%
   \else%
@@ -805,7 +800,7 @@
         \let\@nextformat\relax%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+      \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
         \def\@nexttype{\@undefined}%
         \def\@nextformat{\@undefined}%
       \else%
@@ -847,7 +842,7 @@
     \let#3\relax%
     \edef\@nextref{\cref@stack@top{#1}}%
     #4=1\relax%
-    \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+    \expandafter\ifx\csname r@#2@cref\endcsname\relax%
       \@cref@refconsecutivefalse%
     \else%
       \ifx\@nextref\@empty%
@@ -861,7 +856,7 @@
             \edef\@nextref{\cref@stack@top{#1}}%
           \fi}%
       \else%
-        \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+        \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
           \@cref@refconsecutivefalse%
         \else%
           \edef\@tempa{{#2}{\@nextref}}%
@@ -889,7 +884,7 @@
               \edef\@nextref{\cref@stack@top{#1}}%
             \fi}%
         \else%
-          \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+          \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
             \@cref@refconsecutivefalse%
           \else%
             \edef\@tempa{{#3}{\@nextref}}%
@@ -1045,7 +1040,7 @@
   }% end loop over main reference stack
   \endgroup}
 \def\@setcref#1#2#3{%
-  \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+  \expandafter\ifx\csname r@#1@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -1071,11 +1066,11 @@
 \def\@@setcref#1#2{\cref@getlabel{#2}{\@templabel}#1{\@templabel}{}{}}
 \def\@setcrefrange#1#2#3#4{%
   \begingroup%
-    \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+    \expandafter\ifx\csname r@#1@cref\endcsname\relax%
       \protect\G@refundefinedtrue%
       \@latex@warning{Reference `#1' on page \thepage \space%
         undefined}%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \nfss@text{\reset@font\bfseries ??}--%
         \nfss@text{\reset@font\bfseries ??}%
         \@latex@warning{Reference `#2' on page \thepage \space%
@@ -1085,7 +1080,7 @@
         \nfss@text{\reset@font\bfseries ??}--\@labelb%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \protect\G@refundefinedtrue%
         \cref@getlabel{#1}{\@labela}%
         \@labela--\nfss@text{\reset@font\bfseries ??}%
@@ -1145,7 +1140,7 @@
 \DeclareRobustCommand{\lcnamecrefs}[1]{%
   \@setnamecref{Cref}{#1}{@plural}{\MakeLowercase}}
 \def\@setnamecref#1#2#3#4{%
-  \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+  \expandafter\ifx\csname r@#2@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -1163,7 +1158,7 @@
     }%
   \fi}
 \def\@@setnamecref#1#2{%
-  \edef\@tempa{#1}%
+  \expandafter\def\expandafter\@tempa\expandafter{#1}%
   \expandafter#2\@tempa}
 \DeclareRobustCommand{\cpageref}[1]{%
   \@cpageref{cref}{#1}{\@setcpageref}{\@setcpagerefrange}}
@@ -1210,8 +1205,8 @@
       \count@consecutive=1\relax%
     \fi%
     \ifx\@endref\relax\else%
-      \expandafter\ifx\csname r@cref@\@beginref\endcsname\relax\else%
-        \expandafter\ifx\csname r@cref@\@endref\endcsname\relax\else%
+      \expandafter\ifx\csname r@\@beginref @cref\endcsname\relax\else%
+        \expandafter\ifx\csname r@\@endref @cref\endcsname\relax\else%
           \cref@getpageref{\@beginref}{\@tempa}%
           \cref@getpageref{\@endref}{\@tempb}%
           \ifx\@tempa\@tempb\relax%
@@ -1274,7 +1269,7 @@
   }% end loop over reference stack
   \endgroup}
 \def\@setcpageref#1#2#3{%
-  \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+  \expandafter\ifx\csname r@#1@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -1300,11 +1295,11 @@
   \cref@getpageref{#2}{\@temppage}#1{\@temppage}{}{}}
 \def\@setcpagerefrange#1#2#3#4{%
   \begingroup%
-    \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+    \expandafter\ifx\csname r@#1@cref\endcsname\relax%
       \protect\G@refundefinedtrue%
       \@latex@warning{Reference `#1' on page \thepage \space%
         undefined}%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \nfss@text{\reset@font\bfseries ??}--%
         \nfss@text{\reset@font\bfseries ??}%
         \@latex@warning{Reference `#2' on page \thepage \space%
@@ -1314,7 +1309,7 @@
         \nfss@text{\reset@font\bfseries ??}--\@pageb%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \protect\G@refundefinedtrue%
         \cref@getpageref{#1}{\@pagea}%
         \@pagea--\nfss@text{\reset@font\bfseries ??}%
@@ -1366,23 +1361,24 @@
   \@crefname{cref}{#1}{#2}{#3}{@preamble}}
 \newcommand{\Crefname@preamble}[3]{%
   \@crefname{Cref}{#1}{#2}{#3}{@preamble}}
+\def\cref@othervariant#1#2#3{\cref@@othervariant#1\@nil#2#3}
+\def\cref@@othervariant#1#2\@nil#3#4{%
+  \if#1c%
+    \def#3{C#2}%
+    \def#4{\MakeUppercase}%
+  \else%
+    \def#3{c#2}%
+    \if@cref@capitalise%
+      \def#4{}%
+    \else%
+      \def#4{\MakeLowercase}%
+    \fi%
+  \fi}
 \def\@crefname#1#2#3#4#5{%
   \expandafter\def\csname #1@#2@name#5\endcsname{#3}%
   \expandafter\def\csname #1@#2@name@plural#5\endcsname{#4}%
-  \def\@tempa##1##2\@nil{%
-    \if##1c%
-      \def\@other{C##2}%
-      \def\@tempc{\expandafter\MakeUppercase}%
-    \else%
-      \def\@other{c##2}%
-      \if@cref@capitalise%
-        \def\@tempc{}%
-      \else%
-        \def\@tempc{\MakeLowercase}%
-      \fi%
-    \fi}%
-  \@tempa#1\@nil%
-  \@ifundefined{\@other @#2@name#5}{%
+  \cref@othervariant{#1}{\@tempc}{\@tempd}%
+  \@ifundefined{\@tempc @#2@name#5}{%
     \expandafter\expandafter\expandafter\def%
     \expandafter\expandafter\expandafter\@tempa%
     \expandafter\expandafter\expandafter{%
@@ -1395,18 +1391,18 @@
       \expandafter\expandafter\expandafter\def%
       \expandafter\expandafter\expandafter\@tempa%
       \expandafter\expandafter\expandafter{%
-        \expandafter\@tempc\@tempa}%
+        \expandafter\@tempd\@tempa}%
       \expandafter\expandafter\expandafter\def%
       \expandafter\expandafter\expandafter\@tempb%
       \expandafter\expandafter\expandafter{%
-        \expandafter\@tempc\@tempb}%
+        \expandafter\@tempd\@tempb}%
     \fi%
     \toksdef\@toksa=0%
     \@toksa={%
-      \expandafter\def\csname\@other @#2@name#5\endcsname}%
+      \expandafter\def\csname\@tempc @#2@name#5\endcsname}%
     \expandafter\the\expandafter\@toksa\expandafter{\@tempa}%
     \@toksa={%
-      \expandafter\def\csname\@other @#2@name@plural#5\endcsname}%
+      \expandafter\def\csname\@tempc @#2@name@plural#5\endcsname}%
     \expandafter\the\expandafter\@toksa\expandafter{\@tempb}%
   }{}%
   \cref@stack@add{#2}{\cref@label@types}}
@@ -1808,19 +1804,7 @@
 \def\@crefformat#1#2#3{%
   \begingroup%
     \expandafter\gdef\csname #1@#2@format\endcsname##1##2##3{#3}%
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format}{%
       \toksdef\@toksa=0%
       \@toksa={\def\@tempa##1##2##3}%
@@ -1842,19 +1826,7 @@
   \begingroup%
     \expandafter\gdef\csname #1@#2@format\endcsname%
       ##1##2##3##4##5##6{#3}%
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format}{%
       \toksdef\@toksa=0%
       \@toksa={\def\@tempa##1##2##3##4##5##6}%
@@ -1878,19 +1850,7 @@
     \expandafter\gdef\csname #1@#2@format@second\endcsname##1##2##3{#4}%
     \expandafter\gdef\csname #1@#2@format@middle\endcsname##1##2##3{#5}%
     \expandafter\gdef\csname #1@#2@format@last\endcsname##1##2##3{#6}%
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format@first}{%
       \toksdef\@toksa=0%
       \@toksa={\def\@tempa##1##2##3}%
@@ -1940,19 +1900,7 @@
       ##1##2##3##4##5##6{#5}%
     \expandafter\gdef\csname #1@#2@format@last\endcsname%
       ##1##2##3##4##5##6{#6}%
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format@first}{%
       \toksdef\@toksa=0%
       \@toksa={\def\@tempa##1##2##3##4##5##6}%
@@ -2007,105 +1955,107 @@
       \@ifundefined{cref@#1@alias}%
         {\def\@tempa{#1}}%
         {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         [\@tempa][\arabic{#1}][\cref@result]%
         \csname p@#1\endcsname\csname the#1\endcsname}}
     \let\refstepcounter@noarg\cref@old@refstepcounter%
     \def\refstepcounter@optarg[#1]#2{%
       \cref@old@refstepcounter{#2}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         \expandafter\cref@override@label@type%
           \cref@currentlabel\@nil{#1}}}
-    \renewcommand\appendix{%
-      \cref@old@appendix%
-      \@ifundefined{chapter}{%
-        \def\H@refstepcounter##1{%
-          \cref@old@H@refstepcounter{##1}%
-          \cref@constructprefix{##1}{\cref@result}%
-          \ifx\cref@result\@empty%
-            \def\cref@result{2147483647}%
-          \else%
-            \edef\cref@result{2147483647,\cref@result}%
-          \fi%
-          \def\@tempa{##1}%
-          \def\@tempb{section}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [appendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
-            \def\@tempa{##1}%
-            \def\@tempb{subsection}%
-            \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subappendix][\arabic{##1}][\cref@result]%
-                \csname p@##1\endcsname\csname the##1\endcsname}%
+    \@ifundefined{appendix}{}{%
+      \renewcommand\appendix{%
+        \cref@old@appendix%
+        \@ifundefined{chapter}{%
+          \def\H@refstepcounter##1{%
+            \cref@old@H@refstepcounter{##1}%
+            \cref@constructprefix{##1}{\cref@result}%
+            \ifx\cref@result\@empty%
+              \def\cref@result{2147483647}%
             \else%
-              \def\@tempa{##1}%
-              \def\@tempb{subsubsection}%
-              \ifx\@tempa\@tempb%
-                \protected@xdef\cref@currentlabel{%
-                  [subsubappendix][\arabic{##1}][\cref@result]%
-                  \csname p@##1\endcsname\csname the##1\endcsname}%
-              \else%
-                \@ifundefined{cref@##1@alias}%
-                  {\def\@tempa{##1}}%
-                  {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-                \protected@xdef\cref@currentlabel{%
-                  [\@tempa][\arabic{##1}][\cref@result]%
-                  \csname p@##1\endcsname\csname the##1\endcsname}
-              \fi%
+              \edef\cref@result{2147483647,\cref@result}%
             \fi%
-          \fi}%
-      }{%
-        \def\H@refstepcounter##1{%
-          \cref@old@H@refstepcounter{##1}%
-          \cref@constructprefix{##1}{\cref@result}%
-          \ifx\cref@result\@empty%
-            \def\cref@result{2147483647}%
-          \else%
-            \edef\cref@result{2147483647,\cref@result}%
-          \fi%
-          \def\@tempa{##1}%
-          \def\@tempb{chapter}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [appendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
             \def\@tempa{##1}%
             \def\@tempb{section}%
             \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subappendix][\arabic{##1}][\cref@result]%
+              \protected@edef\cref@currentlabel{%
+                [appendix][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}%
             \else%
               \def\@tempa{##1}%
               \def\@tempb{subsection}%
               \ifx\@tempa\@tempb%
-                \protected@xdef\cref@currentlabel{%
-                  [subsubappendix][\arabic{##1}][\cref@result]%
+                \protected@edef\cref@currentlabel{%
+                  [subappendix][\arabic{##1}][\cref@result]%
                   \csname p@##1\endcsname\csname the##1\endcsname}%
               \else%
                 \def\@tempa{##1}%
                 \def\@tempb{subsubsection}%
                 \ifx\@tempa\@tempb%
-                  \protected@xdef\cref@currentlabel{%
-                    [subsubsubappendix][\arabic{##1}][\cref@result]%
+                  \protected@edef\cref@currentlabel{%
+                    [subsubappendix][\arabic{##1}][\cref@result]%
                     \csname p@##1\endcsname\csname the##1\endcsname}%
                 \else%
                   \@ifundefined{cref@##1@alias}%
                     {\def\@tempa{##1}}%
                     {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-                  \protected@xdef\cref@currentlabel{%
+                  \protected@edef\cref@currentlabel{%
                     [\@tempa][\arabic{##1}][\cref@result]%
                     \csname p@##1\endcsname\csname the##1\endcsname}
                 \fi%
               \fi%
+            \fi}%
+        }{%
+          \def\H@refstepcounter##1{%
+            \cref@old@H@refstepcounter{##1}%
+            \cref@constructprefix{##1}{\cref@result}%
+            \ifx\cref@result\@empty%
+              \def\cref@result{2147483647}%
+            \else%
+              \edef\cref@result{2147483647,\cref@result}%
             \fi%
-          \fi}%
+            \def\@tempa{##1}%
+            \def\@tempb{chapter}%
+            \ifx\@tempa\@tempb%
+              \protected@edef\cref@currentlabel{%
+                [appendix][\arabic{##1}][\cref@result]%
+                \csname p@##1\endcsname\csname the##1\endcsname}%
+            \else%
+              \def\@tempa{##1}%
+              \def\@tempb{section}%
+              \ifx\@tempa\@tempb%
+                \protected@edef\cref@currentlabel{%
+                  [subappendix][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}%
+              \else%
+                \def\@tempa{##1}%
+                \def\@tempb{subsection}%
+                \ifx\@tempa\@tempb%
+                  \protected@edef\cref@currentlabel{%
+                    [subsubappendix][\arabic{##1}][\cref@result]%
+                    \csname p@##1\endcsname\csname the##1\endcsname}%
+                \else%
+                  \def\@tempa{##1}%
+                  \def\@tempb{subsubsection}%
+                  \ifx\@tempa\@tempb%
+                    \protected@edef\cref@currentlabel{%
+                      [subsubsubappendix][\arabic{##1}][\cref@result]%
+                      \csname p@##1\endcsname\csname the##1\endcsname}%
+                  \else%
+                    \@ifundefined{cref@##1@alias}%
+                      {\def\@tempa{##1}}%
+                      {\def\@tempa{\csname cref@##1@alias\endcsname}}%
+                    \protected@edef\cref@currentlabel{%
+                      [\@tempa][\arabic{##1}][\cref@result]%
+                      \csname p@##1\endcsname\csname the##1\endcsname}
+                  \fi%
+                \fi%
+              \fi%
+            \fi}%
+        }%
       }%
-    }
+    }% end of \@ifundefined{appendix}
     \DeclareRobustCommand{\cref}{%
       \@ifstar{\@crefstar{cref}}{\@crefnostar{cref}}}
     \DeclareRobustCommand{\Cref}{%
@@ -2208,7 +2158,7 @@
       \@ifundefined{cref@#1@alias}%
         {\def\@tempa{#1}}%
         {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         [\@tempa][\arabic{#1}][\cref@result]%
         \csname p@#1\endcsname\csname the#1\endcsname}}%
   \fi%
@@ -2537,6 +2487,38 @@
       \edef\@currentlabel{\the\toks@}%
       \edef\cref@currentlabel{[equation][2147483647][]\the\toks@}}}
 }{}%  end of \@ifpackageloaded{amsmath}
+\@ifpackageloaded{IEEEtrantools}{%
+  \PackageInfo{cleveref}{`IEEEtrantools' support loaded}
+  \let\cref@orig@@IEEEeqnarray\@@IEEEeqnarray
+  \def\@@IEEEeqnarray[#1]#2{%
+    \refstepcounter{equation}%
+    \addtocounter{equation}{-1}%
+    \cref@orig@@IEEEeqnarray[#1]{#2}}
+  \let\cref@orig@IEEEeqnarrayXCR\@IEEEeqnarrayXCR
+  \def\@IEEEeqnarrayXCR[#1]{%
+    \if@eqnsw%
+      \if@IEEEissubequation%
+        %\addtocounter{equation}{1}%
+        \refstepcounter{IEEEsubequation}%
+        \addtocounter{IEEEsubequation}{-1}%
+      \else%
+        \refstepcounter{equation}%
+        \addtocounter{equation}{-1}%
+      \fi%
+    \fi%
+  \cref@orig@IEEEeqnarrayXCR[#1]}
+  \let\cref@orig@IEEEyessubnumber\IEEEyessubnumber
+  \def\IEEEyessubnumber{%
+    \if@IEEEeqnarrayISinner%
+      \if@IEEElastlinewassubequation\else%
+        \setcounter{IEEEsubequation}{0}%
+        \refstepcounter{IEEEsubequation}%
+      \fi%
+    \fi%
+    \cref@orig@IEEEyessubnumber}
+  \@addtoreset{IEEEsubequation}{equation}%
+  \crefalias{IEEEsubequation}{equation}%
+}{}% end of \@ifpackageloaded{IEEEtrantools}
   \@ifpackageloaded{amsthm}{%
   \PackageInfo{cleveref}{`amsthm' support loaded}
 \let\cref@thmnoarg\@thm
@@ -3421,7 +3403,7 @@
   \let\old@@setnamecref\@@setnamecref
   \def\@@setnamecref#1#2{%
     \old@@setnamecref{#1}{#2}%
-    \edef\@tempa{#1}%
+    \expandafter\def\expandafter\@tempa\expandafter{#1}%
     \def\@tempb{#2}%
     \expandafter\expandafter\expandafter\g@addto@macro%
       \expandafter\expandafter\expandafter{%

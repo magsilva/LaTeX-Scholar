@@ -1,5 +1,5 @@
-\def\packagedate{2011/12/24}
-\def\packageversion{0.18.1}
+\def\packagedate{2012/01/23}
+\def\packageversion{0.18.4}
 % \iffalse meta-comment
 %
 % Package 'cleveref' to use with LaTeX2e
@@ -56,7 +56,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{18240}
+% \CheckSum{18194}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -253,6 +253,17 @@
 %   \textbackslash{}label.}
 % \changes{v0.18.1}{2011/12/24}{Fixed compatibility with newer versions
 %   of \package{caption} package.}
+% \changes{v0.18.2}{2012/01/17}{Don't try to redefine
+%   \textbackslash{}appendix if it's not defined in current document
+%   class. Fixed bug in \textbackslash{}\@setnamecref. Refactored common
+%   code in format-definition macros into separate
+%   \textbackslash{}\cref@othervariant macro. Added
+%   \package{IEEEtrantools} support.}
+% \changes{v0.18.3}{2012/01/18}{Fixed bugs with multiple equations and
+%   subequations in an \textbackslash{}IEEEeqnarray.}
+% \changes{v0.18.4}{2012/01/23}{Set \textbackslash{}cref@currentlabel
+%   locally instead of globally, to match how
+%   \textbackslash{}@currentlabel is set.}
 %
 % \GetFileInfo{cleveref.sty}
 %
@@ -1704,12 +1715,13 @@
 % thanks (in alphabetical order) to: Alan Munn, Aleksander Gorohovski,
 % Anand Deopurkar, Arne Meier, Bas Ploeger, Dan Luecking, David Gleich,
 % Denis Bitouz\'e, Domenic Denicola, Donald Arseneau, Hendrik Maryns,
-% James Sharam, Jens Mueller, Joel C. Salomon, Joris Pinkse, Kristian
-% Debrabant, Leo Shidai Liu, Lev Bishop, Mak Trifkovic, Matej Batic, Matt
-% Gately, Matthew Skala, Michael Barber, Michael Gorven, Michal Kaut,
-% Mico Loretan, Olivier Roy, Paul Gomme, Ricardo de Aldama S\'anchez,
-% Stefan Pinnow, Ted Pavlic, Thomas Arildsen, and Uwe L\"uck for their
-% help. (If I missed you out, please let me know!)
+% Iain Cunningham, James Sharam, Jens Mueller, Joel C. Salomon, Joris
+% Pinkse, Kristian Debrabant, Leo Shidai Liu, Lev Bishop, Mak Trifkovic,
+% Matej Batic, Matt Gately, Matthew Skala, Michael Barber, Michael
+% Gorven, Michal Kaut, Mico Loretan, Olivier Roy, Patrick H\"acker, Paul
+% Gomme, Ricardo de Aldama S\'anchez, Robert Fischer, Stefan Pinnow, Ted
+% Pavlic, Thomas Arildsen, and Uwe L\"uck for their help. (If I missed
+% you out, please let me know!)
 %
 %
 % \StopEventually{\clearpage\PrintChanges\clearpage\PrintIndex}
@@ -1742,8 +1754,8 @@
 % lines to the \file{aux} file for \emph{each} label: the standard one,
 % plus an additional one which contains the extra information in
 % \cmd{\cref@currentlabel}. The additional \cmd{\newlabel} line has the
-% prefix |cref@| added to the label name. Thus the extra information in
-% \cmd{\cref@currentlabel} will end up in \cmd{\r@cref@\meta{label}} when
+% suffix |@cref| added to the label name. Thus the extra information in
+% \cmd{\cref@currentlabel} will end up in \cmd{\r@\meta{label}@cref} when
 % the \file{aux} file is re-read on the next pass.
 %
 % Doing things this way involves less hacking to get everything else
@@ -1782,13 +1794,13 @@
   \@ifundefined{cref@#1@alias}%
     {\def\@tempa{#1}}%
     {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [\@tempa][\arabic{#1}][\cref@result]%
     \csname p@#1\endcsname\csname the#1\endcsname}}
 \def\refstepcounter@optarg[#1]#2{%
   \cref@old@refstepcounter{#2}%
   \cref@constructprefix{#2}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [#1][\arabic{#2}][\cref@result]%
     \csname p@#2\endcsname\csname the#2\endcsname}}
 %    \end{macrocode}
@@ -1803,7 +1815,7 @@
 % \begin{macro}{\label@noarg}
 %   We redefine the \cmd{\label} command to make it define \emph{two}
 %   labels each time it's called: the standard one, and an additional
-%   \package{cleveref}-specific one with the prefix |cref@| added to the
+%   \package{cleveref}-specific one with the suffix |@cref| added to the
 %   label name, which contains the extra information from
 %   \cmd{cref@currentlabel}. We call the original \cmd{\label} command,
 %   stored in \cmd{\cref@old@label}, to write the standard label to the
@@ -1826,16 +1838,16 @@
     \@bsphack%
     \cref@old@label{#1}%
     \protected@write\@auxout{}%
-      {\string\newlabel{cref@#1}{{\cref@currentlabel}{\thepage}}}%
+      {\string\newlabel{#1@cref}{{\cref@currentlabel}{\thepage}}}%
     \@esphack}%
   \def\label@optarg[#1]#2{%
     \@bsphack%
     \cref@old@label{#2}%
-    \protected@xdef\cref@currentlabel{%
+    \protected@edef\cref@currentlabel{%
       \expandafter\cref@override@label@type%
         \cref@currentlabel\@nil{#1}}%
     \protected@write\@auxout{}%
-      {\string\newlabel{cref@#2}{{\cref@currentlabel}{\thepage}}}%
+      {\string\newlabel{#2@cref}{{\cref@currentlabel}{\thepage}}}%
     \@esphack}
 }% end of AtBeginDocument
 %    \end{macrocode}
@@ -1845,29 +1857,25 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\@footnotetext}
-% \begin{macro}{\@mpfootnotetext}
+% \begin{macro}{\@makefntext}
 %   Footnotes don't use the \cmd{\refstepcounter} mechanism, but instead
-%   set\linebreak[4] \cmd{\@currentlabel} directly in
-%   \cmd{\@footnotetext} or \cmd{\@mpfootnotetext}. We modify these to
-%   make them also set \cmd{\cref@currentlabel} appropriately.
+%   set\linebreak[4] \cmd{\@currentlabel} directly inside the footnote
+%   insertion item. Thus we need to explicitly set
+%   \cmd{\cref@currentlabel} in footnotes. To avoid the definition
+%   spilling out of the footnote, we need to set it inside
+%   \cmd{\insert}'s implicit insertion item grouping level. To this end,
+%   we add the explicit \cmd{\cref@currentlabel} redefinition to
+%   \cmd{\@makefntext}, which gets called from within \cmd{\insert} by
+%   both \cmd{\@footnotetext} and \cmd{\@mpfootnotentext}.
 %    \begin{macrocode}
-\let\cref@old@footnotetext\@footnotetext
-\let\cref@old@mpfootnotetext\@mpfootnotetext
-\def\@footnotetext{%
+\let\cref@old@makefntext\@makefntext
+\long\def\@makefntext#1{%
   \cref@constructprefix{footnote}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
+  \protected@edef\cref@currentlabel{%
     [footnote][\arabic{footnote}][\cref@result]%
     \p@footnote\@thefnmark}%
-  \cref@old@footnotetext}
-\def\@mpfootnotetext#1{%
-  \cref@constructprefix{mpfootnote}{\cref@result}%
-  \protected@xdef\cref@currentlabel{%
-    [footnote][\arabic{mpfootnote}][\cref@result]%
-    \p@footnote\@thefnmark}%
-  \cref@old@mpfootnotetext{#1}}
+  \cref@old@makefntext{#1}}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 %
 %
@@ -2005,112 +2013,114 @@
 %   ``section'' is the top-level sectioning command, and one if
 %   ``chapter'' fulfils that role.
 %    \begin{macrocode}
-\let\cref@old@appendix\appendix
-\renewcommand\appendix{%
-  \cref@old@appendix%
-  \@ifundefined{chapter}{%
-    \gdef\refstepcounter@noarg##1{%
-      \cref@old@refstepcounter{##1}%
-      \cref@constructprefix{##1}{\cref@result}%
+\@ifundefined{appendix}{}{%
+  \let\cref@old@appendix\appendix
+  \renewcommand\appendix{%
+    \cref@old@appendix%
+    \@ifundefined{chapter}{%
+      \gdef\refstepcounter@noarg##1{%
+        \cref@old@refstepcounter{##1}%
+        \cref@constructprefix{##1}{\cref@result}%
 %    \end{macrocode}
 %     We add a large value to the front of the counter data, to force
 %     references to anything in appendices to be sorted after everything
 %     else.
 %    \begin{macrocode}
-      \ifx\cref@result\@empty%
-        \def\cref@result{2147483647}%
-      \else%
-        \edef\cref@result{2147483647,\cref@result}%
-      \fi%
-%    \end{macrocode}
-%       Override the cross-reference type of sectioning commands.
-%    \begin{macrocode}
-      \def\@tempa{##1}%
-      \def\@tempb{section}%
-      \ifx\@tempa\@tempb%
-        \protected@xdef\cref@currentlabel{%
-          [appendix][\arabic{##1}][\cref@result]%
-          \csname p@##1\endcsname\csname the##1\endcsname}%
-      \else%
-        \def\@tempa{##1}%
-        \def\@tempb{subsection}%
-        \ifx\@tempa\@tempb%
-          \protected@xdef\cref@currentlabel{%
-            [subappendix][\arabic{##1}][\cref@result]%
-            \csname p@##1\endcsname\csname the##1\endcsname}%
+        \ifx\cref@result\@empty%
+          \def\cref@result{2147483647}%
         \else%
-          \def\@tempa{##1}%
-          \def\@tempb{subsubsection}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [subsubappendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
-            \@ifundefined{cref@##1@alias}%
-              {\def\@tempa{##1}}%
-              {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-            \protected@xdef\cref@currentlabel{%
-              [\@tempa][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}
-          \fi%
+          \edef\cref@result{2147483647,\cref@result}%
         \fi%
-      \fi}%
-  }{%
-    \def\refstepcounter@noarg##1{%
-      \cref@old@refstepcounter{##1}%
-      \cref@constructprefix{##1}{\cref@result}%
-%    \end{macrocode}
-%     Again, the large value added to the front of the counter data forces
-%     references to appendix items to be sorted last.
-%    \begin{macrocode}
-      \ifx\cref@result\@empty%
-        \def\cref@result{2147483647}%
-      \else%
-        \edef\cref@result{2147483647,\cref@result}%
-      \fi%
 %    \end{macrocode}
 %       Override the cross-reference type of sectioning commands.
 %    \begin{macrocode}
-      \def\@tempa{##1}%
-      \def\@tempb{chapter}%
-      \ifx\@tempa\@tempb%
-        \protected@xdef\cref@currentlabel{%
-          [appendix][\arabic{##1}][\cref@result]%
-          \csname p@##1\endcsname\csname the##1\endcsname}%
-      \else%
         \def\@tempa{##1}%
         \def\@tempb{section}%
         \ifx\@tempa\@tempb%
-          \protected@xdef\cref@currentlabel{%
-            [subappendix][\arabic{##1}][\cref@result]%
+          \protected@edef\cref@currentlabel{%
+            [appendix][\arabic{##1}][\cref@result]%
             \csname p@##1\endcsname\csname the##1\endcsname}%
         \else%
           \def\@tempa{##1}%
           \def\@tempb{subsection}%
           \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [subsubappendix][\arabic{##1}][\cref@result]%
+            \protected@edef\cref@currentlabel{%
+              [subappendix][\arabic{##1}][\cref@result]%
               \csname p@##1\endcsname\csname the##1\endcsname}%
           \else%
             \def\@tempa{##1}%
             \def\@tempb{subsubsection}%
             \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subsubsubappendix][\arabic{##1}][\cref@result]%
+              \protected@edef\cref@currentlabel{%
+                [subsubappendix][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}%
             \else%
               \@ifundefined{cref@##1@alias}%
                 {\def\@tempa{##1}}%
                 {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-              \protected@xdef\cref@currentlabel{%
+              \protected@edef\cref@currentlabel{%
                 [\@tempa][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}
             \fi%
           \fi%
+        \fi}%
+    }{%
+      \def\refstepcounter@noarg##1{%
+        \cref@old@refstepcounter{##1}%
+        \cref@constructprefix{##1}{\cref@result}%
+%    \end{macrocode}
+%     Again, the large value added to the front of the counter data forces
+%     references to appendix items to be sorted last.
+%    \begin{macrocode}
+        \ifx\cref@result\@empty%
+          \def\cref@result{2147483647}%
+        \else%
+          \edef\cref@result{2147483647,\cref@result}%
         \fi%
-      \fi}%
+%    \end{macrocode}
+%       Override the cross-reference type of sectioning commands.
+%    \begin{macrocode}
+        \def\@tempa{##1}%
+        \def\@tempb{chapter}%
+        \ifx\@tempa\@tempb%
+          \protected@edef\cref@currentlabel{%
+            [appendix][\arabic{##1}][\cref@result]%
+            \csname p@##1\endcsname\csname the##1\endcsname}%
+        \else%
+          \def\@tempa{##1}%
+          \def\@tempb{section}%
+          \ifx\@tempa\@tempb%
+            \protected@edef\cref@currentlabel{%
+              [subappendix][\arabic{##1}][\cref@result]%
+              \csname p@##1\endcsname\csname the##1\endcsname}%
+          \else%
+            \def\@tempa{##1}%
+            \def\@tempb{subsection}%
+            \ifx\@tempa\@tempb%
+              \protected@edef\cref@currentlabel{%
+                [subsubappendix][\arabic{##1}][\cref@result]%
+                \csname p@##1\endcsname\csname the##1\endcsname}%
+            \else%
+              \def\@tempa{##1}%
+              \def\@tempb{subsubsection}%
+              \ifx\@tempa\@tempb%
+                \protected@edef\cref@currentlabel{%
+                  [subsubsubappendix][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}%
+              \else%
+                \@ifundefined{cref@##1@alias}%
+                  {\def\@tempa{##1}}%
+                  {\def\@tempa{\csname cref@##1@alias\endcsname}}%
+                \protected@edef\cref@currentlabel{%
+                  [\@tempa][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}
+              \fi%
+            \fi%
+          \fi%
+        \fi}%
+    }%
   }%
-}
+}% end of \@ifundefined{appendix}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2147,7 +2157,7 @@
 % \begin{macro}{\cref@getprefix}
 %   Define some utility macros for extracting label, type, and counter
 %   information from the contents of \cmd{\cref@currentlabel}, as written
-%   to the \file{aux} file and stored in \cmd{\r@cref@\meta{label}} when
+%   to the \file{aux} file and stored in \cmd{\r@\meta{label}@cref} when
 %   this is re-read on the next pass. Some other packages commandeer the
 %   referencing system to write label information to the \file{aux} file
 %   for other purposes, and probably use \cmd{\ref} to recover it later.
@@ -2161,13 +2171,13 @@
 %   \cmd{\csname}\ldots\cmd{\endcsname}.
 %    \begin{macrocode}
 \def\cref@getref#1#2{%
-  \expandafter\let\expandafter#2\csname r@cref@#1\endcsname%
+  \expandafter\let\expandafter#2\csname r@#1@cref\endcsname%
   \expandafter\expandafter\expandafter\def%
     \expandafter\expandafter\expandafter#2%
     \expandafter\expandafter\expandafter{%
       \expandafter\@firstoftwo#2}}
 \def\cref@getpageref#1#2{%
-  \expandafter\let\expandafter#2\csname r@cref@#1\endcsname%
+  \expandafter\let\expandafter#2\csname r@#1@cref\endcsname%
   \expandafter\expandafter\expandafter\def%
     \expandafter\expandafter\expandafter#2%
     \expandafter\expandafter\expandafter{%
@@ -2495,10 +2505,10 @@
 %    \end{macrocode}
 % Conversely, undefined references come after everything else.
 %    \begin{macrocode}
-      \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+      \expandafter\ifx\csname r@#1@cref\endcsname\relax%
         \def\cref@result{2}%
       \else%
-        \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+        \expandafter\ifx\csname r@#2@cref\endcsname\relax%
           \def\cref@result{1}%
         \else%
 %    \end{macrocode}
@@ -2596,10 +2606,10 @@
 %    \end{macrocode}
 % Conversely, undefined references come after everything else.
 %    \begin{macrocode}
-      \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+      \expandafter\ifx\csname r@#1@cref\endcsname\relax%
         \def\cref@result{2}%
       \else%
-        \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+        \expandafter\ifx\csname r@#2@cref\endcsname\relax%
           \def\cref@result{1}%
         \else%
 %    \end{macrocode}
@@ -2826,7 +2836,7 @@
 %   consecutive (needed when typesetting reference ranges). This uses
 %   the counter and prefix (i.e.\ formatted version of the counter that
 %   resets the label's counter) information provided by
-%   \cmd{\r@cref@\meta{label}} (via the \file{aux} file) to check if the
+%   \cmd{\r@\meta{label}@cref} (via the \file{aux} file) to check if the
 %   prefices are identical (i.e.\ the references come from the same
 %   chapter, section or whatever), and that the label counters differ
 %   by~0 or~1.
@@ -2895,7 +2905,7 @@
 %    \begin{macrocode}
 \def\cref@processgroup#1#2{%
   \edef\@nextref{\cref@stack@top{#1}}%
-  \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+  \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
     \def\@grouptype{\@undefined}%
     \def\@groupformat{\@undefined}%
   \else%
@@ -2922,7 +2932,7 @@
         \let\@nexttype\@grouptype%
         \let\@nextforamt\@groupformat%
       \else%
-        \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+        \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
           \def\@nexttype{\@undefined}%
           \def\@nextformat{\@undefined}%
         \else%
@@ -2954,7 +2964,7 @@
 \def\cref@processgroupall#1#2{%
   \cref@stack@init{\@tempstack}%
   \edef\@nextref{\cref@stack@top{#1}}%
-  \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+  \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
     \def\@grouptype{\@undefined}%
     \def\@groupformat{\@undefined}%
   \else%
@@ -2980,7 +2990,7 @@
         \let\@nextformat\relax%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+      \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
         \def\@nexttype{\@undefined}%
         \def\@nextformat{\@undefined}%
       \else%
@@ -3039,7 +3049,7 @@
     \let#3\relax%
     \edef\@nextref{\cref@stack@top{#1}}%
     #4=1\relax%
-    \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+    \expandafter\ifx\csname r@#2@cref\endcsname\relax%
       \@cref@refconsecutivefalse%
     \else%
 %    \end{macrocode}
@@ -3062,7 +3072,7 @@
 %     Otherwise, test whether next reference is consecutive or not.
 %    \begin{macrocode}
       \else%
-        \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+        \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
           \@cref@refconsecutivefalse%
         \else%
           \edef\@tempa{{#2}{\@nextref}}%
@@ -3101,7 +3111,7 @@
 %         Otherwise, test whether next reference is consecutive or not.
 %    \begin{macrocode}
         \else%
-          \expandafter\ifx\csname r@cref@\@nextref\endcsname\relax%
+          \expandafter\ifx\csname r@\@nextref @cref\endcsname\relax%
             \@cref@refconsecutivefalse%
           \else%
             \edef\@tempa{{#3}{\@nextref}}%
@@ -3375,7 +3385,7 @@
 %   reference group to typeset.
 %    \begin{macrocode}
 \def\@setcref#1#2#3{%
-  \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+  \expandafter\ifx\csname r@#1@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -3429,11 +3439,11 @@
 %    \end{macrocode}
 % Check if both references are defined.
 %    \begin{macrocode}
-    \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+    \expandafter\ifx\csname r@#1@cref\endcsname\relax%
       \protect\G@refundefinedtrue%
       \@latex@warning{Reference `#1' on page \thepage \space%
         undefined}%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \nfss@text{\reset@font\bfseries ??}--%
         \nfss@text{\reset@font\bfseries ??}%
         \@latex@warning{Reference `#2' on page \thepage \space%
@@ -3443,7 +3453,7 @@
         \nfss@text{\reset@font\bfseries ??}--\@labelb%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \protect\G@refundefinedtrue%
         \cref@getlabel{#1}{\@labela}%
         \@labela--\nfss@text{\reset@font\bfseries ??}%
@@ -3567,7 +3577,7 @@
 %   \cmd{namecref} commands.
 %    \begin{macrocode}
 \def\@setnamecref#1#2#3#4{%
-  \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+  \expandafter\ifx\csname r@#2@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -3592,7 +3602,7 @@
 %   \cmd{\namecref} commands.
 %    \begin{macrocode}
 \def\@@setnamecref#1#2{%
-  \edef\@tempa{#1}%
+  \expandafter\def\expandafter\@tempa\expandafter{#1}%
   \expandafter#2\@tempa}
 %    \end{macrocode}
 % \end{macro}
@@ -3696,8 +3706,8 @@
 %    instead of a range.
 %    \begin{macrocode}
     \ifx\@endref\relax\else%
-      \expandafter\ifx\csname r@cref@\@beginref\endcsname\relax\else%
-        \expandafter\ifx\csname r@cref@\@endref\endcsname\relax\else%
+      \expandafter\ifx\csname r@\@beginref @cref\endcsname\relax\else%
+        \expandafter\ifx\csname r@\@endref @cref\endcsname\relax\else%
           \cref@getpageref{\@beginref}{\@tempa}%
           \cref@getpageref{\@endref}{\@tempb}%
           \ifx\@tempa\@tempb\relax%
@@ -3789,7 +3799,7 @@
 %   reference group to typeset.
 %    \begin{macrocode}
 \def\@setcpageref#1#2#3{%
-  \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+  \expandafter\ifx\csname r@#1@cref\endcsname\relax%
     \protect\G@refundefinedtrue%
     \nfss@text{\reset@font\bfseries ??}%
     \@latex@warning{Reference `#1' on page \thepage \space undefined}%
@@ -3838,11 +3848,11 @@
 %    \end{macrocode}
 % Check if both references are defined.
 %    \begin{macrocode}
-    \expandafter\ifx\csname r@cref@#1\endcsname\relax%
+    \expandafter\ifx\csname r@#1@cref\endcsname\relax%
       \protect\G@refundefinedtrue%
       \@latex@warning{Reference `#1' on page \thepage \space%
         undefined}%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \nfss@text{\reset@font\bfseries ??}--%
         \nfss@text{\reset@font\bfseries ??}%
         \@latex@warning{Reference `#2' on page \thepage \space%
@@ -3852,7 +3862,7 @@
         \nfss@text{\reset@font\bfseries ??}--\@pageb%
       \fi%
     \else%
-      \expandafter\ifx\csname r@cref@#2\endcsname\relax%
+      \expandafter\ifx\csname r@#2@cref\endcsname\relax%
         \protect\G@refundefinedtrue%
         \cref@getpageref{#1}{\@pagea}%
         \@pagea--\nfss@text{\reset@font\bfseries ??}%
@@ -3986,6 +3996,32 @@
 % \end{macro}
 % \end{macro}
 %
+%
+% \begin{macro}{cref@othervariant}
+%   The following utility macro sets up the appropriate definitions for
+%   the other capitalisation variant. It defines the macro passed in |#2|
+%   to be the other variant (``cref'' or ``Cref'') to the one specified
+%   in |#1|, and defines |#3| to be the appropriate
+%   capitalisation-changing command. It makes use of the fact that the
+%   first character of \#1 is ``c'' for the lower-case variant and ``C''
+%   for the upper-case one.
+%    \begin{macrocode}
+\def\cref@othervariant#1#2#3{\cref@@othervariant#1\@nil#2#3}
+\def\cref@@othervariant#1#2\@nil#3#4{%
+  \if#1c%
+    \def#3{C#2}%
+    \def#4{\MakeUppercase}%
+  \else%
+    \def#3{c#2}%
+    \if@cref@capitalise%
+      \def#4{}%
+    \else%
+      \def#4{\MakeLowercase}%
+    \fi%
+  \fi}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\@crefname}
 %   The \cmd{\@crefname} utility macro does the real work of defining
 %   format names, by defining an appropriately named command to contain
@@ -4001,28 +4037,10 @@
   \expandafter\def\csname #1@#2@name#5\endcsname{#3}%
   \expandafter\def\csname #1@#2@name@plural#5\endcsname{#4}%
 %    \end{macrocode}
-% The following \cmd{\@tempa} macro makes use of the fact that the first
-% character of \#1 is ``c'' for lower-case and ``C'' for upper-case, in
-% order to wrap the capitalisation-dependent parts in macros so that the
-% rest of the code can be capitalisation-variant agnostic.
-%    \begin{macrocode}
-  \def\@tempa##1##2\@nil{%
-    \if##1c%
-      \def\@other{C##2}%
-      \def\@tempc{\expandafter\MakeUppercase}%
-    \else%
-      \def\@other{c##2}%
-      \if@cref@capitalise%
-        \def\@tempc{}%
-      \else%
-        \def\@tempc{\MakeLowercase}%
-      \fi%
-    \fi}%
-  \@tempa#1\@nil%
-%    \end{macrocode}
 % If the other capitalisation variant is not already defined\dots
 %    \begin{macrocode}
-  \@ifundefined{\@other @#2@name#5}{%
+  \cref@othervariant{#1}{\@tempc}{\@tempd}%
+  \@ifundefined{\@tempc @#2@name#5}{%
 %    \end{macrocode}
 % Define \cmd{\@tempa} and \cmd{@tmpb} to be partial expansions (expanded
 % just once) of the macros for the capitalisation variant we've just
@@ -4037,18 +4055,18 @@
     \expandafter\expandafter\expandafter{%
       \csname#1@#2@name@plural\endcsname}%
 %    \end{macrocode}
-% Add the case-change command stored in \cmd{\@tempc} to the front of the
+% Add the case-change command stored in \cmd{\@tempd} to the front of the
 % definitions of \cmd{\@tempa} and \cmd{\@tempb}.
 %    \begin{macrocode}
     \expandafter\ifx\@tempa\@empty\else%
       \expandafter\expandafter\expandafter\def%
       \expandafter\expandafter\expandafter\@tempa%
       \expandafter\expandafter\expandafter{%
-        \expandafter\@tempc\@tempa}%
+        \expandafter\@tempd\@tempa}%
       \expandafter\expandafter\expandafter\def%
       \expandafter\expandafter\expandafter\@tempb%
       \expandafter\expandafter\expandafter{%
-        \expandafter\@tempc\@tempb}%
+        \expandafter\@tempd\@tempb}%
     \fi%
 %    \end{macrocode}
 % Define the other capitalisation variants to be the partial expansions
@@ -4057,10 +4075,10 @@
 %    \begin{macrocode}
     \toksdef\@toksa=0%
     \@toksa={%
-      \expandafter\def\csname\@other @#2@name#5\endcsname}%
+      \expandafter\def\csname\@tempc @#2@name#5\endcsname}%
     \expandafter\the\expandafter\@toksa\expandafter{\@tempa}%
     \@toksa={%
-      \expandafter\def\csname\@other @#2@name@plural#5\endcsname}%
+      \expandafter\def\csname\@tempc @#2@name@plural#5\endcsname}%
     \expandafter\the\expandafter\@toksa\expandafter{\@tempb}%
   }{}%
 %    \end{macrocode}
@@ -4708,27 +4726,9 @@
   \begingroup%
     \expandafter\gdef\csname #1@#2@format\endcsname##1##2##3{#3}%
 %    \end{macrocode}
-% The following \cmd{\@tempa} macro makes use of the fact that the first
-% character of \#1 is ``c'' for lower-case and ``C'' for upper-case, in
-% order to wrap the capitalisation-dependent parts in macros so that the
-% rest of the code can be capitalisation-variant agnostic.
-%    \begin{macrocode}
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
-%    \end{macrocode}
 % If the other capitalisation variant is not already defined\dots
 %    \begin{macrocode}
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format}{%
 %    \end{macrocode}
 % Define \cmd{\@tempa} to be a partial expansion (expanded just once) of
@@ -4771,27 +4771,9 @@
     \expandafter\gdef\csname #1@#2@format\endcsname%
       ##1##2##3##4##5##6{#3}%
 %    \end{macrocode}
-% The following \cmd{\@tempa} macro makes use of the fact that the first
-% character of \#1 is ``c'' for lower-case and ``C'' for upper-case, in
-% order to wrap the capitalisation-dependent parts in macros so that the
-% rest of the code can be capitalisation-variant agnostic.
-%    \begin{macrocode}
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
-%    \end{macrocode}
 % If the other capitalisation variant is not already defined\dots
 %    \begin{macrocode}
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format}{%
 %    \end{macrocode}
 % Define \cmd{\@tempa} to be a partial expansion (expanded just once) of
@@ -4835,28 +4817,10 @@
     \expandafter\gdef\csname #1@#2@format@middle\endcsname##1##2##3{#5}%
     \expandafter\gdef\csname #1@#2@format@last\endcsname##1##2##3{#6}%
 %    \end{macrocode}
-% The following \cmd{\@tempa} macro makes use of the fact that the first
-% character of \#1 is ``c'' for lower-case and ``C'' for upper-case, in
-% order to wrap the capitalisation-dependent parts in macros so that the
-% rest of the code can be capitalisation-variant agnostic.
-%    \begin{macrocode}
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
-%    \end{macrocode}
 % If the other capitalisation variant of the first part of the
 % multi-format definition is not already defined\dots
 %    \begin{macrocode}
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format@first}{%
 %    \end{macrocode}
 % Define \cmd{\@tempa} to be a partial expansion (expanded just once) of
@@ -4931,28 +4895,10 @@
     \expandafter\gdef\csname #1@#2@format@last\endcsname%
       ##1##2##3##4##5##6{#6}%
 %    \end{macrocode}
-% The following \cmd{\@tempa} macro makes use of the fact that the first
-% character of \#1 is ``c'' for lower-case and ``C'' for upper-case, in
-% order to wrap the capitalisation-dependent parts in macros so that the
-% rest of the code can be capitalisation-variant agnostic.
-%    \begin{macrocode}
-    \def\@tempa##1##2\@nil{%
-      \if##1c%
-        \def\@other{C##2}%
-        \def\@changecase{\expandafter\MakeUppercase}%
-      \else%
-        \def\@other{c##2}%
-        \if@cref@capitalise%
-          \def\@changecase{}%
-        \else%
-          \def\@changecase{\MakeLowercase}%
-        \fi%
-      \fi}%
-    \@tempa#1\@nil%
-%    \end{macrocode}
 % If the other capitalisation variant of the first part of the
 % multi-format definition is not already defined\dots
 %    \begin{macrocode}
+    \cref@othervariant{#1}{\@other}{\@changecase}%
     \@ifundefined{\@other @#2@format@first}{%
 %    \end{macrocode}
 % Define \cmd{\@tempa} to be a partial expansion (expanded just once) of
@@ -5037,7 +4983,7 @@
 %   \package{hyperref} adds the hyperlink information to the standard
 %   \cmd{\newlabel} line in the \file{aux} file, so we have to retrieve
 %   it from the standard \cmd{r@\meta{label}}, \emph{not} the one
-%   prefixed with |cref@| that we've created ourselves.
+%   suffixed with |@cref| that we've created ourselves.
 %    \begin{macrocode}
     \def\cref@hyperref#1{\expandafter\expandafter\expandafter%
       \@fourthoffive\csname r@#1\endcsname}
@@ -5060,7 +5006,7 @@
       \@ifundefined{cref@#1@alias}%
         {\def\@tempa{#1}}%
         {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         [\@tempa][\arabic{#1}][\cref@result]%
         \csname p@#1\endcsname\csname the#1\endcsname}}
 %    \end{macrocode}
@@ -5085,7 +5031,7 @@
     \let\refstepcounter@noarg\cref@old@refstepcounter%
     \def\refstepcounter@optarg[#1]#2{%
       \cref@old@refstepcounter{#2}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         \expandafter\cref@override@label@type%
           \cref@currentlabel\@nil{#1}}}
 %    \end{macrocode}
@@ -5098,111 +5044,113 @@
 %   ``appendix'' instead. But this time, it is \cmd{\H@refstepcounter}
 %   that needs to be redefined.
 %    \begin{macrocode}
-    \renewcommand\appendix{%
-      \cref@old@appendix%
-      \@ifundefined{chapter}{%
-        \def\H@refstepcounter##1{%
-          \cref@old@H@refstepcounter{##1}%
-          \cref@constructprefix{##1}{\cref@result}%
+    \@ifundefined{appendix}{}{%
+      \renewcommand\appendix{%
+        \cref@old@appendix%
+        \@ifundefined{chapter}{%
+          \def\H@refstepcounter##1{%
+            \cref@old@H@refstepcounter{##1}%
+            \cref@constructprefix{##1}{\cref@result}%
 %    \end{macrocode}
 %         We add a large value to the front of the counter data, to force
 %         references to anything in appendices to be sorted after
 %         everything else.
 %    \begin{macrocode}
-          \ifx\cref@result\@empty%
-            \def\cref@result{2147483647}%
-          \else%
-            \edef\cref@result{2147483647,\cref@result}%
-          \fi%
-%    \end{macrocode}
-%         Override the cross-reference type of sectioning commands.
-%    \begin{macrocode}
-          \def\@tempa{##1}%
-          \def\@tempb{section}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [appendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
-            \def\@tempa{##1}%
-            \def\@tempb{subsection}%
-            \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subappendix][\arabic{##1}][\cref@result]%
-                \csname p@##1\endcsname\csname the##1\endcsname}%
+            \ifx\cref@result\@empty%
+              \def\cref@result{2147483647}%
             \else%
-              \def\@tempa{##1}%
-              \def\@tempb{subsubsection}%
-              \ifx\@tempa\@tempb%
-                \protected@xdef\cref@currentlabel{%
-                  [subsubappendix][\arabic{##1}][\cref@result]%
-                  \csname p@##1\endcsname\csname the##1\endcsname}%
-              \else%
-                \@ifundefined{cref@##1@alias}%
-                  {\def\@tempa{##1}}%
-                  {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-                \protected@xdef\cref@currentlabel{%
-                  [\@tempa][\arabic{##1}][\cref@result]%
-                  \csname p@##1\endcsname\csname the##1\endcsname}
-              \fi%
+              \edef\cref@result{2147483647,\cref@result}%
             \fi%
-          \fi}%
-      }{%
-        \def\H@refstepcounter##1{%
-          \cref@old@H@refstepcounter{##1}%
-          \cref@constructprefix{##1}{\cref@result}%
-%    \end{macrocode}
-%         Again, the large value added to the front of the counter data
-%         forces references to appendix items to be sorted last.
-%    \begin{macrocode}
-          \ifx\cref@result\@empty%
-            \def\cref@result{2147483647}%
-          \else%
-            \edef\cref@result{2147483647,\cref@result}%
-          \fi%
 %    \end{macrocode}
 %         Override the cross-reference type of sectioning commands.
 %    \begin{macrocode}
-          \def\@tempa{##1}%
-          \def\@tempb{chapter}%
-          \ifx\@tempa\@tempb%
-            \protected@xdef\cref@currentlabel{%
-              [appendix][\arabic{##1}][\cref@result]%
-              \csname p@##1\endcsname\csname the##1\endcsname}%
-          \else%
             \def\@tempa{##1}%
             \def\@tempb{section}%
             \ifx\@tempa\@tempb%
-              \protected@xdef\cref@currentlabel{%
-                [subappendix][\arabic{##1}][\cref@result]%
+              \protected@edef\cref@currentlabel{%
+                [appendix][\arabic{##1}][\cref@result]%
                 \csname p@##1\endcsname\csname the##1\endcsname}%
             \else%
               \def\@tempa{##1}%
               \def\@tempb{subsection}%
               \ifx\@tempa\@tempb%
-                \protected@xdef\cref@currentlabel{%
-                  [subsubappendix][\arabic{##1}][\cref@result]%
+                \protected@edef\cref@currentlabel{%
+                  [subappendix][\arabic{##1}][\cref@result]%
                   \csname p@##1\endcsname\csname the##1\endcsname}%
               \else%
                 \def\@tempa{##1}%
                 \def\@tempb{subsubsection}%
                 \ifx\@tempa\@tempb%
-                  \protected@xdef\cref@currentlabel{%
-                    [subsubsubappendix][\arabic{##1}][\cref@result]%
+                  \protected@edef\cref@currentlabel{%
+                    [subsubappendix][\arabic{##1}][\cref@result]%
                     \csname p@##1\endcsname\csname the##1\endcsname}%
                 \else%
                   \@ifundefined{cref@##1@alias}%
                     {\def\@tempa{##1}}%
                     {\def\@tempa{\csname cref@##1@alias\endcsname}}%
-                  \protected@xdef\cref@currentlabel{%
+                  \protected@edef\cref@currentlabel{%
                     [\@tempa][\arabic{##1}][\cref@result]%
                     \csname p@##1\endcsname\csname the##1\endcsname}
                 \fi%
               \fi%
+            \fi}%
+        }{%
+          \def\H@refstepcounter##1{%
+            \cref@old@H@refstepcounter{##1}%
+            \cref@constructprefix{##1}{\cref@result}%
+%    \end{macrocode}
+%         Again, the large value added to the front of the counter data
+%         forces references to appendix items to be sorted last.
+%    \begin{macrocode}
+            \ifx\cref@result\@empty%
+              \def\cref@result{2147483647}%
+            \else%
+              \edef\cref@result{2147483647,\cref@result}%
             \fi%
-          \fi}%
+%    \end{macrocode}
+%         Override the cross-reference type of sectioning commands.
+%    \begin{macrocode}
+            \def\@tempa{##1}%
+            \def\@tempb{chapter}%
+            \ifx\@tempa\@tempb%
+              \protected@edef\cref@currentlabel{%
+                [appendix][\arabic{##1}][\cref@result]%
+                \csname p@##1\endcsname\csname the##1\endcsname}%
+            \else%
+              \def\@tempa{##1}%
+              \def\@tempb{section}%
+              \ifx\@tempa\@tempb%
+                \protected@edef\cref@currentlabel{%
+                  [subappendix][\arabic{##1}][\cref@result]%
+                  \csname p@##1\endcsname\csname the##1\endcsname}%
+              \else%
+                \def\@tempa{##1}%
+                \def\@tempb{subsection}%
+                \ifx\@tempa\@tempb%
+                  \protected@edef\cref@currentlabel{%
+                    [subsubappendix][\arabic{##1}][\cref@result]%
+                    \csname p@##1\endcsname\csname the##1\endcsname}%
+                \else%
+                  \def\@tempa{##1}%
+                  \def\@tempb{subsubsection}%
+                  \ifx\@tempa\@tempb%
+                    \protected@edef\cref@currentlabel{%
+                      [subsubsubappendix][\arabic{##1}][\cref@result]%
+                      \csname p@##1\endcsname\csname the##1\endcsname}%
+                  \else%
+                    \@ifundefined{cref@##1@alias}%
+                      {\def\@tempa{##1}}%
+                      {\def\@tempa{\csname cref@##1@alias\endcsname}}%
+                    \protected@edef\cref@currentlabel{%
+                      [\@tempa][\arabic{##1}][\cref@result]%
+                      \csname p@##1\endcsname\csname the##1\endcsname}
+                  \fi%
+                \fi%
+              \fi%
+            \fi}%
+        }%
       }%
-    }
+    }% end of \@ifundefined{appendix}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -5377,7 +5325,7 @@
       \@ifundefined{cref@#1@alias}%
         {\def\@tempa{#1}}%
         {\def\@tempa{\csname cref@#1@alias\endcsname}}%
-      \protected@xdef\cref@currentlabel{%
+      \protected@edef\cref@currentlabel{%
         [\@tempa][\arabic{#1}][\cref@result]%
         \csname p@#1\endcsname\csname the#1\endcsname}}%
   \fi%
@@ -5808,6 +5756,88 @@
 }{}%  end of \@ifpackageloaded{amsmath}
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
+%
+%
+%
+% \subsubsection{\package{IEEEtrantools} support}
+% \begin{macro}{IEEEtrantools}
+%   The |IEEEeqnarray| environment and \cmd{\IEEEeqnarraccr} command call
+%   \cmd{\stepcounter} instead of \cmd{\refstepcounter} to increment the
+%   equation counters, so they fail to set the cross-reference type for
+%   \package{cleveref}. We patch in calls to \cmd{\refstepcounter} to fix
+%   this.
+%    \begin{macrocode}
+\@ifpackageloaded{IEEEtrantools}{%
+  \PackageInfo{cleveref}{`IEEEtrantools' support loaded}
+%    \end{macrocode}
+%
+% \begin{macro}{\@@IEEEeqnarray}
+%   Rather than copying the whole of \cmd{\@@IEEEeqnarray} just to patch
+%   the \cmd{\stepcounter} line (which would be fragile and liable to
+%   breakage), we insert an extra step which calls \cmd{\refstepcounter}
+%   to set the cross-reference type, then decrements the |equation|
+%   counter by one, before calling the original \cmd{\@@IEEEeqnarray}.
+%    \begin{macrocode}
+  \let\cref@orig@@IEEEeqnarray\@@IEEEeqnarray
+  \def\@@IEEEeqnarray[#1]#2{%
+    \refstepcounter{equation}%
+    \addtocounter{equation}{-1}%
+    \cref@orig@@IEEEeqnarray[#1]{#2}}
+%    \end{macrocode}
+% \end{macro}
+%
+% We do the same thing with \cmd{\@IEEEeqnarrayXCR}, the last in the
+% chain of macros that gets invoked by |\\| (let to
+% \cmd{\IEEEeqnarraycr}) within |IEEEeqnarray| environments.
+% \begin{macro}{\@IEEEeqnarrayXCR}
+%    \begin{macrocode}
+  \let\cref@orig@IEEEeqnarrayXCR\@IEEEeqnarrayXCR
+  \def\@IEEEeqnarrayXCR[#1]{%
+    \if@eqnsw%
+      \if@IEEEissubequation%
+        %\addtocounter{equation}{1}%
+        \refstepcounter{IEEEsubequation}%
+        \addtocounter{IEEEsubequation}{-1}%
+      \else%
+        \refstepcounter{equation}%
+        \addtocounter{equation}{-1}%
+      \fi%
+    \fi%
+  \cref@orig@IEEEeqnarrayXCR[#1]}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\IEEEyessubnumber}
+%   And again for \cmd{IEEEyessubnumber} (used to turn an equation into a
+%   subequation).
+%    \begin{macrocode}
+  \let\cref@orig@IEEEyessubnumber\IEEEyessubnumber
+  \def\IEEEyessubnumber{%
+    \if@IEEEeqnarrayISinner%
+      \if@IEEElastlinewassubequation\else%
+        \setcounter{IEEEsubequation}{0}%
+        \refstepcounter{IEEEsubequation}%
+      \fi%
+    \fi%
+    \cref@orig@IEEEyessubnumber}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{IEEEsubequation}
+%   To get the subequation formatting right, we harmlessly add the
+%   |IEEEsubequation| counter to the |equation| counter reset list so
+%   that \package{cleveref} can figure out the subnumbering relationship,
+%   and define |IEEEsubequation| to be an alias of the |equation| format.
+%    \begin{macrocode}
+  \@addtoreset{IEEEsubequation}{equation}%
+  \crefalias{IEEEsubequation}{equation}%
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+}{}% end of \@ifpackageloaded{IEEEtrantools}
+%    \end{macrocode}
 % \end{macro}
 %
 %
@@ -7547,7 +7577,7 @@
   \let\old@@setnamecref\@@setnamecref
   \def\@@setnamecref#1#2{%
     \old@@setnamecref{#1}{#2}%
-    \edef\@tempa{#1}%
+    \expandafter\def\expandafter\@tempa\expandafter{#1}%
     \def\@tempb{#2}%
     \expandafter\expandafter\expandafter\g@addto@macro%
       \expandafter\expandafter\expandafter{%
