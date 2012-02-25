@@ -131,7 +131,7 @@
 		\@depositshortdate \par
 	\end{center}
 	\end{adjustwidth}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
+	{\pagestyle{empty}\clearpage}
 }
 
 % Title and cover page
@@ -140,10 +140,11 @@
 	\begin{titlepage}
 		\coverpageone
 		\coverpagetwo
-		\ifx\@dedication\@empty\else{
-        		\dedicate
-		}
-		\fi
+%		\ifx\@dedication\@empty\else{
+%        		\dedicate
+%		}
+%		\fi
+		\setcounter{page}{0}
 	\end{titlepage}
 }
 
