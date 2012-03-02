@@ -9,6 +9,7 @@
 \RequirePackage[alf,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
 \citeoption{abnt-etal-list=2}
 
+\RequirePackage{winfonts}
 
 \RequirePackage{tocvsec2}
 \maxtocdepth{subsubsection}
@@ -86,7 +87,11 @@
 		\begin{minipage}{10.6cm}
 			\begin{center}
 				\vspace{0.6cm}
-				{\Large \textsf{\@title} \par}
+				%{\Large \textsf{\@title} \par}
+				% 17 * 1.2
+				{\fontfamily{tahoma}\fontsize{17}{20.4}\selectfont \@title}
+				%\usefont{T1}{palatino-ttf}{b}{ic}
+
 				% {\textbf{\fontsize{15pt}{19pt} \selectfont \normalfont \Large\sffamily\bfseries \@title}}
 				\vspace{0.75cm}
 				{\large \textbf{\textit{\@author}} \normalsize \par}
@@ -159,4 +164,5 @@
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
-
+\widowpenalty=10000
+\clubpenalty=10000
