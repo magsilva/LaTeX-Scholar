@@ -9,7 +9,6 @@
 \RequirePackage[alf,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
 \citeoption{abnt-etal-list=2}
 
-\RequirePackage{winfonts}
 
 \RequirePackage{tocvsec2}
 \maxtocdepth{subsubsection}
@@ -44,9 +43,12 @@
 \def\dissertationgoal#1{\gdef\@dissertationgoal{#1}}%
 \def\@dissertationgoal{\@latex@error{No \noexpand\dissertationgoal given}\@ehc}%
 
+\def\depositplace#1{\gdef\@depositplace{#1}}%
+\def\@depositplace{\@latex@error{No \noexpand\depositplace given}\@ehc}%
+
 \newcommand{\defensebox}{
 	\begin{flushright}
-		\begin{boxedminipage}[t]{8cm}
+		\begin{boxedminipage}[t]{6.5cm}
 			\begin{center}
 				\begin{footnotesize}
 					\allcaps{\@graduationsecretary} \par
@@ -62,18 +64,20 @@
 
 
 \newcommand{\depositbox}{
-	\begin{flushright}
-		\fbox{\begin{minipage}[t][2.8cm]{8cm}
-			\begin{center}
-				\begin{footnotesize}
-					\allcaps{\@graduationsecretary}
-				\end{footnotesize}
-			\end{center}
-			\depositdatename: \@depositfulldate \par
-			\vspace{0.4cm}
-			\signaturename: \rule{4.5cm}{.05mm} \par
-		\end{minipage}}
-	\end{flushright}
+	\hspace{10.3cm}
+	\fbox{\begin{minipage}[t][2.6cm]{7.5cm}
+		\begin{center}
+			\vspace{0.15cm}
+			\begin{footnotesize}
+				{\fontfamily{times-ttf}\selectfont\fontsize{9pt}{11pt} \@depositplace}
+			\end{footnotesize}
+		\end{center}
+		\vspace{0.35cm}
+		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \depositdatename: \@depositfulldate \par}
+		\vspace{0.4cm}
+		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \signaturename: \rule{5cm}{.05mm} \par}
+	\end{minipage}}
+
 }
 
 
@@ -81,25 +85,21 @@
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
 	\null
-	\vspace{10.7cm}
+	\vspace{8.0cm}
 	\begin{center}
-		\rule{11.5cm}{.3mm}
+		\rule{14.7cm}{.3mm}
 		\begin{minipage}{10.6cm}
 			\begin{center}
 				\vspace{0.6cm}
-				%{\Large \textsf{\@title} \par}
-				% 17 * 1.2
-				{\fontfamily{tahoma}\fontsize{17}{20.4}\selectfont \@title}
-				%\usefont{T1}{palatino-ttf}{b}{ic}
-
+				{\fontfamily{tahoma}\selectfont\fontsize{17pt}{20pt} \textsf{\@title} \par}
 				% {\textbf{\fontsize{15pt}{19pt} \selectfont \normalfont \Large\sffamily\bfseries \@title}}
-				\vspace{0.75cm}
-				{\large \textbf{\textit{\@author}} \normalsize \par}
+				\vspace{1.0cm}
+				{\fontfamily{times-ttf}\selectfont\fontsize{15pt}{18pt}\textbf{\textit{\@author}} \normalsize \par}
 				% {\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
 				\vspace{0.5cm}
 			\end{center}
 		\end{minipage}
-		\rule{11.5cm}{.3mm}
+		\rule{14.7cm}{.3mm}
 	\end{center}
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
@@ -111,32 +111,33 @@
 	\begin{adjustwidth}{-.5cm}{}
 	\depositbox
 	% \defensebox
-	\vfill
+	\vspace{2.6cm}
 	\begin{center}
 		\begin{minipage}{12cm}
 			\centering
-			{\LARGE \textsf{\@title} \par}
+			{\fontfamily{tahoma}\selectfont\fontsize{17pt}{21pt} \textsf{\@title} \par}
 		\end{minipage}
 	\end{center}
 	\begin{center}
-		\vspace{1.3cm}
-		{\textbf{\textit{\@author}} \par}
-		\vspace{1.3cm}
-		{\textbf{\advisorname: \textit{\@advisor}} \par}
+		\vspace{1.2cm}
+		{\fontfamily{times-ttf}\selectfont\fontsize{14pt}{17pt}\textbf{\@author} \par}
+		\vspace{2.4cm}
+		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\textbf{\textit{Orientador}: \@advisor} \par}
 	\end{center}
-	\vfill
+	\vspace{1.7cm}
 	\begin{flushright}
-		\begin{minipage}{11.4cm}
-			{\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
+		\begin{minipage}{8.5cm}
+			{\fontfamily{times-ttf}\selectfont\fontsize{11pt}{13pt}\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
 		\end{minipage}
 	\end{flushright}
-	\vfill
+	\vspace{2.5cm}
 	\begin{center}
-		\@address \par
-		\@depositshortdate \par
+		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@address \par}
+		\vspace{-0.3cm}
+		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@depositshortdate \par}
 	\end{center}
 	\end{adjustwidth}
-	{\pagestyle{empty}\clearpage}
+	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
 % Title and cover page
@@ -145,11 +146,10 @@
 	\begin{titlepage}
 		\coverpageone
 		\coverpagetwo
-%		\ifx\@dedication\@empty\else{
-%        		\dedicate
-%		}
-%		\fi
-		\setcounter{page}{0}
+		\ifx\@dedication\@empty\else{
+        		\dedicate
+		}
+		\fi
 	\end{titlepage}
 }
 
