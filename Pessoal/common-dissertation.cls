@@ -9,6 +9,7 @@
 \RequirePackage[alf,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
 \citeoption{abnt-etal-list=2}
 
+\RequirePackage{pdfpages}
 
 \RequirePackage{tocvsec2}
 \maxtocdepth{subsubsection}
@@ -137,7 +138,7 @@
 		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@depositshortdate \par}
 	\end{center}
 	\end{adjustwidth}
-	\clearpage{\pagestyle{empty}\cleardoublepage}
+	\includepdf[pages={1}]{refcard.pdf}
 }
 
 % Title and cover page
