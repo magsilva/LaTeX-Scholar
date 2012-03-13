@@ -1,0 +1,11 @@
+\RequirePackage{appendix}
+\renewcommand{\appendixpagename}{Apêndice}
+\renewcommand{\appendixtocname}{Lista de apêndices}
+
+\let\origappendix=\appendix
+\renewcommand\appendix{
+	\origappendix
+	\cleardoublepage
+	\addappheadtotoc
+	\appendixpage
+}
