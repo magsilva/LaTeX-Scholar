@@ -10,21 +10,6 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{ae}
 
-% Parâmetros que determinam a qualidade e compressão utilizada para os documentos PDF
-% \pdfcompresslevel=6
-% \pdfpkresolution=600
-% \pdfimageresolution=72
-\pdfcompresslevel=9
-\pdfpkresolution=1200
-\pdfimageresolution=600
-
-\newcommand{\metadata}{
-	\pdfinfo {
-		/Title (\@title)
-		/Author (\@author)
-		/Keywords (\@keywords)
-	}
-}
 
 \RequirePackage[pdftex]{geometry}
 \geometry{a4paper,left=2.5cm,right=2.5cm,top=3cm,bottom=3cm}

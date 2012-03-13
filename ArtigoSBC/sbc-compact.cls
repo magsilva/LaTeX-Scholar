@@ -25,29 +25,6 @@
 \LoadClass{article}
 
 
-% l10n
-\RequirePackage[english,brazil]{babel}
-
-% i18n
-\RequirePackage[latin1]{inputenc}
-\RequirePackage[T1]{fontenc}
-
-% Parâmetros que determinam a qualidade e compressão utilizada para os documentos PDF
-% \pdfcompresslevel=6
-% \pdfpkresolution=600
-% \pdfimageresolution=72
-\pdfcompresslevel=9
-\pdfpkresolution=1200
-\pdfimageresolution=600
-
-\newcommand{\metadata}{
-	\pdfinfo {
-		/Title (\@title)
-		/Author (\@author)
-		/Keywords (\@keywords)
-	}
-}
-
 % Habilitar a utilização de figuras
 \RequirePackage[pdftex]{graphicx}
 \RequirePackage{epstopdf}

@@ -6,9 +6,6 @@
 
 \RequirePackage{fancyhdr}
 
-\RequirePackage[alf,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
-\citeoption{abnt-etal-list=2}
-
 \RequirePackage{pdfpages}
 
 \RequirePackage{tocvsec2}
@@ -164,6 +161,3 @@
         \vspace{3cm}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
-
-\widowpenalty=10000
-\clubpenalty=10000
