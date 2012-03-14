@@ -10,22 +10,40 @@
 %   LaTeX document. Unfortunately, we cannot assume that everybody uses
 %   UTF-8 nowadays.
 %%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{common-i18n}[2012/02/13 i18n related package for LaTeX-Scholars]
 
+\RequirePackage{ifthen}
+\newboolean{scholars@encoding@utf8}
+\newboolean{scholars@encoding@iso88591}
+\setboolean{scholars@encoding@utf8}{false}
+\setboolean{scholars@encoding@iso88591}{false}
+
+\DeclareOption{utf8}{
+	\setboolean{scholars@encoding@utf8}{true}
+}
+\DeclareOption{latin1}{
+	\setboolean{scholars@encoding@iso88591}{true}
+}
+
+\ProcessOptions*
 
 % l10n
 \RequirePackage{babel}
 \RequirePackage{datetime}
 
-% i18n
-% \RequirePackage[latin1]{inputenc}
-
 % Select font encoding.
 \RequirePackage[T1]{fontenc}
 
-% Enable UTF-8 support (but do not actually enable utf-8)
-% \RequirePackage[fasterrors,savemem,warnunknown]{ucs}
-% \RequirePackage{ucs}
-% \RequirePackage[utf8x]{inputenc}
+% Enable UTF-8 support
+\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
+
+\ifthenelse{\boolean{scholars@encoding@utf8}}{
+	\RequirePackage[utf8x]{inputenc}
+}{}
+\ifthenelse{\boolean{scholars@encoding@iso88591}}{
+	\RequirePackage[latin1]{inputenc}
+}{}
 
 
 % Fonts to be used. This choice depends upon the font's choice. For
@@ -55,16 +73,6 @@
 % Macro utilizada para termos em ingl\00s.
 \newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}
 
-% Set the \bibname to ABNT rules.
-% \providecommand{\bibname}{Refer\00ncias}
-\iflanguage{brazil}{%
-\def\mybibname{Refer\^encias}
-\def\myrefname{Refer\^encias}
-}{
-\def\mybibname{References}
-\def\myrefname{References}
-}
-
 % Traduz os nomes de listagens e fragmentos de c\00digo para portugu\00s
 % \iflanguage{brazil}{%
 % \renewcommand{\lstlistingname}{Exemplo}
@@ -81,6 +89,26 @@
 \def\advisorname{Advisor}
 \def\depositfulldatename{Deposit Date}
 }
+
+% Translations regarding acronyms
+\iflanguage{brazil}{%
+	\def\listofacronymsname{Lista de acrônimos}
+}{
+	\def\listofacronymsname{Acronyms}
+}
+
+% Translation of names defined by Babel does not take effects as Babel's
+% translations are defined by '\begin{document}' statement. Thus, you
+% have to use the command '\addto\captions<language>'. This hint was found
+% at http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
+%
+\addto\captionsbrazil{%
+	\renewcommand{\listfigurename}{Lista de figuras}%
+	\renewcommand{\listtablename}{Lista de tabelas}%
+	\renewcommand{\bibname}{Referências}
+}
+
+
 
 \usepackage[capitalise]{cleveref}
 \iflanguage{brazil}{%

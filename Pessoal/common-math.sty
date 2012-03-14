@@ -1,0 +1,24 @@
+% \usepackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+
+% Injective Arrow
+\newcommand{\inj}{\hookrightarrow}
+% Named Injective Arrow
+\newcommand{\nminj}[1]{\stackrel{#1}{\inj}}
+
+% Surjective Arrow
+\newcommand{\surj}{\twoheadrightarrow}
+% Named Surjective Arrow
+\newcommand{\nmsurj}[1]{\stackrel{#1}{\surj}}
+
+% \usepackage{oz}
+\def\p#1{\mathrel{\ooalign{\hfil$\mapstochar\mkern 5mu$\hfil\cr$#1$}}}
+\def \tsur  {\mathrel{\ooalign{$\rightarrow$\hfil\cr$\mkern4mu\rightarrow$}}}
+\def \psur  {\p\tsur}
+\let \psurj \psur
+
+\let \tinj  \rightarrowtail
+\def \pinj  {\p\tinj}
+
+\newtheorem{mathdefinition}{Definição}

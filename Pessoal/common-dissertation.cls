@@ -6,10 +6,6 @@
 
 \RequirePackage{fancyhdr}
 
-\RequirePackage[alf,abnt-etal-cite=2,abnt-etal-list=10,abnt-etal-text=it,abnt-full-initials=yes,abnt-missing-year=sd,abnt-show-options=warn,abnt-doi=link,abnt-url-package=url]{abntcite}
-
-% \RequirePackage[bibencoding=latin1,bibstyle=authortitle,citestyle=authoryear=comp,natbib=true,sorting=nyt,sortcase=true,sortcites=true,maxcitenames=2,maxbibnames=30,babel=hyphen,backref=true,backrefstyle=2,refsection=chapter,abbreviate=false,date=iso8601,backend=biber,mincrossrefs=50,citecounter=true,citetracker=true]{biblatex}
-
 \RequirePackage{pdfpages}
 
 \RequirePackage{tocvsec2}
@@ -165,6 +161,3 @@
         \vspace{3cm}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
-
-\widowpenalty=10000
-\clubpenalty=10000

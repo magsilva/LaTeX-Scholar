@@ -4,7 +4,6 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{common-article}}
 \ProcessOptions
 
-\PassOptionsToPackage{alf}{abntcite}
 \LoadClass{common-article}
 
 \def\@maketitle{

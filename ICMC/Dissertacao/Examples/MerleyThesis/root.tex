@@ -21,9 +21,7 @@
 \usepackage{subfigure}
 
 
-%%% acentuação
-\usepackage[ansinew]{inputenc}
- 
+
 %%% bibliografia
 \usepackage{natbib}
 
@@ -143,34 +141,6 @@
     \global\hangafter-\count0      % set no of indented lines
     \hskip-\dimen0\setbox0\hbox to\dimen0{\raise-\dimen1\box0\hss}%
     \dp0=0in\ht0=0in\box0}}
-
-%Para colocar lista de Figuras e de Tabelas na mesma página:
-% tem que descomentar o comando \chapter*{\listfiguretablename{}} para usar este recurso das figuras e tabelas
-%\makeatletter
-%\newcommand{\listfiguretablename}{Lista de Figuras e Tabelas}
-%\renewcommand\listoffigures{
-%	\if@twocolumn
-%		\@restonecoltrue\onecolumn
-%	\else
-%		\@restonecolfalse
-%	\fi
-%	\section*{Lista de Figuras}
-%	\@mkboth{\MakeUppercase\listfigurename}{\MakeUppercase\listfigurename}%
-%	\@starttoc{lof}%
-%	\if@restonecol\twocolumn\fi
-%}
-%\renewcommand\listoftables{
-%	\if@twocolumn
-%		\@restonecoltrue\onecolumn
-%	\else
-%		\@restonecolfalse
-%	\fi
-%	\section*{Lista de Tabelas}
-%	\@mkboth{\MakeUppercase\listtablename}{\MakeUppercase\listtablename}%
-%	\@starttoc{lot}%
-%	\if@restonecol\twocolumn\fi
-%}
-%\makeatother
 
 \definecolor{violet}{rgb}{0.8,0.2,0.5}
 \newcommand{\violet}[1]{\textcolor{violet}{#1}}

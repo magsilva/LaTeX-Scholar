@@ -1,13 +1,52 @@
 % Resolve um warning do latex.
 \setlength{\headheight}{16pt}
 
-% Hacks suggested by Axel Reichert at de.comp.text.tex (removes several LaTeX warnings)
-\tolerance 1414
-\hbadness 1414
-\emergencystretch 1.5em
-\raggedbottom
-% Don't bother to report overfull boxes if over-edge is < 1pc
-\vfuzz 1pc
-\hfuzz 1pc
-
 \setlength{\fboxsep}{0pt}
+
+
+% TeX’s first attempt at breaking lines is performed without even trying
+% hyphenation: TeX sets its “tolerance” of line breaking oddities to the
+% internal value \pretolerance, and sees what happens. If it can’t get an
+% acceptable break, TeX adds the hyphenation points allowed by the current
+% patterns, and tries again using the internal \tolerance value. If this pass
+% also fails, and the internal \emergencystretch value is positive, TeX will
+% try a pass that allows \emergencystretch worth of extra stretchability to
+% the spaces in each line.
+%
+% The choice of method has time implications — each of the passes takes time,
+% so adding a pass (by changing \emergencystretch) is less desirable than
+% suppressing one (by changing \pretolerance). However, it’s unusual nowadays
+% to find a computer that’s slow enough that the extra passes are really
+% troublesome.
+% The value of \emergencystretch is added to the assumed stretchability of each
+% line of a paragraph, in a further run of the paragraph formatter in case that
+% the paragraph can’t be made to look right any other way. (The extra scan
+% happens if \emergencystretch>0pt — if it’s zero or negative, no gain could be
+% had from rerunning the paragraph setter.)
+%
+% More subtle (but more tricky to manage) are the microtypographic extensions
+% provided by PDFTeX. There are two extensions, margin kerning and font
+% expansion; margin kerning only affects the visual effect of the typeset page,
+% and has little effect on the ability of the paragraph setter to “get things
+% right”. Font expansion works like a subtler version of the trick that
+% \emergencystretch plays: PDFTeX ‘knows’ that your current font may be
+% stretched (or shrunk) to a certain extent, and will do that “on the fly” to
+% optimise the setting of a paragraph.
+%
+\pretolerance=500
+\tolerance=500
+\setlength{\emergencystretch}{3em}
+\usepackage[final, babel]{microtype}
+
+% Hacks suggested by Axel Reichert at de.comp.text.tex (removes several LaTeX warnings)
+% \hbadness 1414
+% \raggedbottom
+% Don't bother to report overfull boxes if over-edge is < 1pc
+% \vfuzz 1pc
+% \hfuzz 1pc
+
+% Not actually required, but it makes latex2rtf happy :)
+% \RequirePackage{ifthen}
+% \@ifpackageloaded{acronym}
+%        {}
+%        {\RequirePackage[printonlyused, withpage]{acronym}}
