@@ -1,0 +1,72 @@
+StartFontMetrics 2.0
+Comment Reencoded at Sat Jan 21 21:10:37 2006 by afm2afm from verdana.afm
+FontName Verdana
+FullName Verdana
+FamilyName Verdana
+Weight Normal
+ItalicAngle 0
+IsFixedPitch false
+FontBBox -49 -206 1446 1000
+UnderlinePosition -87
+UnderlineThickness 58
+Version Version 2.43
+Notice Typeface and data © 1996 Microsoft Corporation. All Rights Reserved
+EncodingScheme FontSpecific
+Ascender 1005
+Descender -209
+
+StartCharMetrics 46
+ C 11 ; WX 635 ; N cedilla ; B 172 -206 429 9 ;
+ C 12 ; WX 635 ; N ogonek ; B 202 -203 435 4 ;
+ C 13 ; WX 268 ; N quotesinglbase ; B -4 -134 194 138 ;
+ C 18 ; WX 458 ; N quotedblbase ; B -4 -134 390 138 ;
+ C 36 ; WX 635 ; N dollar ; B 75 -176 566 769 ;
+ C 39 ; WX 268 ; N quotesingle ; B 80 477 188 759 ;
+ C 44 ; WX 363 ; N comma ; B 71 -180 280 139 ;
+ C 46 ; WX 363 ; N period ; B 123 0 240 139 ;
+ C 47 ; WX 361 ; N fraction ; B -49 0 411 727 ;
+ C 61 ; WX 818 ; N minus ; B 107 279 710 357 ;
+ C 87 ; WX 818 ; N Omega ; B 52 0 765 742 ;
+ C 132 ; WX 635 ; N dagger ; B 91 65 544 759 ;
+ C 133 ; WX 635 ; N daggerdbl ; B 91 60 544 759 ;
+ C 135 ; WX 1521 ; N perthousand ; B 72 -14 1446 740 ;
+ C 136 ; WX 545 ; N bullet ; B 90 141 455 505 ;
+ C 140 ; WX 635 ; N florin ; B -17 -98 625 741 ;
+ C 150 ; WX 623 ; N dong ; B 52 -157 622 759 ;
+ C 151 ; WX 976 ; N trademark ; B 83 383 867 727 ;
+ C 157 ; WX 717 ; N estimated ; B 86 -12 633 649 ;
+ C 158 ; WX 354 ; N openbullet ; B 54 208 299 453 ;
+ C 162 ; WX 635 ; N cent ; B 77 -176 546 720 ;
+ C 163 ; WX 635 ; N sterling ; B 66 0 567 741 ;
+ C 164 ; WX 635 ; N currency ; B 67 70 570 574 ;
+ C 165 ; WX 635 ; N yen ; B 52 0 581 727 ;
+ C 166 ; WX 454 ; N brokenbar ; B 184 -191 269 759 ;
+ C 167 ; WX 635 ; N section ; B 83 -187 550 741 ;
+ C 169 ; WX 1000 ; N copyright ; B 77 -102 922 742 ;
+ C 170 ; WX 545 ; N ordfeminine ; B 73 259 460 742 ;
+ C 172 ; WX 818 ; N logicalnot ; B 102 27 710 372 ;
+ C 174 ; WX 1000 ; N registered ; B 77 -102 922 742 ;
+ C 176 ; WX 541 ; N degree ; B 75 349 466 740 ;
+ C 177 ; WX 818 ; N plusminus ; B 104 87 713 713 ;
+ C 178 ; WX 541 ; N twosuperior ; B 101 276 472 741 ;
+ C 179 ; WX 541 ; N threesuperior ; B 101 257 466 742 ;
+ C 181 ; WX 639 ; N mu ; B 90 -201 549 545 ;
+ C 182 ; WX 635 ; N paragraph ; B 66 -177 540 727 ;
+ C 183 ; WX 363 ; N periodcentered ; B 123 249 240 387 ;
+ C 185 ; WX 541 ; N onesuperior ; B 142 276 446 729 ;
+ C 186 ; WX 545 ; N ordmasculine ; B 59 259 486 742 ;
+ C 187 ; WX 818 ; N radical ; B 65 -73 848 873 ;
+ C 188 ; WX 1000 ; N onequarter ; B 83 0 906 729 ;
+ C 189 ; WX 1000 ; N onehalf ; B 83 0 954 729 ;
+ C 190 ; WX 1000 ; N threequarters ; B 68 0 934 740 ;
+ C 191 ; WX 635 ; N Euro ; B 0 -13 598 740 ;
+ C 214 ; WX 818 ; N multiply ; B 142 51 676 585 ;
+ C 246 ; WX 818 ; N divide ; B 102 3 715 633 ;
+EndCharMetrics
+
+StartKernData
+StartKernPairs 1
+ KPX period comma -63
+EndKernPairs
+EndKernData
+EndFontMetrics

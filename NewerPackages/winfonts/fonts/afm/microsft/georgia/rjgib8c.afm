@@ -1,0 +1,71 @@
+StartFontMetrics 2.0
+Comment Reencoded at Sat Jan 21 21:10:23 2006 by afm2afm from georgiab.afm
+FontName Georgia-Bold
+FullName Georgia Bold
+FamilyName Georgia
+Weight Bold
+ItalicAngle 0
+IsFixedPitch false
+FontBBox -190 -216 1295 912
+UnderlinePosition -87
+UnderlineThickness 59
+Version Version 2.10
+Notice Typeface and data copyright 1996 Microsoft Corporation. All Rights Reserved.
+EncodingScheme FontSpecific
+Ascender 916
+Descender -219
+
+StartCharMetrics 46
+ C 11 ; WX 500 ; N cedilla ; B 138 -216 355 8 ;
+ C 12 ; WX 500 ; N ogonek ; B 142 -216 343 19 ;
+ C 13 ; WX 268 ; N quotesinglbase ; B 31 -183 227 159 ;
+ C 18 ; WX 519 ; N quotedblbase ; B 36 -183 472 159 ;
+ C 36 ; WX 640 ; N dollar ; B 51 -145 589 744 ;
+ C 39 ; WX 269 ; N quotesingle ; B 53 401 215 746 ;
+ C 44 ; WX 328 ; N comma ; B 66 -189 263 166 ;
+ C 46 ; WX 328 ; N period ; B 67 -14 260 177 ;
+ C 47 ; WX 94 ; N fraction ; B -190 0 285 697 ;
+ C 61 ; WX 703 ; N minus ; B 80 240 622 320 ;
+ C 87 ; WX 874 ; N Omega ; B 0 0 874 711 ;
+ C 132 ; WX 481 ; N dagger ; B 47 92 434 710 ;
+ C 133 ; WX 481 ; N daggerdbl ; B 47 84 434 710 ;
+ C 135 ; WX 1308 ; N perthousand ; B 44 -17 1263 712 ;
+ C 136 ; WX 437 ; N bullet ; B 62 141 374 453 ;
+ C 140 ; WX 579 ; N florin ; B -102 -180 579 639 ;
+ C 146 ; WX 689 ; N lira ; B 60 0 632 712 ;
+ C 151 ; WX 947 ; N trademark ; B 47 357 916 692 ;
+ C 157 ; WX 649 ; N estimated ; B 53 -15 610 594 ;
+ C 158 ; WX 354 ; N openbullet ; B 54 208 299 453 ;
+ C 162 ; WX 605 ; N cent ; B 63 -145 574 623 ;
+ C 163 ; WX 689 ; N sterling ; B 60 0 632 712 ;
+ C 164 ; WX 703 ; N currency ; B 94 20 607 537 ;
+ C 165 ; WX 732 ; N yen ; B -7 0 743 692 ;
+ C 166 ; WX 387 ; N brokenbar ; B 152 -207 235 743 ;
+ C 167 ; WX 563 ; N section ; B 59 -113 504 709 ;
+ C 169 ; WX 941 ; N copyright ; B 39 -137 902 725 ;
+ C 170 ; WX 551 ; N ordfeminine ; B 63 296 515 711 ;
+ C 172 ; WX 703 ; N logicalnot ; B 80 24 618 334 ;
+ C 174 ; WX 941 ; N registered ; B 39 -137 902 725 ;
+ C 176 ; WX 419 ; N degree ; B 41 389 377 712 ;
+ C 177 ; WX 703 ; N plusminus ; B 80 0 622 583 ;
+ C 178 ; WX 551 ; N twosuperior ; B 86 239 488 711 ;
+ C 179 ; WX 551 ; N threesuperior ; B 70 220 477 711 ;
+ C 181 ; WX 669 ; N mu ; B 53 -216 663 484 ;
+ C 182 ; WX 548 ; N paragraph ; B 41 -105 524 692 ;
+ C 183 ; WX 337 ; N periodcentered ; B 72 171 265 362 ;
+ C 185 ; WX 551 ; N onesuperior ; B 134 239 441 707 ;
+ C 186 ; WX 551 ; N ordmasculine ; B 43 295 507 711 ;
+ C 187 ; WX 716 ; N radical ; B 20 -61 759 842 ;
+ C 188 ; WX 1071 ; N onequarter ; B 70 -9 1009 707 ;
+ C 189 ; WX 1071 ; N onehalf ; B 70 0 1033 707 ;
+ C 190 ; WX 1071 ; N threequarters ; B 56 -9 1031 711 ;
+ C 191 ; WX 715 ; N Euro ; B 0 -18 702 711 ;
+ C 214 ; WX 703 ; N multiply ; B 107 37 594 523 ;
+ C 246 ; WX 703 ; N divide ; B 80 0 622 561 ;
+EndCharMetrics
+
+StartKernData
+StartKernPairs 0
+ EndKernPairs
+EndKernData
+EndFontMetrics

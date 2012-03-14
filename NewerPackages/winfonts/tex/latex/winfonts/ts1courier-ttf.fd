@@ -1,0 +1,22 @@
+%Filename: ts1courier-ttf.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{ts1courier-ttf.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for TS1/courier-ttf.]
+
+\DeclareFontFamily{TS1}{courier-ttf}{}
+
+\DeclareFontShape{TS1}{courier-ttf}{m}{n}{
+   <-> mcrr8c
+}{}
+
+\DeclareFontShape{TS1}{courier-ttf}{b}{n}{
+   <-> mcrb8c
+}{}
+
+\DeclareFontShape{TS1}{courier-ttf}{bx}{n}{<->ssub * courier-ttf/b/n}{}
+
+\endinput

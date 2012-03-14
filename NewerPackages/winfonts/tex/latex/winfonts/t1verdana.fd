@@ -1,0 +1,34 @@
+%Filename: t1verdana.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1verdana.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/verdana.]
+
+\DeclareFontFamily{T1}{verdana}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{verdana}{m}{n}{
+   <-> jvnr8t
+}{}
+
+\DeclareFontShape{T1}{verdana}{m}{it}{
+   <-> jvnri8t
+}{}
+
+\DeclareFontShape{T1}{verdana}{b}{n}{
+   <-> jvnb8t
+}{}
+
+\DeclareFontShape{T1}{verdana}{b}{it}{
+   <-> jvnbi8t
+}{}
+
+\DeclareFontShape{T1}{verdana}{m}{sl}{<->ssub * verdana/m/it}{}
+\DeclareFontShape{T1}{verdana}{bx}{n}{<->ssub * verdana/b/n}{}
+\DeclareFontShape{T1}{verdana}{bx}{it}{<->ssub * verdana/b/it}{}
+\DeclareFontShape{T1}{verdana}{b}{sl}{<->ssub * verdana/b/it}{}
+\DeclareFontShape{T1}{verdana}{bx}{sl}{<->ssub * verdana/b/sl}{}
+
+\endinput

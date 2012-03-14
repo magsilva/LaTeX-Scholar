@@ -1,0 +1,22 @@
+%Filename: t1courier-ttf.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1courier-ttf.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/courier-ttf.]
+
+\DeclareFontFamily{T1}{courier-ttf}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{courier-ttf}{m}{n}{
+   <-> mcrr8t
+}{}
+
+\DeclareFontShape{T1}{courier-ttf}{b}{n}{
+   <-> mcrb8t
+}{}
+
+\DeclareFontShape{T1}{courier-ttf}{bx}{n}{<->ssub * courier-ttf/b/n}{}
+
+\endinput

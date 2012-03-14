@@ -1,0 +1,34 @@
+%Filename: t1georgia.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1georgia.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/georgia.]
+
+\DeclareFontFamily{T1}{georgia}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{georgia}{m}{n}{
+   <-> jgir8t
+}{}
+
+\DeclareFontShape{T1}{georgia}{m}{it}{
+   <-> jgiri8t
+}{}
+
+\DeclareFontShape{T1}{georgia}{b}{n}{
+   <-> jgib8t
+}{}
+
+\DeclareFontShape{T1}{georgia}{b}{it}{
+   <-> jgibi8t
+}{}
+
+\DeclareFontShape{T1}{georgia}{m}{sl}{<->ssub * georgia/m/it}{}
+\DeclareFontShape{T1}{georgia}{bx}{n}{<->ssub * georgia/b/n}{}
+\DeclareFontShape{T1}{georgia}{bx}{it}{<->ssub * georgia/b/it}{}
+\DeclareFontShape{T1}{georgia}{b}{sl}{<->ssub * georgia/b/it}{}
+\DeclareFontShape{T1}{georgia}{bx}{sl}{<->ssub * georgia/b/sl}{}
+
+\endinput

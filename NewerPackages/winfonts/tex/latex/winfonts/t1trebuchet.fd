@@ -1,0 +1,34 @@
+%Filename: t1trebuchet.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1trebuchet.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/trebuchet.]
+
+\DeclareFontFamily{T1}{trebuchet}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{trebuchet}{m}{n}{
+   <-> jtrr8t
+}{}
+
+\DeclareFontShape{T1}{trebuchet}{m}{it}{
+   <-> jtrri8t
+}{}
+
+\DeclareFontShape{T1}{trebuchet}{b}{n}{
+   <-> jtrb8t
+}{}
+
+\DeclareFontShape{T1}{trebuchet}{b}{it}{
+   <-> jtrbi8t
+}{}
+
+\DeclareFontShape{T1}{trebuchet}{m}{sl}{<->ssub * trebuchet/m/it}{}
+\DeclareFontShape{T1}{trebuchet}{bx}{n}{<->ssub * trebuchet/b/n}{}
+\DeclareFontShape{T1}{trebuchet}{bx}{it}{<->ssub * trebuchet/b/it}{}
+\DeclareFontShape{T1}{trebuchet}{b}{sl}{<->ssub * trebuchet/b/it}{}
+\DeclareFontShape{T1}{trebuchet}{bx}{sl}{<->ssub * trebuchet/b/sl}{}
+
+\endinput

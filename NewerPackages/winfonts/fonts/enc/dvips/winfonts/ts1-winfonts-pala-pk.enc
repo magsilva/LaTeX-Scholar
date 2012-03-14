@@ -1,0 +1,82 @@
+/ts1-winfonts-pala [
+% 0x0000
+ /capitalgrave /capitalacute /capitalcircumflex /capitaltilde
+ /capitaldieresis /capitalhungarumlaut /capitalring /capitalcaron
+ /capitalbreve /capitalmacron /capitaldotaccent /.g581
+ /.g585 /.g517 /.notdef /.notdef
+% 0x0010
+ /.notdef /.notdef /.g494 /.notdef
+ /.notdef /twelveudash /threequartersemdash /capitalcompwordmark
+ /arrowleft /arrowright /tieaccentlowercase /tieaccentcapital
+ /newtieaccentlowercase /newtieaccentcapital /.notdef /ascendercompwordmark
+% 0x0020
+ /blank /.notdef /.notdef /.notdef
+ /.g478 /.notdef /.notdef /.g519
+ /.notdef /.notdef /asteriskcentered /.notdef
+ /.g496 /hyphendbl /.g495 /.g552
+% 0x0030
+ /zerooldstyle /oneoldstyle /twooldstyle /threeoldstyle
+ /fouroldstyle /fiveoldstyle /sixoldstyle /sevenoldstyle
+ /eightoldstyle /nineoldstyle /.notdef /.notdef
+ /angbracketleft /.g442 /angbracketright /.notdef
+% 0x0040
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /Omegainv /.notdef /bigcircle
+% 0x0050
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.g461
+ /.notdef /.notdef /.notdef /openbracketleft
+ /.notdef /openbracketright /arrowup /arrowdown
+% 0x0060
+ /asciigrave /.notdef /born /divorced
+ /died /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /leaf /married /musicalnote /.notdef
+% 0x0070
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /tildelow /hyphendblchar
+% 0x0080
+ /asciibreve /asciicaron /asciiacutedbl /asciigravedbl
+ /.g533 /.g534 /bardbl /.g407
+ /.g522 /centigrade /dollaroldstyle /centoldstyle
+ /.g484 /.g485 /won /naira
+% 0x0090
+ /guarani /peso /.g481 /recipe
+ /interrobang /interrobangdown /.g1096 /.g540
+ /pertenthousand /pilcrow /baht /.g769
+ /discount /.g537 /.g548 /servicemark
+% 0x00a0
+ /quillbracketleft /quillbracketright /.g483 /.g481
+ /.g473 /.g477 /.g555 /.g535
+ /asciidieresis /.g538 /.g310 /copyleft
+ /.g465 /circledP /.g539 /asciimacron
+% 0x00b0
+ /.g474 /.g441 /.g374 /.g375
+ /asciiacute /.g912 /.g530 /.g521
+ /referencemark /.g373 /.g311 /.g454
+ /.g412 /.g409 /.g413 /.g487
+% 0x00c0
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+% 0x00d0
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.g444 /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+% 0x00e0
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+% 0x00f0
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.g443 /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+ /.notdef /.notdef /.notdef /.notdef
+] def

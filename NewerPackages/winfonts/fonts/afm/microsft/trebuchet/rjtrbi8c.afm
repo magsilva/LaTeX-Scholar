@@ -1,0 +1,70 @@
+StartFontMetrics 2.0
+Comment Reencoded at Sat Jan 21 21:10:37 2006 by afm2afm from trebucbi.afm
+FontName Trebuchet-BoldItalic
+FullName Trebuchet MS Bold Italic
+FamilyName Trebuchet MS
+Weight Bold
+ItalicAngle -10
+IsFixedPitch false
+FontBBox -107 -269 1155 965
+UnderlinePosition -127
+UnderlineThickness 97
+Version Version 1.22
+Notice Copyright (c) 1996 Microsoft Corporation. All rights reserved.
+EncodingScheme FontSpecific
+Ascender 938
+Descender -222
+
+StartCharMetrics 45
+ C 11 ; WX 585 ; N cedilla ; B 165 -222 364 -20 ;
+ C 12 ; WX 585 ; N ogonek ; B 163 -182 394 82 ;
+ C 13 ; WX 367 ; N quotesinglbase ; B 43 -179 238 135 ;
+ C 18 ; WX 585 ; N quotedblbase ; B 54 -179 473 135 ;
+ C 36 ; WX 585 ; N dollar ; B 72 -88 539 823 ;
+ C 39 ; WX 301 ; N quotesingle ; B 134 530 286 716 ;
+ C 44 ; WX 367 ; N comma ; B 73 -202 268 145 ;
+ C 46 ; WX 367 ; N period ; B 99 -9 254 145 ;
+ C 47 ; WX 585 ; N fraction ; B 33 -17 555 728 ;
+ C 61 ; WX 585 ; N minus ; B 80 261 518 359 ;
+ C 87 ; WX 668 ; N Omega ; B -20 0 671 728 ;
+ C 132 ; WX 458 ; N dagger ; B 39 -172 500 676 ;
+ C 133 ; WX 458 ; N daggerdbl ; B -17 -176 500 676 ;
+ C 135 ; WX 1042 ; N perthousand ; B 21 -9 1008 728 ;
+ C 136 ; WX 524 ; N bullet ; B 123 139 405 421 ;
+ C 140 ; WX 585 ; N florin ; B 86 -205 595 737 ;
+ C 151 ; WX 644 ; N trademark ; B 59 358 675 718 ;
+ C 157 ; WX 549 ; N estimated ; B 29 -9 519 532 ;
+ C 158 ; WX 354 ; N openbullet ; B 54 208 299 453 ;
+ C 162 ; WX 585 ; N cent ; B 93 -74 495 594 ;
+ C 163 ; WX 585 ; N sterling ; B -4 -41 566 722 ;
+ C 164 ; WX 585 ; N currency ; B 33 99 543 609 ;
+ C 165 ; WX 585 ; N yen ; B 69 0 677 715 ;
+ C 166 ; WX 585 ; N brokenbar ; B 246 -205 346 737 ;
+ C 167 ; WX 585 ; N section ; B 49 -11 518 727 ;
+ C 169 ; WX 712 ; N copyright ; B 36 -21 724 666 ;
+ C 170 ; WX 427 ; N ordfeminine ; B 89 348 407 728 ;
+ C 172 ; WX 585 ; N logicalnot ; B 80 200 518 471 ;
+ C 174 ; WX 712 ; N registered ; B 36 -21 724 666 ;
+ C 176 ; WX 585 ; N degree ; B 154 523 395 728 ;
+ C 177 ; WX 585 ; N plusminus ; B 80 0 518 526 ;
+ C 178 ; WX 464 ; N twosuperior ; B 138 276 427 728 ;
+ C 179 ; WX 463 ; N threesuperior ; B 119 269 418 728 ;
+ C 181 ; WX 557 ; N mu ; B -35 -205 550 522 ;
+ C 182 ; WX 585 ; N paragraph ; B 82 -122 574 727 ;
+ C 183 ; WX 367 ; N periodcentered ; B 118 258 264 405 ;
+ C 185 ; WX 478 ; N onesuperior ; B 227 275 407 721 ;
+ C 186 ; WX 433 ; N ordmasculine ; B 112 348 435 728 ;
+ C 187 ; WX 585 ; N radical ; B -4 0 592 718 ;
+ C 188 ; WX 876 ; N onequarter ; B 112 -17 804 728 ;
+ C 189 ; WX 876 ; N onehalf ; B 104 -17 797 728 ;
+ C 190 ; WX 876 ; N threequarters ; B 64 -17 804 728 ;
+ C 191 ; WX 585 ; N Euro ; B 19 -12 576 727 ;
+ C 214 ; WX 585 ; N multiply ; B 74 83 525 532 ;
+ C 246 ; WX 585 ; N divide ; B 80 38 518 571 ;
+EndCharMetrics
+
+StartKernData
+StartKernPairs 0
+ EndKernPairs
+EndKernData
+EndFontMetrics

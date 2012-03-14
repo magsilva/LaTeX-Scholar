@@ -1,0 +1,75 @@
+StartFontMetrics 2.0
+Comment Reencoded at Sat Jan 21 21:10:16 2006 by afm2afm from cour.afm
+FontName CourierNewPSMT
+FullName Courier New
+FamilyName Courier New
+Weight Normal
+ItalicAngle 0
+IsFixedPitch true
+FontBBox -21 -679 637 1020
+UnderlinePosition -232
+UnderlineThickness 41
+Version Version 2.90
+Notice Typeface © The Monotype Corporation plc. Data © The Monotype Corporation plc/Type Solutions Inc. 1990-1994. All Rights Reserved
+EncodingScheme FontSpecific
+Ascender 832
+Descender -300
+
+StartCharMetrics 50
+ C 11 ; WX 600 ; N cedilla ; B 215 -162 373 14 ;
+ C 12 ; WX 600 ; N ogonek ; B 228 -143 372 13 ;
+ C 13 ; WX 600 ; N quotesinglbase ; B 0 -158 206 135 ;
+ C 18 ; WX 600 ; N quotedblbase ; B 0 -126 405 125 ;
+ C 24 ; WX 600 ; N arrowleft ; B 0 49 599 277 ;
+ C 25 ; WX 600 ; N arrowright ; B 0 49 599 277 ;
+ C 36 ; WX 600 ; N dollar ; B 111 -93 488 664 ;
+ C 39 ; WX 600 ; N quotesingle ; B 234 319 364 612 ;
+ C 44 ; WX 600 ; N comma ; B 145 -146 352 147 ;
+ C 46 ; WX 600 ; N period ; B 225 -14 375 117 ;
+ C 47 ; WX 600 ; N fraction ; B 50 141 550 477 ;
+ C 61 ; WX 600 ; N minus ; B 70 265 529 306 ;
+ C 87 ; WX 600 ; N Omega ; B 29 0 570 584 ;
+ C 94 ; WX 600 ; N arrowup ; B 186 -135 413 423 ;
+ C 95 ; WX 600 ; N arrowdown ; B 186 -135 413 423 ;
+ C 110 ; WX 600 ; N musicalnote ; B 132 14 439 562 ;
+ C 132 ; WX 600 ; N dagger ; B 123 -63 477 612 ;
+ C 133 ; WX 600 ; N daggerdbl ; B 122 -63 477 612 ;
+ C 135 ; WX 600 ; N perthousand ; B 29 -10 567 624 ;
+ C 136 ; WX 600 ; N bullet ; B 179 189 420 431 ;
+ C 140 ; WX 600 ; N florin ; B 86 -94 518 628 ;
+ C 151 ; WX 600 ; N trademark ; B 1 296 598 571 ;
+ C 157 ; WX 600 ; N estimated ; B 43 -16 560 535 ;
+ C 158 ; WX 600 ; N openbullet ; B 179 189 420 431 ;
+ C 162 ; WX 600 ; N cent ; B 111 0 470 652 ;
+ C 163 ; WX 600 ; N sterling ; B 60 0 522 586 ;
+ C 164 ; WX 600 ; N currency ; B 100 97 499 495 ;
+ C 165 ; WX 600 ; N yen ; B 47 0 550 571 ;
+ C 166 ; WX 600 ; N brokenbar ; B 279 -126 320 612 ;
+ C 167 ; WX 600 ; N section ; B 69 -63 529 612 ;
+ C 169 ; WX 600 ; N copyright ; B 0 -13 597 583 ;
+ C 170 ; WX 600 ; N ordfeminine ; B 0 354 319 640 ;
+ C 172 ; WX 600 ; N logicalnot ; B 11 32 529 306 ;
+ C 174 ; WX 600 ; N registered ; B 0 -13 597 583 ;
+ C 176 ; WX 600 ; N degree ; B 164 457 435 728 ;
+ C 177 ; WX 600 ; N plusminus ; B 70 0 529 602 ;
+ C 178 ; WX 600 ; N twosuperior ; B 166 300 412 627 ;
+ C 179 ; WX 600 ; N threesuperior ; B 173 293 424 627 ;
+ C 181 ; WX 600 ; N mu ; B 41 -188 556 422 ;
+ C 182 ; WX 600 ; N paragraph ; B 83 -63 520 612 ;
+ C 183 ; WX 600 ; N periodcentered ; B 225 244 375 376 ;
+ C 185 ; WX 600 ; N onesuperior ; B 182 300 416 625 ;
+ C 186 ; WX 600 ; N ordmasculine ; B 143 354 454 640 ;
+ C 187 ; WX 600 ; N radical ; B 66 -38 554 782 ;
+ C 188 ; WX 600 ; N onequarter ; B 0 0 594 625 ;
+ C 189 ; WX 600 ; N onehalf ; B 0 0 606 625 ;
+ C 190 ; WX 600 ; N threequarters ; B 0 0 592 627 ;
+ C 191 ; WX 600 ; N Euro ; B 3 -16 538 584 ;
+ C 214 ; WX 600 ; N multiply ; B 131 116 468 454 ;
+ C 246 ; WX 600 ; N divide ; B 70 54 529 517 ;
+EndCharMetrics
+
+StartKernData
+StartKernPairs 0
+ EndKernPairs
+EndKernData
+EndFontMetrics

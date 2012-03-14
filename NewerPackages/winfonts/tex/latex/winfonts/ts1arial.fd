@@ -1,0 +1,38 @@
+%Filename: ts1arial.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{ts1arial.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for TS1/arial.]
+
+\DeclareFontFamily{TS1}{arial}{}
+
+\DeclareFontShape{TS1}{arial}{m}{n}{
+   <-> malr8c
+}{}
+
+\DeclareFontShape{TS1}{arial}{m}{it}{
+   <-> malri8c
+}{}
+
+\DeclareFontShape{TS1}{arial}{b}{n}{
+   <-> malb8c
+}{}
+
+\DeclareFontShape{TS1}{arial}{b}{it}{
+   <-> malbi8c
+}{}
+
+\DeclareFontShape{TS1}{arial}{c}{n}{
+   <-> malbi8c
+}{}
+
+\DeclareFontShape{TS1}{arial}{m}{sl}{<->ssub * arial/m/it}{}
+\DeclareFontShape{TS1}{arial}{bx}{n}{<->ssub * arial/b/n}{}
+\DeclareFontShape{TS1}{arial}{bx}{it}{<->ssub * arial/b/it}{}
+\DeclareFontShape{TS1}{arial}{b}{sl}{<->ssub * arial/b/it}{}
+\DeclareFontShape{TS1}{arial}{bx}{sl}{<->ssub * arial/b/sl}{}
+
+\endinput

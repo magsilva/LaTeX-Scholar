@@ -1,0 +1,82 @@
+/T1Encoding-pala [
+% 0x0000
+ /index573 /index572 /index574 /index576
+ /index575 /index583 /index579 /index577
+ /index578 /index584 /index582 /index581
+ /index585 /index517 /index523 /index524
+% 0x0010
+ /index515 /index516 /index494 /index525
+ /index526 /index558 /index559 /cwm
+ /index407 /index205 /dotlessj /index283
+ /index281 /index282 /index284 /index285
+% 0x0020
+ /index561 /index503 /index520 /index475
+ /index478 /index406 /index493 /index514
+ /index507 /index508 /index536 /index440
+ /index496 /index556 /index495 /index550
+% 0x0030
+ /index352 /index353 /index354 /index355
+ /index356 /index357 /index358 /index359
+ /index360 /index361 /index497 /index498
+ /index448 /index445 /index449 /index501
+% 0x0040
+ /index531 /index3 /index4 /index5
+ /index6 /index7 /index8 /index9
+ /index10 /index11 /index12 /index13
+ /index14 /index15 /index16 /index17
+% 0x0050
+ /index18 /index19 /index20 /index21
+ /index22 /index23 /index24 /index25
+ /index26 /index27 /index28 /index509
+ /index551 /index510 /index452 /index527
+% 0x0060
+ /index513 /index138 /index139 /index140
+ /index141 /index142 /index143 /index144
+ /index145 /index146 /index147 /index148
+ /index149 /index150 /index151 /index152
+% 0x0070
+ /index153 /index154 /index155 /index156
+ /index157 /index158 /index159 /index160
+ /index161 /index162 /index163 /index511
+ /index553 /index512 /index453 /index556
+% 0x0080
+ /index34 /index38 /index41 /index43
+ /index46 /index53 /index57 /index60
+ /index77 /index79 /index82 /index83
+ /index85 /index135 /index94 /index99
+% 0x0090
+ /index100 /index103 /index105 /index107
+ /index109 /index108 /index120 /index119
+ /index130 /index131 /index132 /index133
+ /index275 /index71 /index182 /index535
+% 0x00a0
+ /index169 /index173 /index176 /index178
+ /index181 /index187 /index191 /index194
+ /index212 /index214 /index217 /index218
+ /index220 /index270 /index230 /index235
+% 0x00b0
+ /index236 /index239 /index241 /index243
+ /index245 /index244 /index255 /index254
+ /index265 /index266 /index267 /index268
+ /index295 /index504 /index502 /index481
+% 0x00c0
+ /index30 /index29 /index31 /index33
+ /index32 /index35 /index39 /index44
+ /index50 /index49 /index51 /index52
+ /index66 /index65 /index67 /index68
+% 0x00d0
+ /index48 /index84 /index89 /index88
+ /index90 /index92 /index91 /index98
+ /index96 /index114 /index113 /index115
+ /index116 /index127 /index137 /SS
+% 0x00e0
+ /index165 /index164 /index166 /index168
+ /index167 /index170 /index174 /index179
+ /index184 /index183 /index185 /index186
+ /index200 /index199 /index201 /index202
+% 0x00f0
+ /index272 /index219 /index225 /index224
+ /index226 /index228 /index227 /index234
+ /index232 /index249 /index248 /index250
+ /index251 /index262 /index271 /index273
+] def

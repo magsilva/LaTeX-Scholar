@@ -1,0 +1,17 @@
+%Filename: t1impact.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1impact.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/impact.]
+
+\DeclareFontFamily{T1}{impact}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{impact}{m}{n}{
+   <-> micr8t
+}{}
+
+
+\endinput

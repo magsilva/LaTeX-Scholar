@@ -1,0 +1,22 @@
+%Filename: t1comicsans.fd
+%Created by: tex winfonts
+%Created using fontinst v1.926
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{t1comicsans.fd}
+   [2006/01/21 Fontinst v1.926 font definitions for T1/comicsans.]
+
+\DeclareFontFamily{T1}{comicsans}{\hyphenchar \font ="7F}
+
+\DeclareFontShape{T1}{comicsans}{m}{n}{
+   <-> jo5r8t
+}{}
+
+\DeclareFontShape{T1}{comicsans}{b}{n}{
+   <-> jo5b8t
+}{}
+
+\DeclareFontShape{T1}{comicsans}{bx}{n}{<->ssub * comicsans/b/n}{}
+
+\endinput

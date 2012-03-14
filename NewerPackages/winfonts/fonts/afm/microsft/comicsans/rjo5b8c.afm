@@ -1,0 +1,70 @@
+StartFontMetrics 2.0
+Comment Reencoded at Sat Jan 21 21:10:16 2006 by afm2afm from comicbd.afm
+FontName ComicSansMS-Bold
+FullName Comic Sans MS Bold
+FamilyName Comic Sans MS
+Weight Bold
+ItalicAngle 0
+IsFixedPitch false
+FontBBox -111 -291 1229 1102
+UnderlinePosition -132
+UnderlineThickness 85
+Version Version 2.10
+Notice Copyright (c) 1995 Microsoft Corporation. All rights reserved.
+EncodingScheme FontSpecific
+Ascender 1102
+Descender -291
+
+StartCharMetrics 45
+ C 11 ; WX 556 ; N cedilla ; B 159 -217 441 56 ;
+ C 12 ; WX 556 ; N ogonek ; B 125 -167 420 83 ;
+ C 13 ; WX 433 ; N quotesinglbase ; B 105 -167 291 69 ;
+ C 18 ; WX 429 ; N quotedblbase ; B 27 -167 408 69 ;
+ C 36 ; WX 693 ; N dollar ; B 47 -188 643 837 ;
+ C 39 ; WX 433 ; N quotesingle ; B 146 453 280 773 ;
+ C 44 ; WX 433 ; N comma ; B 105 -167 291 69 ;
+ C 46 ; WX 433 ; N period ; B 134 -50 294 82 ;
+ C 47 ; WX 811 ; N fraction ; B -6 -26 801 830 ;
+ C 61 ; WX 610 ; N minus ; B 50 247 550 381 ;
+ C 87 ; WX 959 ; N Omega ; B 12 -68 947 795 ;
+ C 132 ; WX 610 ; N dagger ; B 12 -101 591 828 ;
+ C 133 ; WX 596 ; N daggerdbl ; B 8 -101 588 828 ;
+ C 135 ; WX 1241 ; N perthousand ; B 52 -14 1176 801 ;
+ C 136 ; WX 610 ; N bullet ; B 175 272 410 468 ;
+ C 140 ; WX 588 ; N florin ; B -34 -176 614 762 ;
+ C 151 ; WX 882 ; N trademark ; B 18 413 871 785 ;
+ C 157 ; WX 549 ; N estimated ; B 29 -9 519 532 ;
+ C 158 ; WX 642 ; N openbullet ; B 174 50 457 332 ;
+ C 162 ; WX 610 ; N cent ; B 38 16 561 850 ;
+ C 163 ; WX 793 ; N sterling ; B -1 -73 731 786 ;
+ C 164 ; WX 610 ; N currency ; B 0 87 613 644 ;
+ C 165 ; WX 610 ; N yen ; B 23 -25 570 711 ;
+ C 166 ; WX 421 ; N brokenbar ; B 154 -176 279 835 ;
+ C 167 ; WX 634 ; N section ; B 37 -37 562 801 ;
+ C 169 ; WX 795 ; N copyright ; B 24 120 762 791 ;
+ C 170 ; WX 610 ; N ordfeminine ; B 64 435 500 821 ;
+ C 172 ; WX 610 ; N logicalnot ; B 74 91 536 394 ;
+ C 174 ; WX 795 ; N registered ; B 24 101 770 796 ;
+ C 176 ; WX 610 ; N degree ; B 107 475 487 820 ;
+ C 177 ; WX 610 ; N plusminus ; B 74 -62 536 510 ;
+ C 178 ; WX 610 ; N twosuperior ; B 145 440 479 853 ;
+ C 179 ; WX 610 ; N threesuperior ; B 154 405 453 840 ;
+ C 181 ; WX 520 ; N mu ; B 33 -204 494 520 ;
+ C 182 ; WX 760 ; N paragraph ; B 15 -95 701 809 ;
+ C 183 ; WX 610 ; N periodcentered ; B 221 283 381 416 ;
+ C 185 ; WX 610 ; N onesuperior ; B 155 418 465 841 ;
+ C 186 ; WX 610 ; N ordmasculine ; B 84 435 524 831 ;
+ C 187 ; WX 607 ; N radical ; B 4 -33 606 795 ;
+ C 188 ; WX 610 ; N onequarter ; B 38 -190 589 841 ;
+ C 189 ; WX 610 ; N onehalf ; B 31 -199 582 841 ;
+ C 190 ; WX 610 ; N threequarters ; B 31 -190 582 840 ;
+ C 191 ; WX 618 ; N Euro ; B -56 -11 606 743 ;
+ C 214 ; WX 610 ; N multiply ; B 97 109 519 498 ;
+ C 246 ; WX 610 ; N divide ; B 74 91 536 556 ;
+EndCharMetrics
+
+StartKernData
+StartKernPairs 0
+ EndKernPairs
+EndKernData
+EndFontMetrics
