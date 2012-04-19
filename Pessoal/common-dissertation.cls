@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{common-dissertation}[2007/03/23 Customized dissertation]
 
-\LoadClass{book}
+\LoadClassWithOptions{book}
 \RequirePackage{common-book}
 
 \RequirePackage{fancyhdr}
