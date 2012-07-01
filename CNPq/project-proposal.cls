@@ -14,7 +14,7 @@
 
 % Do no use uppercase for \bibname.
 \renewenvironment{thebibliography}[1]{
-	\section*{\mybibname}%
+	\section*{\bibname}%
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
 	}{
