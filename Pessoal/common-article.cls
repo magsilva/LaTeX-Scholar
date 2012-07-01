@@ -2,11 +2,11 @@
 \ProvidesClass{common-article}[2007/03/23 Common packages and settings]
 
 \DeclareOption{onecolumn}{
-	\PassOptionsToClass{12pt,onecolumn}{article}
+	\PassOptionsToClass{11pt,onecolumn}{article}
 }
 
 \DeclareOption{twocolumn}{
-	\PassOptionsToClass{11pt,twocolumn}{article}
+	\PassOptionsToClass{10pt,twocolumn}{article}
 }
 
 \DeclareOption{license}{
@@ -34,7 +34,7 @@
 
 % Do no use uppercase for \bibname.
 \renewenvironment{thebibliography}[1]{
-	\section*{\mybibname}%
+	\section*{\bibname}%
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
 	}{
