@@ -63,7 +63,7 @@
 
 \newcommand{\depositbox}{
 	\hspace{10.3cm}
-	\fbox{\begin{minipage}[t][2.6cm]{7.5cm}
+	\fbox{\begin{minipage}[t][2.85cm]{7.5cm}
 		\begin{center}
 			\vspace{0.15cm}
 			\begin{footnotesize}
@@ -74,6 +74,7 @@
 		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \depositdatename: \@depositfulldate \par}
 		\vspace{0.4cm}
 		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \signaturename: \rule{5cm}{.05mm} \par}
+		\vspace{0.20cm}
 	\end{minipage}}
 
 }
