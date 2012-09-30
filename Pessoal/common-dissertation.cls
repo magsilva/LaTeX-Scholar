@@ -121,7 +121,7 @@
 		\vspace{1.2cm}
 		{\fontfamily{times-ttf}\selectfont\fontsize{14pt}{17pt}\textbf{\@author} \par}
 		\vspace{2.4cm}
-		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\textbf{\textit{Orientador}: \@advisor} \par}
+		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\textbf{\textit{\advisorname}: \@advisor} \par}
 	\end{center}
 	\vspace{1.7cm}
 	\begin{flushright}
