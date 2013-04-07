@@ -32,8 +32,10 @@
 \RequirePackage{babel}
 \RequirePackage{datetime}
 
-% Select font encoding.
+% Select font encoding (and fix cut/paste for PDF documents).
 \RequirePackage[T1]{fontenc}
+\RequirePackage{cmap}
+\RequirePackage{mmap}
 
 % Enable UTF-8 support
 \RequirePackage[fasterrors,savemem,warnunknown]{ucs}

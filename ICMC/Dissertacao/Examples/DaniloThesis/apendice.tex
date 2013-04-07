@@ -1,0 +1,129 @@
+\noindent                                                                                                   
+        \begin{center}
+            \vspace*{26.75mm}
+                        {\bf \huge \sffamily Apêndice}
+			\vspace*{5.74mm}
+    			\hfill\rule{1.0\textwidth}{0.6pt}\\ \vspace*{-2.5mm}
+     			\hfill\rule{1.0\textwidth}{2.1pt}\\  
+            \vspace*{15mm}
+        \end{center}
+                                    
+\section*{Revisão Sistemática}
+
+Além da revisão bibliográfica tradicional, a revisão sistemática também foi empregada como metodologia de pesquisa científica. Definida por \citeonline{Biolchini2005} como uma metodologia específica de pesquisa, desenvolvida para unir e avaliar as evidências disponíveis a respeito de um determinado tópico, essa revisão difere da tradicional em alguns pontos.
+
+Enquanto a revisão tradicional é escrita por especialistas, onde os métodos de coleta e interpretação dos estudos são informais e subjetivos, criando uma tendência a citar seletivamente literaturas que reforçam noções preconcebidas, além de não possuir uma descrição da pesquisa, seleção e avaliação da qualidade dos estudos~\cite{Pai2004}. Na revisão sistemática, por sua vez, tem uma busca abrangente e exaustiva por estudos primários seguindo uma questão. Critérios de qua\-li\-fi\-ca\-ção são reproduzíveis e claros para a seleção de estudos, possuindo uma avaliação explícita, assim como o método, o qual é pré-determinado~\cite{Kitchenham2004}. Portanto, o objetivo de tal revisão é produzir uma síntese completa de trabalhos publicados sobre uma questão de pesquisa específica, utilizando um processo metodológico bem definido para guiar o procedimento de busca e análise de trabalhos~\cite{Biolchini2005}.
+
+Basicamente, a revisão sistemática inclui as tarefas de formulação, extração e análise dos resultados, representadas, respectivamente por:
+
+\begin{enumerate}
+ \item Planejamento da revisão: é identificada a necessidade de tal revisão e, posteriormente, desenvolve-se um protocolo de revisão. Divide-se em duas etapas:
+   \begin{itemize}
+   	\item Formulação da Questão 
+   	\item Seleção de Fontes
+	 \end{itemize}
+	\item Condução da Revisão: com as fontes definidas, a busca é realizada e os estudos obtidos são avaliados de acordo com os critérios criados. Divide-se em duas etapas;
+	 \begin{itemize}
+   	\item Seleção de estudos 
+   	\item Extração de informações 
+	 \end{itemize}
+	\item Análise dos Resultados: ocorre a sumarização e análise dos resultados, geralmente por meio de métodos estatísticos utilizando componentes como tabelas e/ou gráficos. 
+\end{enumerate}
+
+\subsection*{Planejamento da Revisão}
+
+O problema de pesquisa averiguado envolve o desafio associado a manipulação de arquivos multimídia, como os vídeos digitais, pois arquivos desse tipo possuem muitas informações associada a seu conteúdo. Mesmo com o desenvolvimento de técnicas para segmentação de vídeo de modo automático e semi-automático que visam facilitar a extração de informações e de seus conteúdos, ainda faz-se necessário melhorar tal segmentação, adicionando semântica a estas técnicas, possibilitando extração de informações de modo mais eficiente e facilitando a identificação de segmentos denominados cenas. Portanto, a principal questão da pesquisa é: ``Quais desafios das técnicas/modelos/métodos de segmentação de vídeo que faz uso de semântica?"
+
+Após várias iterações refinando o resultado da pesquisa, a {\it string} final de busca obtida foi:  \textit{``(video semantic ``shot clustering'' OR ``scene segmentation'' -survey) ou (video AND semantic AND (``shot clustering'' OR ``scene segmentation'' -survey))"}. Como fontes de pesquisa, foram utilizados sítios na Web que ofereçam serviços de buscas e conteúdos para trabalhos acadêmicos, tais como Google Acadêmico\footnote{http://scholar.google.com.br}, IEEE\footnote{http://www.ieee.org e http://ieeexplore.ieee.org}, ACM\footnote{portal.acm.org/dl.cfm}, Elsevier\footnote{www.elsevier.com} e Springer\footnote{www.springer.com}.
+
+\subsection*{Condução da Revisão}
+
+Os critérios adotados para a seleção dos trabalhos fazem referência às técnicas/abordagens utilizados no tema do trabalho em questão. Não criou-se critério de exclusão referente a data, incluindo, portanto, todos os trabalhos existentes na literatura. A exclusão de \textit{surveys} foi efetuada para não criar nenhuma pesquisa tendênciosa do ponto de visto de um grupo recluso de autores.
+
+O procedimento para a seleção dos trabalhos foi feito de acordo com a seguinte ordem:
+
+\begin{itemize}
+\item A {\it string} de busca foi inserida no sítio Google Acadêmico (\textit{Google Scholar}) utilizando sua ferramenta de busca avançada. Esse sítio tem como característica incluir a base de dados dos principais periódicos acadêmicos existentes, dentre eles ACM, IEEE, Elsevier e Springer.
+\item Os trabalhos selecionados foram armazenados em um programa de código aberto (do inglês, \textit{Open Source}) denominado JabRef \footnote{http://jabref.sourceforge.net/}, possibilitando a extração e importação de referências em formato de arquivo .bib, o qual facilita o processo de citação e referências no editor de texto \LaTeX\ .
+\item Efetuo-se uma pré-seleção dos trabalhos que tem como critério a análise dos títulos dos trabalhos.
+\item Selecionou-se pela leitura do resumo (do inglês, \textit{abstract}) e, se necessário, da conclusão.
+\item Realizou-se leitura total dos artigos para extrair dados quantitativos ao tema de pesquisa.
+\end{itemize}
+
+\subsection*{Análise dos Resultados}
+
+Foram selecionados, com as strings de busca formalizadas durante as etapas de planejamento e condução da revisão, 308 trabalhos da área relacionada ao tema. Na Figura \ref{fig:2} pode-se observar a quantidade de trabalhos obtidos considerando as fontes definida na pesquisa. Nessa figura fica evidente que a IEEE possui grande interesse nessa área de recuperação de informação audiovisual, visto que ele possui quase metade dos trabalhos analisados.
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics [scale=0.75]{./img/totalartigos.png}} 
+\caption{Distribuição do número de artigos por periódico}
+\label{fig:2}
+\end{figure}
+
+É possível observar na Figura \ref{fig:3} que mais da metade da produção de conteúdo científico nessa área ocorreu durante os últimos 4 anos, deixando evidente a relevância do tema na atualidade.
+
+\begin{figure}[h]
+\centering
+\includegraphics [scale=0.80]{./img/numxtempo.jpg} 
+\caption{Distribuição da quantidade de artigos pelo tempo}
+\label{fig:3}
+\end{figure} 
+
+A Figura \ref{fig:4} ilustra a produção de todas as fontes. Entretanto, observa-se que IEEE e Springer são os maiores contribuintes na contribuição da produção científica de trabalhos na área ao longo do tempo.
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics{./img/prodxtempo.png}}
+\caption{Porcentagem de produção no decorrer do tempo}
+\label{fig:4}
+\end{figure}
+
+Afim de refinar o número de trabalhos, deixando apenas os mais relevantes, foi utilizado o critério de exclusão por título, o qual consistia na leitura do título do artigo para certificar sua relevância com o tema. Nessa fase, foram excluídos 70 trabalhos, restando um total de 227. Para excluir os trabalhos, algumas palavras ou sentenças foram consideradas: \textsf{spatial segmentation, shot detection, region segmentation, object segmentation, shot boundary detection, face recognition, syntactical segmentation, video navigation}. Com esse resultado é possível inferir que a \textit{string} de busca foi bem definida, visto que retornou poucos trabalhos irrelevantes.
+
+Na etapa final, foram selecionados trabalhos que continham em seus resumos palavras como: \textsf{scene, semantics, high level information, clustering, retrieval, events, summarization, analysis}. Assim, do conjunto de 227 trabalhos, 88 foram selecionados (Figura \ref{fig:5}).   
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.80]{./img/88artigos.png}}
+\caption{Distribuição do número de artigos após fase de seleção por resumo}
+\label{fig:5}
+\end{figure}
+
+Continuando a demonstração dos resultados quantitativos, a Figura \ref{fig:6} evidencia que a pesquisa é realizada em cima de um tema muito procurado pela comunidade científica dos últimos 5 anos da data da pesquisa (09/2008). 
+
+\begin{figure}[h!]
+\centering
+\fbox{\includegraphics[scale=0.90]{./img/ano88artigos.png}}
+\caption{Distribuição da quantidade de artigos pelo tempo, após fase de seleção por resumo}
+\label{fig:6}
+\end{figure}
+
+Outros dados, além de datas e fontes, podem ser extraídos dos trabalhos selecionados a fim de definir os conceitos e técnicas importantes na análise. Gênero do vídeo avaliado, mídia(s) utilizadas na técnica e tecnologia empregada (se existir) são exemplos de dados que podem contribuir com a análise na obtenção dos resultados. A Figura \ref{fig:7} apresenta a quantidade e a descrição de todos os gêneros de vídeos (16 no total) avaliados nos trabalhos selecionados.
+
+\begin{figure}[h!]
+\centering  % figura centralizada
+\fbox{\includegraphics[scale=0.80]{./img/generos_de_videos.png}}
+\caption{Gêneros de vídeos identificados no processo de validação das técnicas}
+\label{fig:7}
+\end{figure}
+
+Como muitos desses trabalhos validavam a técnica em nenhum ou mais de um gênero, todos foram computados, de maneira que se aparecer um trabalho com três gêneros, cada um representa uma unidade no gráfico da Figura \ref{fig:7}. O interessante nessa figura é a pouca atenção que a área social proporciona (educação, saúde e segurança), além dos trabalhos exaustivos realizados em gêneros como filme, noticiário e esporte. 
+
+Outra característica importante são as mídias usadas pelas técnicas, cada autor adota uma metodologia de acordo com as mídias que pretende processar para extrair informação. A Figura \ref{fig:8} lustra que, apesar de ser o mais antigo método de extração de informação em vídeo, as características visuais ainda predominam quando o assunto é segmentação de cena. Merecem destaques também as técnicas que utilizam mais de um tipo de mídia, a qual teoricamente, tem um resultado melhor, mas torna-se mais complexo.  
+
+\begin{figure}[h!]
+\centering  % figura centralizada
+\fbox{\includegraphics[scale=0.85]{./img/midias_utilizadas.png}}
+\caption{Quais tipos de mídias foram extraídas em cada trabalho}
+\label{fig:8}
+\end{figure}
+
+Em cerca de quase 40\% dos trabalhos analisados a metodologia adotada foi a adoção de um formato de compressão, especificamente o MPEG. Outro formato de mídia extraído foi o Flash$^{\tiny TM}$ \footnote{http://www.macromedia.com/software/flash/about/}, o qual é um formato de mídia baseado em vetores mas que fornece macanismos que geram imagens em movimento (3 \%). Entretanto, os vídeos que não possuem compressão de dados são amplamente utilizados (Figura~\ref{fig:9}).       
+
+\begin{figure}[h!]
+\centering  % figura centralizada
+\fbox{\includegraphics [scale=0.80]{./img/compressao_dados.png}}
+\caption{Quantidade dos trabalhos que utilizam um formato de compressão(em \%)}
+\label{fig:9}
+\end{figure}                                

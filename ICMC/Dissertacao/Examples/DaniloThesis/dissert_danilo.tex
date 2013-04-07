@@ -1,0 +1,344 @@
+\documentclass[a4,12pt]{report}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage[dvips]{graphicx}
+%\usepackage{picture}
+\usepackage{fancyhdr} 
+\usepackage{subfigure}
+\usepackage[authoryear]{natbib}
+%\usepackage[alf]{abntcite}
+%\usepackage{natbib}  
+%\usepackage{bibentry}
+\usepackage{indentfirst}
+%\usepackage{longtable}
+\usepackage{supertabular} %tabelas...
+\usepackage{array}	%tabelas...
+\usepackage{enumerate}
+\usepackage{hhline}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{array}    % Uma implementação melhor do tabular
+\usepackage{booktabs} % Linhas horizontais para tabelas
+\usepackage{longtable}
+\usepackage{bbm}
+\usepackage{amsthm}
+\usepackage{rotating}
+\usepackage[final]{pdfpages}
+%\usepackage{chngpage}
+\newtheorem {defn}{Definição}
+%\usepackage{placeins}
+
+\newcommand{\citeonline}{\citet}
+\renewcommand{\cite}{\citep}
+
+%\citeoption{abnt-etal-cite=0}
+
+\geometry{a4paper,left=3cm,right=2cm,top=3.0cm,bottom=2.0cm}
+\usepackage[portugues,algochapter,lined,boxed]{algorithm2e}
+
+%------------------------------------------------------------------------------------------------------
+% Estilo dos capitulos
+\usepackage{colortbl}
+\usepackage{titlesec}
+\usepackage{textfit}
+\titleformat{\chapter}[display]
+    {\singlespacing % espaçamento simples entre linhas
+     %\hfill\rule{.8\textwidth}{1.8pt}\\ \vskip 0.1ex % linha superior
+     %\hfill\rule{.8\textwidth}{0.5pt}\\ \vskip 0.1ex % linha superior
+     \filleft \sffamily \huge}
+    {\begin{tabular}{|c|}
+        \rowcolor{black}
+        \hline \color{white} \large \textbf{\chaptername} \\
+        \vspace{-2ex} \\ %espaço entre o título e o número
+        \Huge \slshape \scaletoheight{1cm}{\thechapter} \\ \hline
+     \end{tabular}
+    }
+    {8pt}
+    {\huge \bfseries \centering}
+    [\hfill\rule{1.0\textwidth}{0.8pt}\\ \vskip -2.0ex  % linha inferior
+     \hfill\rule{1.0\textwidth}{2.2pt}\\ ] % linha inferior
+%------------------------------------------------------------------------------------------------------
+ 
+%------------------------------------------------------------------------------------------------------
+% comando para inserir e formatar uma figura aO texto
+% sintaxe:  \figura{arquivo}{escala}{caption}{label}
+\newcommand{\figura}[4] {
+    \begin{figure}[ht]  %tb
+        \centering
+        \includegraphics[scale=#2]{#1}
+        \caption{#3}
+        \label{#4}
+    \end{figure}
+}
+%------------------------------------------------------------------------------------------------------
+\newcommand{\titulo}{Segmentação de cenas em telejornais: uma abordagem multimodal}
+%\newcommand{\titulo}{Identificação de transição de cenas em telejornais utilizando características multimídia}
+%Video Scene segmentation in News using video, audio and text features 
+\newcommand{\orientador}{Prof. Dr. Rudinei Goularte}
+\newcommand{\aluno}{Danilo Barbosa Coimbra}
+\newcommand{\resumo}{Resumo}
+\newcommand{\instituto}{Instituto de Ciências Matemáticas e de Computação - ICMC, USP}
+\newcommand{\p}{\rule{9mm}{2mm}}
+             
+%\makeglossary
+	                                                                                                       
+%------------------------------------------------------------------------------------------------------
+% Capa
+\begin{document}
+
+%------------------------------------------------------------------------------------------------------
+% Folha de rosto
+                                                                                                               
+%    \newpage
+%    \thispagestyle{empty}
+%                                                                                                               
+%    \begin{center}
+%        \vspace*{9cm}
+%        ---------------------------------------------------------------------------------------------------------------\\
+%        {\Huge \bf Segmentação de cenas em telejornais: uma abordagem multimodal} \\
+%        \vspace*{1.5cm}
+%        {\Large \textbf{ \textit{ \aluno } }} \\
+%        ---------------------------------------------------------------------------------------------------------------\\
+%\clearpage
+%    \end{center}
+%------------------------------------------------------------------------------------------------------
+\includepdf[pages=2]{Modelo_Capa_ME_CCMC_REVISADA.pdf}
+
+\newpage
+\input{brancomesmo}
+\newpage
+
+\includepdf[pages=1]{Modelo_Capa_ME_CCMC_REVISADA.pdf}
+                                                                                                               
+%\input{hifenacao}
+%    \sloppy
+%    \label{capa}
+%    \thispagestyle{empty}
+%                                                                                                               
+%    \vspace*{-2.0cm}
+%    \begin{normalsize}
+%        \begin{flushright}
+%            \begin{tabular}[t]{|l|}
+%                \hline
+%                {\scriptsize SERVIÇO DE PÓS-GRADUAÇÃO DO ICMC-USP}
+%                \\
+%                Data de Depósito: \rule{0.8cm}{0.5pt} / \rule{0.8cm}{0.5pt} /  \rule{0.8cm}{0.5pt}\\
+%                \\
+%                Assinatura: \rule{4cm}{0.5pt}\\
+%                \hline
+%            \end{tabular}
+%        \end{flushright}
+%    \end{normalsize}
+%                                                                                                               
+%    \begin{center}
+%        \vspace*{5cm}
+%        {\Large \bf \titulo} \\
+%                                                                                                               
+%    \vspace*{2.5cm}
+%        {\large \textit{ \aluno }}\\
+%        {\tt danilobc@icmc.usp.br}\\
+%        \vspace*{1.5cm}
+%        {\sf Orientador:}\\
+%        {\large \textit{ \orientador }}\\
+%        {\tt rudinei@icmc.usp.br}\\
+%        \vspace*{2.5cm}
+%                                                                                                               
+%        \begin{flushright}
+%            \begin{minipage}[t]{10cm}
+%                Dissertação apresentada ao \instituto,
+%                como parte dos requisitos para a obten\-ção do título de Mestre em Ciências de
+%                Computação e Matemática Computacional.
+%            \end{minipage}
+%        \end{flushright}
+%                                                                                                               
+%        \vspace*{1cm}
+%        USP - São Carlos\\
+%        Fevereiro de 2011
+%    \end{center}
+    
+    \setcounter{secnumdepth}{3} 
+                                                                                                               
+% Indice e listas de figuras e tabelas
+                                                                                                               
+\includepdf[pages=1]{ficha_catalografica_final.pdf}
+
+%\newpage
+%\input{brancomesmo}
+
+    \newpage
+    {
+    \setcounter{page}{1}
+    \pagenumbering{roman}
+    \onehalfspacing % espaçamento 3/2 entre linhas: a partir daqui todo documento terá esse espaçamento,
+    % exceto definiçao dos capitulos, garantido com o comando \singlespace definido no estilo do capitulo.
+
+ %Dedicatória
+    \pagenumbering{roman}
+   \input dedicatoria
+        \cleardoublepage
+        
+      \newpage
+\input{branco}
+      
+    %Agradecimentos 
+         \newpage
+   \input agradecimentos
+        \cleardoublepage
+                                                                                                               
+    % Resumo
+    %\singlespacing
+    %\newpage
+    %\input{resumo}
+
+ \newpage
+\input{branco}
+
+%\newpage
+%\input{branco}
+%\newpage
+%
+    % Sumário
+    \setcounter{tocdepth}{2}
+    %\setcounter{tocdepth}{3}
+    \tableofcontents
+    
+                                                                                                               
+    % Lista de figuras
+    \newpage
+    \addcontentsline{toc}{chapter}{Lista de Figuras}
+    \listoffigures
+
+%\newpage
+%\input{branco}
+
+    % Lista de tabelas
+    \newpage
+    \addcontentsline{toc}{chapter}{Lista de Tabelas}
+    \listoftables
+
+\newpage
+\input{branco}
+
+    % Lista de abreviaturas
+    \newpage
+    \addcontentsline{toc}{chapter}{Lista de Siglas}
+    \input{abreviaturas}
+    
+%\newpage
+%\input{branco}
+
+\newpage
+    \input resumo
+    \cleardoublepage
+    
+    \newpage
+\input{branco}
+
+    
+\newpage
+    \input{abstract}
+    \cleardoublepage
+    
+    \newpage
+\input{branco}
+
+                                                                                                               
+}
+%------------------------------------------------------------------------------------------------------
+\newpage
+\onehalfspacing
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter \ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}}
+                                                                                                               
+% Capitulo 1 - Introdução
+\newpage \pagenumbering{arabic} \setcounter{page}{1}
+\input{cap1_intro}
+                                                                                                               
+                                                                                                               
+%------------------------------------------------------------------------------------------------------
+%\newpage
+%\input{branco}
+
+% Capitulo 2 
+\input{cap2}
+                                                                                                               
+%------------------------------------------------------------------------------------------------------
+\newpage
+\input{branco}
+
+% Capitulo 3
+\input{cap3}
+                                                                                                               
+%------------------------------------------------------------------------------------------------------
+%\newpage
+%\input{branco}
+
+% Capitulo 4 
+%\input{cap4}
+\input{cap4}
+                                                                                                               
+%------------------------------------------------------------------------------------------------------
+%\newpage
+%\input{branco}
+
+\newpage
+\input{branco}
+
+
+
+%Capitulo 5 
+\input{cap5}
+
+\newpage
+\input{branco}
+
+
+
+% Capitulo Referências Bibliográficas
+\newpage
+\pagestyle{plain}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+%\bibliographystyle{BibliographStyleICMC}
+%\bibliographystyle{abnt-alf}
+ \bibliographystyle{apalike-icmc}   
+\bibliography{daniloreferencias}
+
+
+\newpage
+\input{branco}
+
+%------------------------------------------------------------------------------------------------------
+%Apêndice
+\newpage
+\addcontentsline{toc}{chapter}{Apêndice}
+\input{apendice}
+
+\newpage
+\input{branco}
+
+%------------------------------------------------------------------------------------------------------
+%Glossário
+\newpage
+\addcontentsline{toc}{chapter}{Glossário}
+\input{glossario}
+
+%\newpage
+%\input{brancomesmo}
+
+%------------------------------------------------------------------------------------------------------
+%Citacoes
+\newpage
+%\input{citacoes}
+
+%\printglossary
+	                                                                                                       
+\end{document}
+%------------------------------------------------------------------------------------------------------
+ 

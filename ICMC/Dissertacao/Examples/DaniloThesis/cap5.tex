@@ -1,0 +1,46 @@
+\chapter{Conclusões e Trabalhos Futuros}
+\label{chap:conlcusao}
+\section{Considerações Iniciais}
+
+Neste trabalho foi desenvolvida uma técnica multimodal que integra informações de todas as mídias do vídeo digital. Para o desenvolvimento desta técnica foi necessário desenvolver técnicas que extraiam informações de cada mídia em separado para que pudesse agrupá-las posteriormente, obtendo desse modo mais semântica associada ao conteúdo. 
+
+A necessidade de realizar a segmentação de vídeos está diretamente relacionada à àrea de personalização e adaptação de conteúdo, a qual tem como objetivo proporcionar a melhor versão e a melhor maneira de disponibilizar o conteúdo multimídia para o usuário. Baseado nisso, este trabalho atuou na realização da segmentação de estruturas denominas cenas, as quais são representadas nos telejornais como notícias, vinhetas ou comerciais, contribuindo, portanto, em uma navegação e interação mais intuitiva para o usuário. 
+
+As próximas seções deste capítulo descrevem as contribuições deste trabalho~ (Seção 5.2), discutem as limitações do mesmo (Seção 5.3) e, por fim, apresentam sugestões para trabalhos futuros (Seção 5.4).
+
+\section{Contribuições}
+
+Basicamente este trabalho de mestrado teve como principais contribuições: 
+
+\begin{itemize}
+\item Desenvolvimento de uma técnica que tenha como característica ser mais geral na detecção de cenas de telejornais, pois os trabalhos atuais, apesar de reportar resultados e metodologias das técnicas empregadas, não definem como é a semântica associada ao segmento que analisaram (cenas).
+\item Uso da multimodalidade para melhorar resultados da identificação de cenas, quando comparado com os resultados obtidos das técnicas monomodais.
+\item Contribuição para a área de personalização e adaptação de conteúdo (P\&A) por meio de uma técnica de segmentação de telejornais em cenas. 
+\item Criação e uso de uma base de vídeos heterogênea para validar a técnica desenvolvida, contendo várias edições de telejornais brasileiros de mais de uma transmissora de TV e com datas de captura distintas.
+\end{itemize}
+
+\section{Limitações}
+Em relação às limitações relacionadas ao desenvolvimento e aplicação deste trabalho podemos citar:
+
+\begin{itemize}
+\item A principal limitação deste trabalho está relacionada ao desempenho da técnica, uma vez que este apresentou valores de precisão e revocação menores que os trabalhos relacionados. Contudo, uma ressalva importante deve ser feita: as definições de cenas são diferentes, sendo que as definições utilizadas neste trabalho abordam um conceito mais amplo. Isto torna difícil realizar uma comparação justa com as outras abordagens.
+\item Por não existir uma base de vídeos aberta, foi necessário criar uma base particular. Bases particulares são comuns nessa área, porém não são padronizadas e, portanto, dificultam ainda mais a comparação entre técnicas.
+%\item Faz-se necessária a criação de uma base de vídeos aberta contendo telejornais completos e com metadados, abrangendo várias nacionalidades, visando também um modo mais justo de comparar as técnicas desenvolvidas com os resultados obtidos.
+\item A única informação textual que a técnica multimodal suporta é o \textit{closed-caption}. Portanto, serviços como o Teletexto ou mesmo técnicas que extraiam informação de outras mídias para formato texto, como o áudio (ASR) ou imagem (OCR), não são comtempladas devido a não conformidade com as características particulares do \textit{closed-caption}.
+\item Restrição da técnica multimodal ao gênero de telejornais somente. Todavia, aplicá-la em outros gêneros requer adaptações, pois esta foi desenvolvida considerando a particularidade da estrutura dos telejornais.
+%\item A placa de captura utilizada para montar a base de dados do vídeo é de sinal analógico, portanto, os resultados também não são replicáveis para o caso da captura com placas de sinais digitais.
+\end{itemize}
+
+%\footnote{Teletexto é um serviço informativo televisivo desenvolvido na década de 1970 pelo Reino Unido. O serviço oferece uma grande variedade  de informação textual, incluindo informações nacionais, internacionais e desportiva, previsão do tempo, programação dos canais e alguns jogos simples, com possibilidade de incluir legendas para deficientes auditivos}- colocar no glossário
+
+\section{Trabalhos Futuros}
+
+A realização deste trabalho proporcionou diversas perspectivas para o desenvolvimento de trabalhos futuros como continuação desta pesquisa, bem como idéias para novas abordagens.
+
+Uma idéia para contornar o problema de comparação de resultados é aplicar a técnica multimodal desenvolvida em telejornais estrangeiros utilizando a conceito de cena mais geral abordado neste trabalho, ou fazer o inverso, utilizar a técnica de um trabalho, juntamente com sua definição de cenas, na base de telejornais brasileiros utilizada neste trabalho. 
+
+Investigar o uso da técnica multimodal em outras categorias de vídeos, como documentários, esportes, filmes, etc, uma vez que algumas características de suas estruturas são semelhantes, como momentos de silêncio em esportes, os quais podem indicar um pedido de tempo, ocasionando o início de uma nova cena.
+
+Outra possibilidade é adotar uma abordagem massiva de técnicas de identificação de transição de cenas, usando uma quantidade e variedade maior de métodos, tendo em vista que na literatura é reportado que quanto maior a quantidade de técnicas e mídias empregadas, mais heterogênea é quantidade de informação, possibilitando melhores resultados.
+
+Uma sugestão para trabalhos na área de segmentação de vídeos é investigar o uso de informações textuais provenientes de \textit{closed-caption}, pois não há uma padronização deste conteúdo para telejornais de países diferentes, dificultando a segmentação de cenas quando a base é composta por tais telejornais.

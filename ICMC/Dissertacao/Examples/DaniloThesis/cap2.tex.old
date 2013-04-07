@@ -1,0 +1,353 @@
+\thispagestyle{fancy}
+\chapter{Padrões Multimídia}
+\label{chap:padroes_multimidia}
+
+\section{Considerações Iniciais}
+\indent
+
+O termo ``multimídia'' normalmente é usado para indicar que a informação sendo armazenada, transmitida ou processada pode ser composta por um ou mais tipos de mídias, tais como texto, imagem, áudio ou vídeo~\cite{halsall2001}. Assim, uma aplicação multimídia refere-se a um processo computacional que utiliza uma ou mais mídias para representação dos dados. Do mesmo modo, um padrão multimídia pode ser definido, com base na definição do termo ``padrão'' proposta pela ISO (do Inglês, \textit{International Standard Organization} -- Organização Internacional de Padrões)\footnote{http://www.standardsglossary.com}, como um documento aprovado por um organismo reconhecido, que estabelece uma linguagem comum e contém uma especificação técnica ou regras precisas a respeito de produtos, processos ou serviços relacionados ao contexto multimídia.
+
+Uma vez que ela define uma linguagem comum, a padronização permite que aplicações desenvolvidas por diferentes desenvolvedores se comuniquem, trocando e acessando seus dados, os quais seguem um formato pré-definido pelo padrão adotado. Um vídeo no formato MPEG-1, por exemplo, pode ser acessado por qualquer aplicação que faça uso de um decodificador MPEG-1, independente de onde e como foi codificado o vídeo original.
+
+Neste trabalho, os padrões multimídia foram divididos em dois grupos: padrões de codificação, que definem a maneira em que os dados multimídia serão codificados, podendo haver a compressão do sinal ou não; e padrões de representação, os quais são subdivididos em representação de conteúdo e de contexto.
+Os padrões de representação definem modelos que poderão ser seguidos para descrever o conteúdo em si (no caso de representação de conteúdo), ou então para descrever o sistema computacional (no caso de representação de contexto), incluindo usuário, aplicação, rede, dispositivos, etc.
+
+Nas próximas seções, alguns padrões, os quais foram selecionados devido à sua popularidade, serão descritos resumidamente.
+
+\section{Padrões de Codificação Multimídia}
+\indent
+
+%A representação multimídia, no contexto deste trabalho, está relacionada à descrição de conteúdo, em seus diversos modos de exibição (vídeo, áudio, imagem e texto), e também à descrição de informações de contexto (capacidades de dispositivos e rede, preferências de usuários, etc.). Algumas organizações importantes, tais como a W3C e a ISO/IEC, disponibilizaram padronizações para esse tipo de tarefa, o que facilita o intercâmbio dessas informações entre as aplicações. 
+
+A codificação multimídia tem como objetivo transformar um sinal analógico em sua forma digital, podendo-se aplicar, em conjunto, técnicas de compressão a fim de se reduzir a quantidade de dados gerados~\cite{halsall2001}. Esse processo apresenta inúmeras vantagens, como por exemplo, melhor qualidade do sinal, viabilização de transmissão e armazenamento de conteúdo multimídia, possibilidade de multiplexar diferentes tipos de mídias, menor probabilidade de interferência, etc.
+
+Uma vez que o codificador e o decodificador necessitam ter conhecimento das técnicas adotadas no processamento dos dados, diversas padronizações foram e estão sendo propostas na literatura, as quais permitem o compartilhamento do conteúdo entre as aplicações.
+
+Esta seção tem como objetivo descrever resumidamente alguns padrões de codificação multimídia. Neste trabalho, esses padrões são descritos segundo uma organização baseada na natureza de cada mídia, conforme apresentado a seguir. 
+
+\subsection{Imagem}
+\indent
+
+A codificação de imagens normalmente explora redundâncias que podem ser eliminadas sem prejudicar a qualidade final da imagem. Essas redundâncias podem ser~\cite{mandal2003}:
+
+\begin{itemize}
+	\item Estatísticas, sendo que um número maior de bits é atribuído a valores de pixels que ocorrem com menos freqüência, e um número menor de bits é atribuído a valores de pixels mais freqüentes.
+	\item Espacial, onde a correlação entre pixels vizinhos é eliminada utilizando técnicas de codificação preditiva ou por transformada.
+	\item Estrutural, onde a imagem é codificada por regiões, de acordo com a estrutura dos objetos em cena.
+	\item Psico-visual, onde os aspectos da visão humana são considerados durante a eliminição de certas cores imperceptíveis ao olho humano.
+\end{itemize}
+
+Apesar de as técnicas de codificação serem baseadas na eliminação de redundâncias, elas podem ser categorizadas em compressão sem perdas e compressão com perdas. A compressão sem perdas permite recuperar todos os bits dos dados durante a decodificação, fazendo com que a imagem seja idêntica ao sinal original. A compressão com perdas, por sua vez, elimina certos conjuntos de bits que não poderão ser recuperados durante a decodificação. 
+
+Nas próximas subseções alguns padrões de codificação de imagens disponíveis na literatura serão apresentados. 
+
+\subsubsection{JPEG}
+\indent
+
+O formato JPEG\footnote{http://www.jpeg.org} é um tipo de arquivo para armazenamento de imagens com compressão. É amplamente utilizado devido à sua capacidade de codificar e comprimir imagens com perdas, porém imperceptíveis para o usuário.
+
+Uma vez que é possível trabalhar com esquemas de cores de $24$ bits, a especificação JPEG permite a utilização de até $16,8$ milhões de cores. No entanto, considerando que o olho humano não consegue distingüir todas essas cores ao mesmo tempo, a codificação JPEG explora essa característica eliminando redundâncias espaciais com o objetivo de compactar a quantidade de dados. Isso é realizado por meio das técnicas Transformada Discreta do Cosseno (do Inglês, \textit{Discrete Cossin Transform} -- DCT), Quantização e Codificação por Entropia.
+
+Normalmente, a codificação JPEG é capaz de comprimir cerca de $95$\% do tamanho do arquivo sem compressão. No entanto, diferentes taxas de qualidade podem ser especificadas, o que altera diretamente o tamanho do arquivo gerado e a qualidade da imagem. Quando essa taxa é muito baixa, é possível visualizar na imagem codificada alguns artefatos de codificação, tal como o efeito de blocagem (do Inglês, \textit{Blocking Effect}), proveniente da baixa quantidade de bits especificada para a DCT e quantização~\cite{halsall2001}.
+
+\subsubsection{JPEG 2000}
+\indent
+
+O padrão JPEG 2000\footnote{http://www.jpeg.org/jpeg2000} foi criado pela ISO e pela IEC (do Inglês, \textit{International Eletrotechnical Commission} -- Comissão Internacional Eletrotécnica), em 2000, com o objetivo de eliminar os problemas causados pela DCT, conforme foi visto na seção anterior. Ao contrário de seu antecessor (JPEG), o padrão JPEG 2000 utiliza a compressão de imagens com base em transformações \textit{Wavelet}, trazendo vantagens adicionais para os usuários, entre elas:
+
+\begin{itemize}
+	\item Melhor performance de compressão, principalmente em baixas taxas de bits, onde os artefatos de codificação presentes no JPEG praticamente inexistem.
+	\item Escalabilidade de resolução, fazendo com que a imagem seja visualizada por clientes utilizando diferentes dispositivos e redes.
+	\item Transmissão progressiva, permitindo que a imagem seja apresentada assim que os primeiros bytes são transmitidos para o cliente. A qualidade, nesse caso, aumenta gradativamente à medida que os dados vão sendo recebidos pelo decodificador.
+\end{itemize}
+
+A principal característica do padrão JPEG 2000 é a sua habilidade de gerenciar automaticamente uma ampla faixa de taxas de bits. Como exemplo, para reduzir a taxa de bits em uma imagem codificada no padrão JPEG é necessário alterar a resolução da imagem original antes de codificá-la, ou então, especificar uma nova taxa de bits antes de iniciar o processo de codificação. No caso do JPEG 2000 isso não é necessário, uma vez que ele utiliza uma estrutura de decomposição em múltiplas resoluções, permitindo que imagens com diferentes qualidades sejam extraídas a partir de um único processo de codificação~\cite{halsall2001}.
+
+\subsubsection{GIF}
+\indent
+
+O formato GIF\footnote{http://www.gif.com} (do Inglês, \textit{Graphics Interchange Format} -- Formato para Troca de Gráficos) foi criado pela empresa \textit{CompuServe}\footnote{http://www.compuserve.com}, em 1987, com o objetivo de se padronizar um formato para imagens utilizando uma paleta de até $256$ cores. Desse modo, uma vez que a quantidade de cores é limitada, sua utilização normalmente é restrita para ícones, ilustrações, ou outro tipo de imagem que não requer cores complexas.
+
+Apesar da limitação da quantidade de cores, o formato GIF oferece algumas vantagens que contribuem para sua ampla utilização em certas aplicações:
+
+\begin{itemize}
+	\item Possibilidade de se utilizar fundo transparente.
+	\item Composição de imagens, criando ícones ou ilustrações animados.
+	\item Compressão sem perdas, utilizando o algoritmo LZW (\textit{Lempel-Ziv-Welch})~\cite{nelson1989}.
+\end{itemize}
+
+Uma vez que o GIF trabalha com pixels de $8$ bits apenas, o tamanho de uma imagem codificada em formato GIF é bastante reduzido, o que contribuiu no passado para o surgimento de sistemas com suporte a imagens voltados para a Internet em sua fase inicial (utilização de modems de até $56$ Kbits/s)~\cite{halsall2001}.
+
+\subsubsection{PNG}
+\indent
+
+O formato PNG\footnote{http://www.w3.org/Graphics/PNG} (do Inglês, \textit{Portable Network Graphics} -- Gráficos em Redes Portáteis) foi criado, em 1996, como uma alternativa ao GIF após esse último ter sido comprado pela empresa \textit{Unisys}, que decidiu cobrar \textit{royalties} para sua utilização.
+
+Comparado com os padrões GIF e JPEG, o PNG apresenta as seguintes características:
+
+\begin{itemize}
+	\item Utilização de paleta de $24$ bits, ou seja, $16,8$ milhões de cores.
+	\item Utilização de um algoritmo de compressão sem perdas.
+	\item Possibilidade de se utilizar fundo transparente.
+\end{itemize}
+
+O algoritmo de compressão do PNG é baseado no LZW~\cite{nelson1989}, porém, utiliza-se uma combinação do algoritmo LZ77~\cite{campos1999}, presente em programas como o WinZIP\footnote{http://www.winzip.com}, juntamente com a codificação \textit{Huffman}\footnote{http://www.huffmancoding.com}. Essa compressão possibilita a codificação de imagens gerando arquivos com tamanhos de $20$ a $30$\% menores do que os criados pelo LZW~\cite{halsall2001}. 
+
+\subsection{Áudio}
+\indent
+
+Geralmente, um sinal de áudio requer uma largura de banda alta para ser transmitido, além de necessitar de um espaço de armazenamento considerável para mantê-lo em disco. Como exemplo, uma música de três minutos, utilizando dois canais de som (estéreo), com amostragem de $44,1$ KHz e $8$ bits por amostra, ocupa, aproximadamente, $16$ Mbytes ($=3*60*2*44100*8$) em disco para ser armazenado. Assim, técnicas de compressão se fazem necessárias para viabilizar a utilização desse tipo de mídia em aplicações.
+
+A codificação de áudio, semelhante ao que ocorre com imagens, explora redundâncias presentes no sinal. Essas redundâncias podem ser dos seguintes tipos~\cite{mandal2003}:
+
+\begin{itemize}
+	\item Estatística, sendo que aquelas amostras com uma probabilidade menor de aparecerem no sinal são codificadas com um número maior de bits.
+	\item Temporal, onde a correlação existente entre amostras vizinhas são removidas por meio de técnicas de codificação preditiva ou por transformada.
+	\item Conhecimento, onde as informações obtidas a respeito do escopo de um sinal de áudio (tipo de instrumento em cada faixa, localização das mudanças, etc.) ajudam o codificador e o decodificador a processarem os dados de modo mais eficiente.
+\end{itemize}
+
+Além disso, algumas propriedades do sistema auditivo humano podem ser exploradas a fim de melhorar a qualidade subjetiva do sinal de áudio, o que varia conforme o algoritmo adotado. Nas próximas subseções, alguns padrões de codificação de áudio disponíveis na literatura serão apresentados.
+
+\subsubsection{MP3}
+\indent
+
+O formato MP3\footnote{http://www.iis.fraunhofer.de/amm}, criado pelo instituto \textit{Fraunhofer}, foi padronizado pela ISO/IEC, em 1991, como pertencente à padronização de vídeo MPEG-1. Especificamente, o MP3 define a terceira camada da parte Áudio, que é destinada a usuários finais. Essa camada caracteriza-se por não necessitar de reprocessamento das mídias, e assim, pode trabalhar com algoritmos de compressão menos conservadores.
+
+Desse modo, sua alta capacidade de compressão, aliada à conservação de um nível de qualidade perceptível ao ouvido humano, faz do MP3 um formato amplamente utilizado em diversos setores da indústria, comércio e tecnologia. Geralmente, é possível comprimir cerca de $90$\% de um arquivo de áudio, sem gerar perdas de qualidade perceptíveis ao ouvido humano.
+
+O padrão MP3 definiu algumas técnicas de codificação que exploram certas características da audição. Essas técnicas baseiam-se em:
+
+\begin{itemize}
+	\item Limiarização de freqüências: é sabido que algumas faixas de freqüências não são percebidas pelo ser humano, e podem ser eliminadas sem perda de qualidade.
+	\item Efeito de mascaramento: sons muito fortes acabam ocultando sons mais fracos, quando tocados ao mesmo tempo. Aqueles não percebidos podem ser eliminados por meio de um modelo psico-acústico, definido pelo MP3, que emula o sistema auditivo humano.
+	\item Freqüências muito altas ou muito baixas, que são difíceis de serem localizadas espacialmente pelo ouvido humano. Desse modo, em áudio estéreo esses dados podem ser codificados em um único canal, diminuindo, assim, o tamanho do arquivo.
+\end{itemize}
+
+Considerando essas técnicas, o padrão MP3 permite que diferentes taxas de bits sejam especificadas pelo usuário, as quais variam de $32$ a $320$ kbits/s. As freqüências de amostragem também podem ser definidas, variando entre os valores de $32$, $44,1$ e $48$ kHz.
+
+Além de manter índices razoáveis de qualidade durante a compressão, o MP3 trouxe vantagens para os usuários: i) eficiência durante o armazenamento e a recuperação de músicas e arquivos de áudio; ii) possibilidade de se transmitir áudio por \textit{streaming} e \textit{downloading} através da rede; e iii) troca de músicas entre usuários utilizando programas de compartilhamento de arquivos. Algumas dessas vantagens são encaradas como sérios problemas para a indústria fonográfica, que luta para sobreviver em meio às conseqüências geradas pela popularização do formato MP3~\cite{halsall2001}.
+
+\subsubsection{AAC}
+\indent
+
+O formato AAC (do Inglês, \textit{Advanced Audio Coding} -- Codificação de Áudio Avançada) é um sucessor do MP3, tendo sido padronizado junto à especificação MPEG-2 parte 7 e MPEG-4 parte 3. Várias melhorias foram implementadas com esse formato, em relação ao MP3: 
+
+\begin{itemize}
+	\item Maior número de taxas de amostragem.
+	\item Suporte a até $48$ canais simultâneos.
+	\item Melhor manipulação de freqüências acima de $16$ kHz.
+	\item Maior flexibilidade durante a junção de canais em modo estéreo.
+	\item Adição de módulos externos, com o objetivo de melhorar a eficiência de compressão.
+\end{itemize}
+
+De um modo geral, o formato AAC fornece aos desenvolvedores mais flexibilidade durante o projeto de \textit{codecs}, quando comparado ao MP3. Isso permite, conseqüentemente, uma maior liberdade na implementação de diferentes estratégias de codificação, o que resulta em uma maior eficiência de compressão.
+
+Devido a suas vantagens, o formato AAC está se tornando cada vez mais popular, sendo amplamente utilizado em aplicações para Internet, difusão, transmissões sem-fio, entre outras. %Como exemplo, o AAC é o formato de áudio adotado para a venda de músicas no \textit{iTunes} e reprodução no \textit{iPod}.
+
+\subsubsection{WMA}
+\indent
+
+O WMA é um formato de áudio, desenvolvido pela Microsoft, para ser tocado pelo \textit{player} proprietário, o \textit{Windows Media Player}. Esse formato pode ser comparado ao MP3 em termos de taxa de compressão, conseguindo gerar um arquivo ligeiramente menor a uma mesma taxa de bits e freqüência de amostragem. No entanto, por ser um padrão proprietário, sua utilização é limitada apenas para aplicações que tenham o seu licenciamento de uso.
+
+\subsection{Vídeo}
+\indent
+
+Vídeo digital é o tipo de mídia que requer a maior largura de banda para transmissão e capacidade em disco para armazenamento. Como exemplo, um vídeo em cores com resolução de $720 \times 480$, a $60$ quadros por segundo, contém cerca de $497$ milhões ($=720*480*60*24$) de bits por segundo. Tanto a transmissão quanto o armazenamento desses dados seria inviável sem as técnicas de codificação existentes.
+
+Da mesma maneira que ocorre com imagem e áudio, a codificação de vídeo explora algumas redundâncias presentes no sinal, entre elas~\cite{mandal2003}:
+
+\begin{itemize}
+	\item Temporal, referindo-se à correlação existente entre quadros vizinhos de um sinal de vídeo, a qual pode ser eliminada por meio de técnicas de estimativa e compensação de movimento.
+	\item Conhecimento, sendo que a codificação de vídeo baseada em modelos é aplicada em domínios conhecidos, tais como em videoconferência, onde é sabido que certas regiões da imagem não serão alteradas com freqüência.
+	\item Psico-visual, onde algumas propriedades do sistema visual humano são consideradas, tais como a falta de sensibilidade para perceber certas cores e objetos com alta movimentação na cena.
+\end{itemize}
+
+Nas próximas subseções alguns padrões de codificação de vídeo disponíveis na literatura serão apresentados.
+
+
+\subsubsection{MPEG-1}
+\indent
+
+O padrão MPEG-1~\cite{MPEG11996} foi desenvolvido pela ISO/IEC, em 1992, com a finalidade de padronizar uma versão codificada de vídeo e áudio. Foi o primeiro padrão a integrar dados de áudio e vídeo em uma mesma especificação, por meio apenas de implementações em software.
+
+O MPEG-1 foi criado com o propósito de armazenamento de vídeo digital, apresentando resolução equivalente ao formato VHS (do Inglês, \textit{Video Home System} -- Sistema de Vídeo Caseiro), e qualidade de áudio equivalente ao CD. Sua taxa de bits é de $1,5$ Mbits/s, e a resolução é de $352\times288$.
+
+O padrão MPEG-1 é subdividido em 5 partes \cite{MPEG11996}, sendo que as principais são: 
+
+\begin{itemize}
+ 	\item \textbf{Sistemas:} Descreve uma maneira de se combinar um ou mais tipos de dados em um único fluxo, a fim de realizar o armazenamento ou a transmissão. Os dados são agrupados em pacotes contidos em um fluxo de dados básico, os quais são chamados de PES (do Inglês, \textit{Packetised Elementary Stream} -- Fluxo Elementar Empacotado), carregando consigo informações a respeito de controle de tempo e taxa de bits.
+	\item \textbf{Vídeo:} O MPEG-1 Vídeo descreve uma representação codificada para ser usada na compressão de dados de vídeo. A taxa de bits referente ao vídeo é de cerca de $1,3$ Mbits/s, com resoluções de $625$ ou $525$ linhas. Foi desenvolvido com a finalidade de armazenamento de vídeo digital, mas pode-se fazer a transmissão a uma taxa fixa de $1,5$ Mbits/s~\cite{MPEG11996}. 
+	\item \textbf{Áudio:} A terceira parte da especificação MPEG-1 define uma representação codificada de dados de áudio. A taxa de bits referente ao áudio é de cerca de $0,3$ Mbits/s, com uma taxa de amostra de $32,0$, $44,1$ ou $48,0$ KHz. Fornece suporte tanto a sinais de áudio em um canal, como em sinais ocupando dois canais de dados (mono e estéreo).
+\end{itemize}
+
+A codificação de vídeo no MPEG-1 é feita aplicando-se algoritmos de compressão a fim de se eliminar redundâncias presentes em um sinal de vídeo. Por meio da técnica Estimativa e Compensação de Movimento, cujo objetivo é codificar e armazenar apenas a diferença entre imagens próximas entre si, elimina-se a redundância temporal de um vídeo; e aplicando-se a Transformada Discreta do Cosseno e a Quantização, é eliminada a redundância espacial de cada quadro de um vídeo. Adicionalmente, redundâncias em nível de código são eliminadas por meio da codificação por entropia~\cite{LUTHER1991}.
+
+\subsubsection{MPEG-2}
+\indent
+
+O padrão MPEG-2~\cite{MPEG22000} foi desenvolvido também pela ISO/IEC, em 1996, com a principal finalidade de transmitir vídeo digital de alta qualidade. O padrão MPEG-2, além de ser compatível com o MPEG-1, também descreve aspectos necessários para multiplexação de dados, sincronização, vídeo entrelaçado em tela cheia e \textit{links} lógicos de rede~\cite{FAIRHURST2001}. Sua taxa de bits varia de $1,5$ Mbits/s, cuja qualidade da imagem é compatível com VHS, até $140$ Mbits/s, que é utilizada em aplicações que envolvem HDTV (do Inglês, \textit{High Definition Television} -- Televisão de Alta Qualidade).
+
+A especificação MPEG-2 é subdividida em 10 partes \cite{MPEG22000}, sendo que as principais são:
+
+\begin{itemize}
+	\item \textbf{Sistemas:} Equivale ao MPEG-1 Sistemas, porém, a multiplexação pode ser realizada também pelo Fluxo de Transporte (do Inglês, \textit{Transport Stream} -- TS), que é usada principalmente para transmissão de dados. Esse formato trabalha com pequenos pacotes de dados, e devido a isso, pode ser utilizado em sistemas onde existe uma maior probabilidade de ocorrerem erros.
+	\item \textbf{Vídeo:} Além das características do MPEG-1 Vídeo, o padrão MPEG-2 adiciona também o conceito de escalabilidade, no qual os dados são transportados em diferentes fluxos complementares para o usuário. As características de cada fluxo, tais como escalabilidade espacial, temporal, SNR (do Inglês, \textit{Signal to Noise Ratio} -- Razão Sinal-Ruído) e particionamento de dados, são agrupadas em perfis e níveis, a fim de oferecer compatibilidade entre as aplicações e facilitar o uso de cada funcionalidade.
+	\item \textbf{Áudio:} São adicionadas extensões para taxas de amostras ($16,0$, $22,05$ e $24,0$ KHz), além de suporte para som em múltiplos canais, os quais são codificados por meio da codificação de áudio avançado (do Inglês, \textit{Advanced Audio Coding} -- AAC).
+\end{itemize}
+
+A escalabilidade inserida pelo padrão MPEG-2 permite que diferentes qualidades de vídeo sejam acessadas por usuários a partir de um mesmo fluxo. Maiores detalhes a respeito dessa técnica poderá ser encontrada no capítulo \ref{chap:personalizacao_e_adaptacao_de_conteudo}, subseção \ref{subsec:midia_escalavel}.
+
+\subsubsection{MPEG-4}
+\indent
+
+O padrão MPEG-4~\cite{MPEG42002}, desenvolvido pela ISO/IEC em 1998, possui uma enorme lista de funcionalidades que foram criadas após o MPEG-2 para beneficiar tanto usuários finais e criadores de vídeo, como a rede de transmissão, evitando dessa forma, o desenvolvimento de padrões próprios e \textit{players} diferentes para cada aplicação. Isso é feito através de meios padronizados que descrevem como representar, multiplexar, sincronizar e transmitir contextos audiovisuais (chamados de objetos de mídia) existentes em um sinal de vídeo. Diferentemente dos padrões anteriores, em que o vídeo era codificado e transmitido de forma linear, o MPEG-4 divide a cena nesses objetos de mídia, os quais são codificados e transmitidos separadamente para o destino.
+
+Objetos de mídia possuem três formas básicas: plano de fundo, objetos visuais e áudio. Esses três elementos podem ser combinados formando cenas complexas, com um alto poder de manipulação dos dados. Pode-se, por exemplo, colocar um objeto em qualquer coordenada do plano da imagem, aplicar transformadas para mudar a aparência geométrica ou acústica de um objeto, e mudar a visão do telespectador para qualquer ponto da cena. 
+
+A entrega de dados do servidor ao cliente é feita separadamente para cada fluxo de dados, os quais carregam objetos de mídia. Cada fluxo pode possuir um nível de QoS (do Inglês, \textit{Quality of Service} -- Qualidade de Serviço) diferente, de acordo com a disponibilidade da rede. O cliente, dependendo da cena, pode interagir com o vídeo, mudando a posição da câmera, movendo objetos para outras posições, fazendo um objeto reagir ao clicar nele, mudando o idioma e etc.
+
+Dependendo da parte da especificação MPEG-4, são fornecidas diferentes fun\-cio\-na\-li\-da\-des para o usuário, as quais estão presentes desde a primeira versão do MPEG-4. A seguir, são listadas algumas dessas funcionalidades~\cite{MPEG42002}:
+
+\begin{itemize}
+	\item {\bf Transporte:} O MPEG-4 não define, a princípio, nenhum padrão novo para transporte de dados. Esses são transmitidos por meio do subsistema de transporte do MPEG-2, ou diretamente a partir do protocolo IP.
+	\item {\bf DMIF:} O DMIF (do Inglês, \textit{Delivery Multimedia Integration Framework} -- \textit{Framework} para Integração de Entrega Multimídia) faz a interligação entre uma aplicação e o transporte, fazendo com que a aplicação não precise se preocupar com a transmissão dos dados. Desse modo, uma única aplicação pode utilizar diferentes meios de transmissão, se estiver equipada com o DMIF.
+	\item {\bf Sistemas:} Especifica a relação entre os componentes áudios-visuais que descrevem a cena. A descrição pode ser de dois tipos: BIFS (do Inglês, \textit{Binary Format for Scenes} -- Formato Binário para Cenas), que informa as disposições espaço-temporal entre os objetos; e ODs (do Inglês, \textit{Object Descriptors} -- Descritores de Objeto), que definem a relação entre os fluxos elementares pertencentes a cada objeto, e também informações adicionais como a URL necessária para acessar cada fluxo elementar, as características e propriedades dos decodificadores, entre outros.
+	 \item {\bf Áudio:}  O MPEG-4 Áudio fornece facilidades referentes a áudio a uma grande va\-ri\-e\-da\-de de aplicações, entre elas: Sinais de Áudio Gerais (do Inglês, \textit{General Audio Signals}), Sinais de Fala (do Inglês, \textit{Speech signals}), Áudio Sintético (do Inglês, \textit{Synthetic Audio}) e Escalabilidade para Fala Sintetizada (do Inglês, \textit{Synthesized Speech Scalable}).
+	\item {\bf Visual:} Descreve meios de codificação de vídeo não apenas em sinais reais, ou seja, aqueles formados por pixels, mas também fornece codificação em sinais sintéticos, ou seja, animações geradas pelo computador. A taxa de bits pode variar de $5$ Kbits/s até $1$ Gbits/s, com suporte a vídeo entrelaçado e resoluções compatíveis às usadas em estúdios. A codificação é eficiente em qualquer taxa de bits, e o acesso aleatório é mais rápido do que no MPEG-2. A escalabilidade espacial e temporal do codificador, do decodificador e da qualidade permite codificar/decodificar um vídeo de acordo com suas propriedades, obtendo o máximo de compressão dos dados e de variedade de aplicações.
+	%\item {\bf Perfis:} Por ter mais funcionalidades do que o MPEG-2, o MPEG-4 criou um conjunto adicional de perfis e níveis para facilitar a configuração do codificador e do decodificador em cada aplicação. Esses perfis são divididos em seis grupos: Perfis Visuais (do Inglês, \textit{Visual Profiles}), Perfis Auditivos (do Inglês, \textit{Audio Profiles}), Perfis Gráficos (do Inglês, \textit{Graphics Profiles}), Perfis de Cena Gráfica (do Inglês, \textit{Scene Graph Profiles}), Perfis MPEG-J (do Inglês, MPEG-J \textit{Profiles}) e Perfil Descritor de Objeto (do Inglês, \textit{Object Decriptor Profile}).
+	\item {\bf MPEG-J:} É um sistema programático que especifica uma API para combinar \textit{players} MPEG-4 com código Java. Relacionando MPEG-4 com código executável seguro, criadores podem embutir controles complexos e mecanismos de processamento de dados em seus dados de mídia para gerenciar a operação da sessão áudio-visual.
+\end{itemize}
+
+\subsubsection{WMV}
+\indent
+
+O WMV é um padrão de vídeo, desenvolvido pela Microsoft, que foi originalmente projetado para aplicações em \textit{streaming} pela Internet, utilizando um formato de encapsulamento chamado ASF (do Inglês, \textit{Advanced Systems Format} -- Formato Avançado de Sistemas). Porém, outros formatos de encapsulamento podem ser utilizados, tais como o AVI (do Inglês, \textit{Audio Video Interleave} -- Intercalamento de Áudio e Vídeo) e o Matroska\footnote{http://www.matroska.org}.
+
+Entre as características do padrão WMV, destacam-se:
+
+\begin{itemize}
+	\item A taxa de bits pode ser variável, constante ou manter-se em uma média.
+	\item Suporte nativo para vídeo entrelaçado e interpolação de quadros.
+	\item Definição de um perfil para vídeo de alta resolução, com resolução maior que $512\times586$ e taxa de bits maior que $1$ Mbit/s.
+\end{itemize}
+
+Segundo a Microsoft, a taxa de compressão do WMV é duas vezes melhor do que a do padrão MPEG-4; no entanto, sua maior dificuldade de utilização é necessitar de licenciamento, uma vez que é um formato proprietário.
+
+\section{Padrões de Representação Multimídia}
+\indent
+
+A representação multimídia, no contexto deste trabalho, está relacionada à descrição de conteúdo, em seus diversos modos de exibição (vídeo, áudio, imagem e texto), e também à descrição de informações de contexto (capacidades de dispositivos e rede, preferências de usuários, etc.). Algumas organizações importantes, tais como a W3C e a ISO/IEC, disponibilizaram padronizações para esse tipo de tarefa, o que facilita o intercâmbio dessas informações entre as aplicações. 
+
+Esta seção tem como objetivo descrever resumidamente alguns padrões de representação multimídia. A descrição de contexto, em particular, será apresentada em mais detalhes no próximo capítulo por meio de trabalhos relacionados que exploram essa área.
+
+\subsection{Representação de Conteúdo}
+\indent
+
+Esta subseção apresenta alguns padrões disponíveis na literatura para representação de conteúdo. Alguns deles são destinados a descrever mídias do tipo texto; outros definem mecanismos para descrição de conteúdo audiovisual. Uma vez que os padrões são muito extensos, apenas uma visão geral será apresentada neste trabalho.
+
+\subsubsection{MPEG-7}
+\indent
+
+O padrão MPEG-7~\cite{MPEG72004}, também conhecido como Interface para Descrição de Conteúdo Multimídia, tem como principal objetivo a descrição de conteúdo multimídia. Isso pode ser realizado por meio de estruturas pré-definidas de descritores (do Inglês, \textit{Descriptors} -- Ds) e seus relacionamentos, bem como por estruturas definidas pelo usuário. Essas estruturas são chamadas de esquemas de descrição (do Inglês, \textit{Description Schemes} -- DSs), que são instanciados de acordo com o conteúdo a ser descrito.
+
+O escopo do padrão MPEG-7 limita-se apenas à descrição de conteúdo audiovisual, independente da maneira em que os dados foram codificados ou armazenados. Descrições de texto, mecanismos para extração automática ou semi-automática de características e ferramentas de busca estão fora dos objetivos da especificação~\cite{MPEG72004}. 
+
+Desse modo, devido à sua preocupação em descrever apenas o conteúdo, diferentes domínios de aplicações podem se beneficiar da padronização MPEG-7, entre eles: biblioteca digital, editoração multimídia, educação, jornalismo, informação turística, serviços culturais, entretenimento, sistemas de informação geográfica, compras, etc~\cite{MPEG72004, chang2001}. Para cada aplicação, é necessário que ferramentas específicas sejam definidas, as quais estão sob responsabilidade dos desenvolvedores.
+
+O padrão MPEG-7 está subdividido em 8 partes~\cite{MPEG72004}, sendo que os principais são:
+
+\begin{itemize}
+	\item \textbf{Sistemas:} Especifica como as descrições MPEG-7 serão entregues a um terminal MPEG-7 para então serem decodificadas e descomprimidas. Também são especificadas funcionalidades como a preparação de descrições para armazenamento ou transporte eficientes e sincronização entre conteúdo e descrições.
+	\item \textbf{Linguagem de Definição de Descrições:} A Linguagem de Definição de Descrições (do Inglês, \textit{Description Definition Language} -- DDL) define regras sintáticas para expressar esquemas de descrição e suas interpretações~\cite{hunter2001}. Fornece uma base descritiva para que usuários criem seus próprios esquemas de descrição e descritores em complemento aos esquemas e descritores já existentes.
+	\item \textbf{Visual:} Especifica um conjunto padronizado de descritores e esquemas de descrição para dados visuais. Esse conjunto é capaz de descrever características em baixo nível, tais como cor, textura, forma e movimento.
+	\item \textbf{Áudio:} Padroniza quatro classes de sinais de áudio: somente música, somente fala, somente efeitos sonoros e trilhas sonoras arbitrárias. Normalmente, os descritores de áudio podem estar associados a descritores de categorias de mais baixo nível, como séries escalares e arcabouço de descrição de áudio.
+	\item \textbf{Esquemas de Descrição Multimídia:} Estruturas de metadados especificados para descrever e anotar conteúdo audiovisual. São definidos usando a DDL e são instanciados como documentos ou fluxos, podendo assumir a forma textual ou binária~\cite{salembier2001}.
+\end{itemize}
+
+Os esquemas de descrição MPEG-7 realizam o papel de uma biblioteca de ferramentas de descrição, as quais são escolhidas pela aplicação conforme a necessidade. Essa biblioteca está organizada nas seguintes áreas funcionais: Elementos Básicos, Gerenciamento de Conteúdo, Descrição de Conteúdo, Navegação e Acesso, Organização de Conteúdo e Interação do Usuário. Cada uma das áreas contém um conjunto de ferramentas, e cada ferramenta é composta por um conjunto de esquemas de descrição.
+
+\subsubsection{Linguagem Generalizada Padrão para Marcação}
+\indent
+
+A Linguagem Generalizada Padrão para Marcação (do Inglês, \textit{Standard Generalized Markup Language} -- SGML)~\cite{vanherwijenen1994} foi padronizada pela ISO, em 1986, tendo como objetivo a descrição de estruturas de documentos. Com isso, ela possibilita que mecanismos de busca, armazenamento e indexação sejam desenvolvidos mais facilmente, além de tratar do problema de como transferir documentos entre computadores com diferentes conjuntos de caracteres e esquemas de codificação.
+
+Um documento SGML é composto por um conjunto de elementos relacionados entre si. Cada elemento contém um identificador, que é definido como em \textsf{$<$titulo$>$} e \textsf{$<$/titulo$>$}, que representam, respectivamente, o início e fim do elemento ``título''. A definição da estrutura de cada documento é realizada por meio de DTDs (do Inglês, \textit{Document Type Definition} -- Definição do Tipo de Documento).
+
+A SGML contém algumas desvantagens: i) não é flexível o suficiente para permitir extensões e manutenção da descrição; ii) não é possível descrever dados audiovisuais, dados primitivos e dados compostos; e iii) não são definidos mecanismos de acesso à descrição de metadados e ligações para dados orientados de forma temporal e espacial~\cite{nack1999}.
+
+\subsubsection{Linguagem de Marcação Extensível}
+\indent
+
+A SGML, apesar de ser uma linguagem poderosa, não foi amplamente difundida como seus sucessores (HTML (do Inglês, \textit{Hypermedia Markup Language} -- Linguagem de Marcação de Hipertexto) e XML (do Inglês, \textit{Extensible Markup Language} -- Linguagem de Marcação Extensível)), principalmente por causa de sua complexidade e, conseqüentemente, dificuldade de utilização. Uma vez que o HTML apresenta limitações a respeito da reutilização e separação do conteúdo do documento da forma de apresentação, o XML~\cite{w3c2006} está se tornando cada vez mais popular, devido à sua capacidade de resolver os problemas e limitações supracitados~\cite{johnson1999}.
+
+Uma das vantagens do XML é a possibilidade de fornecer documentos XML bem estruturados sem DTDs, ao contrário de seu antecessor, o SGML~\cite{johnson1999}. Além disso, o XML trabalha com o conceito de espaço de nomes, permitindo que elementos de diferentes fontes possam ter o mesmo nome de identificador. Isso evita, por exemplo, a colisão entre o elemento \textsf{$<$Autor$>$}, que descreve o nome de um autor de um livro, e \textsf{$<$Autor$>$}, que descreve o nome de um autor de uma peça teatral.
+
+A descrição de conteúdo audiovisual normalmente é realizada por XML, porém, uma vez que essas mídias são mais complexas que texto, é necessário especificar características adicionais, como derivação e instanciação condicional de elementos~\cite{nack1999}. Essa especificação é realizada por meio de DDLs, as quais são definidas em outros documentos (como por exemplo, XML \textit{Schema}).
+
+\subsection{Representação de Contexto}
+\indent
+
+Esta subseção apresenta alguns padrões disponíveis na literatura para representação de contexto. Alguns deles se preocupam mais em detalhar as características dos dispositivos de acesso; outros adotam uma abordagem mais genérica para descrição contextual. Uma vez que os padrões são muito extensos, apenas uma visão geral será apresentada neste trabalho.
+
+\subsubsection{MPEG-21}
+\indent
+
+O padrão MPEG-21~\cite{MPEG212002} tem como objetivo fornecer um \textit{framework} para auxiliar no processo de difusão e consumo de conteúdo multimídia entre aplicações. A idéia é permitir uma ampla e transparente utilização de recursos multimídia por meio de diversos tipos de rede e dispositivos. Essa utilização é realizada em conjunto com uma infra-estrutura multimídia interoperável, desenvolvida com o auxílio de descrições padronizadas dos inúmeros elementos pertencentes à cadeia de difusão e consumo.
+
+Na especificação MPEG-21, três termos são definidos, os quais são consistentemente utilizados~\cite{burnett2006}:
+
+\begin{itemize}
+	\item \textbf{Item Digital:} O termo Item Digital (do Inglês, \textit{Digital Item} -- DI) identifica um objeto digital estruturado, com uma representação padronizada, que é visto como unidades fundamentais de distribuição e transação dentro do \textit{framework}. Na prática, isso significa que qualquer conteúdo (vídeo, áudio, etc.) que será usado na padronização MPEG-21 deverá estar encapsulado virtualmente em um Item Digital.
+	\item \textbf{Recurso:} Um Recurso (do Inglês, \textit{Resource}) é uma mídia identificável, tal como um clipe de vídeo ou áudio, uma imagem ou um documento de texto. É possível que o autor de um Item Digital escolha diferentes granularidades de Recursos, como por exemplo, uma faixa individual de vídeo ou um conteúdo audiovisual multiplexado com texto.
+	\item \textbf{Usuário:} O termo Usuário (do Inglês, \textit{User}) é de fundamental importância na especificação MPEG-21. Ele define uma entidade que interage ou faz uso de Itens Digitais dentro do \textit{framework} MPEG-21. Vale ressaltar que o MPEG-21 não diferencia provedor de conteúdo e consumidor -- ambos são Usuários que interagem com Itens Digitais.
+\end{itemize}
+
+Partindo dos conceitos de Item Digital, Recurso e Usuário, o \textit{framework} MPEG-21 foi dividido em 7 elementos arquiteturais: Declaração de Item Digital, identificação e descrição de Item Digital, gerenciamento e uso de conteúdo, gerenciamento e proteção de propriedade interlectual, terminais e redes, representação de conteúdo e reportagem de eventos. Esses elementos facilitam as transações de Itens Digitais entre Usuários, provendo, assim, as funcionalidades do \textit{framework}~\cite{burnett2006}.
+
+O padrão MPEG-21, atualmente, é subdividido em 18 partes~\cite{burnett2006}, sendo que as principais são:
+
+\begin{itemize}
+	\item \textbf{Visão, Tecnologias e Estratégia:} Estabelece uma visão definida do \textit{framework} MPEG-21. Essa visão permite o desenvolvimento de um conjunto coerente e estruturado de partes padronizadas a serem integradas ao \textit{framework}. Essa parte também visa a criação de uma arquitetura que possa ser usada para identificar tecnologias que necessitam de estudo e desenvolvimento.
+	\item \textbf{Declaração de Item Digital:} Especifica o modelo e instanciação da unidade básica de transação no MPEG-21, o Item Digital. Ela provê um conjunto de conceitos e termos abstratos que pode ser usado para definir um esquema.
+	\item \textbf{Identificação de Item Digital:} Descreve como identificar unicamente Itens Digitais. Especifica também o relacionamento existente entre Itens Digitais, sua identificação e sistemas de descrição.
+	\item \textbf{Linguagem de Expressão de Direitos:}  Define uma linguagem de expressão de direitos que especifica a semântica necessária para estabelecer um direito de usuário no \textit{framework}.
+	\item \textbf{Adaptação de Item Digital:} Especifica a sintaxe e a semântica de ferramentas de metadados que podem ser usadas para auxiliar no processo de adaptação de Itens Digitais.
+\end{itemize}
+
+Uma das partes mais importantes do padrão MPEG-21 é a Adaptação de Item Digital (do Inglês, \textit{Digital Item Adaptation} -- DIA). Ela consiste em um conjunto de modelos de descrição que engloba diferentes aspectos do sistema de difusão e consumo multimídia. Essas descrições podem auxiliar ferramentas externas a adaptarem o conteúdo de acordo com a necessidade. Os principais aspectos considerados pelo DIA são: descrição de meio ambiente, descrição de fluxo de bits, qualidade de serviço na rede e terminal de acesso, adaptação de metadados, mobilidade de sessão, entre outros~\cite{vetro2006}.
+
+\subsubsection{CC/PP}
+\indent
+
+O padrão CC/PP (do Inglês, \textit{Composite Capability/Preference Profiles} -- Capacidade de Composição/Perfis de Preferência)~\cite{w3c2007} é uma recomendação W3C que tem como finalidade auxiliar na descrição de características de dispositivos e preferências de usuários. Uma vez que ele é capaz de descrever informações de contexto relacionadas aos dispositivos e usuários, é possível utilizá-lo para guiar os passos da adaptação de conteúdo.
+
+O CC/PP é baseado no RDF (do Inglês, \textit{Resource Description Framework} -- \textit{Framework} para descrição de Recurso), que foi também recomendado pela W3C como uma linguagem de descrição de metadados para propósitos gerais. Por meio de espaços de nomes, em XML, o RDF provê um conjunto de ferramentas básicas para extensibilidade de vocabulários e interoperabilidade~\cite{w3c2007}. 
+
+Um perfil CC/PP contém um conjunto de nomes de atributos e seus respectivos valores que são usados pelo servidor para determinar a forma mais apropriada do recurso para ser entregue ao cliente. Algumas informações contidas no perfil podem ser sigilosas, então mecanismos de segurança (não especificados pelo padrão) devem ser desenvolvidos para proteger a privacidade do usuário~\cite{w3c2007}.
+
+Normalmente, diferentes aplicações usarão diferentes vocabulários, uma vez que propriedades específicas de cada aplicação devem ser referenciadas pelo CC/PP. No entanto, para que as aplicações se comuniquem, é necessário um vocabulário em comum, ou um método para converter diferentes vocabulários. Espaços de nomes em XML podem evitar colisões entre nomes, porém, não é provido nenhum mecanismo para troca de informações entre as aplicações~\cite{w3c2007}.
+
+Devido a essas características do CC/PP, Indulska et al.~(2003) argumentam que embora o CC/PP possa ser utilizado na representação contextual, incluindo relacionamentos e dependências, suas limitações impedem que ele seja apropriado para esse tipo de tarefa. Uma limitação refere-se a ele não representar composição de dispositivos, permitindo, no máximo, uma árvore de um nível apenas (elemento raiz e seus filhos). Outra limitação está relacionada à geração de inconsistência na definição de atributos em vocabulários e perfis diferentes.
+
+\subsubsection{UAProf}
+\indent
+
+O UAProf (do Inglês, \textit{User Agent Profile} -- Perfil de Agente de Usuário) é um perfil do CC/PP destinado a descrever capacidades de dispositivos e preferências de usuários relacionadas a redes sem fio. Entre as diferentes características que podem ser descritas pela especificação, destaca-se: fabricante, modelo, tamanho de tela, capacidades multimídia, conjuntos de caracteres suportados, etc.
+
+Uma requisição HTTP (do Inglês, \textit{Hypertext Transfer Protocol} -- Protocolo de Transferência de Hipertexto) realizada por um dispositivo móvel pode enviar, em seu cabeçalho, a URL de onde está localizado seu perfil UAProf. A criação desse perfil, ou seja, a descrição das características do dispositivo em si, é realizada de maneira voluntária: fabricantes GSM (do Inglês, \textit{Global System for Mobile Communication} -- Sistema Global para Comunicações Móveis) (Nokia, Samsung, LG, etc.), por exemplo, normalmente disponibilizam suas próprias descrições; dispositivos CDMA (do Inglês, \textit{Code Division Multiple Access} -- Acesso Múltiplo por Divisão de Código) são descritos, geralmente, por companhias de telecomunicações; de modo geral, a comunidade WURFL (do Inglês, \textit{Wireless Universal Resource File} -- Arquivo de Recurso Universal Sem Fio)~\cite{PASSANI2002} trabalha colaborativamente para fornecer descrições de diversos dispositivos móveis disponíveis atualmente.
+
+\subsubsection{WSDL}
+\indent
+
+A linguagem WSDL (do Inglês, \textit{Web Services Description Language} -- Linguagem para Descrição de Serviços Web)~\cite{w3c2001} é uma recomendação W3C que tem como finalidade a descrição de serviços para web. Além da descrição, também são definidos modos de acesso a esses serviços, a localização exata na rede, e os métodos ou funções disponíveis, incluindo os parâmetros e formatos de entrada e saída.
+
+Por meio dos componentes, pode-se obter uma maior flexibilidade na WSDL, uma vez que podem ser reutilizados para definir diferentes serviços. Esses componentes podem ser: tipos de dados (tipos), parâmetros de entrada e saída de um serviço (mensagem), relacionamentos entre parâmetros de entrada e saída (operações), agrupamento lógico de operações (tipo de porta) e o protocolo a ser usado para acessar os métodos de um objeto (vínculo).
+
+Um documento WSDL descreve os serviços como coleções de terminais da rede, conhecidas também como portas. A definição abstrata de terminais e mensagens é separada de sua utilização real, o que permite reusar essas definições. Uma porta é especificada pela associação de um endereço de rede a um relacionamento reusável. Esse relacionamento é constituído por definições do protocolo e formato dos dados para um tipo particular de porta, que especifica uma coleção abstrata das operações suportadas.
+
+A fim de que a descrição de serviços possa ser utilizada na Internet, a WSDL geralmente é utiliza em conjunto com XML \textit{Schema} e o protocolo SOAP (do Inglês, \textit{Simple Object Access Protocol} -- Protocolo de Acesso a Objetos Simples). Um cliente disposto a se comunicar com um serviço web pode acessar o documento WSDL a fim de se determinar quais funções estão disponíveis no servidor. O XML \textit{Schema}, portanto, é utilizado para se acoplar no WSDL qualquer definição de um tipo de dado requerido pelo serviço. O SOAP, por sua vez, realiza a chamada às funções disponíveis, as quais estão listadas no documento WSDL.
+
+\section{Considerações Finais}
+\indent
+
+Este capítulo apresentou algumas padronizações disponíveis na literatura para codificação de conteúdo multimídia e representação de contexto e conteúdo. O propósito, de acordo com o projeto a ser desenvolvido, foi descrever resumidamente alguns formatos multimídia, incluindo suas vantagens e desvantanges, que poderão ser utilizados durante a adaptação do conteúdo. A partir dessa descrição, é possível escolher o melhor formato a ser utilizado para determinada tarefa, como a adaptação em si, ou a representação dos dados.
