@@ -12,6 +12,7 @@
 
 \RequirePackage{common-book}
 
+\newcommand{\techreportname}{Technical Report}
 
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university given}\@ehc}%
