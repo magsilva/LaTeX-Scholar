@@ -1,4 +1,4 @@
-% \usepackage{amsfonts}
+\RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{amsmath}
 
@@ -21,4 +21,20 @@
 \let \tinj  \rightarrowtail
 \def \pinj  {\p\tinj}
 
-% \newtheorem{mathdefinition}{Definição}
+% Typographic representation of complement of a set
+% http://tex.stackexchange.com/questions/15984/what-symbol-should-one-use-for-a-set-complement
+%
+% \newcommand{\setcomp}[1]{{#1}^\complement}
+\newcommand{\setcomp}[1]{\overline{#1}}
+% \newcommand{\setcomp}[1]{{#1'}}
+% \newcommand{\setcomp}[1]{\widetilde{#1}}
+% \newcommand{\setcomp}[1]{{#1}^{\sim}}
+% \newcommand{\setcomp}[1]{{#1}^{\mathsf{c}}}
+% \newcommand{\setcomp}[1]{X\setminus{#1}}
+
+
+\newtheorem{mathdefinition}{Definição}
+
+% Provides the command \centernot which is a prettier (centered) version of the
+% \not on the following argument.
+\RequirePackage{centernot}

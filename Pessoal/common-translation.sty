@@ -1,5 +1,3 @@
-\newcommand{\techreportname}{Technical report}
-
 \iflanguage{brazil}{%
 \newcommand{\projectname}{Projeto de pesquisa}
 \newcommand{\projectsummaryname}{Dados gerais}
@@ -13,7 +11,112 @@
 \newcommand{\projectcnaename}{CNAE}
 \newcommand{\projectknowledgeareaname}{\'Area de conhecimento}
 \newcommand{\projectscholarname}{Bolsista}
-\renewcommand{\techreportname}{Relat\'orio t\'ecnico}
-\renewcommand{\lstlistingname}{C\'odigo-fonte}
-\renewcommand{\lstlistlistingname}{Lista de fragmentos de c\'odigo}
+\def\techreportname{Relat\'orio t\'ecnico}
+\def\lstlistingname{C\'odigo-fonte}
+\def\lstlistlistingname{Lista de fragmentos de c\'odigo}
 }{}
+
+
+% Traduz os nomes de listagens e fragmentos de c\00digo para portugu\00s
+% \iflanguage{brazil}{%
+% \renewcommand{\lstlistingname}{Exemplo}
+% \renewcommand{\lstlistlistingname}{Lista de exemplos}
+% }{}
+
+\iflanguage{brazil}{%
+\def\depositdatename{Data de dep\'osito}
+\def\signaturename{Assinatura}
+\def\advisorname{Orientador}
+}{
+\def\depositdatename{Deposit date}
+\def\signaturename{Signature}
+\def\advisorname{Advisor}
+\def\depositfulldatename{Deposit Date}
+}
+
+% Translations regarding acronyms
+\iflanguage{brazil}{%
+	\def\listofacronymsname{Lista de acr\^onimos}
+}{
+	\def\listofacronymsname{Acronyms}
+}
+
+% Translation of names defined by Babel does not take effects as Babel's
+% translations are defined by '\begin{document}' statement. Thus, you
+% have to use the command '\addto\captions<language>'. This hint was found
+% at http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
+%
+\addto\captionsbrazil{%
+	\renewcommand{\listfigurename}{Lista de figuras}%
+	\renewcommand{\listtablename}{Lista de tabelas}%
+	\renewcommand{\bibname}{Refer\^encias}
+}
+
+\@ifpackageloaded{listings}{
+	\iflanguage{brazil}{%
+		\renewcommand\lstlistingname{C\'odigo-fonte}
+	}
+}{}
+
+\@ifpackageloaded{cleveref}{
+	\iflanguage{brazil}{%
+		\crefname{chapter}{Cap\'itulo}{Cap\'itulos}
+		\Crefname{chapter}{Cap\'itulo}{Cap\'itulos}
+		\crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
+		\Crefname{section}{Se\c{c}\~ao}{Se\c{c}\~oes}
+		\crefname{line}{Linha}{Linhas}
+		\Crefname{line}{Linha}{Linhas}
+		\crefname{table}{Tabela}{Tabelas}
+		\Crefname{table}{Tabela}{Tabelas}
+		\crefname{figure}{Figura}{Figuras}
+		\crefname{figure}{Figura}{Figuras}
+		\Crefname{figure}{Figura}{Figuras}
+		\crefname{subfigure}{Figura}{Figuras}
+		\Crefname{subfigure}{Figura}{Figuras}
+		\crefname{equation}{Equa\c{c}\~ao}{Equa\c{c}\~oes}
+		\Crefname{equation}{Equa\c{c}\~ao}{Equa\c{c}\~oes}
+		\crefname{lstlisting}{C\'odigo-fonte}{C\'odigos-fonte}
+		\Crefname{lstlisting}{C\'odigo-fonte}{C\'odigos-fonte}
+		\crefname{lstnumber}{Linha}{Linhas}
+		\Crefname{lstnumber}{Linha}{Linhas}
+		\crefrangelabelformat{chapter}{#3#1#4~a~#5#2#6}
+		\crefrangelabelformat{section}{#3#1#4~a~#5#2#6}
+
+		% The commands all take five arguments: the cross-reference type, the format
+		% for the first cross-reference in a list, the format for the second
+		% cross-reference in a list of two, the format for the middle cross-references
+		% in a list of more than two, and the format for the last cross-reference in
+		% a list of more than two.
+		\newcommand{\crefrangeconjunction}{ e }
+		\newcommand{\crefpairconjunction}{ e }
+		\newcommand{\crefmiddleconjunction}{, }
+		\newcommand{\creflastconjunction}{ e }
+		\crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+		\Crefmultiformat{ type }{ first }{ second }{ middle }{ last }
+		\crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+		\Crefrangemultiformat{ type }{ first }{ second }{ middle }{ last }
+	}{
+		% English
+		\crefname{chapter}{Chapter}{Chapters}
+		\Crefname{chapter}{Chapter}{Chapters}
+		\crefname{section}{Section}{Sections}
+		\Crefname{section}{Section}{Sections}
+		\crefname{line}{Line}{Lines}
+		\Crefname{line}{Line}{Lines}
+		\crefname{table}{Table}{Tables}
+		\Crefname{table}{Table}{Tables}
+		\crefname{figure}{Figure}{Figures}
+		\Crefname{figure}{Figure}{Figures}
+		\crefname{subfigure}{Figure}{Figures}
+		\Crefname{subfigure}{Figure}{Figures}
+		\crefname{equation}{Equation}{Equations}
+		\Crefname{equation}{Equation}{Equations}
+		\crefname{lstlisting}{Listing}{Listings}
+		\Crefname{lstlisting}{Listing}{Listings}
+		\crefname{lstnumber}{Line}{Lines}
+		\Crefname{lstnumber}{Line}{Lines}
+		\crefrangelabelformat{chapter}{#3#1#4~to~#5#2#6}
+		\crefrangelabelformat{section}{#3#1#4~to~#5#2#6}
+	}
+}
+{}
