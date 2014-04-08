@@ -1,6 +1,9 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
-\RequirePackage{amsmath}
+
+% Load math package and disable centering on 'align' environments
+\RequirePackage[fleqn]{amsmath}
+\setlength{\mathindent}{0pt}
 
 % Injective Arrow
 \newcommand{\inj}{\hookrightarrow}
