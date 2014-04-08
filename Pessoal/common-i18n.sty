@@ -40,7 +40,7 @@
 % Select charset encoding
 \ifthenelse{\boolean{scholars@encoding@utf8}}{
 	\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
-	\RequirePackage[utf8x]{inputenc}
+	\RequirePackage[utf8x,utf8]{inputenc}
 }{}
 \ifthenelse{\boolean{scholars@encoding@iso88591}}{
 	\RequirePackage[latin1]{inputenc}
