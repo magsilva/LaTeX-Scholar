@@ -77,8 +77,8 @@
 		\noindent
 		\raggedright
 		\includegraphics[height=2.2cm]{brasil}
- 	\end{minipage}
-  \begin{minipage}[t][2.5cm][c]{.65\textwidth}
+		\end{minipage}
+	\begin{minipage}[t][2.5cm][c]{.65\textwidth}
 		\centering
 		\noindent
 		\textbf{\projectheadonename{}}\\\@university{}\\\projectheadtwoname{}
@@ -92,12 +92,12 @@
 	\begin{center}
 		\vspace{3cm}
 		{\Large \bf \noindent\@title}
-		\noindent\studentname: \@student
+		\\\noindent\studentname: \@student
 
 		\vfill
 		{\large \bf \noindent \@projectid}
 		\noindent\advisorname: \@advisor
-		\noindent\coadvisorname: \@coadvisor
+		\\\noindent\coadvisorname: \@coadvisor
 		
 		\vfill
 		\noindent\campusname{} \@campus{}, \@date
