@@ -1,0 +1,80 @@
+Installation instructions
+---
+
+If you want to compile dissertations using ICMC style, you must install
+TrueType fonts distributed by Microsoft (Arial, Times New Roman, etc). 
+
+* Fedora, Mandrinva, Suse (RPM-based Linux distributions)
+  1. Install the tools to configure fonts for LaTeX (ttmkfdir):
+
+       sudo yum install ttmkfdir
+
+  2. Download the latest CoreFonts RPM package:
+
+       wget http://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+  3. Install the RPM file:
+
+       sudo rpm -Uvh msttcore-fonts-installer-2.6-1.noarch.rpm
+
+
+  4. Configure LaTeX to use the fonts.
+
+     4.1. For a system wide installation:
+
+         4.1.1. On Fedora:
+
+           cd /usr/share/texlive/texmf-dist/fonts/truetype/public
+           sudo ln -s /usr/share/fonts/msttcore
+           sudo mktexlsr
+
+         4.1.2. On Ubuntu or Debian:
+
+           cd  /usr/share/texmf-texlive/fonts/truetype/public
+           sudo ln -s /usr/share/fonts/msttcore
+           sudo mktexlsr
+
+     4.2. For a single user installation:
+
+         mkdir -p ~/texmf/fonts
+         cd ~/texmf/fonts
+         ln -s /usr/share/fonts/msttcore
+
+
+  5. Install the package 'winfonts'.
+
+     5.1. For a system wide installation:
+
+         5.1.1. On Fedora:
+ 
+             cd /usr/share/texlive/texmf-dist
+             sudo wget http://tug.ctan.org/tex-archive/fonts/winfonts/winfonts.zip
+             sudo unzip winfonts.zip
+             sudo rm winfonts.zip
+             sudo mktexlsr
+             sudo texhash
+             sudo updmap-sys --enable MixedMap=winfonts.map
+
+
+         5.1.2. On Ubuntu or Debian:
+
+             cd /usr/share/texmf-texlive/
+             sudo wget http://tug.ctan.org/tex-archive/fonts/winfonts/winfonts.zip
+             sudo unzip winfonts.zip
+             sudo rm winfonts.zip
+             sudo update-texmf
+             sudo update-fmtutil
+             sudo update-updmap
+             sudo texhash
+             sudo updmap-sys --enable MixedMap=winfonts.map
+
+
+
+    5.2. For a single user installation:
+      
+         cd ~/texmf
+         wget http://tug.ctan.org/tex-archive/fonts/winfonts/winfonts.zip
+         unzip winfonts.zip
+         rm winfonts.zip
+         updmap --enable MixedMap winfonts.map
+
