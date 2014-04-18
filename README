@@ -1,6 +1,21 @@
 Installation instructions
 ---
 
+Download the package and copy the 'packages' directory into:
+
+   '~/texmf/tex/latex/latex-scholar' (for a single user installation) or
+   '/usr/share/texlive/texmf-dist/tex/latex/latex-scholar' (on Fedora) or
+   '/usr/share/texmf-texlive/tex/latex/latex-scholar' (on Ubuntu/Debian).
+
+For system wide installation, you must run 'mktexlsr'. For single user
+installation, no further instructions are required.
+
+Take a look into the 'examples' directory for directions on how to use
+LaTeX-Scholar. Any doubt, just send me an email: magsilva@gmail.com
+
+
+
+
 If you want to compile dissertations using ICMC style, you must install
 TrueType fonts distributed by Microsoft (Arial, Times New Roman, etc). 
 
