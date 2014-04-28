@@ -1,5 +1,6 @@
+\RequirePackage{ifthen}
 \RequirePackage{textcomp} % Required by upquote option.
-\RequirePackage{latexscholar-float} % Required by \floatmaring
+\RequirePackage{latexscholar-float} % Required by \floatmargin
 \RequirePackage{listings}
 
 
@@ -110,5 +111,8 @@
 
 % Macro for inline source code
 %
-\RequirePackage[obeyspaces,spaces]{url}
+\@ifpackageloaded{url}{
+}{
+	\RequirePackage[obeyspaces,spaces]{url}
+}
 \newcommand\srccode[1]{\url{#1}}%

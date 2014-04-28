@@ -41,10 +41,20 @@
 \ifthenelse{\boolean{scholars@encoding@utf8}}{
 	\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
 	\RequirePackage[utf8x,utf8]{inputenc}
+	\PassOptionsToPackage{unicode}{hyperref}
 }{}
 \ifthenelse{\boolean{scholars@encoding@iso88591}}{
 	\RequirePackage[latin1]{inputenc}
 }{}
+% Hint extracted from LaTeX-Beamer:
+% If you use a Unicode character outside the first two code pages (which
+% includes the Latin alphabet and the extended Latin alphabet) in a section
+% or subsection heading, you have to use the command \PreloadUnicodePage{\meta{code page}}
+% to give 'ucs' a chance to preload these code pages. You will know that a
+% character has not been preloaded, if you get a message like ``Please insert
+% into preamble.'' The code page of a character is given by the unicode number
+% of the character divided by 256.
+
 
 
 % Fonts to be used. This choice depends upon the font's choice. For
@@ -69,5 +79,5 @@
 % \RequirePackage{aeguill}
 
 
-% Macro utilizada para termos em ingl\00s.
+% Macro used for works in English
 \newcommand\foreign[1]{\foreignlanguage{english}{\textit{#1}}}

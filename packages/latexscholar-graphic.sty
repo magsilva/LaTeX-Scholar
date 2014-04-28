@@ -1,11 +1,20 @@
 % % Enables use of figures.
-\RequirePackage[pdftex]{graphicx}
-\RequirePackage{epstopdf}
+\@ifpackageloaded{graphicx}{
+	\RequirePackage{epstopdf}
+}{
+	\RequirePackage[pdftex]{graphicx}
+	\RequirePackage{epstopdf}
+}
 
 % Extends the file name processing of package 'graphics' to support a larger
-% range of file names (with several dots, with spaces, etc).
+% range of file names (with several dots, with spaces, etc) and filenames
+% encoded with utf8.
 % \RequirePackage{stringenc}
-% \RequirePackage[extendedchars,filenameencoding=utf8]{grffile}
+%
+\usepackage[extendedchars,encoding,multidot,space,filenameencoding=utf8]{grffile}
 
 % Cores
-\RequirePackage[cmyk,table]{xcolor}
+\@ifpackageloaded{xcolor}{
+}{
+	\RequirePackage[table]{xcolor}
+}
