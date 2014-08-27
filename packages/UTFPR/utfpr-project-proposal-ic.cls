@@ -3,7 +3,7 @@
 
 \LoadClass[twoside,12pt,onecolumn,a4paper]{article}
 
-\RequirePackage{common}
+\RequirePackage{latexscholar-common}
 
 
 % % Do no use uppercase for \bibname.
@@ -97,7 +97,7 @@
 		\vfill
 		{\large \bf \noindent \@projectid}
 		\noindent\advisorname: \@advisor
-		\\\noindent\coadvisorname: \@coadvisor
+%		\\\noindent\coadvisorname: \@coadvisor
 		
 		\vfill
 		\noindent\campusname{} \@campus{}, \@date
