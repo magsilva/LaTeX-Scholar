@@ -3,7 +3,7 @@
 
 \LoadClass[twoside,12pt,onecolumn,a4paper]{article}
 
-\RequirePackage{common}
+\RequirePackage{latexscholar-common}
 
 
 % % Do no use uppercase for \bibname.
