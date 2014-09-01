@@ -1,11 +1,20 @@
+Requirements
+---
+* abnTeX (optional)
+  - Available at https://github.com/magsilva/abntex 
+* winfonts (optional)
+
+
+
 Installation instructions
 ---
 
 Download the package and copy the 'packages' directory into:
 
-   '~/texmf/tex/latex/latex-scholar' (for a single user installation) or
+   '~/texmf/tex/latex/latex-scholar' (for a single user installation on Linux) or
    '/usr/share/texlive/texmf-dist/tex/latex/latex-scholar' (on Fedora) or
-   '/usr/share/texmf-texlive/tex/latex/latex-scholar' (on Ubuntu/Debian).
+   '/usr/share/texmf-texlive/tex/latex/latex-scholar' (on Ubuntu/Debian) or
+   'C:\Program Files (x86)\MiKTeX 2.9\tex\latex' (on Windows)
 
 For system wide installation, you must run 'mktexlsr'. For single user
 installation, no further instructions are required.
