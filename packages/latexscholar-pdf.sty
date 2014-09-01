@@ -22,4 +22,11 @@
 }
 
 % Enable traceability (synchronization) between LaTeX source and PDF output.
-% \usepackage{pdfsync}
+\usepackage{pdfsync}
+
+% Enable usage of fake spaces in PDF
+\ifnum\pdftexversion=140
+	\ifnum\pdftexrevision>14
+		\pdfinterwordspaceon
+	\fi
+\fi
