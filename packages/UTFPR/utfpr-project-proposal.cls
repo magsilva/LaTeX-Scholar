@@ -6,6 +6,10 @@
 \RequirePackage{latexscholar-common}
 
 
+\RequirePackage[nottoc,notindex,notlot,notlof,numbib]{tocbibind}
+
+\RequirePackage{latexscholar-hacks}
+
 % % Do no use uppercase for \bibname.
 % \renewenvironment{thebibliography}[1]{
 % 	\section*{\bibname}%
@@ -52,7 +56,7 @@
 \newcommand{\campusname}{Campus}
 \newcommand{\projectname}{Projeto de}
 \newcommand{\projecttitlename}{Título do projeto}
-\newcommand{\projectknowledgeareaname}{Área de conhecimento (CNPq)}
+\newcommand{\projectknowledgeareaname}{Área de conhecimento (CNPq): }
 \newcommand{\projectheadonename}{Ministério da Educação}
 \newcommand{\projectheadtwoname}{Pró-Reitoria de Pesquisa e Pós-Graduação}
 
@@ -81,7 +85,7 @@
 		\vfill
 		\noindent\@author
 		\\\projectname{}  \@projecttype
-		\\\projectknowledgeareaname{}: \@knowledgearea{}
+		\\\projectknowledgeareaname{} \@knowledgearea{}
 		
 		\vfill
 		\noindent\campusname{} \@campus{}, \@date
@@ -89,4 +93,4 @@
 	\clearpage
 }
 
-\setlength{\parskip}{0pt}
+% \setlength{\parskip}{0pt}
