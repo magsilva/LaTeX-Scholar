@@ -14,6 +14,7 @@ Download the package and copy the 'packages' directory into:
    '~/texmf/tex/latex/latex-scholar' (for a single user installation on Linux) or
    '/usr/share/texlive/texmf-dist/tex/latex/latex-scholar' (on Fedora) or
    '/usr/share/texmf-texlive/tex/latex/latex-scholar' (on Ubuntu/Debian) or
+   '~/Library/texmf/tex/latex/latex-scholar' (on MacOS with MacTeX) or
    'C:\Program Files (x86)\MiKTeX 2.9\tex\latex' (on Windows)
 
 For system wide installation, you must run 'mktexlsr'. For single user
