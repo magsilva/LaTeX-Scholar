@@ -24,13 +24,13 @@
 
 \LoadClass{article}
 
-\RequirePackage{common-i18n}
-\RequirePackage{common-pdf}
-\RequirePackage{common-graphic}
-\RequirePackage{common-verbatim}
+\RequirePackage{latexscholar-i18n}
+\RequirePackage{latexscholar-pdf}
+\RequirePackage{latexscholar-graphic}
+\RequirePackage{latexscholar-verbatim}
 \def\UrlFont{\tt\fontseries{uc}\fontsize{10}{1}\selectfont}
 
-\RequirePackage{common-margin}
+\RequirePackage{latexscholar-margin}
 \geometry{a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm}
 
 \RequirePackage[num,abnt-url-package=url]{abntcite}

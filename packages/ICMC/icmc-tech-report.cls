@@ -62,7 +62,7 @@
 	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
-	{\includegraphics[scale=.15]{\@logo} \par}
+	{\includegraphics[width=.12\textwidth]{\@logo} \par}
 	\vfill
 	{\large \textbf{\@address} \par}
 	{\large \textbf{\@date} \par}
@@ -94,7 +94,7 @@
 	\vfill
 	{\Large \textbf{\allcaps{\techreportname}}}
 	\vfill
-	{\includegraphics[scale=.15]{\@logo} \par}
+	{\includegraphics[width=.12\textwidth]{\@logo} \par}
 	\vfill
 	{\large \textbf{\@address} \par}
 	{\large \textbf{\@date} \par}
