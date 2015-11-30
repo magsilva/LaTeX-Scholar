@@ -127,8 +127,8 @@
 		\begin{minipage}{.52\textwidth}
 				\singlespacing
 				\hyphenpenalty=10000
-				\@goal apresentado ao \@program da \@university como requisito parcial
-				para obtenção do grau de \@degree em \@degreearea.\par
+				\@goal{} apresentado ao \@program{} da \@university{} como requisito parcial
+				para obtenção do grau de \@degree{} em \@degreearea{}.\par
 				\esporient{\numberline{\advisorlabel:}}{\hspace{2mm}\@advisor}\par
 				\vspace{-8pt}
 				\esporient{\numberline{\coadvisorlabel:}}{\hspace{2mm}\@coadvisor}\par
