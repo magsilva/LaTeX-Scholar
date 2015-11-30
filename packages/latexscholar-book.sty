@@ -233,6 +233,8 @@
 }
 
 \renewcommand\mainmatter{
+	% Hack to fix page numbering
+	\setcounter{page}{1}
 	\cleardoublepage
 	\@mainmattertrue
 	% \pagestyle{mainmatter}
