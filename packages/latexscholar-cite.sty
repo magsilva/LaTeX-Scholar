@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{latexscholar-cite}[2012/02/13 i18n related package for LaTeX-Scholars]
 
-\usepackage[capitalise]{cleveref}
+\RequirePackage[capitalise]{cleveref}
 \crefname{chapter}{Chapter}{Chapters}
 \Crefname{chapter}{Chapter}{Chapters}
 \crefname{section}{Section}{Sections}
@@ -24,4 +24,4 @@
 \crefrangelabelformat{section}{#3#1#4~to~#5#2#6}
 
 
-
+% \RequirePackage[norefs, nocites, msgs, chkunlbld]{refcheck}

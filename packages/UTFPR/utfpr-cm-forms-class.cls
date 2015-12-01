@@ -10,6 +10,7 @@
 \usepackage{latexscholar-table}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{setspace}
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{Y}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -51,9 +52,11 @@
 			& Ministério da Educação\\
 			& Universidade Tecnológica Federal do Paraná\\
 			& Câmpus Campo Mourão\\
-			& \textbf{Coordenação: \@coordination}\\
+			& \\
 		\hline
-		\multicolumn{2}{|c|}{\LARGE\textsc{Substituição / Reposição / Antecipação de Aulas}}\\
+		& \\
+		\multicolumn{2}{|c|}{\Large\textsc{Substituição / Reposição / Antecipação de Aulas}}\\
+		& \\
 		\hline
 	\end{tabularx}
 }
@@ -69,32 +72,48 @@
 	\end{tabularx}
 }
 
+%\newcommand{\formreason}{
+%	\par
+%	\vspace{.3cm}
+%	\begin{tabularx}{\textwidth}{|p{3cm}|X|}
+%		\hline
+%																							& \textbf{Motivo:}\\
+%		( \@utfpr@form@surrogate ) Substituição   & \multirow{4}{13cm}{\@reason}\\
+%		( \@utfpr@form@postpone ) Reposição       & \\
+%		( \@utfpr@form@anticipate ) Antecipação   & \\
+%													 & \\
+%		\hline
+%	\end{tabularx}
+%}
+
 \newcommand{\formreason}{
 	\par
 	\vspace{.3cm}
-	\begin{tabularx}{\textwidth}{|p{3cm}|X|}
+	\begin{tabularx}{\textwidth}{|X|}
 		\hline
-																							& \textbf{Motivo:}\\
-		( \@utfpr@form@surrogate ) Substituição   & \multirow{4}{10cm}{\@reason}\\
-		( \@utfpr@form@postpone ) Reposição       & \\
-		( \@utfpr@form@anticipate ) Antecipação   & \\
-													 & \\
+		\textbf{Motivo:}\\
+		\@reason\\
 		\hline
 	\end{tabularx}
 }
+
 
 \newenvironment{formschedule}{
 	\par
 	\vspace{.3cm}
 	\small
-		\tabularx{\textwidth}{|c|c|c|c|c|X|}
+	\tabularx{\textwidth}{|c|c|c|c|c|c|X|}
 			\hline
-			\textbf{Data da aula} & \textbf{Data e horário propostos} & \textbf{Disciplina} & \textbf{Turma} & \textbf{Sala} & \textbf{Professor substituto}\\\hline
+			\textbf{Data da aula} & \textbf{S/R/A} &\textbf{Data e horário propostos} & \textbf{Disciplina} & \textbf{Turma} & \textbf{Sala} & \textbf{Substituto}\\\hline
 }{
 	\endtabularx
 	\normalsize
+	\vspace{-.5cm}
+	{\footnotesize \textbf{Legenda:} S: substituição. R: reposição. A: antecipação. Opções possíveis: S, R, RS, A, AS.}
+	\vspace{.7cm}
 }
 
+%
 \newcommand{\formfooter}{
 	\par
 	\vspace{.3cm}
@@ -102,35 +121,62 @@
 		\renewcommand{\arraystretch}{1.5} 
 		\begin{tabularx}{\textwidth}{|X|}
 			\hline
-			\large\textbf{\textsc{Parecer da Coordenação:}}\\
+			\textbf{Assinatura do professor solicitante}\\
 			\\
-			\hline\\
-			\hline\\
+			\hline
+		\end{tabularx}
+	}
+
+	\par
+	\vspace{.3cm}
+	{
+		\renewcommand{\arraystretch}{1.5} 
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
+			\hline
+			\multicolumn{5}{|l|}{\textbf{Assinatura dos professores substitutos (se aplicável)}}\\
+			\hline
+			& & & &\\
+			& & & &\\
+			& & & &\\
+			\hline
+		\end{tabularx}
+	}
+
+
+	\par
+	\vspace{.3cm}
+	{
+		\renewcommand{\arraystretch}{1.5} 
+		\begin{tabularx}{\textwidth}{|X|}
+			\hline
+			\textbf{Coordenação responsável pelas disciplinas}: \@coordination\\
+			\hline
+			\textbf{Parecer e assinatura da coordenação responsável pelas disciplinas}\\
+			\\
+			\\
+			\hline
+		\end{tabularx}
+	}
+
+	\par
+	\vspace{.3cm}
+	{
+		\renewcommand{\arraystretch}{1.5} 
+		\begin{tabularx}{\textwidth}{|X|}
+			\hline
+			\textbf{Parecer e assinatura da chefia do professor solicitante}\\
+			\\
+			\\
 			\hline
 		\end{tabularx}
 	}
 
 	\vspace{.3cm}
 	{
-		\renewcommand{\arraystretch}{2} 
-		\begin{tabular}{|p{.473\textwidth}|p{.473\textwidth}|}
-			\hline
-			\textbf{\large Assinatura do professor solicitante:} & \textbf{\large Ciente dos professores substitutos}\\
-																											   & \\
-			\cline{2-2}                                          & \\\hline
-			\textbf{\large Aprovação da Coordenação}             & \\
-			\cline{2-2}                                          & \\
-			\cline{2-2}                                          & \\\hline
-		\end{tabular}
-	}
-
-	\vspace{.3cm}
-	{
 		\renewcommand{\arraystretch}{1.8} 
-		\begin{tabularx}{\textwidth}{|X|p{5cm}|}
+		\begin{tabularx}{\textwidth}{|X|p{4cm}|}
 			\hline
-			\textbf{\large Observações:} & \textbf{\large Atenção:}\\
-                  & \multirow{3}{5cm}{No caso de antecipação ou reposição de aulas, deverá consta no verso deste formulário a relação dos alunos com as respectivas assinaturas, concordando com a alteração do horário das aulas.}\\
+			\textbf{Observações:} & \multirow{3}{4cm}{\small \textbf{Atenção:} No caso de antecipação ou reposição de aulas, anexar a este formulário a relação dos alunos com as respectivas assinaturas, concordando com as datas e os horários propostos.}\\
 			\cline{1-1} &\\
 			\cline{1-1} &\\
 			\cline{1-1} &\\
