@@ -232,6 +232,8 @@
 }
 
 \renewcommand\mainmatter{
+	% Hack to fix page numbering
+	\setcounter{page}{0}
 	\cleardoublepage
 	\@mainmattertrue
 	% \pagestyle{mainmatter}
@@ -279,8 +281,8 @@
 % Pretty chapter start
 % \chapternumberfont{\helveticabold at 64pt}
 \titleformat{\chapter}[display]
-	{\normalfont\Large\sffamily}
-	{
+	{\normalfont\Large\sffamily} % Text format
+	{ % Label
 		\filright
 		\rule[32pt]{.7\linewidth}{4pt}
 		\hspace{-8pt}
@@ -296,4 +298,4 @@
 	}
 	{0pt}
 	{\filcenter\Huge}
-	[\hfill\rule{.8\textwidth}{0.5pt}\\\vskip-1.8ex\hfill\rule{.7\textwidth}{3pt}\vspace{-3cm}]
+	[\hfill\rule{.8\textwidth}{0.5pt}\\\vskip-1.8ex\hfill\rule{.7\textwidth}{3pt}] %\vspace{-3cm}]
