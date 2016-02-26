@@ -11,6 +11,9 @@
 \pdfcompresslevel=9
 \pdfobjcompresslevel=3
 
+\def\extractpdftexversion#1-#2-#3 #4\@nil{#3}
+\edef\pdftexppversion{\expandafter\extractpdftexversion\pdftexbanner\@nil}
+
 \newcommand{\metadata}{
 	\pdfinfo {
 		/Title (\@title)
@@ -18,15 +21,17 @@
 		/Keywords (\@keywords)
 %		/CreationDate (D:20040501215500)
 		/ModDate (D:\pdfdate)
+		/Producer (pdfTeX \pdftexppversion)
 	}
 }
 
 % Enable traceability (synchronization) between LaTeX source and PDF output.
 % \usepackage[novbox]{pdfsync}
 
-% Enable usage of fake spaces in PDF
 \ifnum\pdftexversion=140
 	\ifnum\pdftexrevision>14
-		\pdfinterwordspaceon
+		\pdfsuppresswarningpagegroup=1
+		% Enable usage of fake spaces in PDF (\pdffakespace)
+%		\pdfinterwordspaceon
 	\fi
 \fi
