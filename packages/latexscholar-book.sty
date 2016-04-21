@@ -40,7 +40,6 @@
 	\addcontentsline{toc}{chapter}{\numberline{}\bibname}
 	\chapter*{\bibname}%
 
-	\vspace{-5cm}
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
 	}{
@@ -229,7 +228,7 @@
 	\@mainmatterfalse
 	\pagestyle{frontmatter}
 	\pagenumbering{roman}
-	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+	\titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
 }
 
 \renewcommand\mainmatter{
@@ -239,7 +238,7 @@
 	\@mainmattertrue
 	% \pagestyle{mainmatter}
 	\pagenumbering{arabic}
-	\titlespacing{\chapter}{0pt}{2.5em}{26em}[0pt]
+	\titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
 }
 
 \renewcommand\backmatter{%
@@ -247,7 +246,7 @@
 	\@mainmatterfalse
 %	\pagestyle{backmatter}
 %	\pagenumbering{arabic}
-	\titlespacing{\chapter}{0pt}{2.5em}{10em}[0pt]
+	\titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
 }
 
 % Macro to highlight the first letter of the text.
@@ -278,15 +277,15 @@
     \hskip-\dimen0\setbox0\hbox to\dimen0{\raise-\dimen1\box0\hss}%
     \dp0=0in\ht0=0in\box0}}
 
-
 % Pretty chapter start
 % \chapternumberfont{\helveticabold at 64pt}
+
+\newlength{\chaptertitleheight}
 \titleformat{\chapter}[display]
 	{\normalfont\Large\sffamily} % Text format
 	{ % Label
-		\filright
 		\rule[32pt]{.7\linewidth}{4pt}
-		\hspace{-8pt}
+		\hspace{-10pt}
 		\shadowbox{
 			\begin{minipage}{.18\linewidth}
 				\centering
@@ -296,7 +295,28 @@
 				\vspace{1ex}
 			\end{minipage}
 		}
+		\hspace{-14pt}
+		\leaders\hbox{\rule[32pt]{.1pt}{4pt}}\hfill
 	}
 	{0pt}
-	{\filcenter\Huge}
-	[\hfill\rule{.8\textwidth}{0.5pt}\\\vskip-1.8ex\hfill\rule{.7\textwidth}{3pt}] %\vspace{-3cm}]
+	{\Huge\raggedright}
+	[\rule{\linewidth}{4pt}]
+
+\newsavebox{\scholar@chaptertitle}%
+\let\scholar@oldchapter\chapter%
+\renewcommand*\chapter{%
+	\@ifstar{\scholar@oldchapter@starred}{\@dblarg\scholar@oldchapter@notstarred}}
+
+\newcommand*\scholar@oldchapter@starred[1]{
+	\savebox{\scholar@chaptertitle}{\Huge\parbox[t]{\textwidth}{#1}}%
+	\settototalheight{\chaptertitleheight}{\usebox{\scholar@chaptertitle}}%
+	\addtolength{\chaptertitleheight}{3cm}%
+	\titlespacing{\chapter}{0pt}{0em}{\chaptertitleheight}[0pt]
+	\scholar@oldchapter*{#1}}
+
+\def\scholar@oldchapter@notstarred[#1]#2{
+	\savebox{\scholar@chaptertitle}{\Huge\parbox[t]{\textwidth}{#2}}%
+	\settototalheight{\chaptertitleheight}{\usebox{\scholar@chaptertitle}}%
+	\addtolength{\chaptertitleheight}{7cm}%
+	\titlespacing{\chapter}{0pt}{0em}{\chaptertitleheight}[0pt]%
+	\scholar@oldchapter[{#1}]{#2}}%
