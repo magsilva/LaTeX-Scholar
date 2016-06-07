@@ -44,6 +44,14 @@
 \def\depositplace#1{\gdef\@depositplace{#1}}%
 \def\@depositplace{\@latex@error{No \noexpand\depositplace given}\@ehc}%
 
+\newcommand{\depositdatename}{Data de depósito}
+
+\newcommand{\signaturename}{Assinatura}
+
+\newcommand{\advisorname}{Orientador}
+
+\newcommand{\listofacronymsname}{Lista de acrônimos}
+
 \newcommand{\defensebox}{
 	\begin{flushright}
 		\begin{boxedminipage}[t]{6.5cm}
@@ -67,13 +75,16 @@
 		\begin{center}
 			\vspace{0.15cm}
 			\begin{footnotesize}
-				{\fontfamily{times-ttf}\selectfont\fontsize{9pt}{11pt} \@depositplace}
+%				{\fontfamily{times-ttf}\selectfont\fontsize{9pt}{11pt} \@depositplace}
+				{\@depositplace}
 			\end{footnotesize}
 		\end{center}
 		\vspace{0.35cm}
-		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \depositdatename: \@depositfulldate \par}
+%		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \depositdatename: \@depositfulldate \par}
+		{\hspace{0.15cm}\depositdatename: \@depositfulldate \par}
 		\vspace{0.4cm}
-		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \signaturename: \rule{5cm}{.05mm} \par}
+%		{\hspace{0.15cm}\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt} \signaturename: \rule{5cm}{.05mm} \par}
+		{\signaturename: \rule{5cm}{.05mm} \par}
 		\vspace{0.20cm}
 	\end{minipage}}
 
@@ -90,11 +101,11 @@
 		\begin{minipage}{10.6cm}
 			\begin{center}
 				\vspace{0.6cm}
-				{\fontfamily{tahoma}\selectfont\fontsize{17pt}{20pt} \textsf{\@title} \par}
-				% {\textbf{\fontsize{15pt}{19pt} \selectfont \normalfont \Large\sffamily\bfseries \@title}}
+%				{\fontfamily{tahoma}\selectfont\fontsize{17pt}{20pt} \textsf{\@title} \par}
+				{\textsf{\@title} \par}
 				\vspace{1.0cm}
-				{\fontfamily{times-ttf}\selectfont\fontsize{15pt}{18pt}\textbf{\textit{\@author}} \normalsize \par}
-				% {\fontsize{13pt}{6pt} \selectfont \textbf{\emph{\large\@author}}}
+%				{\fontfamily{times-ttf}\selectfont\fontsize{15pt}{18pt}\textbf{\textit{\@author}} \normalsize \par}
+				{\textbf{\textit{\@author}} \normalsize \par}
 				\vspace{0.5cm}
 			\end{center}
 		\end{minipage}
@@ -114,26 +125,32 @@
 	\begin{center}
 		\begin{minipage}{12cm}
 			\centering
-			{\fontfamily{tahoma}\selectfont\fontsize{17pt}{21pt} \textsf{\@title} \par}
+%			{\fontfamily{tahoma}\selectfont\fontsize{17pt}{21pt} \textsf{\@title} \par}
+			{\textsf{\@title} \par}
 		\end{minipage}
 	\end{center}
 	\begin{center}
 		\vspace{1.2cm}
-		{\fontfamily{times-ttf}\selectfont\fontsize{14pt}{17pt}\textbf{\@author} \par}
+%		{\fontfamily{times-ttf}\selectfont\fontsize{14pt}{17pt}\textbf{\@author} \par}
+		{\textbf{\@author} \par}
 		\vspace{2.4cm}
-		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\textbf{\textit{\advisorname}: \@advisor} \par}
+%		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\textbf{\textit{\advisorname}: \@advisor} \par}
+		{\textbf{\textit{\advisorname}: \@advisor} \par}
 	\end{center}
 	\vspace{1.7cm}
 	\begin{flushright}
 		\begin{minipage}{8.5cm}
-			{\fontfamily{times-ttf}\selectfont\fontsize{11pt}{13pt}\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
+%			{\fontfamily{times-ttf}\selectfont\fontsize{11pt}{13pt}\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
+			{\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
 		\end{minipage}
 	\end{flushright}
 	\vspace{2.5cm}
 	\begin{center}
-		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@address \par}
+%		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@address \par}
+		{\bf\@address \par}
 		\vspace{-0.3cm}
-		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@depositshortdate \par}
+%		{\fontfamily{times-ttf}\selectfont\fontsize{12pt}{14pt}\bf\@depositshortdate \par}
+		{\bf\@depositshortdate \par}
 	\end{center}
 	\end{adjustwidth}
 	\includepdf[pages={1}]{refcard.pdf}

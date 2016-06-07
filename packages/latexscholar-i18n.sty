@@ -28,14 +28,17 @@
 
 \ProcessOptions*
 
+\RequirePackage{cmap}
+% \RequirePackage{mmap}  % Buggy! It's breaking \url support.
+% \RequirePackage[noTeX]{mmap}
+
+% Select font encoding (and fix cut/paste for PDF documents).
+\RequirePackage[T1]{fontenc}
+
 % l10n
 \RequirePackage{babel}
 \RequirePackage{datetime}
 
-% Select font encoding (and fix cut/paste for PDF documents).
-\RequirePackage[T1]{fontenc}
-\RequirePackage{cmap}
-% \RequirePackage{mmap}  % Buggy! It's breaking \url support.
 
 % Select charset encoding
 \ifthenelse{\boolean{scholars@encoding@utf8}}{
