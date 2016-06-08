@@ -31,7 +31,7 @@
 \def\@advisor{\@latex@error{No \noexpand\advisor given}\@ehc}%
 
 \def\coadvisor#1{\gdef\@coadvisor{#1}}%
-\def\@coadvisor{\@latex@error{No \noexpand\coadvisor given}\@ehc}%
+% \def\@coadvisor{\@latex@error{No \noexpand\coadvisor given}\@ehc}%
 
 \def\address#1{\gdef\@address{#1}}%
 \def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
@@ -130,8 +130,10 @@
 				\@goal{} apresentado ao \@program{} da \@university{} como requisito parcial
 				para obtenção do grau de \@degree{} em \@degreearea{}.\par
 				\esporient{\numberline{\advisorlabel:}}{\hspace{2mm}\@advisor}\par
-				\vspace{-8pt}
-				\esporient{\numberline{\coadvisorlabel:}}{\hspace{2mm}\@coadvisor}\par
+				\@ifundefined{@coadvisor}{}{
+					\vspace{-8pt}
+					\esporient{\numberline{\coadvisorlabel:}}{\hspace{2mm}\@coadvisor}\par
+				}
 		\end{minipage}
 		\vfill
 		\begin{center}
