@@ -1,33 +1,13 @@
-%% normas-utf-tex.cls
-%% Copyright 200?-2011 Diogo Rosa Kuiaski <diogo.kuiaski@gmail.com>
-%% Copyright 200?-2011 Hugo Vieira Neto <hvieir@utfpr.edu.br>
-%% Copyright 2011      César M. Vargas Benítez <cesarvargasb@gmail.com>
-%% Copyright 2011-2013      Marcos Talau <talau@users.sourceforge.net>
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.3
-% of this license or (at your option) any later version.
-% The latest version of this license is in
-% http://www.latex-project.org/lppl.txt
-% and version 1.3 or later is part of all distributions of LaTeX
-% version 2005/12/01 or later.
-% 
-% This work has the LPPL maintenance status `maintained'.
-% 
-% The Current Maintainer of this work is normas-utf-sf.net.
-% 
-% This work consists of the file normas-utf-tex.cls
-
-% dependência: abntex >= 0.9-beta2
-
 \NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{utfpr-pdm}[2014/11/17 PDM]
 
 \LoadClassWithOptions{book}
 \RequirePackage{latexscholar-book}
-\RequirePackage{latexscholar-text-spacing}
-\RequirePackage{pdfpages}
 
-\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+
+\RequirePackage{tocvsec2}
+\maxtocdepth{subsubsection}
 
 \def\titleen#1{\gdef\@titleen{#1}}%
 \def\@titleen{\@latex@error{No \noexpand\titleen given}\@ehc}%
@@ -35,13 +15,14 @@
 \def\advisor#1{\gdef\@advisor{#1}}%
 \def\@advisor{\@latex@error{No \noexpand\advisor given}\@ehc}%
 
-\def\coadvisor#1{\gdef\@coadvisor{#1}}%
-
 \def\address#1{\gdef\@address{#1}}%
 \def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
 
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university given}\@ehc}%
+
+\def\universitycampus#1{\gdef\@universitycampus{#1}}%
+\def\@universitycampus{\@latex@error{No \noexpand\universitycampus given}\@ehc}%
 
 \def\universityunit#1{\gdef\@universityunit{#1}}%
 \def\@universityunit{\@latex@error{No \noexpand\universityunit given}\@ehc}%
@@ -49,104 +30,62 @@
 \def\program#1{\gdef\@program{#1}}%
 \def\@program{\@latex@error{No \noexpand\program given}\@ehc}%
 
-\def\course#1{\gdef\@course{#1}}%
-\def\@course{\@latex@error{No \noexpand\course given}\@ehc}%
-
 \def\depositshortdate#1{\gdef\@depositshortdate{#1}}%
 \def\@depositshortdate{\@latex@error{No \noexpand\depositshortdate given}\@ehc}%
 
-\def\goal#1{\gdef\@goal{#1}}%
-\def\@goal{\@latex@error{No \noexpand\goal given}\@ehc}%
-
-\def\degree#1{\gdef\@degree{#1}}%
-\def\@degree{\@latex@error{No \noexpand\degree given}\@ehc}%
-
-\def\degreearea#1{\gdef\@degreearea{#1}}%
-\def\@degreearea{\@latex@error{No \noexpand\degreearea given}\@ehc}%
-
-\newcommand{\advisorlabel}{Orientador}
-\newcommand{\coadvisorlabel}{Coorientador}
-
-%Altera o tamanho da indentacao do paragrafo
-\setlength{\parindent}{1.5cm} %
-
-% \newcommand{\ABNTifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CAPA
+\def\dissertationgoal#1{\gdef\@dissertationgoal{#1}}%
+\def\@dissertationgoal{\@latex@error{No \noexpand\dissertationgoal given}\@ehc}%
 
 \newcommand{\coverpageone}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
-		\centering
-		{
-			\singlespacing
-			\large\allcaps{\@university}\\
-			\large\allcaps{\@universityunit}\\
-			\large\allcaps{\@program}\par	
-		}
-		\vspace{56pt}	
-		{
-			\singlespacing
-			\large\textbf{\allcaps{\@author}}\\
-		}
-		\vfill
-		{
-			\singlespacing
-			\Large\textbf{\allcaps{\@title}} \par 
-		}
-		\vspace{48pt}
-		\large\allcaps{\@goal}
-		\vfill
-		\textbf{\allcaps{\@address}}\par
-		\textbf{\@depositshortdate}
+		\begin{center}
+			\null
+			\allcaps{\@university}
+			\par
+			\allcaps{\@universitycampus}
+			\par
+			\allcaps{\@universityunit}
+			\par
+			\allcaps{\@program}
+			\par
+			\vfill
+			{\allcaps{\@author} \normalsize \par}
+			\vfill
+			{\large\textbf{\textsf{\allcaps{\@title}}} \par}
+			\vfill
+			{
+				\allcaps{Dissertação -- Mestrado} \par
+			}
+			\vfill
+			\vspace{2.5cm}
+			{\bf\allcaps{\@address} \par}
+			{\bf\allcaps{\@depositshortdate} \par}
+		\end{center}
 	\end{adjustwidth}
 	\clearpage{\pagestyle{empty}\cleardoublepage}
 }
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FOLHA DE ROSTO 
-
-\newcommand{\esporient}[2]
-{
-	\leftskip 0em
-	\@tempdima 6.4em
-	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-	{#1#2\hfil}
-}
-
-\newcommand{\coverpagetwo}
-{
+\newcommand{\coverpagetwo}{
 	\thispagestyle{empty}
 	\begin{adjustwidth}{-.5cm}{}
+		\vspace{2.6cm}
 		\begin{center}
-				\singlespacing
-				\large\textbf{\allcaps{\@author}}\\
-		\end{center}
-		\vfill
-		\begin{center}
-			\Large\textbf{\allcaps{\@title}}\par
-		\end{center}
-		\vspace{60pt}
-%		\hspace{.4\textwidth}
-		\hfill\begin{minipage}{.6\textwidth}
-				\singlespacing
-				\hyphenpenalty=10000
-				\@goal{} apresentado à disciplina de \@course, do \@program{} do \@universityunit{}
-				da \@university{}, como requisito parcial para obtenção do título de \@degree{}
-				em \@degreearea{}.\par
-				\esporient{\numberline{\advisorlabel:}}{\hspace{.5mm}\@advisor}\par
-				\@ifundefined{@coadvisor}{}{
-					\vspace{-8pt}
-					\esporient{\numberline{\coadvisorlabel:}}{\hspace{.5mm}\@coadvisor}\par
-				}
-		\end{minipage}
-		\vfill
-		\begin{center}
-			\textbf{\allcaps{\@address}}\par
-			\textbf{\@depositshortdate}
+			{\allcaps{\@author} \par}
+			\vfill
+			{\large{\textbf{\textsf{\allcaps{\@title}}}} \par}
+			\vspace{2.4cm}
+			\begin{flushright}
+				\begin{minipage}{8.5cm}
+					{\hyphenpenalty=10000 \singlespacing \@dissertationgoal \par}%
+					\vspace{.3cm}
+					{\advisorname: \@advisor \par}
+				\end{minipage}
+			\end{flushright}		
+			\vspace{2.5cm}
+			{\bf\allcaps{\@address} \par}
+			{\bf\allcaps{\@depositshortdate} \par}
 		\end{center}
 	\end{adjustwidth}
 }
@@ -159,6 +98,7 @@
 		\coverpagetwo
 	\end{titlepage}
 }
+
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % % TERMO DE APROVACAO
@@ -235,8 +175,8 @@
 % 	\end{titlepage}
 % }
 % 
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- %   Ficha catalografica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Ficha catalografica
 \providecommand{\UTFPRfichacatpumdata}{}
 \newcommand{\fichacatpum}[1]{\renewcommand{\UTFPRfichacatpumdata}{#1}}
 \providecommand{\UTFPRfichacatautordata}{}
@@ -278,39 +218,39 @@
 					\UTFPRfichacatpumdata
 					\lenauthor & \UTFPRfichacatautordata \\
 					\lenauthor & \lencore \@title / \@author. \@address. UTFPR,  \@depositshortdate. \\
-					           & \lencore \pageref{LastPage}. f. : il. ; 30 cm \\
-					           & \\
-					           & \lencore Orientador: \@advisor. \\
-\@ifundefined{@coadvisor}{}{
-							   & \lencore \coadvisorlabel: \@coadvisor \\
-}
-							   & \lencore Monografia (Graduação) - \@university. \@program. \@address, \@depositshortdate.\\
-							   & \lencore Bibliografia: f. \pageref{bibstart} - \pageref{bibend}. \\
-					           & \\
-					           & \lencore \UTFPRfichacatpalchadata \\
-					           & \\
-					           & \hfill \UTFPRfichacatpdoisdata \\
-			  \end{tabular}
-      \end{center}
-    \end{table}
-    \vspace{-50px}
-
-    \begin{center}
-      \line(1,0){385}
-    \end{center}
-
-    \vspace{-25px}
-    \center \footnotesize \UTFPRfichacatbibdata
-    \newpage
+					& \lencore \pageref{LastPage}. f. : il. ; 30 cm \\
+					& \\
+					& \lencore Orientador: \@advisor. \\
+					\@ifundefined{@coadvisor}{}{
+						& \lencore \coadvisorlabel: \@coadvisor \\
+					}
+					& \lencore Monografia (Graduação) - \@university. \@program. \@address, \@depositshortdate.\\
+					& \lencore Bibliografia: f. \pageref{bibstart} - \pageref{bibend}. \\
+					& \\
+					& \lencore \UTFPRfichacatpalchadata \\
+					& \\
+					& \hfill \UTFPRfichacatpdoisdata \\
+				\end{tabular}
+			\end{center}
+		\end{table}
+		\vspace{-50px}
+		
+		\begin{center}
+			\line(1,0){385}
+		\end{center}
+		
+		\vspace{-25px}
+		\center \footnotesize \UTFPRfichacatbibdata
+		\newpage
 	}
 }
- 
+
 % Environment to write abstract (in English and native language). This
 % environment has narrower margins.
 \newenvironment{abstract}{
 	\chapter*{Abstract}
 	\setlength{\parindent}{0pt}
-		
+	
 	\vspace{1cm}
 	\UTFPRfichacatautordata. \@titleen. \@depositshortdate.
 	\pageref{LastPage}. f. Monografia (\@program), \@university.
@@ -318,21 +258,21 @@
 	
 	\vspace{1cm}
 }{
-	\vspace{1cm}
+\vspace{1cm}
 }
 
 \newenvironment{resumo}{
 	\chapter*{Resumo}
 	\setlength{\parindent}{0pt}
-
+	
 	\vspace{1cm}
 	\UTFPRfichacatautordata. \@title. \@depositshortdate.
-	 \pageref{LastPage}. f. Monografia (\@program), \@university.
-	 \@address, \@depositshortdate.
-
+	\pageref{LastPage}. f. Monografia (\@program), \@university.
+	\@address, \@depositshortdate.
+	
 	\vspace{1cm}
 }{
-	\vspace{1cm}
+\vspace{1cm}
 }
 
 \newcommand{\palavraschaves}[1]{\noindent\textbf{Palavras-chaves:} #1}
@@ -356,22 +296,22 @@
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
 	}{
-		\settowidth\labelwidth{\@biblabel{#1}}%
-		\leftmargin\labelwidth
-		\advance\leftmargin\labelsep
-		\@openbib@code
-		\usecounter{enumiv}%
-		\let\p@enumiv\@empty
-		\renewcommand\theenumiv{\@arabic\c@enumiv}
-	}
-	\sloppy
-	\clubpenalty4000
-	\@clubpenalty \clubpenalty
-	\widowpenalty4000%
-	\sfcode`\.\@m
+	\settowidth\labelwidth{\@biblabel{#1}}%
+	\leftmargin\labelwidth
+	\advance\leftmargin\labelsep
+	\@openbib@code
+	\usecounter{enumiv}%
+	\let\p@enumiv\@empty
+	\renewcommand\theenumiv{\@arabic\c@enumiv}
+}
+\sloppy
+\clubpenalty4000
+\@clubpenalty \clubpenalty
+\widowpenalty4000%
+\sfcode`\.\@m
 }{
-	\def\@noitemerr{\@latex@warning{Empty thebibliography environment}}
-	\endlist
+\def\@noitemerr{\@latex@warning{Empty thebibliography environment}}
+\endlist
 }
 
 % Command to create a dedicate page.

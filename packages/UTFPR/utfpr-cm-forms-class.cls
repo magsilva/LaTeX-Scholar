@@ -158,18 +158,18 @@
 		\end{tabularx}
 	}
 
-	\par
-	\vspace{.3cm}
-	{
-		\renewcommand{\arraystretch}{1.5} 
-		\begin{tabularx}{\textwidth}{|X|}
-			\hline
-			\textbf{Parecer e assinatura da chefia do professor solicitante}\\
-			\\
-			\\
-			\hline
-		\end{tabularx}
-	}
+%	\par
+%	\vspace{.3cm}
+%	{
+%		\renewcommand{\arraystretch}{1.5} 
+%		\begin{tabularx}{\textwidth}{|X|}
+%			\hline
+%			\textbf{Parecer e assinatura da chefia do professor solicitante}\\
+%			\\
+%			\\
+%			\hline
+%		\end{tabularx}
+%	}
 
 	\vspace{.3cm}
 	{
