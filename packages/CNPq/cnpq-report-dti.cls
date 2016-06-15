@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dtireport}[2007/11/07 CNPQ-ITI Report]
-\LoadClass{latexscholar-book}
+
+\RequirePackage{latexscholar-book}
 
 
 \def\university#1{\gdef\@university{#1}}%
