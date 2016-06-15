@@ -361,6 +361,7 @@
 \renewenvironment{thebibliography}[1]{
 	\addcontentsline{toc}{chapter}{\numberline{}\bibname}
 	\chapter*{\bibname}%
+	\label{bibstart}
 	
 	\list{
 		\@biblabel{\@arabic\c@enumiv}
@@ -381,6 +382,7 @@
 }{
 	\def\@noitemerr{\@latex@warning{Empty thebibliography environment}}
 	\endlist
+	\label{bibend}
 }
 
 % Command to create a dedicate page.
