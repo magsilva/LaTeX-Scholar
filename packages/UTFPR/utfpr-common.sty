@@ -24,6 +24,7 @@
 
 \RequirePackage{latexscholar-book}
 \RequirePackage{latexscholar-text-spacing}
+\RequirePackage{afterpage}
 
 \geometry{left=3cm,right=2cm,top=3cm,bottom=2cm}
 
@@ -170,6 +171,8 @@
 		\coverpageone
 		\coverpagetwo
 	\end{titlepage}
+	\fichacat
+	\afterpage{\null\newpage\cleardoublepage}
 }
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -438,7 +441,6 @@
 
 \def\pagenumbering#1{%
 	\gdef\thepage{\csname @#1\endcsname \c@page}}
-
 
 \renewcommand\backmatter{%
 	\cleardoublepage
