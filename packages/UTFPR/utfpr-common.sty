@@ -46,14 +46,23 @@
 \def\address#1{\gdef\@address{#1}}%
 \def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
 
+\def\addressen#1{\gdef\@addressen{#1}}%
+\def\@addressen{\@latex@error{No \noexpand\addressen given}\@ehc}%
+
 \def\university#1{\gdef\@university{#1}}%
 \def\@university{\@latex@error{No \noexpand\university given}\@ehc}%
+
+\def\universityen#1{\gdef\@universityen{#1}}%
+\def\@universityen{\@latex@error{No \noexpand\universityen given}\@ehc}%
 
 \def\universityunit#1{\gdef\@universityunit{#1}}%
 \def\@universityunit{\@latex@error{No \noexpand\universityunit given}\@ehc}%
 
 \def\program#1{\gdef\@program{#1}}%
 \def\@program{\@latex@error{No \noexpand\program given}\@ehc}%
+
+\def\programen#1{\gdef\@programen{#1}}%
+\def\@programen{\@latex@error{No \noexpand\programen given}\@ehc}%
 
 \def\course#1{\gdef\@course{#1}}%
 \def\@course{\@latex@error{No \noexpand\course given}\@ehc}%
@@ -72,6 +81,11 @@
 
 \def\documenttype#1{\gdef\@documenttype{#1}}%
 \def\@documenttype{\@latex@error{No \noexpand\documenttype given}\@ehc}%
+
+\def\documenttypeen#1{\gdef\@documenttypeen{#1}}%
+\def\@documenttypeen{\@latex@error{No \noexpand\documenttypeen given}\@ehc}%
+
+
 
 \def\degreearea#1{\gdef\@degreearea{#1}}%
 \def\@degreearea{\@latex@error{No \noexpand\degreearea given}\@ehc}%
@@ -300,7 +314,7 @@
 \@ifundefined{@coadvisor}{}{
 							   & \lencore \coadvisorlabel: \@coadvisor \\
 }
-							   & \lencore Monografia (Graduação) - \@university. \@program. \@address, \@depositshortdate.\\
+							   & \lencore \@documenttype{} (\@degreetype) - \@university. \@program. \@address, \@depositshortdate.\\
 							   & \lencore Bibliografia: f. \pageref{bibstart} - \pageref{bibend}. \\
 					           & \\
 					           & \lencore \UTFPRfichacatpalchadata \\
@@ -327,28 +341,26 @@
 	\chapter*{Abstract}
 	\setlength{\parindent}{0pt}
 		
-	\vspace{1cm}
 	\UTFPRfichacatautordata. \@titleen. \@depositshortdate.
-	\pageref{LastPage}. f. Monografia (\@program), \@university.
-	\@address, \@depositshortdate.
+	\pageref{LastPage}. f. \@documenttypeen{} (\@programen), \@universityen.
+	\@addressen, \@depositshortdate.
 	
-	\vspace{1cm}
+	\vspace{.7cm}
 }{
-	\vspace{1cm}
+	\vspace{.7cm}
 }
 
 \newenvironment{resumo}{
 	\chapter*{Resumo}
 	\setlength{\parindent}{0pt}
 
-	\vspace{1cm}
 	\UTFPRfichacatautordata. \@title. \@depositshortdate.
-	 \pageref{LastPage}. f. Monografia (\@program), \@university.
+	 \pageref{LastPage}. f. \@documenttype{} (\@program), \@university.
 	 \@address, \@depositshortdate.
 
-	\vspace{1cm}
+	\vspace{.7cm}
 }{
-	\vspace{1cm}
+	\vspace{.7cm}
 }
 
 \newcommand{\palavraschaves}[1]{\noindent\textbf{Palavras-chaves:} #1}
