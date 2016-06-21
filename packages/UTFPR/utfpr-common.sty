@@ -503,3 +503,14 @@
 	\addtolength{\chaptertitleheight}{7cm}%
 	\titlespacing{\chapter}{0pt}{0em}{\chaptertitleheight}[0pt]%
 	\scholar@oldchapter[{#1}]{#2}}%
+
+
+\renewcommand{\dedicate}[1]{
+        \thispagestyle{empty}
+        \null
+        \vfill
+        \hfill \noindent\textsl{#1} \hspace{1cm} \par
+        \vspace{3cm}
+        \clearpage{\pagestyle{empty}\cleardoublepage}
+}
+
