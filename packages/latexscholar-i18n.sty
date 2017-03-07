@@ -41,14 +41,18 @@
 
 
 % Select charset encoding
-\ifthenelse{\boolean{scholars@encoding@utf8}}{
-	\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
-	\RequirePackage[utf8x,utf8]{inputenc}
-	\PassOptionsToPackage{unicode}{hyperref}
-}{}
-\ifthenelse{\boolean{scholars@encoding@iso88591}}{
-	\RequirePackage[latin1]{inputenc}
-}{}
+\@ifpackageloaded{inputenc}{}{
+	\ifthenelse{\boolean{scholars@encoding@utf8}}{
+		\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
+		\RequirePackage[utf8x,utf8]{inputenc}
+		\PassOptionsToPackage{unicode}{hyperref}
+	}{}
+	\ifthenelse{\boolean{scholars@encoding@iso88591}}{
+		\RequirePackage[latin1]{inputenc}
+	}{}
+
+}
+
 % Hint extracted from LaTeX-Beamer:
 % If you use a Unicode character outside the first two code pages (which
 % includes the Latin alphabet and the extended Latin alphabet) in a section
