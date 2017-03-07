@@ -1,6 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{latexscholar-book}[2011/07/14 Common settings for books]
 
+\def\address#1{\gdef\@address{#1}}%
+\def\@address{\@latex@error{No \noexpand\address given}\@ehc}%
+
 \RequirePackage{latexscholar-i18n}
 \RequirePackage{latexscholar-pdf}
 \RequirePackage{latexscholar-margin}
@@ -24,4 +27,142 @@
 % centering).
 %
 \RequirePackage{chngpage}
+
+
+% Do no use uppercase for \bibname.
+\renewenvironment{thebibliography}[1]{
+        \addcontentsline{toc}{chapter}{\numberline{}\bibname}
+        \chapter*{\bibname}%
+        \label{bibstart}
+
+        \list{
+                \@biblabel{\@arabic\c@enumiv}
+        }{
+        \settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth
+        \advance\leftmargin\labelsep
+        \@openbib@code
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+        \renewcommand\theenumiv{\@arabic\c@enumiv}
+}
+\sloppy
+\clubpenalty4000
+\@clubpenalty \clubpenalty
+\widowpenalty4000%
+\sfcode`\.\@m
+}{
+\def\@noitemerr{\@latex@warning{Empty thebibliography environment}}
+\endlist
+\label{bibend}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title definitions
+%
+% The 'titlesec' package is fabulous! Changing the \chapter and friends is a nightmare. That
+% package makes the job easy, piece of cake actually!
+%
+% noindentafter: Do not indent the first paragraph after a title definition
+% rigidchapters: Set a fixed space for chapters
+% nobottontitles*: Do not allow a title hanging at the botton (like a widow line)
+% largestsep: Uses the largest space between two following titles.
+% clearempty: Do not show the page number in an empty page (pretty common in doubleepage docs).
+\RequirePackage[pagestyles,noindentafter,rigidchapters,largestsep]{titlesec}
+
+\RequirePackage{fancybox}
+
+
+% Pretty chapter start at frontmatter
+\newpagestyle{frontmatter}{
+        \sethead{}{}{}
+        \setfoot{}{}{}
+}
+
+% Pretty chapter start at mainmatter
+\newpagestyle{mainmatter}[\small\sffamily]{
+        \sethead{}{}{\thepage}
+        \setfoot{}{}{}
+}
+
+% Pretty chapter start at backmatter
+\newpagestyle{backmatter}{
+        \sethead{}{}{\thepage}
+        \setfoot{}{}{}
+}
+
+\renewcommand\frontmatter{%
+        \cleardoublepage
+        \@mainmatterfalse
+        \pagestyle{empty}
+        \pagenumbering{gobble}
+        \titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
+}
+
+\renewcommand\mainmatter{
+        \cleardoublepage
+        \@mainmattertrue
+        \pagestyle{mainmatter}
+        \pagenumbering{arabic}
+        \titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
+}
+
+\def\pagenumbering#1{%
+        \gdef\thepage{\csname @#1\endcsname \c@page}}
+
+\renewcommand\backmatter{%
+        \cleardoublepage
+        \@mainmatterfalse
+        \pagestyle{backmatter}
+        \pagenumbering{arabic}
+        \titlespacing{\chapter}{0pt}{0em}{2em}[0pt]
+}
+
+\newlength{\chaptertitleheight}
+\titleformat{\chapter}[display]
+{\normalfont\Large\sffamily} % Text format
+{ % Label
+        \rule[32pt]{.7\linewidth}{4pt}
+        \hspace{-10pt}
+        \shadowbox{
+                \begin{minipage}{.18\linewidth}
+                        \centering
+                        \textsc{\Large\chaptertitlename}\\
+                        \vspace{1ex}
+                        {\fontsize{80}{100}\selectfont\thechapter}\\
+                        \vspace{1ex}
+                \end{minipage}
+        }
+        \hspace{-14pt}
+        \leaders\hbox{\rule[32pt]{.1pt}{4pt}}\hfill
+}
+{0pt}
+{\Huge\raggedright}
+[\rule{\linewidth}{4pt}]
+
+\newsavebox{\scholar@chaptertitle}%
+\let\scholar@oldchapter\chapter%
+\renewcommand*\chapter{%
+        \@ifstar{\scholar@oldchapter@starred}{\@dblarg\scholar@oldchapter@notstarred}}
+
+\newcommand*\scholar@oldchapter@starred[1]{
+        \savebox{\scholar@chaptertitle}{\Huge\parbox[t]{\textwidth}{#1}}%
+        \settototalheight{\chaptertitleheight}{\usebox{\scholar@chaptertitle}}%
+        \addtolength{\chaptertitleheight}{3cm}%
+        \titlespacing{\chapter}{0pt}{0em}{\chaptertitleheight}[0pt]
+        \scholar@oldchapter*{#1}}
+
+\def\scholar@oldchapter@notstarred[#1]#2{
+        \savebox{\scholar@chaptertitle}{\Huge\parbox[t]{\textwidth}{#2}}%
+        \settototalheight{\chaptertitleheight}{\usebox{\scholar@chaptertitle}}%
+        \addtolength{\chaptertitleheight}{7cm}%
+        \titlespacing{\chapter}{0pt}{0em}{\chaptertitleheight}[0pt]%
+        \scholar@oldchapter[{#1}]{#2}}%
+
+
+
+% Add a dot after the section/subsection/etc counters.
+\titlelabel{\thetitle.\quad}
+
+\titlespacing{\section}{0pt}{1.2em}{.8em}[0pt]
 
