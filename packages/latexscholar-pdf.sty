@@ -1,5 +1,12 @@
-% \pdfminorversion=7
+\RequirePackage{iftex}
 
+% Compression settings for PDF
+\ifPDFTeX
+	\pdfcompresslevel=9
+	\pdfobjcompresslevel=3
+	\def\extractpdftexversion#1-#2-#3 #4\@nil{#3}
+	\edef\pdftexppversion{\expandafter\extractpdftexversion\pdftexbanner\@nil}
+% \pdfminorversion=7
 
 % Resolution parameters for PDF objects
 % \pdfpkresolution=600
@@ -7,31 +14,36 @@
 % \pdfpkresolution=600
 % \pdfimageresolution=200
 
-% Compression settings for PDF
-\pdfcompresslevel=9
-\pdfobjcompresslevel=3
+\fi
 
-\def\extractpdftexversion#1-#2-#3 #4\@nil{#3}
-\edef\pdftexppversion{\expandafter\extractpdftexversion\pdftexbanner\@nil}
+\ifLuaTeX
+	\pdfvariable compresslevel=9
+	\pdfvariable objcompresslevel=3
+\fi
+
+
 
 \newcommand{\metadata}{
 	\pdfinfo {
 		/Title (\@title)
 		/Author (\@author)
 		/Keywords (\@keywords)
-%		/CreationDate (D:20040501215500)
 		/ModDate (D:\pdfdate)
-		/Producer (pdfTeX \pdftexppversion)
+		\ifPDFTeX
+			/Producer (pdfTeX \pdftexppversion)
+		\fi
 	}
 }
 
 % Enable traceability (synchronization) between LaTeX source and PDF output.
 % \usepackage[novbox]{pdfsync}
 
-\ifnum\pdftexversion=140
-	\ifnum\pdftexrevision>14
-		\pdfsuppresswarningpagegroup=1
-		% Enable usage of fake spaces in PDF (\pdffakespace)
-%		\pdfinterwordspaceon
+\ifPDFTeX
+	\ifnum\pdftexversion=140
+		\ifnum\pdftexrevision>14
+	%		\pdfsuppresswarningpagegroup=1
+			% Enable usage of fake spaces in PDF (\pdffakespace)
+			\pdfinterwordspaceon
+		\fi
 	\fi
 \fi

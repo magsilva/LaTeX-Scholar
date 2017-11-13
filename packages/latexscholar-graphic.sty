@@ -1,8 +1,14 @@
+\RequirePackage{iftex}
+
 % % Enables use of figures.
 \@ifpackageloaded{graphicx}{
 	\RequirePackage{epstopdf}
 }{
-	\RequirePackage[pdftex]{graphicx}
+	\ifPDFTeX
+		\RequirePackage[pdftex]{graphicx}
+	\else
+		\RequirePackage{graphicx}
+	\fi
 	\RequirePackage{epstopdf}
 }
 
