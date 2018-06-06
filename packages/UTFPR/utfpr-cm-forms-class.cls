@@ -3,6 +3,9 @@
 
 \LoadClassWithOptions{article}
 
+\usepackage{xifthen}
+\usepackage{xstring}
+
 \usepackage{latexscholar-i18n}
 \usepackage{latexscholar-margin}
 \usepackage{latexscholar-graphic}
@@ -11,6 +14,13 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{setspace}
+
+\usepackage{arrayjobx}
+\usepackage{forloop}
+\usepackage{multido}
+
+
+\usepackage{framed}
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{Y}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -28,12 +38,20 @@
 \def\reason#1{\gdef\@reason{#1}}%
 \def\@reason{\@latex@error{No \noexpand\reason given}\@ehc}%
 
+\def\plan#1{\gdef\@plan{#1}}%
+\def\@plan{\@latex@error{No \noexpand\plan given}\@ehc}%
+
+
+
 \newboolean{willpostpone}
 \newboolean{willanticipate}
 \newboolean{willsurrogate}
 \setboolean{willpostpone}{false}
 \setboolean{willanticipate}{false}
 \setboolean{willsurrogate}{false}
+
+\newarray\SurrogateProfessors
+\newcounter{CountSurrogateProfessors}
 
 \newcommand{\@utfpr@form@postpone}{
 	\ifthenelse{\boolean{willpostpone}}{X}{\hphantom{X}}
@@ -102,9 +120,13 @@
 	\par
 	\vspace{.3cm}
 	\small
-	\tabularx{\textwidth}{|c|c|c|c|c|c|X|}
+	\setlength\tabcolsep{1pt}
+	\tabularx{\textwidth}{||l|l|l||c|X|X|X|}
 			\hline
-			\textbf{Data da aula} & \textbf{S/R/A} &\textbf{Data e horário propostos} & \textbf{Disciplina} & \textbf{Turma} & \textbf{Sala} & \textbf{Substituto}\\\hline
+			\multicolumn{3}{||l||}{\normalsize\textbf{Aula a ser reposta}} & \multicolumn{4}{l|}{\normalsize\textbf{Forma de reposição}} \\
+			\hline
+			\textbf{Data da aula} & \textbf{Disciplina} & \textbf{Turma} & \textbf{S/R/A} & \textbf{Data e horário} & \textbf{Sala} & \textbf{Substituto}\\
+			\hline
 }{
 	\endtabularx
 	\normalsize
@@ -127,21 +149,20 @@
 		\end{tabularx}
 	}
 
-	\par
-	\vspace{.3cm}
-	{
-		\renewcommand{\arraystretch}{1.5} 
-		\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
-			\hline
-			\multicolumn{5}{|l|}{\textbf{Assinatura dos professores substitutos (se aplicável)}}\\
-			\hline
-			& & & &\\
-			& & & &\\
-			& & & &\\
-			\hline
-		\end{tabularx}
+	\ifthenelse{\value{CountSurrogateProfessors} = 0}{}{
+		\par
+		\vspace{.3cm}
+		{
+			\begin{framed}	
+				\noindent
+				\textbf{Assinatura dos professores substitutos (se aplicável)}
+				\vspace{.5cm}
+				\multido{\iSurrogateProfessors=1+1}{\value{CountSurrogateProfessors}}{%
+					\\\vspace{.5cm}\noindent\SurrogateProfessors(\iSurrogateProfessors) \hrulefill
+				}
+			\end{framed}
+		}
 	}
-
 
 	\par
 	\vspace{.3cm}
@@ -171,18 +192,42 @@
 %		\end{tabularx}
 %	}
 
+	\par
 	\vspace{.3cm}
-	{
-		\renewcommand{\arraystretch}{1.8} 
-		\begin{tabularx}{\textwidth}{|X|p{4cm}|}
-			\hline
-			\textbf{Observações:} & \multirow{3}{4cm}{\small \textbf{Atenção:} No caso de antecipação ou reposição de aulas, anexar a este formulário a relação dos alunos com as respectivas assinaturas, concordando com as datas e os horários propostos.}\\
-			\cline{1-1} &\\
-			\cline{1-1} &\\
-			\cline{1-1} &\\
-			\hline
-		\end{tabularx}
+	\begin{framed}
+		\textbf{Plano para reposição da aula:}	
+		\noindent%
+		\@plan
+	\end{framed}
+	\textbf{Atenção:} No caso de antecipação ou reposição de aulas, anexar a este formulário a relação dos alunos com as respectivas assinaturas, concordando com as datas e os horários propostos.
+}
+
+\newboolean{FoundSurrogateProfessor}
+\newcommand{\verifysurrogateprofessor}[1]{
+	\setboolean{FoundSurrogateProfessor}{false}
+	\multido{\iSurrogateProfessors=1+1}{\value{CountSurrogateProfessors}}{%
+		\checkSurrogateProfessors(\iSurrogateProfessors)
+		\IfStrEq{\cachedata}{#1}
+			{\setboolean{FoundSurrogateProfessor}{true}}
+			{}
 	}
+	\ifthenelse{\boolean{FoundSurrogateProfessor}}%
+		{}%
+		{\stepcounter{CountSurrogateProfessors}\SurrogateProfessors(\theCountSurrogateProfessors)={#1}}
+}
+
+% #1 = Date
+% #2 = Course
+% #3 = Cohort
+% #4 = Type
+% #5 = Replacement date
+% #6 = Replacement location
+% #7 = Surrogate professor
+%
+\newcommand{\newreplacement}[7]{
+	\ifthenelse{\equal{#7}{}}%
+		{#1 & #2 & #3 & #4 & #5 & #6 & -- \\\hline}
+		{#1 & #2 & #3 & #4 & #5 & #6 & #7 \\\hline\verifysurrogateprofessor{#7}}
 }
 
 \AtBeginDocument{
