@@ -43,8 +43,7 @@
 % Select charset encoding
 \@ifpackageloaded{inputenc}{}{
 	\ifthenelse{\boolean{scholars@encoding@utf8}}{
-		\RequirePackage[fasterrors,savemem,warnunknown]{ucs}
-		\RequirePackage[utf8x,utf8]{inputenc}
+		\RequirePackage[utf8]{inputenc}
 		\PassOptionsToPackage{unicode}{hyperref}
 	}{}
 	\ifthenelse{\boolean{scholars@encoding@iso88591}}{
