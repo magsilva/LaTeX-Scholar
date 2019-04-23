@@ -44,7 +44,7 @@
 \@ifpackageloaded{inputenc}{}{
 	\ifthenelse{\boolean{scholars@encoding@utf8}}{
 		\RequirePackage[utf8]{inputenc}
-		\PassOptionsToPackage{unicode}{hyperref}
+		\PassOptionsToPackage{pdfencoding=auto}{hyperref}
 	}{}
 	\ifthenelse{\boolean{scholars@encoding@iso88591}}{
 		\RequirePackage[latin1]{inputenc}
